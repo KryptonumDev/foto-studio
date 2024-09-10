@@ -1,12 +1,12 @@
 import { defineField } from 'sanity';
+import { SimpleTextBlock } from '../../custom/TextBlock';
 import { blockToText } from '../../utils/blockToText';
-import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
 
-const title = 'Sekcja z obrazkiem i treścią ';
-const icon = () => '🖼️📄';
+const title = 'Sekcja HERO';
+const icon = () => '📄🖼️';
 
 export default defineField({
-  name: 'ImageAndContentSection',
+  name: 'ExpandedHeader',
   type: 'object',
   title,
   icon,
@@ -14,7 +14,7 @@ export default defineField({
     defineField({
       name: 'content',
       type: 'object',
-      title: 'Zawartość (po prawej stronie)',
+      title: 'Zawartość (po lewej stronie)',
       fields: [
         defineField({
           name: 'title',
@@ -24,22 +24,29 @@ export default defineField({
           validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
-          name: 'cta',
-          type: 'cta',
-          title: 'Wezwanie do działania',
-          validation: Rule => Rule.required()
+          name: 'img',
+          type: 'image',
+          title: 'Zdjęcie (opcjonalne)'
         }),
         defineField({
           name: 'paragraph',
           type: 'array',
-          title: 'Paragraf (opcjonalny)',
-          of: [TextBlock]
+          title: 'Paragraf',
+          of: [SimpleTextBlock],
+          validation: Rule => Rule.required()
+        }),
+        defineField({
+          name: 'cta',
+          type: 'cta',
+          title: 'Wezwanie do działania',
+          validation: Rule => Rule.required()
         }),
       ],
       validation: Rule => Rule.required(),
       preview: {
         select: {
           title: 'title',
+          subtitle: 'paragraph',
           icon: '📄'
         }
       }
@@ -47,7 +54,7 @@ export default defineField({
     defineField({
       name: 'sideImg',
       type: 'image',
-      title: 'Obrazek (po lewej stronie)',
+      title: 'Obrazek (po prawej stronie)',
       validation: Rule => Rule.required()
     }),
   ],

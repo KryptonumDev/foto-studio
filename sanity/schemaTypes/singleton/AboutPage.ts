@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity"
 export default defineType({
   name: 'AboutPage',
   type: 'document',
-  title: 'O marce',
+  title: 'O mnie',
   icon: () => '📝',
   fields: [
     defineField({

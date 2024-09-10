@@ -2,7 +2,7 @@ import { defineField } from 'sanity';
 import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
 import { blockToText } from '../../utils/blockToText';
 
-const title = 'Sekcja informacje';
+const title = 'Sekcja "O mnie"';
 const icon = () => '📝';
 
 export default defineField({
@@ -14,21 +14,22 @@ export default defineField({
     defineField({
       name: 'title',
       type: 'array',
-      title: 'Tytuł (opcjonalny)',
+      title: 'Tytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.max(1).warning('Tytuł może zawierać jeden blok tekstowy')
+      validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy')
     }),
     defineField({
       name: 'img',
       type: 'image',
-      title: 'Zdjęcie (opcjonalne)'
+      title: 'Zdjęcie',
+      validation: Rule => Rule.required()
     }),
     defineField({
-      name: 'heading',
+      name: 'subtitle',
       type: 'array',
-      title: 'Nagłówek',
+      title: 'Podtytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy"),
+      validation: Rule => Rule.required().max(1).error("Podtytuł musi zawierać jeden blok tekstowy"),
     }),
     defineField({
       name: 'paragraph',

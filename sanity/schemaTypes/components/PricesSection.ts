@@ -6,7 +6,7 @@ const title = 'Sekcja z cennikiem';
 const icon = () => '💵';
 
 export default defineField({
-  name: 'PricingSection',
+  name: 'PricesSection',
   type: 'object',
   title,
   icon,
@@ -53,16 +53,37 @@ export default defineField({
             }),
             defineField({
               name: 'description',
-              type: 'array',
+              type: 'object',
               title: 'Opis',
-              of: [TextBlock],
+              fields: [
+                defineField({
+                  name: 'mainText',
+                  type: 'array',
+                  title: 'Główna treść',
+                  of: [TextBlock],
+                  validation: Rule => Rule.required()
+                }),
+                defineField({
+                  name: 'additionalInfo',
+                  type: 'array',
+                  title: 'Dodatkowe informacje',
+                  of: [TextBlock],
+                  validation: Rule => Rule.required()
+                })
+              ],
+              options: { collapsible: true, collapsed: true },
               validation: Rule => Rule.required(),
+              preview: {
+                select: {
+                  title: 'mainText'
+                }
+              }
             })
           ],
           preview: {
             select: {
               title: 'name',
-              subtitle: 'description'
+              subtitle: 'priceLabel'
             }
           },
         },

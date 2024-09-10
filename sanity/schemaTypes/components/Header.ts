@@ -2,11 +2,11 @@ import { defineField } from 'sanity';
 import { blockToText } from '../../utils/blockToText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
-const title = 'Główny nagłówek';
+const title = 'Nagłówek';
 const icon = () => '🔖';
 
 export default defineField({
-  name: 'MainHeader',
+  name: 'Header',
   type: 'object',
   title,
   icon,
@@ -23,11 +23,6 @@ export default defineField({
       type: 'array',
       title: 'Paragraf (opcjonalny)',
       of: [SimpleTextBlock],
-    }),
-    defineField({
-      name: 'img',
-      type: 'image',
-      title: 'Zdjęcie (opcjonalne)'
     })
   ],
   preview: {

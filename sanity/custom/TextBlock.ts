@@ -40,7 +40,16 @@ export const TextBlock = {
   styles: [
     { title: 'Normlany', value: 'normal' },
   ],
+  lists: [
+    {title: 'Lista numerowana', value: 'number'},
+    {title: 'Lista wypunktowana', value: 'bullet'}   
+  ],
   marks: {
+    decorators: [
+      { title: 'Pogrubiony', value: 'strong' },
+      { title: 'Kursywa', value: 'em' },
+      { title: 'Podkreślenie', value: 'underline' }
+    ],
     annotations: [CustomLink]
   }
 };
@@ -52,7 +61,16 @@ export const FullTextBlock = {
     { title: 'Nagłówek H2', value: 'h2' },
     { title: 'Nagłówek H3', value: 'h3' }
   ],
+  lists: [
+    {title: 'Lista numerowana', value: 'number'},
+    {title: 'Lista wypunktowana', value: 'bullet'}   
+  ],
   marks: {
+    decorators: [
+      { title: 'Pogrubiony', value: 'strong' },
+      { title: 'Kursywa', value: 'em' },
+      { title: 'Podkreślenie', value: 'underline' }
+    ],
     annotations: [CustomLink]
   }
 }

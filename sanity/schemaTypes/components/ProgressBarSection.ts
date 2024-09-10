@@ -2,11 +2,11 @@ import { defineField } from 'sanity';
 import { blockToText } from '../../utils/blockToText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
-const title = 'Sekcja "Dlaczego My?"';
+const title = 'Sekcja z paskiem postępu';
 const icon = () => '✨';
 
 export default defineField({
-  name: 'WhyChooseUsSection',
+  name: 'ProgressBarSection',
   type: 'object',
   title,
   icon,
@@ -26,7 +26,7 @@ export default defineField({
     defineField({
       name: 'list',
       type: 'array',
-      title: 'Lista cech/zalet',
+      title: 'Lista elementów',
       of: [
         {
           type: 'object',

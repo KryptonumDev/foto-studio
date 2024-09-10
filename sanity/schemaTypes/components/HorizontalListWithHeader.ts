@@ -12,11 +12,11 @@ export default defineField({
   icon,
   fields: [
     defineField({
-      name: 'heading',
+      name: 'title',
       type: 'array',
-      title: 'Nagłówek',
+      title: 'Tytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
+      validation: Rule => Rule.required().max(1).error("Tytuł musi zawierać jeden blok tekstowy."),
     }),
     defineField({
       name: 'subtitle',
@@ -34,9 +34,27 @@ export default defineField({
       name: 'list',
       type: 'array',
       title: 'Lista',
-      of: [{ type: 'text', rows: 3 }],
-      validation: Rule => Rule.required().min(3).error('Lista musi zawierać co najmniej 3 elementy.'),
-    }),
+      of: [
+        {
+          type: 'object',
+          title: 'Element listy',
+          fields: [
+            defineField({
+              name: 'text',
+              type: 'array',
+              title: 'Treść',
+              of: [SimpleTextBlock],
+              validation: Rule => Rule.required().max(1).error("Treść musi zawierać jeden blok tekstowy.")
+            })
+          ],
+          preview: {
+            select: {
+              title: 'text'
+            }
+          }
+        }
+      ]
+    })
   ],
   preview: {
     select: {

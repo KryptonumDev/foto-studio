@@ -5,19 +5,20 @@ import ReviewsSection from "./ReviewsSection";
 import FaqSection from "./FaqSection";
 import StatsSection from './StatsSection'
 import ContactForm from "./ContactForm";
-import WhyChooseUsSection from "./WhyChooseUsSection";
+import ProgressBarSection from "./ProgressBarSection";
 import FeaturedPostsSection from './FeaturedPostsSection';
 import AboutSection from "./AboutSection";
 import ImageSlider from "./ImageSlider";
 import SimpleListAndImage from "./SimpleListAndImage";
 import ListWithContent from "./ListWithContent";
-import PricingSection from "./PricingSection";
-import MainHeader from './MainHeader';
+import PricesSection from "./PricesSection";
+import Header from './Header';
 import MapSection from './MapSection';
-import ImageAndContentSection from "./ImageAndContentSection";
-import ExpandedHeader from "./ExpandedHeader";
+import StationaryOfferSection from "./StationaryOfferSection";
+import HeroSection from "./HeroSection";
 import HorizontalListWithHeader from "./HorizontalListWithHeader";
 import NotFoundSection from "./NotFoundSection";
+import InlineImageHeader from './InlineImageHeader'
 
 export default defineType({
   name: 'content',
@@ -29,18 +30,19 @@ export default defineType({
     FaqSection,
     StatsSection,
     ContactForm,
-    WhyChooseUsSection,
+    ProgressBarSection,
     FeaturedPostsSection,
     AboutSection,
     ImageSlider,
     SimpleListAndImage,
     ListWithContent,
-    PricingSection,
-    MainHeader,
+    PricesSection,
+    Header,
     MapSection,
-    ImageAndContentSection,
-    ExpandedHeader,
+    StationaryOfferSection,
+    HeroSection,
     HorizontalListWithHeader,
-    NotFoundSection
+    NotFoundSection,
+    InlineImageHeader
   ]
 });

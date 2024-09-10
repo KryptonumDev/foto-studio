@@ -1,12 +1,12 @@
 import { defineField } from 'sanity';
-import { SimpleTextBlock } from '../../custom/TextBlock';
 import { blockToText } from '../../utils/blockToText';
+import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
 
-const title = 'Rozbudowany nagłówek';
-const icon = () => '📄🖼️';
+const title = 'Sekcja z ofertą stacjonarną';
+const icon = () => '🖼️📄';
 
 export default defineField({
-  name: 'ExpandedHeader',
+  name: 'StationaryOfferSection',
   type: 'object',
   title,
   icon,
@@ -14,7 +14,7 @@ export default defineField({
     defineField({
       name: 'content',
       type: 'object',
-      title: 'Zawartość (po lewej stronie)',
+      title: 'Zawartość (po prawej stronie)',
       fields: [
         defineField({
           name: 'title',
@@ -24,29 +24,44 @@ export default defineField({
           validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
-          name: 'img',
-          type: 'image',
-          title: 'Zdjęcie (opcjonalne)'
-        }),
-        defineField({
-          name: 'paragraph',
-          type: 'array',
-          title: 'Paragraf',
-          of: [SimpleTextBlock],
-          validation: Rule => Rule.required()
-        }),
-        defineField({
           name: 'cta',
           type: 'cta',
           title: 'Wezwanie do działania',
           validation: Rule => Rule.required()
+        }),
+        defineField({
+          name: 'description',
+          type: 'object',
+          title: 'Opis',
+          fields: [
+            defineField({
+              name: 'mainText',
+              type: 'array',
+              title: 'Główna treść',
+              of: [TextBlock],
+              validation: Rule => Rule.required()
+            }),
+            defineField({
+              name: 'additionalInfo',
+              type: 'array',
+              title: 'Dodatkowe informacje',
+              of: [TextBlock],
+              validation: Rule => Rule.required()
+            })
+          ],
+          options: { collapsible: true, collapsed: true },
+          validation: Rule => Rule.required(),
+          preview: {
+            select: {
+              title: 'mainText'
+            }
+          }
         }),
       ],
       validation: Rule => Rule.required(),
       preview: {
         select: {
           title: 'title',
-          subtitle: 'paragraph',
           icon: '📄'
         }
       }
@@ -54,7 +69,7 @@ export default defineField({
     defineField({
       name: 'sideImg',
       type: 'image',
-      title: 'Obrazek (po prawej stronie)',
+      title: 'Obrazek (po lewej stronie)',
       validation: Rule => Rule.required()
     }),
   ],

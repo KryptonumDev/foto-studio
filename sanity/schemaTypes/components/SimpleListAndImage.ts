@@ -28,8 +28,26 @@ export default defineField({
       name: 'list',
       type: 'array',
       title: 'Lista',
-      of: [{ type: 'string' }],
-      validation: Rule => Rule.required()
+      of: [
+        {
+          type: 'object',
+          title: 'Element listy',
+          fields: [
+            defineField({
+              name: 'text',
+              type: 'array',
+              title: 'Treść',
+              of: [SimpleTextBlock],
+              validation: Rule => Rule.required().max(1).error("Treść musi zawierać jeden blok tekstowy.")
+            })
+          ],
+          preview: {
+            select: {
+              title: 'text'
+            }
+          }
+        }
+      ]
     })
   ],
   preview: {
@@ -44,3 +62,4 @@ export default defineField({
     })
   }
 });
+

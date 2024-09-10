@@ -1,4 +1,5 @@
 import { defineField } from 'sanity';
+import { SimpleTextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja z statystykami';
 const icon = () => '📊';
@@ -9,6 +10,20 @@ export default defineField({
   icon,
   title,
   fields: [
+    defineField({
+      name: 'heading',
+      type: 'array',
+      title: 'Nagłówek',
+      of: [SimpleTextBlock],
+      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy.")
+    }),
+    defineField({
+      name: 'paragraph',
+      type: 'array',
+      title: 'Paragraf',
+      of: [SimpleTextBlock],
+      validation: Rule => Rule.required()
+    }),
     defineField({
       name: 'list',
       type: 'array',
