@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja z cennikiem';
@@ -16,7 +16,7 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy")
+      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy")
     }),
     defineField({
       name: 'paragraph',
@@ -38,7 +38,7 @@ export default defineField({
               type: 'array',
               title: 'Nazwa',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().max(1).error("Nazwa musi zawierać jeden blok tekstowy."),
+              validation: Rule => Rule.required().length(1).error("Nazwa musi zawierać jeden blok tekstowy."),
             }),
             defineField({
               name: 'priceLabel',
@@ -97,7 +97,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      subtitle: blockToText(heading),
+      subtitle: toPlainText(heading),
       icon
     })
   }

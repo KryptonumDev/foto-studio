@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja z paskiem postępu';
@@ -15,13 +15,15 @@ export default defineField({
       name: 'heading',
       type: 'array',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
-    }),
-    defineField({
-      name: 'img',
-      type: 'image',
-      title: 'Zdjęcie (opcjonalne)',
+      of: [{
+        ...SimpleTextBlock,
+        of: [{
+          name: 'inlineImg',
+          type: 'image',
+          title: 'Zdjęcie'
+        }]
+      }],
+      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
     }),
     defineField({
       name: 'list',
@@ -36,7 +38,7 @@ export default defineField({
               type: 'array',
               title: 'Treść',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().max(1).error("Treść musi zawierać jeden blok tekstowy."),
+              validation: Rule => Rule.required().length(1).error("Treść musi zawierać jeden blok tekstowy."),
             })
           ],
           preview: {
@@ -46,7 +48,7 @@ export default defineField({
           },
         },
       ],
-      validation: Rule => Rule.required().min(3).error('Lista musi zawierać co najmniej 3 elementy.'),
+      validation: Rule => Rule.required().min(4).error('Lista musi zawierać co najmniej 4 elementy.'),
     }),
   ],
   preview: {
@@ -55,7 +57,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      subtitle: blockToText(heading),
+      subtitle: toPlainText(heading),
       icon,
     }),
   },

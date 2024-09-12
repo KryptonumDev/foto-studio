@@ -26,8 +26,7 @@ export const SimpleTextBlock = {
   marks: {
     decorators: [
       { title: 'Pogrubiony', value: 'strong' },
-      { title: 'Kursywa', value: 'em' },
-      { title: 'Podkreślenie', value: 'underline' }
+      { title: 'Kursywa', value: 'em' }
     ],
     annotations: []
   }

@@ -4,7 +4,7 @@ import type { SanityDocument } from "sanity/migrate";
 import { validateSlug } from "../../../utils/customValidations";
 import { slugify } from "../../../utils/slugify";
 import { SimpleTextBlock } from "../../../custom/TextBlock";
-import { blockToText } from "../../../utils/blockToText";
+import { toPlainText } from "../../../utils/toPlainText";
 
 export default defineType({
   name: 'BlogPostCollection',
@@ -17,7 +17,7 @@ export default defineType({
       type: 'array',
       title: 'Tytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error('Tytuł może zawierać tylko jeden blok tekstowy'),
+      validation: Rule => Rule.required().length(1).error('Tytuł może zawierać tylko jeden blok tekstowy'),
     }),
     defineField({
       name: 'slug',
@@ -27,7 +27,7 @@ export default defineType({
         'Slug, to unikalny ciąg znaków, który znajdziemy zazwyczaj po ukośniku w adresie URL podstrony. Dzięki niemu jego forma jest zrozumiała dla użytkowników.',
       options: {
         source: (doc: SanityDocument) => {
-          return blockToText(doc?.title);
+          return toPlainText(doc?.title);
         },
         slugify: input => `${slugify(input)}`,
       },
@@ -38,7 +38,7 @@ export default defineType({
       type: 'array',
       title: 'Wprowadzenie do artykułu (opcjonalne)',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.max(1).error('Wprowadzenie może zawierać tylko jeden blok tekstowy'),
+      validation: Rule => Rule.length(1).warning('Wprowadzenie może zawierać tylko jeden blok tekstowy'),
     }),
     defineField({
       name: 'category',

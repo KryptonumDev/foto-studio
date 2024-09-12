@@ -1,12 +1,12 @@
 import { defineField } from 'sanity';
 import { SimpleTextBlock } from '../../custom/TextBlock';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 
 const title = 'Sekcja HERO';
 const icon = () => '📄🖼️';
 
 export default defineField({
-  name: 'ExpandedHeader',
+  name: 'HeroSection',
   type: 'object',
   title,
   icon,
@@ -21,12 +21,13 @@ export default defineField({
           type: 'array',
           title: 'Tytuł',
           of: [SimpleTextBlock],
-          validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
+          validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
           name: 'img',
           type: 'image',
-          title: 'Zdjęcie (opcjonalne)'
+          title: 'Zdjęcie',
+          validation: Rule => Rule.required()
         }),
         defineField({
           name: 'paragraph',
@@ -47,7 +48,7 @@ export default defineField({
         select: {
           title: 'title',
           subtitle: 'paragraph',
-          icon: '📄'
+          media: 'img'
         }
       }
     }),
@@ -65,7 +66,7 @@ export default defineField({
     },
     prepare: ({ subtitle, media }) => ({
       title,
-      subtitle: blockToText(subtitle),
+      subtitle: toPlainText(subtitle),
       media
     })
   }

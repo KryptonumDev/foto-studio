@@ -54,12 +54,6 @@ export default defineType({
       title: 'Nawigacja',
       fields: [
         defineField({
-          name: 'annotation',
-          type: 'text',
-          rows: 3,
-          title: 'Adnotacja (opcjonale)',
-        }),
-        defineField({
           name: 'links',
           type: 'array',
           title: 'Linki',
@@ -95,7 +89,7 @@ export default defineType({
       name: 'privacyPolicy',
       type: 'url',
       title: 'Polityka Prywatności',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.uri({ allowRelative: true }).required(),
     }),
     defineField({
       name: 'email',
@@ -150,6 +144,7 @@ export default defineType({
       name: 'seo',
       type: 'object',
       title: 'SEO',
+      options: { collapsible: true, collapsed: true },
       fields: [
         defineField({
           name: 'og_Img',

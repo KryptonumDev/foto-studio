@@ -1,6 +1,6 @@
 import { defineField } from 'sanity';
 import { SimpleTextBlock } from '../../custom/TextBlock';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 
 const title = 'Formularz kontaktowy';
 const icon = () => '💬';
@@ -16,7 +16,7 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek może zawierać tylko jeden blok tekstowy."),
+      validation: Rule => Rule.required().length(1).error("Nagłówek może zawierać tylko jeden blok tekstowy."),
     }),
     defineField({
       name: 'topics',
@@ -33,7 +33,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      subtitle: blockToText(heading),
+      subtitle: toPlainText(heading),
       icon,
     }),
   },

@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja - Strony nie znaleziono';
@@ -16,13 +16,14 @@ export default defineField({
       type: 'array',
       title: 'Tytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy')
+      validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy')
     }),
     defineField({
       name: 'subtitle',
       type: 'string',
-      title: 'Podtytuł (opcjonalny)',
-      initialValue: 'Page 404'
+      title: 'Podtytuł',
+      initialValue: 'Page 404',
+      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'cta',
@@ -44,7 +45,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      subtitle: blockToText(heading),
+      subtitle: toPlainText(heading),
       icon,
     }),
   },

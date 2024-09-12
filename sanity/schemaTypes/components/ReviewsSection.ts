@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja opinii';
@@ -16,7 +16,7 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek może zawierać jeden blok tekstowy")
+      validation: Rule => Rule.required().length(1).error("Nagłówek może zawierać jeden blok tekstowy")
     }),
     defineField({
       name: 'list',
@@ -34,7 +34,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      heading: blockToText(heading),
+      heading: toPlainText(heading),
       icon
     })
   },

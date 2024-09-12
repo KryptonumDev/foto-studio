@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja z horyzontalną listą i nagłówkiem';
@@ -16,14 +16,14 @@ export default defineField({
       type: 'array',
       title: 'Tytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Tytuł musi zawierać jeden blok tekstowy."),
+      validation: Rule => Rule.required().length(1).error("Tytuł musi zawierać jeden blok tekstowy."),
     }),
     defineField({
       name: 'subtitle',
       type: 'array',
       title: 'Podtytuł',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Podtytuł musi zawierać jeden blok tekstowy."),
+      validation: Rule => Rule.required().length(1).error("Podtytuł musi zawierać jeden blok tekstowy."),
     }),
     defineField({
       name: 'cta',
@@ -44,7 +44,7 @@ export default defineField({
               type: 'array',
               title: 'Treść',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().max(1).error("Treść musi zawierać jeden blok tekstowy.")
+              validation: Rule => Rule.required().length(1).error("Treść musi zawierać jeden blok tekstowy.")
             })
           ],
           preview: {
@@ -62,7 +62,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      subtitle: blockToText(heading),
+      subtitle: toPlainText(heading),
       icon,
     }),
   },

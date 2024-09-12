@@ -19,7 +19,7 @@ export default defineType({
       type: 'array',
       title: 'Treść recenzji',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Treść recenzji może zawierać tylko jeden blok tekstowy")
+      validation: Rule => Rule.required().length(1).error("Treść recenzji może zawierać tylko jeden blok tekstowy")
     }),
     defineField({
       name: 'image',

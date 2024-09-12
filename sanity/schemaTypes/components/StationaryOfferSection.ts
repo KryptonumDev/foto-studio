@@ -1,5 +1,5 @@
 import { defineField } from 'sanity';
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
 
 const title = 'Sekcja z ofertą stacjonarną';
@@ -21,7 +21,7 @@ export default defineField({
           type: 'array',
           title: 'Tytuł',
           of: [SimpleTextBlock],
-          validation: Rule => Rule.required().max(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
+          validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
           name: 'cta',
@@ -80,7 +80,7 @@ export default defineField({
     },
     prepare: ({ subtitle, media }) => ({
       title,
-      subtitle: blockToText(subtitle),
+      subtitle: toPlainText(subtitle),
       media
     })
   }

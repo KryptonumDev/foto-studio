@@ -15,7 +15,7 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error("Nagłówek musi zawierać jeden blok tekstowy.")
+      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy.")
     }),
     defineField({
       name: 'paragraph',

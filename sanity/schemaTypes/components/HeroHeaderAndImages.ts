@@ -1,6 +1,6 @@
 import { defineField } from 'sanity';
 import { SimpleTextBlock } from '../../custom/TextBlock'
-import { blockToText } from '../../utils/blockToText';
+import { toPlainText } from '../../utils/toPlainText';
 
 const title = 'Sekcja HERO z nagłówkiem i obrazkami';
 const icon = () => '⭐️'; 
@@ -16,7 +16,7 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().max(1).error('Nagłówek może zawierać tylko jeden blok tekstowy.'),
+      validation: Rule => Rule.required().length(1).error('Nagłówek może zawierać tylko jeden blok tekstowy.'),
     }),
     defineField({
       name: 'cta',
@@ -38,7 +38,7 @@ export default defineField({
     },
     prepare: ({ heading }) => ({
       title,
-      heading: blockToText(heading),
+      heading: toPlainText(heading),
       icon
     })
   },
