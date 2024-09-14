@@ -1,0 +1,28 @@
+.link {
+  text-transform: uppercase;
+  color: var(--primary-900);
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link:visited {
+  color: var(--link-visited);
+}
+
+.icon {
+  fill: currentColor;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    gap: 8px;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+  }
+}
