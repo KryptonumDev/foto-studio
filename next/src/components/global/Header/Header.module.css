@@ -1,16 +1,14 @@
 .header {
   z-index: 5;
   padding-block: var(--page-margin-block);
+  margin-bottom: 8px;
   position: sticky;
   top: 0;
 
   transition: all 0.4s;
 }
 
-.header:where(
-  .scrolled,
-  :has([aria-expanded='true'])
-) {
+.header:where(.scrolled, :has([aria-expanded='true'])) {
   background: var(--primary-100, #ffffff);
   box-shadow: 0 -2px var(--primary-100, #ffffff);
 }
@@ -39,7 +37,7 @@
   transition: all 0.5s;
 }
 
-.header:has([aria-expanded='true']) .nav{
+.header:has([aria-expanded='true']) .nav {
   opacity: 1;
   visibility: visible;
 }
@@ -68,25 +66,26 @@
   content: ' ]';
 }
 
-.nav a::after, .nav a::before {
+.nav a::after,
+.nav a::before {
   opacity: 0;
   color: inherit;
   transition: all 0.4s;
 }
 
-.nav a:hover::after, 
+.nav a:hover::after,
 .nav a:hover::before,
-.nav a[aria-current="page"]::before,
-.nav a[aria-current="page"]::after {
+.nav a[aria-current='page']::before,
+.nav a[aria-current='page']::after {
   opacity: 1;
 }
 
-.nav a[aria-current="page"] {
+.nav a[aria-current='page'] {
   color: var(--primary-900, #141414);
   margin-left: 8px;
 }
 
-.nav a[aria-current="page"]:focus-visible {
+.nav a[aria-current='page']:focus-visible {
   outline-color: var(--primary-900);
 }
 
@@ -107,11 +106,11 @@
 }
 
 .menu-button[aria-expanded='true'] span:first-child {
-  transform: translateY(4.8px) rotate(135deg);
+  transform: translateY(4px) rotate(135deg);
 }
 
 .menu-button[aria-expanded='true'] span:last-child {
-  transform: translateY(-4.8px) rotate(-135deg);
+  transform: translateY(-4px) rotate(-135deg);
 }
 
 .overlay {
@@ -121,7 +120,7 @@
 
   background: rgba(200, 200, 200, 0.3);
   backdrop-filter: blur(3px);
-  
+
   transition: opacity 0.5s;
   opacity: 0;
   pointer-events: none;
@@ -148,7 +147,17 @@
   pointer-events: auto;
 }
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 768px) {
+  .header {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .header {
+    margin-bottom: 48px;
+  }
+
   .overlay {
     display: none;
   }
@@ -179,8 +188,7 @@
     padding: 0;
   }
 
-  .nav a[aria-current="page"]{
+  .nav a[aria-current='page'] {
     margin-left: 0;
   }
-  
 }

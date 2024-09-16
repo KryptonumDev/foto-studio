@@ -4,7 +4,7 @@ export type ButtonTypes = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type CtaQueryTypes = {
+export type CtaTypes = {
   href: string;
   text: string;
 };

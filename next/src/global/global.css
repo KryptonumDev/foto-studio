@@ -18,7 +18,7 @@
   --success: #007d2b;
   --link-visited: #a259dc;
 
-  --gap: clamp(96px, 26vw, 240px);
+  --section-margin-bottom: clamp(96px, 26vw, 240px);
   --page-margin-inline: clamp(16px, 4.4vw, 48px);
   --page-margin-block: clamp(20px, 3.125vw, 32px);
 
@@ -33,7 +33,7 @@
 
 @media screen and (min-width: 768px) {
   :root {
-    --gap: clamp(96px, 16.67vw, 240px);
+    --section-margin-bottom: clamp(96px, 16.67vw, 240px);
     --page-margin-inline: clamp(16px, 6.25vw, 48px);
 
     --large-font-size: clamp(2.75rem, calc(11.5vw + 0.5rem), 6rem);
@@ -47,7 +47,7 @@
 
 @media screen and (min-width: 1200px) {
   :root {
-    --gap: clamp(96px, 18vw, 240px);
+    --section-margin-bottom: clamp(96px, 18vw, 240px);
   }
 }
 
@@ -161,6 +161,7 @@ h1 {
 }
 
 .small-heading {
+  text-transform: uppercase;
   font-size: var(--font-size);
   line-height: var(--line-height);
   letter-spacing: calc(var(--font-size) * 0.04);
@@ -175,19 +176,13 @@ h1 {
   color: var(--primary-600, #8f8f8f);
 }
 
-.max-width,
-main {
+.max-width {
   max-width: 1270px;
   width: calc(100% - var(--page-margin-inline) * 2);
-  margin: 0 auto;
+  margin-inline: auto;
   height: 100%;
 }
 
-main {
-  min-height: 80vh;
-}
-
-.container {
-  display: grid;
-  gap: var(--gap);
+.mb {
+  margin-bottom: var(--section-margin-bottom);
 }
