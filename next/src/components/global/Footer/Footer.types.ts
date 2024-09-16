@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from 'next-sanity';
-import type { CtaQueryTypes } from '@/components/ui/Button';
+import type { CtaTypes } from '@/components/ui/Button';
 
 export type FooterQueryTypes = {
   privacyPolicy: string;
@@ -10,6 +10,6 @@ export type FooterQueryTypes = {
   };
   footer: {
     heading: PortableTextBlock[];
-    cta: CtaQueryTypes;
+    cta: CtaTypes;
   };
 };
