@@ -1,9 +1,11 @@
 import type { ComponentsMapTypes, ComponentTypes } from './DynamicComponents.types';
 
 import HeroHeaderAndImages, { type HeroHeaderAndImagesTypes } from '@/components/global/HeroHeaderAndImages';
+import SimpleListAndImage, { type SimpleListAndImageTypes } from '@/components/global/SimpleListAndImage';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
+  SimpleListAndImage: props => <SimpleListAndImage {...(props as SimpleListAndImageTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {

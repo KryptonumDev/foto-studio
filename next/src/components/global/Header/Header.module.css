@@ -135,6 +135,7 @@
   z-index: 10;
   opacity: 0;
   pointer-events: none;
+  text-transform: uppercase;
   position: fixed;
   left: 20px;
   top: 20px;
@@ -172,8 +173,7 @@
     background: transparent;
     visibility: visible;
     border: 0;
-    width: 50vw;
-    max-width: 619px;
+    width: min(50vw, 619px);
   }
 
   .nav ul {

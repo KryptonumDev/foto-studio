@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 838px;
+  min-height: clamp(838px, calc(866vw / 7.68), 1019px);
 }
 
 .hero header {
@@ -41,16 +41,12 @@
 }
 
 .hero img:nth-of-type(5) {
-  width: min(calc(86vw / 3.6), 111px);
+  width: 86px;
   top: 698px;
   left: 0px;
 }
 
 @media screen and (min-width: 768px) {
-  .hero {
-    min-height: 866px;
-  }
-
   .hero header {
     flex-direction: row;
     align-items: flex-start;
@@ -94,10 +90,6 @@
 }
 
 @media screen and (min-width: 1366px) {
-  .hero {
-    min-height: 1019px;
-  }
-
   .hero img:nth-of-type(1) {
     top: 78px;
     left: min(calc(543vw / 13.66), 543px);

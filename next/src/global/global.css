@@ -166,6 +166,7 @@ h1 {
   line-height: var(--line-height);
   letter-spacing: calc(var(--font-size) * 0.04);
   font-weight: 450;
+  color: var(--primary-900);
 }
 
 .dark-text {

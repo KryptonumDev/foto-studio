@@ -1,18 +1,10 @@
-import { PortableText, type PortableTextReactComponents } from 'next-sanity';
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
 
 import Button from '@/components/ui/Button';
 import Image from '@/components/ui/Image';
+import Heading from '@/components/ui/Heading';
 
 import styles from './HeroHeaderAndImages.module.css';
-
-const components = (index: number) =>
-  ({
-    block: {
-      normal: ({ children }) =>
-        index === 0 ? <h1 className='large-text'>{children}</h1> : <h2 className='large-text'>{children}</h2>,
-    },
-  }) as Partial<PortableTextReactComponents>;
 
 const imageSizes = [
   '(min-width: 1200px) 108px, (min-width: 768px) 63px, 70px',
@@ -26,9 +18,10 @@ export default async function HeroHeaderAndImages({ heading, images, cta, index 
   return (
     <section className={`${styles.hero} max-width`}>
       <header>
-        <PortableText
-          components={components(index)}
+        <Heading
+          level={index === 0 ? 1 : 2}
           value={heading}
+          className='large-text'
         />
         <Button {...cta} />
       </header>
