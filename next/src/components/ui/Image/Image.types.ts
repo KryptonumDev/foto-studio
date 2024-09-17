@@ -1,20 +1,10 @@
-export const ImageDataQuery = `
-  asset->{
-    url,
-    altText,
-    "lqip": metadata.lqip,
-    "width": metadata.dimensions.width,
-    "height": metadata.dimensions.height
-  }
-`;
-
 export type ImageDataTypes = {
   asset: {
     url: string;
     lqip: string;
     width: number;
     height: number;
-    altText?: string;
+    altText: string;
   };
 };
 

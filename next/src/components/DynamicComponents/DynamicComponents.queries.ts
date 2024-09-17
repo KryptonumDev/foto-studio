@@ -1,6 +1,7 @@
 import { HeroHeaderAndImagesQuery } from '@/components/global/HeroHeaderAndImages';
 import { SimpleListAndImageQuery } from '@/components/global/SimpleListAndImage';
 import { ListWithContentQuery } from '@/components/global/ListWithContent';
+import { AboutSectionQuery } from '@/components/global/AboutSection';
 
 export const DynamicComponentsQuery = `
   content[] {
@@ -8,5 +9,6 @@ export const DynamicComponentsQuery = `
     ${HeroHeaderAndImagesQuery}
     ${SimpleListAndImageQuery}
     ${ListWithContentQuery}
+    ${AboutSectionQuery}
   }
 `;

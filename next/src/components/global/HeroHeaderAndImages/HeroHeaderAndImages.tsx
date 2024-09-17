@@ -29,9 +29,8 @@ export default async function HeroHeaderAndImages({ heading, images, cta, index 
         <Image
           key={`hero-image-${index}`}
           data={data}
-          alt='hero image'
           sizes={imageSizes[index]}
-          priority={true}
+          priority={index === 0}
         />
       ))}
     </section>

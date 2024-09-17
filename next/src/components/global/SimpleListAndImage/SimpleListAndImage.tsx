@@ -39,9 +39,8 @@ export default function SimpleListAndImage({ index, heading, list, img }: Simple
       </div>
       <Image
         data={img}
-        alt='portret dziewczyny'
         sizes='(min-width: 1366px) 434px, (min-width: 768px) 319px, 156px'
-        priority={true}
+        priority={index === 0}
         className={styles.image}
       />
     </section>
