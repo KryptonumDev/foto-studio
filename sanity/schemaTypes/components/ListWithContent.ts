@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock} from '../../custom/TextBlock'
 
-const title = 'Rozbudowana lista / Szczegółowa lista';
-const icon = () => '📝';
+const title = 'Rozbudowana lista / Szczegółowa lista'
+const icon = () => '📝'
 
 export default defineField({
   name: 'ListWithContent',
@@ -16,13 +16,14 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy")
+      validation: (Rule) =>
+        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'cta',
       type: 'cta',
       title: 'Wezwanie do działania',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'list',
@@ -37,35 +38,37 @@ export default defineField({
               type: 'array',
               title: 'Nagłówek',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
+              validation: (Rule) =>
+                Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
             }),
             defineField({
               name: 'paragraph',
               type: 'array',
               title: 'Paragraf',
-              of: [TextBlock],
-              validation: Rule => Rule.required(),
-            })
+              of: [SimpleTextBlock],
+              validation: (Rule) =>
+                Rule.required().length(1).error('Paragraf musi zawierać jeden blok tekstowy.'),
+            }),
           ],
           preview: {
             select: {
               title: 'heading',
-              subtitle: 'paragraph'
-            }
+              subtitle: 'paragraph',
+            },
           },
         },
       ],
-      validation: Rule => Rule.required(),
-    })
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
-      heading: 'heading'
+      heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
-      icon
-    })
-  }
-});
+      icon,
+    }),
+  },
+})

@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
-import { toPlainText } from '../../utils/toPlainText';
+import {defineField} from 'sanity'
+import {SimpleTextBlock} from '../../custom/TextBlock'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja "O mnie"';
-const icon = () => '📝';
+const title = 'Sekcja "O mnie"'
+const icon = () => '📝'
 
 export default defineField({
   name: 'AboutSection',
@@ -12,43 +12,53 @@ export default defineField({
   icon,
   fields: [
     defineField({
-      name: 'title',
+      name: 'heading',
       type: 'array',
-      title: 'Tytuł',
+      title: 'Nagłówek sekcji',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy')
+      validation: (Rule) =>
+        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'img',
       type: 'image',
       title: 'Zdjęcie',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'subtitle',
-      type: 'array',
-      title: 'Podtytuł',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Podtytuł musi zawierać jeden blok tekstowy"),
+      name: 'content',
+      type: 'object',
+      title: 'Zawartość',
+      fields: [
+        defineField({
+          name: 'contentHeading',
+          type: 'array',
+          title: 'Nagłówek treści',
+          of: [SimpleTextBlock],
+          validation: (Rule) =>
+            Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
+        }),
+        defineField({
+          name: 'paragraph',
+          type: 'array',
+          title: 'Paragraf',
+          of: [SimpleTextBlock],
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+      validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'paragraph',
-      type: 'array',
-      title: 'Paragraf',
-      of: [TextBlock],
-      validation: Rule => Rule.required(),
-    })
   ],
   preview: {
     select: {
       heading: 'heading',
-      media: 'img'
+      media: 'img',
     },
-    prepare: ({ heading, media }) => ({
+    prepare: ({heading, media}) => ({
       title,
       subtitle: toPlainText(heading),
       media,
       icon,
     }),
   },
-});
+})
