@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock} from '../../custom/TextBlock'
 
-const title = 'Nagłówek z opływającym obrazem';
-const icon = () => '🖌️';
+const title = 'Nagłówek z opływającym obrazem'
+const icon = () => '🖌️'
 
 export default defineField({
   name: 'InlineImageHeader',
@@ -15,27 +15,32 @@ export default defineField({
       name: 'heading',
       type: 'array',
       title: 'Nagłówek',
-      of: [{
-        ...SimpleTextBlock,
-        of: [{
-          name: 'inlineImg',
-          type: 'image',
-          title: 'Zdjęcie'
-        }]
-      }],
-      validation: Rule => Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy')
-    })
+      of: [
+        {
+          ...SimpleTextBlock,
+          of: [
+            {
+              name: 'inlineImg',
+              type: 'image',
+              title: 'Zdjęcie',
+            },
+          ],
+        },
+      ],
+      validation: (Rule) =>
+        Rule.required().length(2).error('Nagłówek musi zawierać dwa bloki tekstowe'),
+    }),
   ],
   preview: {
     select: {
       heading: 'heading',
-      media: 'img'
+      media: 'img',
     },
-    prepare: ({ heading, media }) => ({
+    prepare: ({heading, media}) => ({
       title,
       subtitle: toPlainText(heading),
       media,
       icon,
     }),
   },
-});
+})

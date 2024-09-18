@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock} from '../../custom/TextBlock'
 
-const title = 'Sekcja z paskiem postępu';
-const icon = () => '✨';
+const title = 'Sekcja z paskiem postępu'
+const icon = () => '✨'
 
 export default defineField({
   name: 'ProgressBarSection',
@@ -15,15 +15,20 @@ export default defineField({
       name: 'heading',
       type: 'array',
       title: 'Nagłówek',
-      of: [{
-        ...SimpleTextBlock,
-        of: [{
-          name: 'inlineImg',
-          type: 'image',
-          title: 'Zdjęcie'
-        }]
-      }],
-      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
+      of: [
+        {
+          ...SimpleTextBlock,
+          of: [
+            {
+              name: 'inlineImg',
+              type: 'image',
+              title: 'Zdjęcie',
+            },
+          ],
+        },
+      ],
+      validation: (Rule) =>
+        Rule.required().length(2).error('Nagłówek musi zawierać dwa bloki tekstowe.'),
     }),
     defineField({
       name: 'list',
@@ -38,27 +43,29 @@ export default defineField({
               type: 'array',
               title: 'Treść',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().length(1).error("Treść musi zawierać jeden blok tekstowy."),
-            })
+              validation: (Rule) =>
+                Rule.required().length(1).error('Treść musi zawierać jeden blok tekstowy.'),
+            }),
           ],
           preview: {
             select: {
               title: 'text',
-            }
+            },
           },
         },
       ],
-      validation: Rule => Rule.required().min(4).error('Lista musi zawierać co najmniej 4 elementy.'),
+      validation: (Rule) =>
+        Rule.required().min(4).error('Lista musi zawierać co najmniej 4 elementy.'),
     }),
   ],
   preview: {
     select: {
       heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
       icon,
     }),
   },
-});
+})
