@@ -9,6 +9,13 @@
   top: var(--sticky-top);
   display: flex;
   flex-direction: column;
+  /* position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh; */
 }
 
 .header {
@@ -105,7 +112,7 @@
 }
 
 .lines span.active {
-  box-shadow: 0 0 0 1px var(--primary-700);
+  box-shadow: 0 0 0 1.5px var(--primary-900);
 }
 
 @media screen and (min-width: 768px) {

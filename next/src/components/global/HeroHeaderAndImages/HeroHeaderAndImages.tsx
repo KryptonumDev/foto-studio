@@ -1,3 +1,7 @@
+'use client';
+import { useRef } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
+
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
 
 import Button from '@/components/ui/Button';
@@ -14,24 +18,47 @@ const imageSizes = [
   '(min-width: 1200px) 185px, (min-width: 768px) 111px, 86px',
 ];
 
-export default async function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
+export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const parallaxY = [
+    useTransform(scrollYProgress, [0, 1], ['0%', '-250%']),
+    useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
+    useTransform(scrollYProgress, [0, 1], ['0%', '-300%']),
+    useTransform(scrollYProgress, [0, 1], ['0%', '-600%']),
+    useTransform(scrollYProgress, [0, 1], ['0%', '-800%']),
+  ];
+
   return (
-    <section className={`${styles.hero} max-width`}>
-      <header>
+    <section
+      ref={ref}
+      className={`${styles.hero} max-width`}
+    >
+      <header className='mb'>
         <Heading
-          level={index === 0 ? 1 : 2}
           value={heading}
+          level={index === 0 ? 1 : 2}
           className='large-text'
         />
         <Button {...cta} />
       </header>
       {images.map((data, index) => (
-        <Image
+        <motion.div
           key={`hero-image-${index}`}
-          data={data}
-          sizes={imageSizes[index]}
-          priority={index === 0}
-        />
+          className={styles.img}
+          style={{ y: parallaxY[index] }}
+        >
+          <Image
+            data={data}
+            alt='hero image'
+            sizes={imageSizes[index]}
+            priority={true}
+          />
+        </motion.div>
       ))}
     </section>
   );
