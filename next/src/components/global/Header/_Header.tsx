@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import type { _HeaderTypes } from './Header.types';
 
 import styles from './Header.module.css';
 
-export default function Header({ logo, links }: _HeaderTypes){
+export default function Header({ logo, links }: _HeaderTypes) {
   const pathname = usePathname();
   const [opened, setOpened] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -16,40 +16,50 @@ export default function Header({ logo, links }: _HeaderTypes){
 
   const closeMenu = () => setOpened(false);
 
-  const handleEscapeKey = (e: KeyboardEvent) => (e.key === 'Escape') && closeMenu();
-  
+  const handleEscapeKey = (e: KeyboardEvent) => e.key === 'Escape' && closeMenu();
+
   const scrollHandler = () => headerRef.current?.classList.toggle(styles.scrolled, window.scrollY >= 20);
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscapeKey);
-    document.addEventListener("scroll", scrollHandler);
+    document.addEventListener('scroll', scrollHandler);
 
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
-      document.removeEventListener("scroll", scrollHandler);
-    }
+      document.removeEventListener('scroll', scrollHandler);
+    };
   });
 
   return (
     <>
-      <a href='#main' className={styles['skip-link']}>
+      <a
+        href='#main'
+        className={styles['skip-link']}
+      >
         Przejdź do głównej treści
       </a>
-      <header ref={headerRef} className={styles.header}>
+      <header
+        id='header'
+        ref={headerRef}
+        className={styles.header}
+      >
         <div className={`${styles.content} max-width`}>
-          <Link 
+          <Link
             href='/'
-            aria-label="Strona główna"
+            aria-label='Strona główna'
             onClick={closeMenu}
           >
             {logo}
           </Link>
-          <nav className={styles.nav} id="primary-navigation">
+          <nav
+            className={styles.nav}
+            id='primary-navigation'
+          >
             <ul>
-              {links.map(({href, name}, index) => (
+              {links.map(({ href, name }, index) => (
                 <li key={index}>
-                  <Link 
-                    href={href} 
+                  <Link
+                    href={href}
                     aria-current={getAriaCurrent(href)}
                     onClick={closeMenu}
                   >
@@ -60,7 +70,7 @@ export default function Header({ logo, links }: _HeaderTypes){
             </ul>
           </nav>
           <button
-            className={styles["menu-button"]}
+            className={styles['menu-button']}
             aria-controls='primary-navigation'
             aria-expanded={opened}
             onClick={() => setOpened(prev => !prev)}
@@ -71,11 +81,11 @@ export default function Header({ logo, links }: _HeaderTypes){
           </button>
         </div>
       </header>
-      <div         
+      <div
         className={styles.overlay}
         onClick={closeMenu}
         aria-label='Zamknij nawigację'
       />
     </>
-  )
+  );
 }

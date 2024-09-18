@@ -2,6 +2,7 @@ import { HeroHeaderAndImagesQuery } from '@/components/global/HeroHeaderAndImage
 import { SimpleListAndImageQuery } from '@/components/global/SimpleListAndImage';
 import { ListWithContentQuery } from '@/components/global/ListWithContent';
 import { AboutSectionQuery } from '@/components/global/AboutSection';
+import { ProgressBarSectionQuery } from '@/components/global/ProgressBarSection';
 
 export const DynamicComponentsQuery = `
   content[] {
@@ -10,5 +11,6 @@ export const DynamicComponentsQuery = `
     ${SimpleListAndImageQuery}
     ${ListWithContentQuery}
     ${AboutSectionQuery}
+    ${ProgressBarSectionQuery}
   }
 `;
