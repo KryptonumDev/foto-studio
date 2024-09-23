@@ -1,7 +1,7 @@
-import { defineField } from 'sanity';
+import {defineField} from 'sanity'
 
-const title = 'Slider z zdjęciami';
-const icon = () => '📸';
+const title = 'Slider z zdjęciami'
+const icon = () => '📸'
 
 export default defineField({
   name: 'ImageSlider',
@@ -12,15 +12,15 @@ export default defineField({
     defineField({
       name: 'images',
       type: 'array',
-      of: [{ type: 'image' }],
+      of: [{type: 'image'}],
       title: 'Zdjęcia',
-      validation: Rule => Rule.required().min(6).error('Należy dodać minimum 6 zdjęć.'),
+      validation: (Rule) => Rule.required().min(5).error('Należy dodać minimum 5 zdjęć.'),
     }),
   ],
   preview: {
     prepare: () => ({
       title,
-      icon
-    })
-  }
-});
+      icon,
+    }),
+  },
+})
