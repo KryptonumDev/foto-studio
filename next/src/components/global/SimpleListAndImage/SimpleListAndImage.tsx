@@ -2,7 +2,7 @@ import { type PortableTextReactComponents, PortableText } from 'next-sanity';
 import type { SimpleListAndImageTypes } from './SimpleListAndImage.types';
 import { addLeadingZero } from '@/utils/add-leading-zero';
 
-import Image from '@/components/ui/Image';
+import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 
 import styles from './SimpleListAndImage.module.css';
@@ -37,7 +37,7 @@ export default function SimpleListAndImage({ index, heading, list, img }: Simple
           ))}
         </ol>
       </div>
-      <Image
+      <Img
         data={img}
         sizes='(min-width: 1366px) 434px, (min-width: 768px) 319px, 156px'
         priority={index === 0}

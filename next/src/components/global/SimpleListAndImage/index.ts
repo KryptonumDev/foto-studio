@@ -1,4 +1,4 @@
-import { ImageDataQuery } from '@/components/ui/Image';
+import { ImageDataQuery } from '@/components/ui/Img';
 import SimpleListAndImage from './SimpleListAndImage';
 
 export default SimpleListAndImage;

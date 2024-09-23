@@ -1,4 +1,4 @@
-import { ImageDataQuery } from '@/components/ui/Image';
+import { ImageDataQuery } from '@/components/ui/Img';
 import ProgressBarSection from './ProgressBarSection';
 
 export type { ProgressBarSectionTypes } from './ProgressBarSection.types';

@@ -2,7 +2,7 @@ import type { AboutSectionTypes } from './AboutSection.types';
 
 import Heading from '@/components/ui/Heading';
 import Paragraph from '@/components/ui/Paragraph';
-import Image from '@/components/ui/Image';
+import Img from '@/components/ui/Img';
 
 import styles from './AboutSection.module.css';
 
@@ -14,7 +14,7 @@ export default function AboutSection({
 }: AboutSectionTypes) {
   return (
     <section className={`${styles['about-section']} max-width mb`}>
-      <Image
+      <Img
         data={img}
         sizes='(min-width: 1366px) 1272px, (min-width: 768px) 672px, 328px'
         priority={index === 0}

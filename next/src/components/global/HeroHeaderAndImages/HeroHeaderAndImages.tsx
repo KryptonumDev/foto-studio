@@ -5,7 +5,7 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
 
 import Button from '@/components/ui/Button';
-import Image from '@/components/ui/Image';
+import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 
 import styles from './HeroHeaderAndImages.module.css';
@@ -52,7 +52,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
           className={styles.img}
           style={{ y: parallaxY[index] }}
         >
-          <Image
+          <Img
             data={data}
             alt='hero image'
             sizes={imageSizes[index]}

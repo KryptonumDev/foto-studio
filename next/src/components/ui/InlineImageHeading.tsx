@@ -4,7 +4,7 @@ import {
   type PortableTextTypeComponentProps,
   type PortableTextBlock,
 } from 'next-sanity';
-import Image, { type ImageDataTypes } from '@/components/ui/Image';
+import Img, { type ImageDataTypes } from '@/components/ui/Img';
 
 export type HeadingTypes = {
   value: PortableTextBlock[];
@@ -22,7 +22,7 @@ const components = (imageSizes: string, priority: boolean) =>
     types: {
       inlineImg: ({ value }: PortableTextTypeComponentProps<ImageDataTypes & { _key: string; _type: string }>) => {
         return (
-          <Image
+          <Img
             data={value}
             sizes={imageSizes}
             priority={priority}

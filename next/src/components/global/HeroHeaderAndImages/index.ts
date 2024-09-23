@@ -1,5 +1,5 @@
 import { CtaDataQuery } from '@/components/ui/Button';
-import { ImageDataQuery } from '@/components/ui/Image';
+import { ImageDataQuery } from '@/components/ui/Img';
 
 import HeroHeaderAndImages from './HeroHeaderAndImages';
 

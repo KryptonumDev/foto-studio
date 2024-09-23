@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from 'next-sanity';
-import type { ImageDataTypes } from '@/components/ui/Image';
+import type { ImageDataTypes } from '@/components/ui/Img';
 
 export type AboutSectionTypes = {
   index: number;
