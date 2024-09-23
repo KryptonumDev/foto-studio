@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import styles from './Button.module.css';
-import type { ButtonTypes } from './Button.types';
+import type { ButtonPropsTypes } from './Button.types';
 
-export default function Button({ href, text, className = '', ...props }: ButtonTypes) {
+export default function Button({ data, href, children, className = '', ...props }: ButtonPropsTypes) {
+  if (data) {
+    href = data.href;
+    children = data.text;
+  }
+
   const isExternal = href && href.startsWith('https://');
   const Element = href ? (isExternal ? 'a' : Link) : 'button';
 
@@ -16,7 +21,7 @@ export default function Button({ href, text, className = '', ...props }: ButtonT
       <span className={styles.icon}>
         <ArrowIcon />
       </span>
-      <span className={styles.text}>{text}</span>
+      <span className={styles.text}>{children}</span>
     </Element>
   );
 }

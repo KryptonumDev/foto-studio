@@ -44,7 +44,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
           level={index === 0 ? 1 : 2}
           className='large-text'
         />
-        <Button {...cta} />
+        <Button data={cta} />
       </header>
       {images.map((data, index) => (
         <motion.div
@@ -54,7 +54,6 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
         >
           <Img
             data={data}
-            alt='hero image'
             sizes={imageSizes[index]}
             priority={true}
           />

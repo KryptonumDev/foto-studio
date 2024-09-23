@@ -28,10 +28,7 @@ export default async function Footer() {
           components={components}
           value={heading}
         />
-        <Button
-          href={cta.href}
-          text={cta.text}
-        />
+        <Button data={cta} />
       </div>
       <div className={styles.links}>
         <p className={styles.copyright}>

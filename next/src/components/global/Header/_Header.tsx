@@ -32,12 +32,6 @@ export default function Header({ logo, links }: _HeaderTypes) {
 
   return (
     <>
-      <a
-        href='#main'
-        className={styles['skip-link']}
-      >
-        Przejdź do głównej treści
-      </a>
       <header
         id='header'
         ref={headerRef}

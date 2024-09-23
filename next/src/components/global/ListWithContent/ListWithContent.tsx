@@ -16,7 +16,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
           value={heading}
           className='small-heading'
         />
-        <Button {...cta} />
+        <Button data={cta} />
       </header>
       <ol className={styles.list}>
         {list.map(({ _key, heading, paragraph }, index) => (

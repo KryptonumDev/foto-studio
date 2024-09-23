@@ -1,6 +1,6 @@
 import Button from './Button';
 export default Button;
-export type { CtaTypes, ButtonTypes } from './Button.types';
+export type { CtaDataTypes, ButtonPropsTypes } from './Button.types';
 
 export const CtaDataQuery = `
   text,
