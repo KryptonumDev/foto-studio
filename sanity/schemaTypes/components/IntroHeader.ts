@@ -6,7 +6,7 @@ const title = 'Nagłówek'
 const icon = () => '🔖'
 
 export default defineField({
-  name: 'Header',
+  name: 'IntroHeader',
   type: 'object',
   title,
   icon,

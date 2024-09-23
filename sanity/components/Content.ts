@@ -12,7 +12,7 @@ import ImageSlider from '../schemaTypes/components/ImageSlider'
 import SimpleListAndImage from '../schemaTypes/components/SimpleListAndImage'
 import ListWithContent from '../schemaTypes/components/ListWithContent'
 import PricesSection from '../schemaTypes/components/PricesSection'
-import Header from '../schemaTypes/components/Header'
+import IntroHeader from '../schemaTypes/components/IntroHeader'
 import MapSection from '../schemaTypes/components/MapSection'
 import StationaryOfferSection from '../schemaTypes/components/StationaryOfferSection'
 import HeroSection from '../schemaTypes/components/HeroSection'
@@ -37,7 +37,7 @@ export default defineType({
     SimpleListAndImage,
     ListWithContent,
     PricesSection,
-    Header,
+    IntroHeader,
     MapSection,
     StationaryOfferSection,
     HeroSection,
