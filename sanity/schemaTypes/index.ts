@@ -1,22 +1,22 @@
-import cta from './components/cta';
-import seo from './components/seo';
-import Content from './components/index';
+import cta from './ui/cta'
+import seo from './components/seo'
+import Content from '../components/Content'
 
-import ReviewCollection from "./collection/ReviewCollection";
-import FaqCollection from "./collection/FaqCollection";
-import BlogCategoryCollection from './collection/BlogCategoryCollection';
-import ImageCategoryCollection from './collection/ImageCategoryCollection';
-import ImageCollection from './collection/ImageCollection';
-import BlogPostCollection from './collection/BlogPostCollection';
+import ReviewCollection from './collection/ReviewCollection'
+import FaqCollection from './collection/FaqCollection'
+import BlogCategoryCollection from './collection/BlogCategoryCollection'
+import ImageCategoryCollection from './collection/ImageCategoryCollection'
+import ImageCollection from './collection/ImageCollection'
+import BlogPostCollection from './collection/BlogPostCollection'
 
-import global from './singleton/global';
-import HomePage from './singleton/HomePage';
-import AboutPage from './singleton/AboutPage';
-import CollaborationPage from './singleton/CollaborationPage';
-import ContactPage from './singleton/ContactPage';
-import NotFoundPage from './singleton/NotFoundPage';
-import GalleryPage from './singleton/GalleryPage';
-import BlogPage from './singleton/BlogPage';
+import global from './singleton/global'
+import HomePage from './singleton/HomePage'
+import AboutPage from './singleton/AboutPage'
+import CollaborationPage from './singleton/CollaborationPage'
+import ContactPage from './singleton/ContactPage'
+import NotFoundPage from './singleton/NotFoundPage'
+import GalleryPage from './singleton/GalleryPage'
+import BlogPage from './singleton/BlogPage'
 
 export const schemaTypes = [
   seo,
@@ -37,5 +37,5 @@ export const schemaTypes = [
   ContactPage,
   NotFoundPage,
   GalleryPage,
-  BlogPage
-];
+  BlogPage,
+]
