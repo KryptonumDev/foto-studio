@@ -1,0 +1,29 @@
+.SliderControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .button {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+  }
+
+  .dots {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    button {
+      height: 6px;
+      border: 1px solid var(--primary-500);
+
+      &[aria-current='true'] {
+        height: 13px;
+        border-color: var(--primary-900);
+      }
+    }
+  }
+}

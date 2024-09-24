@@ -1,0 +1,91 @@
+.ReviewsSection {
+  width: 100%;
+  max-width: 1272px;
+  margin-inline: auto;
+  overflow: hidden;
+  text-align: center;
+  display: grid;
+  gap: clamp(20px, calc(32vw / 7.68), 42px);
+}
+
+.wrapper {
+  display: grid;
+  gap: clamp(28px, calc(28vw / 7.68), 36px);
+
+  .details {
+    display: grid;
+    place-items: center;
+
+    @media screen and (min-width: 768px) {
+      width: clamp(498px, calc(498vw / 7.68), 835px);
+
+      p {
+        max-width: 619px;
+      }
+    }
+
+    p,
+    h3 {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .slide {
+    --slide-size: clamp(188px, calc(324vw / 7.68), 835px);
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    display: grid;
+    place-items: center;
+
+    @media screen and (min-width: 1366px) {
+      --slide-size: calc(835px * 0.63);
+    }
+
+    img {
+      --scale: 0.44;
+      --top: 43px;
+      width: clamp(188px, calc(324vw / 7.68), 402px);
+      opacity: 0.32;
+      transform: scale(var(--scale)) translateY(var(--top));
+      transition:
+        opacity 0.4s var(--easing),
+        transform 0.4s var(--easing);
+
+      @media screen and (min-width: 768px) {
+        --scale: 0.49;
+        --top: -105px;
+      }
+
+      @media screen and (min-width: 1366px) {
+        --scale: 0.542;
+        --top: -35px;
+      }
+    }
+
+    &.isActive img {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+}
+
+.controls {
+  display: grid;
+  place-items: center;
+
+  & > div {
+    max-width: 324px;
+    @media screen and (min-width: 1366px) {
+      max-width: 284px;
+    }
+  }
+}
