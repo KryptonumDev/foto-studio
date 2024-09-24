@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import '@/global/global.css';
 
-import { OverusedGrotesk } from '@/global/fonts';
-
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 
@@ -17,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${OverusedGrotesk.variable}`}>
+      <body>
         <Header />
         <main id='main'>{children}</main>
         <Footer />
