@@ -7,6 +7,7 @@ import AboutSection, { type AboutSectionTypes } from '@/components/global/AboutS
 import ProgressBarSection, { type ProgressBarSectionTypes } from '@/components/global/ProgressBarSection';
 import ReviewsSection, { type ReviewsSectionTypes } from '@/components/global/ReviewsSection';
 import FeaturedPostsSection, { type FeaturedPostsSectionTypes } from '@/components/global/FeaturedPostsSection';
+import IntroHeader, { type IntroHeaderTypes } from '@/components/global/IntroHeader';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -16,6 +17,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   ProgressBarSection: props => <ProgressBarSection {...(props as ProgressBarSectionTypes)} />,
   ReviewsSection: props => <ReviewsSection {...(props as ReviewsSectionTypes)} />,
   FeaturedPostsSection: props => <FeaturedPostsSection {...(props as FeaturedPostsSectionTypes)} />,
+  IntroHeader: props => <IntroHeader {...(props as IntroHeaderTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {
