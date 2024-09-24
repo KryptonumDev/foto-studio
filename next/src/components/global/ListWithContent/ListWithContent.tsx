@@ -2,7 +2,7 @@ import { addLeadingZero } from '@/utils/add-leading-zero';
 import type { ListWithContentTypes } from './ListWithContent.types';
 
 import Heading from '@/components/ui/Heading';
-import Paragraph from '@/components/ui/Paragraph';
+import Text from '@/components/ui/Text';
 import Button from '@/components/ui/Button';
 
 import styles from './ListWithContent.module.css';
@@ -12,7 +12,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
     <section className={`${styles['list-with-content']} max-width mb`}>
       <header className={styles.header}>
         <Heading
-          level={index === 0 ? 1 : 2}
+          tag={index === 0 ? 'h1' : 'h2'}
           value={heading}
           className='small-heading'
         />
@@ -24,12 +24,15 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
             <header>
               <span className='small-heading'>{`[${addLeadingZero(index + 1)}]`}</span>
               <Heading
-                level={3}
+                tag='h3'
                 value={heading}
                 className='large-text'
               />
             </header>
-            <Paragraph value={paragraph} />
+            <Text
+              tag='p'
+              value={paragraph}
+            />
           </li>
         ))}
       </ol>

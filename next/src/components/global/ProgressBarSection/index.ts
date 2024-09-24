@@ -1,10 +1,10 @@
-import { ImageDataQuery } from '@/components/ui/Img';
+import { ImgData_Query } from '@/components/ui/Img';
 import ProgressBarSection from './ProgressBarSection';
 
 export type { ProgressBarSectionTypes } from './ProgressBarSection.types';
 export default ProgressBarSection;
 
-export const ProgressBarSectionQuery = `
+export const ProgressBarSection_Query = `
    _type == "ProgressBarSection" => {
       heading[] {
         ...,
@@ -12,7 +12,7 @@ export const ProgressBarSectionQuery = `
            ...,
            _type == "inlineImg" => {
               ...,
-              ${ImageDataQuery}
+              ${ImgData_Query}
            }
         }
       },

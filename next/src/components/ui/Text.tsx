@@ -1,12 +1,12 @@
 import { PortableText, type PortableTextBlock, type PortableTextReactComponents } from 'next-sanity';
 
-export type HeadingTypes = {
-  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type TextTypes = {
+  tag: 'p' | 'span';
   value: PortableTextBlock[];
   className?: string;
 };
 
-const components = (tag: HeadingTypes['tag'], className: string) => {
+const components = (tag: TextTypes['tag'], className: string) => {
   const Element = tag;
   return {
     block: {
@@ -15,7 +15,7 @@ const components = (tag: HeadingTypes['tag'], className: string) => {
   } as Partial<PortableTextReactComponents>;
 };
 
-export default function Heading({ tag, value, className = '' }: HeadingTypes) {
+export default function Text({ tag, value, className = '' }: TextTypes) {
   return (
     <PortableText
       components={components(tag, className)}

@@ -1,6 +1,6 @@
-export type ButtonPropsTypes = (
+export type ButtonTypes = (
   | {
-      data: CtaDataTypes;
+      data: CtaTypes;
       href?: never;
       children?: never;
     }
@@ -13,7 +13,7 @@ export type ButtonPropsTypes = (
   React.AnchorHTMLAttributes<HTMLAnchorElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type CtaDataTypes = {
+export type CtaTypes = {
   href: string;
   text: string;
 };

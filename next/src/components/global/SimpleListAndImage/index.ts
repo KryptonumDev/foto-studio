@@ -1,10 +1,10 @@
-import { ImageDataQuery } from '@/components/ui/Img';
+import { ImgData_Query } from '@/components/ui/Img';
 import SimpleListAndImage from './SimpleListAndImage';
 
 export default SimpleListAndImage;
 export type { SimpleListAndImageTypes } from './SimpleListAndImage.types';
 
-export const SimpleListAndImageQuery = `
+export const SimpleListAndImage_Query = `
   _type == "SimpleListAndImage" => {
     heading,
     list[] {
@@ -12,7 +12,7 @@ export const SimpleListAndImageQuery = `
       _key
     },
     img {
-      ${ImageDataQuery}
+      ${ImgData_Query}
     }
   },
 `;

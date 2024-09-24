@@ -1,10 +1,10 @@
 import type { PortableTextBlock } from 'next-sanity';
-import type { CtaDataTypes } from '@/components/ui/Button';
+import type { CtaTypes } from '@/components/ui/Button';
 
 export type ListWithContentTypes = {
   index: number;
   heading: PortableTextBlock[];
-  cta: CtaDataTypes;
+  cta: CtaTypes;
   list: {
     _key: string;
     heading: PortableTextBlock[];

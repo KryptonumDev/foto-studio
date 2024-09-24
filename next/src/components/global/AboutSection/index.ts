@@ -1,14 +1,14 @@
-import { ImageDataQuery } from '@/components/ui/Img';
+import { ImgData_Query } from '@/components/ui/Img';
 import AboutSection from './AboutSection';
 
 export default AboutSection;
 export type { AboutSectionTypes } from './AboutSection.types';
 
-export const AboutSectionQuery = `
+export const AboutSection_Query = `
   _type == "AboutSection" => {
     heading,
     img { 
-      ${ImageDataQuery}
+      ${ImgData_Query}
     },
     content {
       contentHeading,

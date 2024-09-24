@@ -41,7 +41,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
       <header className='mb'>
         <Heading
           value={heading}
-          level={index === 0 ? 1 : 2}
+          tag={index === 0 ? 'h1' : 'h2'}
           className='large-text'
         />
         <Button data={cta} />

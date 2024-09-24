@@ -1,6 +1,6 @@
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
-import DynamicComponents, { DynamicComponentsQuery, type ComponentTypes } from '@/components/DynamicComponents';
+import DynamicComponents, { DynamicComponents_Query, type ComponentTypes } from '@/components/DynamicComponents';
 
 export default async function HomePage() {
   const { content } = await query();
@@ -11,7 +11,7 @@ export default async function HomePage() {
 const query = async (): Promise<{ content: ComponentTypes[] }> => {
   const homePageQuery = `
     *[_type == "HomePage"][0] {
-      ${DynamicComponentsQuery}
+      ${DynamicComponents_Query}
     }
   `;
 

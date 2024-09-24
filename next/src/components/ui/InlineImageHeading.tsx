@@ -4,12 +4,14 @@ import {
   type PortableTextTypeComponentProps,
   type PortableTextBlock,
 } from 'next-sanity';
-import Img, { type ImageDataTypes } from '@/components/ui/Img';
+import Img, { type ImgTypes } from '@/components/ui/Img';
 
 export type HeadingTypes = {
+  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   value: PortableTextBlock[];
   imageSizes: string;
   priority: boolean;
+  className?: string;
 };
 
 const components = (imageSizes: string, priority: boolean) =>
@@ -20,7 +22,7 @@ const components = (imageSizes: string, priority: boolean) =>
       },
     },
     types: {
-      inlineImg: ({ value }: PortableTextTypeComponentProps<ImageDataTypes & { _key: string; _type: string }>) => {
+      inlineImg: ({ value }: PortableTextTypeComponentProps<ImgTypes & { _key: string; _type: string }>) => {
         return (
           <Img
             data={value}
@@ -32,11 +34,14 @@ const components = (imageSizes: string, priority: boolean) =>
     },
   }) as Partial<PortableTextReactComponents>;
 
-export default function InlineImageHeading({ value, imageSizes, priority }: HeadingTypes) {
+export default function InlineImageHeading({ tag, value, imageSizes, priority, className = '' }: HeadingTypes) {
+  const Element = tag;
   return (
-    <PortableText
-      components={components(imageSizes, priority)}
-      value={value}
-    />
+    <Element className={className}>
+      <PortableText
+        components={components(imageSizes, priority)}
+        value={value}
+      />
+    </Element>
   );
 }

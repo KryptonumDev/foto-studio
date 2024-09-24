@@ -1,5 +1,5 @@
 import DynamicComponents from './DynamicComponents';
 export default DynamicComponents;
 
-export { DynamicComponentsQuery } from './DynamicComponents.queries';
+export { DynamicComponents_Query } from './DynamicComponents.queries';
 export type { ComponentTypes } from './DynamicComponents.types';

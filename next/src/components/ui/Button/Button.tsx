@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import styles from './Button.module.css';
-import type { ButtonPropsTypes } from './Button.types';
+import type { ButtonTypes } from './Button.types';
 
-export default function Button({ data, href, children, className = '', ...props }: ButtonPropsTypes) {
+export default function Button({ data, href, children, className = '', ...props }: ButtonTypes) {
   if (data) {
     href = data.href;
     children = data.text;

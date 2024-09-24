@@ -1,7 +1,7 @@
 import type { AboutSectionTypes } from './AboutSection.types';
 
 import Heading from '@/components/ui/Heading';
-import Paragraph from '@/components/ui/Paragraph';
+import Text from '@/components/ui/Text';
 import Img from '@/components/ui/Img';
 
 import styles from './AboutSection.module.css';
@@ -23,18 +23,21 @@ export default function AboutSection({
         <header>
           <Heading
             value={heading}
-            level={index === 0 ? 1 : 2}
+            tag={index === 0 ? 'h1' : 'h2'}
             className='large-text'
           />
         </header>
         <div className={styles.content}>
           <Heading
             value={contentHeading}
-            level={3}
+            tag='h3'
             className='small-heading'
           />
           <div className={styles.paragraph}>
-            <Paragraph value={paragraph} />
+            <Text
+              tag='p'
+              value={paragraph}
+            />
           </div>
         </div>
       </div>

@@ -4,14 +4,12 @@ import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-mot
 import type { ProgressBarSectionTypes } from './ProgressBarSection.types';
 
 import InlineImageHeading from '@/components/ui/InlineImageHeading';
-import Paragraph from '@/components/ui/Paragraph';
+import Text from '@/components/ui/Text';
 
 import styles from './ProgressBarSection.module.css';
 import { addLeadingZero } from '@/utils/add-leading-zero';
 
 export default function ProgressBarSection({ heading, index, list }: ProgressBarSectionTypes) {
-  const HeadingElement = index === 0 ? 'h1' : 'h2';
-
   const containerRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({ target: containerRef });
@@ -64,13 +62,12 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
     >
       <div className={styles.sticky}>
         <header className={styles.header}>
-          <HeadingElement className='large-text'>
-            <InlineImageHeading
-              value={heading}
-              imageSizes='(min-width: 1366px) 619px, (min-width: 768px) 343px, 328px'
-              priority={index === 0}
-            />
-          </HeadingElement>
+          <InlineImageHeading
+            tag={index === 0 ? 'h1' : 'h2'}
+            value={heading}
+            imageSizes='(min-width: 1366px) 619px, (min-width: 768px) 343px, 328px'
+            priority={index === 0}
+          />
         </header>
         <motion.ol
           style={{ x }}
@@ -79,7 +76,10 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
           {list.map(({ text, _key }, i) => (
             <li key={_key}>
               <span>{`[${addLeadingZero(i + 1)}]`}</span>
-              <Paragraph value={text} />
+              <Text
+                tag='p'
+                value={text}
+              />
             </li>
           ))}
         </motion.ol>

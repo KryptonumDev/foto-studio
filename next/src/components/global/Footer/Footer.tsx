@@ -1,18 +1,13 @@
-import { defineQuery, PortableText, type PortableTextReactComponents } from 'next-sanity';
+import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 
 import type { FooterQueryTypes } from './Footer.types';
 
+import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import CustomLink from '@/components/ui/CustomLink';
 
 import styles from './Footer.module.css';
-
-const components = {
-  block: {
-    normal: ({ children }) => <h2 className='large-text'>{children}</h2>,
-  },
-} as Partial<PortableTextReactComponents>;
 
 export default async function Footer() {
   const {
@@ -24,9 +19,10 @@ export default async function Footer() {
   return (
     <footer className={`${styles.footer} max-width`}>
       <div className={styles.content}>
-        <PortableText
-          components={components}
+        <Heading
+          tag='h2'
           value={heading}
+          className='large-text'
         />
         <Button data={cta} />
       </div>

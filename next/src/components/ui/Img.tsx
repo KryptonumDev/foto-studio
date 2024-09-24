@@ -3,7 +3,7 @@ import NextImage from 'next/image';
 const defaultPlaceholder =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMUltCqBwABcQDWMIsO5gAAAABJRU5ErkJggg==';
 
-export const ImageDataQuery = `
+export const ImgData_Query = `
   asset->{
     url,
     altText,
@@ -13,7 +13,7 @@ export const ImageDataQuery = `
   }
 `;
 
-export type ImageDataTypes = {
+export type ImgTypes = {
   asset: {
     url: string;
     lqip: string;
@@ -25,7 +25,7 @@ export type ImageDataTypes = {
 
 export type ImgPropsTypes = (
   | {
-      data: ImageDataTypes;
+      data: ImgTypes;
       src?: never;
       width?: number;
       height?: number;

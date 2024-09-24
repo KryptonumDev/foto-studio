@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from 'next-sanity';
-import type { ImageDataTypes } from '@/components/ui/Img';
+import type { ImgTypes } from '@/components/ui/Img';
 
 export type SimpleListAndImageTypes = {
   index: number;
@@ -8,5 +8,5 @@ export type SimpleListAndImageTypes = {
     _key: string;
     text: PortableTextBlock[];
   }[];
-  img: ImageDataTypes;
+  img: ImgTypes;
 };

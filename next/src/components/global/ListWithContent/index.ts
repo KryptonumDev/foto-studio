@@ -1,14 +1,14 @@
-import { CtaDataQuery } from '@/components/ui/Button';
+import { CtaData_Query } from '@/components/ui/Button';
 import ListWithContent from './ListWithContent';
 
 export default ListWithContent;
 export type { ListWithContentTypes } from './ListWithContent.types';
 
-export const ListWithContentQuery = `
+export const ListWithContent_Query = `
   _type == "ListWithContent" => {
     heading,
     cta {
-      ${CtaDataQuery}    
+      ${CtaData_Query}    
     },
     list[] {
       _key,

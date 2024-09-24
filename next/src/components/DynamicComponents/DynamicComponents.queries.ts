@@ -1,16 +1,16 @@
-import { HeroHeaderAndImagesQuery } from '@/components/global/HeroHeaderAndImages';
-import { SimpleListAndImageQuery } from '@/components/global/SimpleListAndImage';
-import { ListWithContentQuery } from '@/components/global/ListWithContent';
-import { AboutSectionQuery } from '@/components/global/AboutSection';
-import { ProgressBarSectionQuery } from '@/components/global/ProgressBarSection';
+import { HeroHeaderAndImages_Query } from '@/components/global/HeroHeaderAndImages';
+import { SimpleListAndImage_Query } from '@/components/global/SimpleListAndImage';
+import { ListWithContent_Query } from '@/components/global/ListWithContent';
+import { AboutSection_Query } from '@/components/global/AboutSection';
+import { ProgressBarSection_Query } from '@/components/global/ProgressBarSection';
 
-export const DynamicComponentsQuery = `
+export const DynamicComponents_Query = `
   content[] {
     _type,
-    ${HeroHeaderAndImagesQuery}
-    ${SimpleListAndImageQuery}
-    ${ListWithContentQuery}
-    ${AboutSectionQuery}
-    ${ProgressBarSectionQuery}
+    ${HeroHeaderAndImages_Query}
+    ${SimpleListAndImage_Query}
+    ${ListWithContent_Query}
+    ${AboutSection_Query}
+    ${ProgressBarSection_Query}
   }
 `;
