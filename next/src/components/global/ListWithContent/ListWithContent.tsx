@@ -5,11 +5,11 @@ import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Button from '@/components/ui/Button';
 
-import styles from './ListWithContent.module.css';
+import styles from './ListWithContent.module.scss';
 
 export default function ListWithContent({ index, heading, cta, list }: ListWithContentTypes) {
   return (
-    <section className={`${styles['list-with-content']} max-width mb`}>
+    <section className={`${styles['ListWithContent']} max-width mb`}>
       <header className={styles.header}>
         <Heading
           tag={index === 0 ? 'h1' : 'h2'}

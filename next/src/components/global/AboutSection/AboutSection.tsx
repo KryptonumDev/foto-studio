@@ -4,7 +4,7 @@ import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Img from '@/components/ui/Img';
 
-import styles from './AboutSection.module.css';
+import styles from './AboutSection.module.scss';
 
 export default function AboutSection({
   heading,
@@ -13,7 +13,7 @@ export default function AboutSection({
   content: { contentHeading, paragraph },
 }: AboutSectionTypes) {
   return (
-    <section className={`${styles['about-section']} max-width mb`}>
+    <section className={`${styles['AboutSection']} max-width mb`}>
       <Img
         data={img}
         sizes='(min-width: 1366px) 1272px, (min-width: 768px) 672px, 328px'
@@ -33,7 +33,7 @@ export default function AboutSection({
             tag='h3'
             className='small-heading'
           />
-          <div className={styles.paragraph}>
+          <div className={styles.text}>
             <Text
               tag='p'
               value={paragraph}

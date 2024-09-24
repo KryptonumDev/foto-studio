@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import type { _HeaderTypes } from './Header.types';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 export default function Header({ logo, links }: _HeaderTypes) {
   const pathname = usePathname();
@@ -35,9 +35,10 @@ export default function Header({ logo, links }: _HeaderTypes) {
       <header
         id='header'
         ref={headerRef}
-        className={styles.header}
+        data-state={opened ? 'opened' : 'closed'}
+        className={styles['Header']}
       >
-        <div className={`${styles.content} max-width`}>
+        <div className='max-width'>
           <Link
             href='/'
             aria-label='Strona główna'
@@ -45,10 +46,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
           >
             {logo}
           </Link>
-          <nav
-            className={styles.nav}
-            id='primary-navigation'
-          >
+          <nav id='primary-navigation'>
             <ul>
               {links.map(({ href, name }, index) => (
                 <li key={index}>
@@ -64,7 +62,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
             </ul>
           </nav>
           <button
-            className={styles['menu-button']}
+            className={styles.menuButton}
             aria-controls='primary-navigation'
             aria-expanded={opened}
             onClick={() => setOpened(prev => !prev)}

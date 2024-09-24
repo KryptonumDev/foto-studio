@@ -1,19 +1,19 @@
 'use client';
 import { useEffect, useRef, Fragment } from 'react';
 import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-motion';
+import { addLeadingZero } from '@/utils/add-leading-zero';
 import type { ProgressBarSectionTypes } from './ProgressBarSection.types';
 
 import InlineImageHeading from '@/components/ui/InlineImageHeading';
 import Text from '@/components/ui/Text';
 
-import styles from './ProgressBarSection.module.css';
-import { addLeadingZero } from '@/utils/add-leading-zero';
+import styles from './ProgressBarSection.module.scss';
 
 export default function ProgressBarSection({ heading, index, list }: ProgressBarSectionTypes) {
   const containerRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-73.5%']);
+  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-77%']);
   const progressStep = useTransform(scrollYProgress, [0, 1], [0, 26]);
 
   useMotionValueEvent(progressStep, 'change', latest => {
@@ -58,12 +58,13 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
   return (
     <section
       ref={containerRef}
-      className={`${styles['progress-bar-section']} max-width mb`}
+      className={`${styles['ProgressBarSection']} max-width mb`}
     >
       <div className={styles.sticky}>
         <header className={styles.header}>
           <InlineImageHeading
             tag={index === 0 ? 'h1' : 'h2'}
+            className='large-text'
             value={heading}
             imageSizes='(min-width: 1366px) 619px, (min-width: 768px) 343px, 328px'
             priority={index === 0}

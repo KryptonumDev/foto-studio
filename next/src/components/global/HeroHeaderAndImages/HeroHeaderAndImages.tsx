@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 
-import styles from './HeroHeaderAndImages.module.css';
+import styles from './HeroHeaderAndImages.module.scss';
 
 const imageSizes = [
   '(min-width: 1200px) 108px, (min-width: 768px) 63px, 70px',
@@ -36,7 +36,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
   return (
     <section
       ref={ref}
-      className={`${styles.hero} max-width`}
+      className={`${styles['HeroHeaderAndImages']} max-width`}
     >
       <header className='mb'>
         <Heading

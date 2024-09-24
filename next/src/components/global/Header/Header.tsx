@@ -3,7 +3,7 @@ import sanityFetch from '@/utils/sanity.fetch';
 import type { HeaderQueryTypes } from './Header.types';
 import _Header from './_Header';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 export default async function Header() {
   const {
@@ -14,7 +14,7 @@ export default async function Header() {
     <>
       <a
         href='#main'
-        className={styles['skip-link']}
+        className={styles.skipLink}
       >
         Przejdź do głównej treści
       </a>

@@ -1,0 +1,143 @@
+.ProgressBarSection {
+  position: relative;
+
+  .sticky {
+    --sticky-top: clamp(90px, calc(98vw / 7.68), 100px);
+    position: sticky;
+    top: var(--sticky-top);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    position: relative;
+    margin-bottom: clamp(48px, calc(80vw / 7.68), 80px);
+
+    img {
+      width: min(100%, 343px);
+      height: 95px;
+
+      @media screen and (min-width: 768px) {
+        width: calc(343vw / 7.68);
+        height: 99px;
+      }
+
+      @media screen and (min-width: 1366px) {
+        width: 619px;
+        height: 144px;
+      }
+    }
+
+    h1,
+    h2 {
+      display: grid;
+      gap: clamp(8px, calc(16vw / 7.68), 32px);
+
+      @media screen and (min-width: 1366px) {
+        gap: 32px;
+      }
+
+      span:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(8px, calc(16vw / 7.68), 32px);
+
+        @media screen and (min-width: 1366px) {
+          flex-direction: row;
+          align-items: center;
+          gap: 32px;
+        }
+      }
+    }
+  }
+}
+
+.points {
+  position: relative;
+  width: max-content;
+  display: flex;
+  align-items: flex-start;
+
+  gap: clamp(24px, calc(32vw / 7.68), 32px);
+
+  @media screen and (min-width: 768px) {
+    padding-left: calc(88vw / 7.68);
+  }
+
+  @media screen and (min-width: 1366px) {
+    padding-left: 218px;
+  }
+
+  li {
+    display: grid;
+    justify-items: start;
+    gap: clamp(16px, calc(28vw / 7.68), 28px);
+
+    span {
+      color: var(--primary-900);
+    }
+
+    p {
+      width: clamp(258px, calc(322vw / 7.68), 402px);
+    }
+  }
+}
+
+.progress {
+  margin-top: clamp(48px, calc(64vw / 7.68), 96px);
+  align-self: center;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: clamp(320px, calc(610vw / 7.68), 610px);
+
+  & > * {
+    margin-right: -4px;
+    @media screen and (min-width: 768px) {
+      margin-right: 0px;
+    }
+  }
+
+  .step {
+    display: flex;
+    width: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    span {
+      &.active {
+        box-shadow: 0 0 0 1.5px var(--primary-900);
+      }
+
+      &:last-child {
+        transition: box-shadow 0.1s var(--easing);
+        height: 12px;
+        box-shadow: 0 0 0 0.5px var(--primary-700);
+      }
+    }
+  }
+
+  .value {
+    color: var(--primary-900, #141414);
+    font-size: 12px;
+    line-height: 142%;
+    letter-spacing: 0.48px;
+  }
+}
+
+.lines {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(5px, calc(7vw / 7.68), 7px);
+
+  span {
+    transition: box-shadow 0.1s var(--easing);
+    height: 5px;
+    box-shadow: 0 0 0 0.5px var(--primary-500);
+
+    &.active {
+      box-shadow: 0 0 0 1.5px var(--primary-900);
+    }
+  }
+}

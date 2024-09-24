@@ -1,0 +1,191 @@
+.Header {
+  z-index: 5;
+  padding-block: var(--page-margin-block);
+  margin-bottom: 8px;
+  position: sticky;
+  top: 0;
+  transition:
+    background-color 0.3s var(--easing),
+    box-shadow 0.3s var(--easing);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin-bottom: 48px;
+  }
+
+  &.scrolled,
+  &[data-state='opened'] {
+    background-color: var(--primary-100, #ffffff);
+    box-shadow: 0 -2px var(--primary-100, #ffffff);
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    z-index: 4;
+    position: absolute;
+    background: var(--primary-100, #ffffff);
+    border-top: 1px solid var(--primary-200);
+    right: 0px;
+    top: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--easing);
+
+    @media screen and (min-width: 1000px) {
+      position: relative;
+      opacity: 1;
+      background: transparent;
+      visibility: visible;
+      border: 0;
+      width: min(50vw, 619px);
+    }
+
+    ul {
+      list-style: none;
+      padding: var(--page-margin-block);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-width: 250px;
+
+      @media screen and (min-width: 1000px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 0;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 0.5rem;
+      text-transform: uppercase;
+      transition: color 0.1s var(--easing);
+
+      @media screen and (min-width: 1000px) {
+        padding: 0;
+      }
+
+      &[aria-current='page'] {
+        color: var(--primary-900, #141414);
+        margin-left: 8px;
+
+        @media screen and (min-width: 1000px) {
+          margin-left: 0;
+        }
+
+        &:focus-visible {
+          outline-color: var(--primary-900);
+        }
+      }
+
+      &::after,
+      &::before {
+        opacity: 0;
+        color: inherit;
+        transition:
+          color 0.1s var(--easing),
+          opacity 0.1s var(--easing);
+      }
+
+      &::before {
+        content: '[ ';
+      }
+
+      &::after {
+        content: ' ]';
+      }
+
+      &:hover,
+      &[aria-current='page'] {
+        &::after,
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[data-state='opened'] {
+    nav {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    & + .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+.menuButton {
+  width: 54px;
+  height: 48px;
+  padding: 20px 6px;
+  display: grid;
+  gap: 7px;
+
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+
+  span {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-700);
+    transition: transform 0.2s var(--easing);
+    pointer-events: none;
+  }
+
+  &[aria-expanded='true'] {
+    span:first-child {
+      transform: translateY(4px) rotate(135deg);
+    }
+
+    span:last-child {
+      transform: translateY(-4px) rotate(-135deg);
+    }
+  }
+}
+
+.overlay {
+  z-index: 3;
+  position: fixed;
+  inset: 0;
+  background: rgba(200, 200, 200, 0.3);
+  backdrop-filter: blur(3px);
+  transition: opacity 0.3s var(--easing);
+  opacity: 0;
+  pointer-events: none;
+
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+}
+
+.skipLink {
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  padding: 8px 24px;
+  background: var(--primary-200);
+
+  &:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -5,13 +5,13 @@ import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 
-import styles from './SimpleListAndImage.module.css';
+import styles from './SimpleListAndImage.module.scss';
 
 export default function SimpleListAndImage({ index, heading, list, img }: SimpleListAndImageTypes) {
   return (
-    <section className={`${styles['simple-list']} max-width mb`}>
+    <section className={`${styles['SimpleListAndImage']} max-width mb`}>
       <div>
-        <header className={styles.header}>
+        <header>
           <Heading
             tag={index === 0 ? 'h1' : 'h2'}
             value={heading}

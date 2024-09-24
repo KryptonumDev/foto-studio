@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import styles from './Button.module.css';
 import type { ButtonTypes } from './Button.types';
+
+import styles from './Button.module.scss';
 
 export default function Button({ data, href, children, className = '', ...props }: ButtonTypes) {
   if (data) {
@@ -14,7 +15,7 @@ export default function Button({ data, href, children, className = '', ...props 
   return (
     <Element
       href={href || ''}
-      className={`${styles.button} ${className}`}
+      className={`${styles['Button']} ${className}`}
       {...(isExternal && { target: '_blank', rel: 'noopener' })}
       {...props}
     >

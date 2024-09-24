@@ -1,0 +1,120 @@
+.HeroHeaderAndImages {
+  position: relative;
+  min-height: clamp(838px, calc(866vw / 7.68), 1019px);
+
+  header {
+    position: sticky;
+    top: var(--sticky-top);
+    width: min(100%, 986px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-wrap: balance;
+
+    @media screen and (min-width: 768px) {
+      top: 120px;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+
+      h1,
+      h2 {
+        flex-grow: 1;
+      }
+
+      a {
+        margin-top: 24px;
+      }
+    }
+
+    @media screen and (min-width: 1366px) {
+      top: 146px;
+    }
+  }
+}
+
+.img {
+  position: absolute;
+  z-index: 2;
+
+  &:nth-of-type(1) {
+    width: 70px;
+    top: 523px;
+    left: calc(86vw / 3.6);
+
+    @media screen and (min-width: 768px) {
+      width: clamp(63px, calc(63vw / 7.68), 108px);
+      top: 288px;
+      left: calc(261vw / 7.68);
+    }
+
+    @media screen and (min-width: 1366px) {
+      top: 78px;
+      left: min(calc(543vw / 13.66), 543px);
+    }
+  }
+
+  &:nth-of-type(2) {
+    width: clamp(86px, calc(108vw / 7.68), 185px);
+    top: 223px;
+    right: 0px;
+
+    @media screen and (min-width: 768px) {
+      top: 265px;
+      right: 0px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      top: -26px;
+    }
+  }
+
+  &:nth-of-type(3) {
+    width: clamp(155px, calc(173vw / 7.68), 296px);
+    top: 267px;
+    left: 1px;
+
+    @media screen and (min-width: 768px) {
+      top: 406px;
+      left: 1px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      top: 179px;
+      left: -2px;
+    }
+  }
+
+  &:nth-of-type(4) {
+    width: clamp(156px, calc(174vw / 7.68), 326px);
+    top: 501px;
+    left: calc(172vw / 3.6);
+
+    @media screen and (min-width: 768px) {
+      top: 469px;
+      left: min(calc(411vw / 7.68), 652px);
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 326px;
+      top: 336px;
+    }
+  }
+
+  &:nth-of-type(5) {
+    width: min(calc(86vw / 3.6), 111px);
+    top: 698px;
+    left: 0px;
+
+    @media screen and (min-width: 768px) {
+      width: 111px;
+      top: 685px;
+      left: min(calc(237vw / 7.68), 326px);
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 185px;
+      top: 730px;
+    }
+  }
+}

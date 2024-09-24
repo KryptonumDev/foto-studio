@@ -7,7 +7,7 @@ import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import CustomLink from '@/components/ui/CustomLink';
 
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 
 export default async function Footer() {
   const {
@@ -17,8 +17,8 @@ export default async function Footer() {
   } = await query();
 
   return (
-    <footer className={`${styles.footer} max-width`}>
-      <div className={styles.content}>
+    <footer className={`${styles['Footer']} max-width`}>
+      <div className={styles.header}>
         <Heading
           tag='h2'
           value={heading}
@@ -37,16 +37,14 @@ export default async function Footer() {
             {KryptonumLogo}
           </a>
         </p>
-        <div className={styles['privacy-policy']}>
-          <CustomLink
-            href={privacyPolicy}
-            text='Polityk prywatności'
-            target='_blank'
-            rel='noreferrer'
-            className={styles.light}
-          />
-        </div>
-        <ul className={styles['social-media']}>
+        <CustomLink
+          href={privacyPolicy}
+          className={styles.privacyPolicy}
+          text='Polityka prywatności'
+          target='_blank'
+          rel='noreferrer'
+        />
+        <ul className={styles.socialMedia}>
           {Object.entries(socials).map(([platform, url]) => (
             <li key={platform}>
               <CustomLink

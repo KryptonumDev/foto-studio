@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { CustomLinkTypes } from './CustomLink.types';
 
-import styles from './CustomLink.module.css';
+import styles from './CustomLink.module.scss';
 
 export default async function CustomLink({ href, text, className = '', ...props }: CustomLinkTypes) {
   const isExternal = href.startsWith('https://');
@@ -10,7 +10,7 @@ export default async function CustomLink({ href, text, className = '', ...props 
   return (
     <Element
       href={href}
-      className={`${styles.link} ${className}`}
+      className={`${styles['CustomLink']} ${className}`}
       {...(isExternal && { target: '_blank', rel: 'noopener' })}
       {...props}
     >
