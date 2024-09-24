@@ -4,6 +4,7 @@ import { ListWithContent_Query } from '@/components/global/ListWithContent';
 import { AboutSection_Query } from '@/components/global/AboutSection';
 import { ProgressBarSection_Query } from '@/components/global/ProgressBarSection';
 import { ReviewsSection_Query } from '@/components/global/ReviewsSection';
+import { FeaturedPostsSection_Query } from '@/components/global/FeaturedPostsSection';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -14,5 +15,6 @@ export const DynamicComponents_Query = `
     ${AboutSection_Query}
     ${ProgressBarSection_Query}
     ${ReviewsSection_Query}
+    ${FeaturedPostsSection_Query}
   }
 `;

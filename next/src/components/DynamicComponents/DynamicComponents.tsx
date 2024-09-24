@@ -6,6 +6,7 @@ import ListWithContent, { type ListWithContentTypes } from '@/components/global/
 import AboutSection, { type AboutSectionTypes } from '@/components/global/AboutSection';
 import ProgressBarSection, { type ProgressBarSectionTypes } from '@/components/global/ProgressBarSection';
 import ReviewsSection, { type ReviewsSectionTypes } from '@/components/global/ReviewsSection';
+import FeaturedPostsSection, { type FeaturedPostsSectionTypes } from '@/components/global/FeaturedPostsSection';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -14,6 +15,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   AboutSection: props => <AboutSection {...(props as AboutSectionTypes)} />,
   ProgressBarSection: props => <ProgressBarSection {...(props as ProgressBarSectionTypes)} />,
   ReviewsSection: props => <ReviewsSection {...(props as ReviewsSectionTypes)} />,
+  FeaturedPostsSection: props => <FeaturedPostsSection {...(props as FeaturedPostsSectionTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {

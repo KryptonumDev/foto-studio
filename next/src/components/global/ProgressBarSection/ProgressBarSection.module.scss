@@ -106,14 +106,14 @@
     gap: 4px;
 
     span {
-      &.active {
-        box-shadow: 0 0 0 1.5px var(--primary-900);
-      }
-
       &:last-child {
         transition: box-shadow 0.1s var(--easing);
         height: 12px;
         box-shadow: 0 0 0 0.5px var(--primary-700);
+      }
+
+      &.active {
+        box-shadow: 0 0 0 1.5px var(--primary-900);
       }
     }
   }

@@ -1,0 +1,42 @@
+.FeaturedPostsSection {
+  display: grid;
+  gap: clamp(20px, calc(36vw / 7.68), 48px);
+  overflow: hidden;
+}
+
+.container {
+  --slide-spacing: clamp(16px, calc(24vw / 7.68), 32px);
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+
+  .slide {
+    --slide-size: min(100%, calc(672px + var(--slide-spacing)));
+    --slide-height: clamp(255px, calc(523vw / 7.68), 523px);
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 var(--slide-size);
+    padding-left: var(--slide-spacing);
+    overflow: hidden;
+    min-width: 0;
+
+    @media screen and (min-width: 1270px) {
+      --slide-size: min(calc(433vw / 13.66), 433px);
+      --slide-height: 450px;
+    }
+
+    img {
+      width: 100%;
+      object-position: top;
+      height: var(--slide-height);
+    }
+  }
+}
+
+.controls {
+  display: grid;
+  place-items: center;
+
+  & > div {
+    max-width: 324px;
+  }
+}

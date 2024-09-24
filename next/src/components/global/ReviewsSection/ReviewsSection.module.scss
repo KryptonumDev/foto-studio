@@ -18,7 +18,6 @@
 
     @media screen and (min-width: 768px) {
       width: clamp(498px, calc(498vw / 7.68), 835px);
-
       p {
         max-width: 619px;
       }
@@ -57,8 +56,8 @@
       opacity: 0.32;
       transform: scale(var(--scale)) translateY(var(--top));
       transition:
-        opacity 0.4s var(--easing),
-        transform 0.4s var(--easing);
+        opacity 0.3s var(--easing),
+        transform 0.3s var(--easing);
 
       @media screen and (min-width: 768px) {
         --scale: 0.49;
