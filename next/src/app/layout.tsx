@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '@/global/global.scss';
 
+import SmoothScrolling from '@/components/global/SmoothScrolling';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <Header />
-        <main id='main'>{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <Header />
+          <main id='main'>{children}</main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
