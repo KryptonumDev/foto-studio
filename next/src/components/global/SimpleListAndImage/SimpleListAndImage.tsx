@@ -33,7 +33,7 @@ export default function SimpleListAndImage({ index, heading, list, img }: Simple
       </div>
       <Img
         data={img}
-        sizes='(min-width: 1366px) 434px, (min-width: 768px) 319px, 156px'
+        sizes='(min-width: 1366px) 434px, (min-width: 768px) 41.5vw, 156px'
         priority={index === 0}
         className={styles.image}
       />

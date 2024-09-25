@@ -6,6 +6,7 @@ import { ProgressBarSection_Query } from '@/components/global/ProgressBarSection
 import { ReviewsSection_Query } from '@/components/global/ReviewsSection';
 import { FeaturedPostsSection_Query } from '@/components/global/FeaturedPostsSection';
 import { IntroHeader_Query } from '@/components/global/IntroHeader';
+import { ImageSlider_Query } from '@/components/global/ImageSlider';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -18,5 +19,6 @@ export const DynamicComponents_Query = `
     ${ReviewsSection_Query}
     ${FeaturedPostsSection_Query}
     ${IntroHeader_Query}
+    ${ImageSlider_Query}
   }
 `;

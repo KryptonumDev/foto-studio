@@ -34,7 +34,7 @@ export default function Carousel({ list, index }: CarouselTypes) {
               <Img
                 data={image}
                 priority={index === 0}
-                sizes='(min-width: 1366px) 402px, (min-width: 768px) 324px, 188px'
+                sizes='(min-width: 1366px) 402px, (min-width: 768px) 42.2vw, 188px'
               />
             </div>
           ))}

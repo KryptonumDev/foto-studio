@@ -6,6 +6,7 @@ import type { ProgressBarSectionTypes } from '@/components/global/ProgressBarSec
 import type { ReviewsSectionTypes } from '@/components/global/ReviewsSection';
 import type { FeaturedPostsSectionTypes } from '@/components/global/FeaturedPostsSection';
 import type { IntroHeaderTypes } from '@/components/global/IntroHeader';
+import type { ImageSliderTypes } from '@/components/global/ImageSlider';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -16,6 +17,7 @@ export type ComponentsMapTypes = {
   ReviewsSection: ReviewsSectionTypes;
   FeaturedPostsSection: FeaturedPostsSectionTypes;
   IntroHeader: IntroHeaderTypes;
+  ImageSlider: ImageSliderTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

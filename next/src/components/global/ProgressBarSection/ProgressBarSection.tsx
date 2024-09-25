@@ -66,7 +66,7 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
             tag={index === 0 ? 'h1' : 'h2'}
             className='large-text'
             value={heading}
-            imageSizes='(min-width: 1366px) 619px, (min-width: 768px) 343px, 328px'
+            imageSizes='(min-width: 1366px) 619px, (min-width: 768px) 44.6vw, 328px'
             priority={index === 0}
           />
         </header>
