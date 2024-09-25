@@ -8,6 +8,7 @@ import { FeaturedPostsSection_Query } from '@/components/global/FeaturedPostsSec
 import { IntroHeader_Query } from '@/components/global/IntroHeader';
 import { ImageSlider_Query } from '@/components/global/ImageSlider';
 import { StatsSection_Query } from '@/components/global/StatsSection';
+import { NotFoundSection_Query } from '@/components/global/NotFoundSection';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -22,5 +23,6 @@ export const DynamicComponents_Query = `
     ${IntroHeader_Query}
     ${ImageSlider_Query}
     ${StatsSection_Query}
+    ${NotFoundSection_Query}
   }
 `;

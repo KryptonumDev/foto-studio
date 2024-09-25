@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock} from '../../custom/TextBlock'
 
-const title = 'Sekcja - Strony nie znaleziono';
-const icon = () => '❌';
+const title = 'Sekcja - Strony nie znaleziono'
+const icon = () => '❌'
 
 export default defineField({
   name: 'NotFoundSection',
@@ -12,41 +12,35 @@ export default defineField({
   icon,
   fields: [
     defineField({
-      name: 'title',
+      name: 'heading',
       type: 'array',
-      title: 'Tytuł',
+      title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy')
-    }),
-    defineField({
-      name: 'subtitle',
-      type: 'string',
-      title: 'Podtytuł',
-      initialValue: 'Page 404',
-      validation: Rule => Rule.required()
+      validation: (Rule) =>
+        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'cta',
       type: 'cta',
       title: 'Wezwanie do działania',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'images',
       type: 'array',
       title: 'Zdjęcia',
-      of: [{ type: 'image' }],
-      validation: Rule => Rule.required().length(2).error('Należy dodać 2 zdjęcia.')
-    })
+      of: [{type: 'image'}],
+      validation: (Rule) => Rule.required().length(2).error('Należy dodać 2 zdjęcia.'),
+    }),
   ],
   preview: {
     select: {
-      heading: 'heading'
+      heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
       icon,
     }),
   },
-});
+})
