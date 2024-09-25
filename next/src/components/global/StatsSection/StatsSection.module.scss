@@ -1,0 +1,62 @@
+.StatsSection {
+  display: grid;
+  justify-items: center;
+  gap: clamp(48px, calc(80vw / 7.68), 128px);
+
+  header {
+    width: min(100%, 1053px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    h1,
+    h2 {
+      width: min(100%, 295px);
+      font-size: 18px;
+      line-height: 1.42;
+      letter-spacing: 0.72px;
+
+      @media screen and (min-width: 1060px) {
+        padding-top: 12px;
+      }
+    }
+
+    .text {
+      width: min(100%, 585px);
+      display: grid;
+      gap: clamp(16px, calc(16vw / 7.68), 28px);
+
+      @media screen and (min-width: 768px) {
+        width: clamp(585px, calc(585vw / 7.68), 649px);
+      }
+    }
+  }
+
+  .numbers {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(24px, calc(24vw / 7.68), 32px);
+    justify-self: stretch;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    li {
+      display: grid;
+      gap: clamp(12px, calc(20vw / 7.68), 36px);
+
+      @media screen and (min-width: 1366px) {
+        gap: 36px;
+      }
+
+      span:first-child {
+        word-break: break-all;
+      }
+    }
+  }
+}

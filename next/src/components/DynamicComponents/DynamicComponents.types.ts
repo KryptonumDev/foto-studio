@@ -7,6 +7,7 @@ import type { ReviewsSectionTypes } from '@/components/global/ReviewsSection';
 import type { FeaturedPostsSectionTypes } from '@/components/global/FeaturedPostsSection';
 import type { IntroHeaderTypes } from '@/components/global/IntroHeader';
 import type { ImageSliderTypes } from '@/components/global/ImageSlider';
+import type { StatsSectionTypes } from '@/components/global/StatsSection';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -18,6 +19,7 @@ export type ComponentsMapTypes = {
   FeaturedPostsSection: FeaturedPostsSectionTypes;
   IntroHeader: IntroHeaderTypes;
   ImageSlider: ImageSliderTypes;
+  StatsSection: StatsSectionTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {
