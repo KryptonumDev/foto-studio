@@ -9,6 +9,7 @@ import type { IntroHeaderTypes } from '@/components/global/IntroHeader';
 import type { ImageSliderTypes } from '@/components/global/ImageSlider';
 import type { StatsSectionTypes } from '@/components/global/StatsSection';
 import type { NotFoundSectionTypes } from '@/components/global/NotFoundSection';
+import type { HeroSectionTypes } from '@/components/global/HeroSection';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -22,6 +23,7 @@ export type ComponentsMapTypes = {
   ImageSlider: ImageSliderTypes;
   StatsSection: StatsSectionTypes;
   NotFoundSection: NotFoundSectionTypes;
+  HeroSection: HeroSectionTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {
