@@ -13,6 +13,7 @@ export const SimpleListAndImage_Query = `
     },
     img {
       ${ImgData_Query}
-    }
+    },
+    imagePosition
   },
 `;

@@ -7,10 +7,12 @@ import Text from '@/components/ui/Text';
 
 import styles from './SimpleListAndImage.module.scss';
 
-export default function SimpleListAndImage({ index, heading, list, img }: SimpleListAndImageTypes) {
+export default function SimpleListAndImage({ index, heading, list, img, imagePosition }: SimpleListAndImageTypes) {
   return (
-    <section className={`${styles['SimpleListAndImage']} max-width mb`}>
-      <div>
+    <section
+      className={`${styles['SimpleListAndImage']} ${imagePosition === 'left' ? styles.left : styles.right} max-width mb`}
+    >
+      <div className={styles.content}>
         <header>
           <Heading
             tag={index === 0 ? 'h1' : 'h2'}

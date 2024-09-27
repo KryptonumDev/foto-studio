@@ -7,6 +7,30 @@
 
   @media screen and (min-width: 1366px) {
     gap: 0;
+
+    .content {
+      width: 725px;
+    }
+  }
+
+  &.left {
+    .image {
+      order: 1;
+    }
+
+    .content {
+      order: 2;
+    }
+  }
+
+  &.right {
+    .image {
+      order: 2;
+    }
+
+    .content {
+      order: 1;
+    }
   }
 
   header {

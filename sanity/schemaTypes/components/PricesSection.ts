@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock, TextBlock} from '../../custom/TextBlock'
 
-const title = 'Sekcja z cennikiem';
-const icon = () => '💵';
+const title = 'Sekcja z cennikiem'
+const icon = () => '💵'
 
 export default defineField({
   name: 'PricesSection',
@@ -16,14 +16,15 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy")
+      validation: (Rule) =>
+        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'paragraph',
       type: 'array',
       title: 'Paragraf',
       of: [TextBlock],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'list',
@@ -38,18 +39,19 @@ export default defineField({
               type: 'array',
               title: 'Nazwa',
               of: [SimpleTextBlock],
-              validation: Rule => Rule.required().length(1).error("Nazwa musi zawierać jeden blok tekstowy."),
+              validation: (Rule) =>
+                Rule.required().length(1).error('Nazwa musi zawierać jeden blok tekstowy.'),
             }),
             defineField({
               name: 'priceLabel',
               type: 'string',
               title: 'Informacja o cenie',
-              validation: Rule => Rule.required(),
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: 'img',
               type: 'image',
-              title: 'Zdjęcie (opcjonalne)'
+              title: 'Zdjęcie (opcjonalne)',
             }),
             defineField({
               name: 'description',
@@ -61,44 +63,43 @@ export default defineField({
                   type: 'array',
                   title: 'Główna treść',
                   of: [TextBlock],
-                  validation: Rule => Rule.required()
+                  validation: (Rule) => Rule.required(),
                 }),
                 defineField({
                   name: 'additionalInfo',
                   type: 'array',
-                  title: 'Dodatkowe informacje',
+                  title: 'Dodatkowe informacje (opcjonalne)',
                   of: [TextBlock],
-                  validation: Rule => Rule.required()
-                })
+                }),
               ],
-              options: { collapsible: true, collapsed: true },
-              validation: Rule => Rule.required(),
+              options: {collapsible: true, collapsed: true},
+              validation: (Rule) => Rule.required(),
               preview: {
                 select: {
-                  title: 'mainText'
-                }
-              }
-            })
+                  title: 'mainText',
+                },
+              },
+            }),
           ],
           preview: {
             select: {
               title: 'name',
-              subtitle: 'priceLabel'
-            }
+              subtitle: 'priceLabel',
+            },
           },
         },
       ],
-      validation: Rule => Rule.required(),
-    })
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
-      heading: 'heading'
+      heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
-      icon
-    })
-  }
-});
+      icon,
+    }),
+  },
+})

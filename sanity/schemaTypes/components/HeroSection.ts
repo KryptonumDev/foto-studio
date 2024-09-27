@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { SimpleTextBlock } from '../../custom/TextBlock';
-import { toPlainText } from '../../utils/toPlainText';
+import {defineField} from 'sanity'
+import {SimpleTextBlock} from '../../custom/TextBlock'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja HERO';
-const icon = () => '📄🖼️';
+const title = 'Sekcja HERO'
+const icon = () => '📄🖼️'
 
 export default defineField({
   name: 'HeroSection',
@@ -17,57 +17,59 @@ export default defineField({
       title: 'Zawartość (po lewej stronie)',
       fields: [
         defineField({
-          name: 'title',
+          name: 'heading',
           type: 'array',
-          title: 'Tytuł',
+          title: 'Nagłówek',
           of: [SimpleTextBlock],
-          validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
+          validation: (Rule) =>
+            Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
           name: 'img',
           type: 'image',
           title: 'Zdjęcie',
-          validation: Rule => Rule.required()
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'paragraph',
           type: 'array',
           title: 'Paragraf',
           of: [SimpleTextBlock],
-          validation: Rule => Rule.required()
+          validation: (Rule) =>
+            Rule.required().length(1).error('Paragraf musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
           name: 'cta',
           type: 'cta',
           title: 'Wezwanie do działania',
-          validation: Rule => Rule.required()
+          validation: (Rule) => Rule.required(),
         }),
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
       preview: {
         select: {
-          title: 'title',
+          title: 'heading',
           subtitle: 'paragraph',
-          media: 'img'
-        }
-      }
+          media: 'img',
+        },
+      },
     }),
     defineField({
       name: 'sideImg',
       type: 'image',
       title: 'Obrazek (po prawej stronie)',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
-      subtitle: 'content.title',   
-      media: 'sideImg'
+      heading: 'content.heading',
+      sideImg: 'sideImg',
     },
-    prepare: ({ subtitle, media }) => ({
+    prepare: ({heading, sideImg}) => ({
       title,
-      subtitle: toPlainText(subtitle),
-      media
-    })
-  }
-});
+      subtitle: toPlainText(heading),
+      media: sideImg,
+    }),
+  },
+})

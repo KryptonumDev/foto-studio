@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock, TextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
+import {SimpleTextBlock, TextBlock} from '../../custom/TextBlock'
 
-const title = 'Sekcja z ofertą stacjonarną';
-const icon = () => '🖼️📄';
+const title = 'Sekcja z ofertą stacjonarną'
+const icon = () => '🖼️📄'
 
 export default defineField({
   name: 'StationaryOfferSection',
@@ -17,17 +17,18 @@ export default defineField({
       title: 'Zawartość (po prawej stronie)',
       fields: [
         defineField({
-          name: 'title',
+          name: 'heading',
           type: 'array',
-          title: 'Tytuł',
+          title: 'Nagłówek',
           of: [SimpleTextBlock],
-          validation: Rule => Rule.required().length(1).error('Tytuł musi zawierać jeden blok tekstowy.'),
+          validation: (Rule) =>
+            Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
         }),
         defineField({
           name: 'cta',
           type: 'cta',
           title: 'Wezwanie do działania',
-          validation: Rule => Rule.required()
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'description',
@@ -35,53 +36,54 @@ export default defineField({
           title: 'Opis',
           fields: [
             defineField({
-              name: 'mainText',
+              name: 'heading',
               type: 'array',
-              title: 'Główna treść',
-              of: [TextBlock],
-              validation: Rule => Rule.required()
+              title: 'Nagłówek (dla opisu)',
+              of: [SimpleTextBlock],
+              validation: (Rule) =>
+                Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
             }),
             defineField({
-              name: 'additionalInfo',
+              name: 'text',
               type: 'array',
-              title: 'Dodatkowe informacje',
+              title: 'Treść',
               of: [TextBlock],
-              validation: Rule => Rule.required()
-            })
+              validation: (Rule) => Rule.required(),
+            }),
           ],
-          options: { collapsible: true, collapsed: true },
-          validation: Rule => Rule.required(),
+          options: {collapsible: true, collapsed: true},
+          validation: (Rule) => Rule.required(),
           preview: {
             select: {
-              title: 'mainText'
-            }
-          }
+              title: 'heading',
+            },
+          },
         }),
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
       preview: {
         select: {
-          title: 'title',
-          icon: '📄'
-        }
-      }
+          title: 'heading',
+          icon: '📄',
+        },
+      },
     }),
     defineField({
       name: 'sideImg',
       type: 'image',
       title: 'Obrazek (po lewej stronie)',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
-      subtitle: 'content.title',   
-      media: 'sideImg'
+      heading: 'content.heading',
+      sideImg: 'sideImg',
     },
-    prepare: ({ subtitle, media }) => ({
+    prepare: ({heading, sideImg}) => ({
       title,
-      subtitle: toPlainText(subtitle),
-      media
-    })
-  }
-});
+      subtitle: toPlainText(heading),
+      media: sideImg,
+    }),
+  },
+})

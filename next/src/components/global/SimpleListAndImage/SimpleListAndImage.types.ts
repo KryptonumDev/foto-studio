@@ -9,4 +9,5 @@ export type SimpleListAndImageTypes = {
     text: PortableTextBlock[];
   }[];
   img: ImgTypes;
+  imagePosition: string;
 };
