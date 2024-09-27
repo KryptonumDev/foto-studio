@@ -22,7 +22,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
           <Img
             data={img}
             priority={index === 0}
-            sizes=''
+            sizes='(min-width: 1366px) 294px, (min-width: 768px) 31vw, 156px'
           />
           <div className={styles.text}>
             <Text
@@ -37,7 +37,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
         className={styles.sideImg}
         data={sideImg}
         priority={index === 0}
-        sizes=''
+        sizes='(min-width: 768px) 510px, 43vw'
       />
     </section>
   );

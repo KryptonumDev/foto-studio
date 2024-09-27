@@ -115,13 +115,10 @@ img {
   object-fit: cover;
 }
 
+ol,
 ul {
-  list-style-type: circle;
-  padding-left: 20px;
-}
-
-ol {
   list-style: none;
+  padding: 0;
 }
 
 input,
@@ -220,4 +217,20 @@ h1 {
 
 .mb {
   margin-bottom: var(--section-margin-bottom);
+}
+
+.circle-marker li {
+  display: grid;
+  grid-template-columns: 8px auto;
+  gap: 8px;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-top: 10px;
+    border-radius: 50%;
+    outline: 1px solid var(--primary-600);
+    outline-offset: -1px;
+  }
 }

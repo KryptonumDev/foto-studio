@@ -23,7 +23,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
   useEffect(() => {
     document.addEventListener('keydown', handleEscapeKey);
     document.addEventListener('scroll', scrollHandler);
-
+    scrollHandler();
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
       document.removeEventListener('scroll', scrollHandler);

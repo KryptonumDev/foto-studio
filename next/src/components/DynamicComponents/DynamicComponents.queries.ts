@@ -10,6 +10,7 @@ import { ImageSlider_Query } from '@/components/global/ImageSlider';
 import { StatsSection_Query } from '@/components/global/StatsSection';
 import { NotFoundSection_Query } from '@/components/global/NotFoundSection';
 import { HeroSection_Query } from '@/components/global/HeroSection';
+import { PricesSection_Query } from '@/components/global/PricesSection';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -26,5 +27,6 @@ export const DynamicComponents_Query = `
     ${StatsSection_Query}
     ${NotFoundSection_Query}
     ${HeroSection_Query}
+    ${PricesSection_Query}
   }
 `;

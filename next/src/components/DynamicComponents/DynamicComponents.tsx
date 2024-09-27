@@ -12,6 +12,7 @@ import ImageSlider, { type ImageSliderTypes } from '@/components/global/ImageSli
 import StatsSection, { type StatsSectionTypes } from '@/components/global/StatsSection';
 import NotFoundSection, { type NotFoundSectionTypes } from '@/components/global/NotFoundSection';
 import HeroSection, { type HeroSectionTypes } from '@/components/global/HeroSection';
+import PricesSection, { type PricesSectionTypes } from '@/components/global/PricesSection';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -26,6 +27,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   StatsSection: props => <StatsSection {...(props as StatsSectionTypes)} />,
   NotFoundSection: props => <NotFoundSection {...(props as NotFoundSectionTypes)} />,
   HeroSection: props => <HeroSection {...(props as HeroSectionTypes)} />,
+  PricesSection: props => <PricesSection {...(props as PricesSectionTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {
