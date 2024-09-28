@@ -77,10 +77,7 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
           {list.map(({ text, _key }, i) => (
             <li key={_key}>
               <span>{`[${addLeadingZero(i + 1)}]`}</span>
-              <Text
-                tag='p'
-                value={text}
-              />
+              <Text value={text} />
             </li>
           ))}
         </motion.ol>

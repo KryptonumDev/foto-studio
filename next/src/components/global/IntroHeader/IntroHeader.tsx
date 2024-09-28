@@ -13,12 +13,7 @@ export default function IntroHeader({ index, heading, paragraph }: IntroHeaderTy
         value={heading}
         className='large-text'
       />
-      {paragraph && (
-        <Text
-          tag='p'
-          value={paragraph}
-        />
-      )}
+      {paragraph && <Text value={paragraph} />}
     </header>
   );
 }

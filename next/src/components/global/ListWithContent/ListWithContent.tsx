@@ -29,10 +29,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
                 className='large-text'
               />
             </header>
-            <Text
-              tag='p'
-              value={paragraph}
-            />
+            <Text value={paragraph} />
           </li>
         ))}
       </ol>

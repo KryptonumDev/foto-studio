@@ -34,10 +34,7 @@ export default function AboutSection({
             className='small-heading'
           />
           <div className={styles.text}>
-            <Text
-              tag='p'
-              value={paragraph}
-            />
+            <Text value={paragraph} />
           </div>
         </div>
       </div>

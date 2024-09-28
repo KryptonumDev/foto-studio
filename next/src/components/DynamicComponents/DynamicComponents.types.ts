@@ -11,6 +11,7 @@ import type { StatsSectionTypes } from '@/components/global/StatsSection';
 import type { NotFoundSectionTypes } from '@/components/global/NotFoundSection';
 import type { HeroSectionTypes } from '@/components/global/HeroSection';
 import type { PricesSectionTypes } from '@/components/global/PricesSection';
+import type { StationaryOfferSectionTypes } from '@/components/global/StationaryOfferSection';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -26,6 +27,7 @@ export type ComponentsMapTypes = {
   NotFoundSection: NotFoundSectionTypes;
   HeroSection: HeroSectionTypes;
   PricesSection: PricesSectionTypes;
+  StationaryOfferSection: StationaryOfferSectionTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

@@ -1,4 +1,4 @@
-import { ImgTypes } from '@/components/ui/Img';
+import type { ImgTypes } from '@/components/ui/Img';
 import type { PortableTextBlock } from 'next-sanity';
 
 export type PricesSectionTypes = {

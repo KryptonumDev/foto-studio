@@ -25,10 +25,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
             sizes='(min-width: 1366px) 294px, (min-width: 768px) 31vw, 156px'
           />
           <div className={styles.text}>
-            <Text
-              value={paragraph}
-              tag='p'
-            />
+            <Text value={paragraph} />
             <Button data={cta} />
           </div>
         </div>

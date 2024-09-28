@@ -11,6 +11,7 @@ import { StatsSection_Query } from '@/components/global/StatsSection';
 import { NotFoundSection_Query } from '@/components/global/NotFoundSection';
 import { HeroSection_Query } from '@/components/global/HeroSection';
 import { PricesSection_Query } from '@/components/global/PricesSection';
+import { StationaryOfferSection_Query } from '@/components/global/StationaryOfferSection';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -28,5 +29,6 @@ export const DynamicComponents_Query = `
     ${NotFoundSection_Query}
     ${HeroSection_Query}
     ${PricesSection_Query}
+    ${StationaryOfferSection_Query}
   }
 `;

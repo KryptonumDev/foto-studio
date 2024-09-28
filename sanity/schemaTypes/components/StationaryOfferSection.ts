@@ -36,26 +36,24 @@ export default defineField({
           title: 'Opis',
           fields: [
             defineField({
-              name: 'heading',
+              name: 'mainText',
               type: 'array',
-              title: 'Nagłówek (dla opisu)',
-              of: [SimpleTextBlock],
-              validation: (Rule) =>
-                Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
-            }),
-            defineField({
-              name: 'text',
-              type: 'array',
-              title: 'Treść',
+              title: 'Główna treść',
               of: [TextBlock],
               validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'additionalInfo',
+              type: 'array',
+              title: 'Dodatkowe informacje (opcjonalne)',
+              of: [TextBlock],
             }),
           ],
           options: {collapsible: true, collapsed: true},
           validation: (Rule) => Rule.required(),
           preview: {
             select: {
-              title: 'heading',
+              title: 'mainText',
             },
           },
         }),

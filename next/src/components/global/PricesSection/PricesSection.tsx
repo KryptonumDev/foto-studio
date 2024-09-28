@@ -15,10 +15,7 @@ export default function PricesSection({ index, heading, paragraph, list }: Price
           tag={index === 0 ? 'h1' : 'h2'}
           className='small-heading'
         />
-        <Text
-          value={paragraph}
-          tag='p'
-        />
+        <Text value={paragraph} />
       </header>
       <ul className={styles.list}>
         {list.map(({ name, priceLabel, img, description: { mainText, additionalInfo } }, i) => (
@@ -35,16 +32,10 @@ export default function PricesSection({ index, heading, paragraph, list }: Price
               />
             </header>
             <div className={styles.content}>
-              <Text
-                value={mainText}
-                tag='p'
-              />
+              <Text value={mainText} />
               {additionalInfo && (
                 <div className={`${styles.info} light-text`}>
-                  <Text
-                    value={additionalInfo}
-                    tag='p'
-                  />
+                  <Text value={additionalInfo} />
                 </div>
               )}
             </div>

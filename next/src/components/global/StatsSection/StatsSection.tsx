@@ -16,10 +16,7 @@ export default function StatsSection({ index, heading, paragraph, list }: StatsS
           className='small-heading'
         />
         <div className={styles.text}>
-          <Text
-            tag='p'
-            value={paragraph}
-          />
+          <Text value={paragraph} />
         </div>
       </header>
       <ul className={styles.numbers}>
