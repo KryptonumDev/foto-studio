@@ -31,4 +31,4 @@ export type SliderPropsTypes = {
 export type SlidesPropsTypes = {
   children: React.ReactNode;
   className?: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;

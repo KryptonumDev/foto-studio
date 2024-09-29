@@ -33,6 +33,7 @@
   }
 
   .container {
+    cursor: none;
     display: flex;
     touch-action: pan-y pinch-zoom;
   }

@@ -38,11 +38,14 @@ export default function Slider({ children, align, activeSlideClassName = '' }: S
   );
 }
 
-Slider.Slides = function SliderSlides({ children, className = '' }: SlidesPropsTypes) {
+Slider.Slides = function SliderSlides({ children, className = '', ...props }: SlidesPropsTypes) {
   const { emblaRef } = useContext(SliderContext);
 
   return (
-    <div ref={emblaRef}>
+    <div
+      ref={emblaRef}
+      {...props}
+    >
       <div className={`embla__container ${className}`}>{children}</div>
     </div>
   );

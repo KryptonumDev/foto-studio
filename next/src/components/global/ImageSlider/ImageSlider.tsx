@@ -1,34 +1,55 @@
 'use client';
+import { useRef, useState } from 'react';
 import type { ImageSliderTypes } from './ImageSlider.types';
 
+import Cursor from '@/components/ui/Cursor';
 import Slider from '@/components/ui/Slider';
 import Img from '@/components/ui/Img';
 
 import styles from './ImageSlider.module.scss';
 
 export default function ImageSlider({ index, images }: ImageSliderTypes) {
+  const ref = useRef<HTMLElement>(null);
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
-    <section className={styles['ImageSlider']}>
-      <Slider>
-        <Slider.Slides className={styles.container}>
-          {images.map((data, i) => (
-            <div
-              key={`image-slide-${i}`}
-              className={`embla__slide ${styles.slide}`}
+    <>
+      <Cursor
+        trackingAreaRef={ref}
+        active={isHovering}
+        text='przewiń'
+      />
+      <section
+        ref={ref}
+        className={styles['ImageSlider']}
+      >
+        <Slider>
+          <div style={{ cursor: 'none' }}>
+            <Slider.Slides
+              className={styles.container}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             >
-              <Img
-                data={data}
-                priority={index === 0}
-                sizes={getSizes(i + 1)}
-              />
-            </div>
-          ))}
-        </Slider.Slides>
-        <div className={`${styles.controls} max-width`}>
-          <Slider.Controls />
-        </div>
-      </Slider>
-    </section>
+              {images.map((data, i) => (
+                <div
+                  key={`image-slide-${i}`}
+                  className={`embla__slide ${styles.slide}`}
+                >
+                  <Img
+                    data={data}
+                    priority={index === 0}
+                    sizes={getSizes(i + 1)}
+                  />
+                </div>
+              ))}
+            </Slider.Slides>
+          </div>
+          <div className={`${styles.controls} max-width`}>
+            <Slider.Controls />
+          </div>
+        </Slider>
+      </section>
+    </>
   );
 }
 
