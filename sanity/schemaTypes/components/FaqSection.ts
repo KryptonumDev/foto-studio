@@ -1,9 +1,9 @@
-import { defineField } from 'sanity';
-import { SimpleTextBlock } from '../../custom/TextBlock';
-import { toPlainText } from '../../utils/toPlainText';
+import {defineField} from 'sanity'
+import {SimpleTextBlock} from '../../custom/TextBlock'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja FAQ';
-const icon = () => '❓';
+const title = 'Sekcja FAQ'
+const icon = () => '❓'
 
 export default defineField({
   name: 'FaqSection',
@@ -16,25 +16,24 @@ export default defineField({
       type: 'array',
       title: 'Nagłówek',
       of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error('Nagłówek może zawierać jeden blok tekstowy'),
+      validation: (Rule) =>
+        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'list',
       type: 'array',
-      of: [
-        { type: 'reference', to: { type: 'FaqCollection' } }
-      ],
-      validation: Rule => Rule.required(),
+      of: [{type: 'reference', to: {type: 'FaqCollection'}}],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
-    select: { 
-      heading: 'heading'
+    select: {
+      heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
-      icon
-    })
+      icon,
+    }),
   },
-});
+})

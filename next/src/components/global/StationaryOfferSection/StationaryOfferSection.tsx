@@ -22,7 +22,7 @@ export default function StationaryOfferSection({
         className={styles.sideImg}
         data={sideImg}
         priority={index === 0}
-        sizes=''
+        sizes='(min-width: 1366px) 404px, (min-width: 768px) 30.8vw, 155px'
       />
       <div className={styles.container}>
         <header>
