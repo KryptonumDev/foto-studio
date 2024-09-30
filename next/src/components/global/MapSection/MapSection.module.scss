@@ -1,0 +1,49 @@
+.MapSection {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(24px, calc(32vw / 7.68), 32px);
+
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: 727px auto;
+    }
+
+    address {
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      justify-items: flex-start;
+      align-items: flex-start;
+      gap: 4px;
+
+      @media screen and (min-width: 500px) {
+        gap: clamp(4px, calc(12vw / 7.68), 16px);
+      }
+
+      @media screen and (min-width: 1200px) {
+        padding-top: 12px;
+      }
+
+      a {
+        margin-block: 11px;
+        @media screen and (min-width: 768px) {
+          margin-block: 8px;
+        }
+      }
+    }
+  }
+
+  .map {
+    width: 100%;
+    height: clamp(179px, calc(367vw / 7.68), 695px);
+    margin-bottom: clamp(36px, calc(36vw / 7.68), 42px);
+
+    iframe {
+      border: 0;
+    }
+
+    @media screen and (min-width: 1366px) {
+      height: 695px;
+    }
+  }
+}

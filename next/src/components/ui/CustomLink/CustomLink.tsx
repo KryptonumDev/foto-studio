@@ -3,7 +3,7 @@ import type { CustomLinkTypes } from './CustomLink.types';
 
 import styles from './CustomLink.module.scss';
 
-export default async function CustomLink({ href, text, className = '', ...props }: CustomLinkTypes) {
+export default async function CustomLink({ href, text, withArrow = true, className = '', ...props }: CustomLinkTypes) {
   const isExternal = href.startsWith('https://');
   const Element = isExternal ? 'a' : Link;
 
@@ -15,7 +15,7 @@ export default async function CustomLink({ href, text, className = '', ...props 
       {...props}
     >
       <span>{text}</span>
-      <ArrowIcon className={styles.icon} />
+      {withArrow && <ArrowIcon className={styles.icon} />}
     </Element>
   );
 }

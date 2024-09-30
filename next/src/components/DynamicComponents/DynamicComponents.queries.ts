@@ -13,6 +13,7 @@ import { HeroSection_Query } from '@/components/global/HeroSection';
 import { PricesSection_Query } from '@/components/global/PricesSection';
 import { StationaryOfferSection_Query } from '@/components/global/StationaryOfferSection';
 import { InlineImageHeader_Query } from '@/components/global/InlineImageHeader';
+import { MapSection_Query } from '@/components/global/MapSection';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -32,5 +33,6 @@ export const DynamicComponents_Query = `
     ${PricesSection_Query}
     ${StationaryOfferSection_Query}
     ${InlineImageHeader_Query}
+    ${MapSection_Query}
   }
 `;
