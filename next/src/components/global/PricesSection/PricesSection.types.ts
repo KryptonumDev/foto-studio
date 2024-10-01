@@ -5,10 +5,10 @@ export type PricesSectionTypes = {
   index: number;
   heading: PortableTextBlock[];
   paragraph: PortableTextBlock[];
+  img: ImgTypes;
   list: {
     name: PortableTextBlock[];
     priceLabel: string;
-    img: ImgTypes;
     description: {
       mainText: PortableTextBlock[];
       additionalInfo: PortableTextBlock[];

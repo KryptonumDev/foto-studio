@@ -1,4 +1,6 @@
 .PricesSection {
+  position: relative;
+
   .header {
     margin-bottom: clamp(64px, calc(80vw / 7.68), 128px);
     display: flex;
@@ -24,6 +26,26 @@
       max-width: 295px;
     }
   }
+
+  .img {
+    position: absolute;
+    transform: rotate(-27.85deg);
+    width: 113px;
+    height: 147px;
+    top: 130px;
+    right: -35px;
+
+    @media screen and (min-width: 768px) {
+      width: 138px;
+      height: 180px;
+      top: 350px;
+      right: calc(60vw / 7.68);
+    }
+
+    @media screen and (min-width: 1366px) {
+      left: 415px;
+    }
+  }
 }
 
 .list {
@@ -31,7 +53,6 @@
   gap: clamp(48px, calc(64vw / 7.68), 64px);
 
   .listItem {
-    position: relative;
     display: grid;
     align-items: start;
     gap: clamp(12px, calc(16vw / 7.68), 32px);
@@ -39,27 +60,6 @@
     @media screen and (min-width: 1366px) {
       grid-template-columns: 618px auto;
       gap: 32px;
-    }
-
-    .img {
-      position: absolute;
-      transform: rotate(-27.85deg);
-      width: 113px;
-      height: 147px;
-      top: -35px;
-      right: -35px;
-
-      @media screen and (min-width: 768px) {
-        width: 138px;
-        height: 180px;
-        top: 120px;
-        right: calc(60vw / 7.68);
-      }
-
-      @media screen and (min-width: 1366px) {
-        top: 145px;
-        left: 415px;
-      }
     }
 
     header span {

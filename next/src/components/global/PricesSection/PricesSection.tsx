@@ -6,7 +6,7 @@ import Img from '@/components/ui/Img';
 
 import styles from './PricesSection.module.scss';
 
-export default function PricesSection({ index, heading, paragraph, list }: PricesSectionTypes) {
+export default function PricesSection({ index, heading, paragraph, list, img }: PricesSectionTypes) {
   return (
     <section className={`${styles['PricesSection']} max-width mb`}>
       <header className={styles.header}>
@@ -17,8 +17,16 @@ export default function PricesSection({ index, heading, paragraph, list }: Price
         />
         <Text value={paragraph} />
       </header>
+      {img && (
+        <Img
+          data={img}
+          priority={index === 0}
+          sizes='(min-width: 768px) 138px, 113px'
+          className={styles.img}
+        />
+      )}
       <ul className={styles.list}>
-        {list.map(({ name, priceLabel, img, description: { mainText, additionalInfo } }, i) => (
+        {list.map(({ name, priceLabel, description: { mainText, additionalInfo } }, i) => (
           <li
             key={`prices-section-${i}`}
             className={styles.listItem}
@@ -39,14 +47,6 @@ export default function PricesSection({ index, heading, paragraph, list }: Price
                 </div>
               )}
             </div>
-            {img && (
-              <Img
-                data={img}
-                priority={index === 0}
-                sizes='(min-width: 768px) 138px, 113px'
-                className={styles.img}
-              />
-            )}
           </li>
         ))}
       </ul>

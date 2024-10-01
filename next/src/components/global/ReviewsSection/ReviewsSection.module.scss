@@ -25,9 +25,12 @@
 
     p,
     h3 {
-      display: none;
+      visibility: hidden;
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
+
       &.active {
-        display: block;
+        visibility: visible;
       }
     }
   }
@@ -82,7 +85,7 @@
   display: grid;
   place-items: center;
 
-  & > div {
+  > div {
     max-width: 324px;
     @media screen and (min-width: 1366px) {
       max-width: 284px;

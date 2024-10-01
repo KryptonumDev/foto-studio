@@ -21,17 +21,17 @@ export default function Carousel({ index, list }: CarouselTypes) {
         text='zobacz'
       />
       <Slider>
-        <div ref={ref}>
+        <Slider.Observer ref={ref}>
           <Slider.Slides className={styles.container}>
             {list.map(({ image, slug, _id }) => (
               <Link
                 key={_id}
                 href={`/blog/${slug}`}
                 className={`${styles.slide} embla__slide`}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
               >
                 <Img
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
                   data={image}
                   priority={index === 0}
                   sizes='(min-width: 1366px) 433px, (min-width: 768px) 672px, 328px'
@@ -39,7 +39,7 @@ export default function Carousel({ index, list }: CarouselTypes) {
               </Link>
             ))}
           </Slider.Slides>
-        </div>
+        </Slider.Observer>
         <div className={styles.controls}>
           <Slider.Controls />
         </div>

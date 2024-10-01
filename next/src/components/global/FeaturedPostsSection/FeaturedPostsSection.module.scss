@@ -18,17 +18,24 @@
     padding-left: var(--slide-spacing);
     overflow: hidden;
     min-width: 0;
+    cursor: none;
 
     @media screen and (min-width: 1270px) {
       --slide-size: min(calc(433vw / 13.66), 433px);
       --slide-height: 450px;
     }
 
+    &:focus-visible {
+      outline: none;
+      img {
+        border: 2px solid var(--primary-600);
+      }
+    }
+
     img {
       width: 100%;
       object-position: top;
       height: var(--slide-height);
-      cursor: none;
     }
   }
 }
@@ -37,7 +44,7 @@
   display: grid;
   place-items: center;
 
-  & > div {
+  > div {
     max-width: 324px;
   }
 }

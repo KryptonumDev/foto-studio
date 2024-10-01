@@ -9,7 +9,7 @@ import Img from '@/components/ui/Img';
 import styles from './ImageSlider.module.scss';
 
 export default function ImageSlider({ index, images }: ImageSliderTypes) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
   return (
@@ -19,12 +19,12 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
         active={isHovering}
         text='przewiń'
       />
-      <section
-        ref={ref}
-        className={styles['ImageSlider']}
-      >
+      <section className={styles['ImageSlider']}>
         <Slider>
-          <div style={{ cursor: 'none' }}>
+          <Slider.Observer
+            ref={ref}
+            className={styles.wrapper}
+          >
             <Slider.Slides
               className={styles.container}
               onMouseEnter={() => setIsHovering(true)}
@@ -43,7 +43,7 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
                 </div>
               ))}
             </Slider.Slides>
-          </div>
+          </Slider.Observer>
           <div className={`${styles.controls} max-width`}>
             <Slider.Controls />
           </div>

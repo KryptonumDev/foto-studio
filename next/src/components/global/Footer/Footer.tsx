@@ -37,13 +37,6 @@ export default async function Footer() {
             {KryptonumLogo}
           </a>
         </p>
-        <CustomLink
-          href={privacyPolicy}
-          className={styles.privacyPolicy}
-          text='Polityka prywatności'
-          target='_blank'
-          rel='noreferrer'
-        />
         <ul className={styles.socialMedia}>
           {Object.entries(socials).map(([platform, url]) => (
             <li key={platform}>
@@ -54,6 +47,13 @@ export default async function Footer() {
             </li>
           ))}
         </ul>
+        <CustomLink
+          href={privacyPolicy}
+          className={styles.privacyPolicy}
+          text='Polityka prywatności'
+          target='_blank'
+          rel='noreferrer'
+        />
       </div>
     </footer>
   );

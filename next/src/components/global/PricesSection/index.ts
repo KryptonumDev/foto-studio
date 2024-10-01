@@ -7,12 +7,12 @@ export const PricesSection_Query = `
   _type == "PricesSection" => {
     heading,
     paragraph,
+    img {
+      ${ImgData_Query}
+    },
     list[] {
       name,
       priceLabel,
-      img {
-        ${ImgData_Query}
-      },
       description {
         mainText,
         additionalInfo

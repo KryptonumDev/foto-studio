@@ -1,10 +1,16 @@
 'use client';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, forwardRef, RefObject, useEffect } from 'react';
 import UseEmblaCarousel from 'embla-carousel-react';
 import ClassNames from 'embla-carousel-class-names';
 
-import type { SliderPropsTypes, SliderStateTypes, SliderContextTypes, SlidesPropsTypes } from './Slider.types';
-import { useNavigation, usePagination } from './hooks';
+import type {
+  SliderPropsTypes,
+  SliderStateTypes,
+  SliderContextTypes,
+  SlidesPropsTypes,
+  ObserverPropsTypes,
+} from './Slider.types';
+import { useIntersection, useNavigation, usePagination } from './hooks';
 
 import styles from './Slider.module.scss';
 
@@ -37,6 +43,32 @@ export default function Slider({ children, align, activeSlideClassName = '' }: S
     </SliderContext.Provider>
   );
 }
+
+Slider.Observer = forwardRef<HTMLDivElement, ObserverPropsTypes>(function Observer({ children, className = '' }, ref) {
+  const { onPrevButtonClick, onNextButtonClick } = useContext(SliderContext);
+  const isIntersecting = useIntersection({ containerRef: ref as RefObject<HTMLDivElement> });
+
+  useEffect(() => {
+    function keydownHandler(e: KeyboardEvent) {
+      if (e.key === 'ArrowLeft') onPrevButtonClick();
+      else if (e.key === 'ArrowRight') onNextButtonClick();
+    }
+
+    if (isIntersecting) document.addEventListener('keydown', keydownHandler);
+    else document.removeEventListener('keydown', keydownHandler);
+
+    return () => document.removeEventListener('keydown', keydownHandler);
+  }, [isIntersecting]);
+
+  return (
+    <div
+      className={className}
+      ref={ref}
+    >
+      {children}
+    </div>
+  );
+});
 
 Slider.Slides = function SliderSlides({ children, className = '', ...props }: SlidesPropsTypes) {
   const { emblaRef } = useContext(SliderContext);

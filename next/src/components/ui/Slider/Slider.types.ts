@@ -1,5 +1,10 @@
+import { RefObject } from 'react';
 import type { EmblaOptionsType } from 'embla-carousel';
 import type { EmblaViewportRefType } from 'embla-carousel-react';
+
+export type useIntersectionTypes = {
+  containerRef: RefObject<HTMLDivElement>;
+};
 
 export type UsePrevNextButtonsTypes = {
   prevBtnDisabled: boolean;
@@ -27,6 +32,11 @@ export type SliderStateTypes = {
 export type SliderPropsTypes = {
   children: React.ReactNode;
 } & SliderStateTypes;
+
+export type ObserverPropsTypes = {
+  children: React.ReactNode;
+  className?: string;
+};
 
 export type SlidesPropsTypes = {
   children: React.ReactNode;

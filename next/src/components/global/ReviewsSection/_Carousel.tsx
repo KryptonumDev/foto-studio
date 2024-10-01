@@ -21,9 +21,9 @@ export default function Carousel({ list, index }: CarouselTypes) {
         text='przewiń'
       />
       <Slider activeSlideClassName={styles['isActive']}>
-        <div
-          className={styles['wrapper']}
+        <Slider.Observer
           ref={ref}
+          className={styles.wrapper}
         >
           <Slider.Details>
             {activeIndex => (
@@ -71,7 +71,7 @@ export default function Carousel({ list, index }: CarouselTypes) {
               </div>
             )}
           </Slider.Details>
-        </div>
+        </Slider.Observer>
         <div className={`max-width ${styles.controls}`}>
           <Slider.Controls />
         </div>

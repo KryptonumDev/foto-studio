@@ -9,6 +9,10 @@
     height: 44px;
     display: grid;
     place-items: center;
+
+    &:focus-visible {
+      outline-offset: -1px;
+    }
   }
 
   .dots {

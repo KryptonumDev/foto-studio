@@ -31,7 +31,7 @@ export default function Cursor({ trackingAreaRef, text, active }: CursorTypes) {
   return (
     <motion.div
       style={{ x: cursorXSpring, y: cursorYSpring }}
-      initial={{ scale: 0 }}
+      initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: active ? 1 : 0, opacity: active ? 1 : 0 }}
       transition={{ duration: 0.1, delay: 0.15 }}
       className={styles['Cursor']}
