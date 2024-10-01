@@ -10,7 +10,7 @@ export const ReviewsSection_Query = `
       _id,
       title,
       content,
-      image {
+      img {
         ${ImgData_Query}
       }
     }

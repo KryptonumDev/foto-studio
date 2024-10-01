@@ -1,10 +1,9 @@
 import {defineField, defineType} from 'sanity'
 import type {SanityDocument} from 'sanity/migrate'
 
-import {validateSlug} from '../../../utils/customValidations'
-import {slugify} from '../../../utils/slugify'
-import {SimpleTextBlock} from '../../../custom/TextBlock'
-import {toPlainText} from '../../../utils/toPlainText'
+import {validateSlug} from '../../utils/customValidations'
+import {slugify} from '../../utils/slugify'
+import {toPlainText} from '../../utils/toPlainText'
 
 export default defineType({
   name: 'BlogPostCollection',
@@ -26,11 +25,10 @@ export default defineType({
     }),
     defineField({
       name: 'title',
-      type: 'array',
+      type: 'Heading',
       title: 'Tytuł',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Tytuł może zawierać tylko jeden blok tekstowy'),
+        Rule.required().length(1).error('Pole musi zawierać tylko jeden blok tekstowy'),
     }),
     defineField({
       name: 'slug',
@@ -47,14 +45,6 @@ export default defineType({
       validation: (Rule) => Rule.custom(validateSlug).required(),
     }),
     defineField({
-      name: 'intro',
-      type: 'array',
-      title: 'Wprowadzenie do artykułu (opcjonalne)',
-      of: [SimpleTextBlock],
-      validation: (Rule) =>
-        Rule.length(1).warning('Wprowadzenie może zawierać tylko jeden blok tekstowy'),
-    }),
-    defineField({
       name: 'category',
       type: 'reference',
       title: 'Kategoria',
@@ -67,7 +57,6 @@ export default defineType({
       title: 'Zdjęcie',
       validation: (Rule) => Rule.required(),
     }),
-    //CONTENT
     defineField({
       name: 'seo',
       type: 'seo',
@@ -78,9 +67,14 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'category.name',
+      subtitle: 'category.categoryName',
       media: 'image',
+      icon: 'icon',
     },
+    prepare: ({title, ...rest}) => ({
+      ...rest,
+      title: toPlainText(title),
+    }),
   },
   groups: [
     {

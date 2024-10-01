@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock, TextBlock} from '../../custom/TextBlock'
 
 const title = 'Sekcja z cennikiem'
 const icon = () => '💵'
@@ -13,18 +12,21 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'paragraph',
-      type: 'array',
+      type: 'TextBlock',
       title: 'Paragraf',
-      of: [TextBlock],
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'img',
+      type: 'image',
+      title: 'Zdjęcie (opcjonalne)',
     }),
     defineField({
       name: 'list',
@@ -36,11 +38,10 @@ export default defineField({
           fields: [
             defineField({
               name: 'name',
-              type: 'array',
+              type: 'Heading',
               title: 'Nazwa',
-              of: [SimpleTextBlock],
               validation: (Rule) =>
-                Rule.required().length(1).error('Nazwa musi zawierać jeden blok tekstowy.'),
+                Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
             defineField({
               name: 'priceLabel',
@@ -49,36 +50,24 @@ export default defineField({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: 'img',
-              type: 'image',
-              title: 'Zdjęcie (opcjonalne)',
-            }),
-            defineField({
               name: 'description',
               type: 'object',
               title: 'Opis',
               fields: [
                 defineField({
                   name: 'mainText',
-                  type: 'array',
+                  type: 'TextBlock',
                   title: 'Główna treść',
-                  of: [TextBlock],
                   validation: (Rule) => Rule.required(),
                 }),
                 defineField({
                   name: 'additionalInfo',
-                  type: 'array',
+                  type: 'TextBlock',
                   title: 'Dodatkowe informacje (opcjonalne)',
-                  of: [TextBlock],
                 }),
               ],
               options: {collapsible: true, collapsed: true},
               validation: (Rule) => Rule.required(),
-              preview: {
-                select: {
-                  title: 'mainText',
-                },
-              },
             }),
           ],
           preview: {
@@ -86,6 +75,10 @@ export default defineField({
               title: 'name',
               subtitle: 'priceLabel',
             },
+            prepare: ({title, subtitle}) => ({
+              title: toPlainText(title),
+              subtitle,
+            }),
           },
         },
       ],

@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 
 const title = 'Nagłówek z opływającym obrazem'
 const icon = () => '🖌️'
@@ -13,22 +12,10 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'InlineImageHeading',
       title: 'Nagłówek',
-      of: [
-        {
-          ...SimpleTextBlock,
-          of: [
-            {
-              name: 'inlineImg',
-              type: 'image',
-              title: 'Zdjęcie',
-            },
-          ],
-        },
-      ],
       validation: (Rule) =>
-        Rule.required().length(2).error('Nagłówek musi zawierać dwa bloki tekstowe'),
+        Rule.required().length(2).error('Pole musi zawierać dwa bloki tekstowe'),
     }),
   ],
   preview: {

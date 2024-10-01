@@ -1,6 +1,6 @@
-import { defineField, defineType } from "sanity";
-import { validateSlug } from "../../utils/customValidations";
-import { slugify } from '../../utils/slugify';
+import {defineField, defineType} from 'sanity'
+import {validateSlug} from '../../utils/customValidations'
+import {slugify} from '../../utils/slugify'
 
 export default defineType({
   name: 'ImageCategoryCollection',
@@ -9,10 +9,10 @@ export default defineType({
   icon: () => '🏷️',
   fields: [
     defineField({
-      name: 'name',
+      name: 'categoryName',
       type: 'string',
-      title: 'Nazwa',
-      validation: Rule => Rule.required(),
+      title: 'Nazwa kategorii',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -22,28 +22,28 @@ export default defineType({
         'Slug, to unikalny ciąg znaków, który znajdziemy zazwyczaj po ukośniku w adresie URL podstrony. Dzięki niemu jego forma jest zrozumiała dla użytkowników.',
       options: {
         source: 'name',
-        slugify: input => `${slugify(input)}`,
+        slugify: (input) => `${slugify(input)}`,
       },
-      validation: Rule => Rule.custom(validateSlug).required()
+      validation: (Rule) => Rule.custom(validateSlug).required(),
     }),
     defineField({
       name: 'seo',
       type: 'seo',
       title: 'SEO',
       group: 'seo',
-    })
+    }),
   ],
   preview: {
     select: {
-      title: 'name',
+      title: 'categoryName',
       subtitle: 'slug.current',
-      icon: '🏷️'
-    }
+      icon: 'icon',
+    },
   },
   groups: [
     {
       name: 'seo',
       title: 'SEO',
-    }
-  ]
-});
+    },
+  ],
+})

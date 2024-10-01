@@ -1,5 +1,4 @@
 import {defineField} from 'sanity'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 import {toPlainText} from '../../utils/toPlainText'
 
 const title = 'Sekcja HERO'
@@ -18,11 +17,10 @@ export default defineField({
       fields: [
         defineField({
           name: 'heading',
-          type: 'array',
+          type: 'Heading',
           title: 'Nagłówek',
-          of: [SimpleTextBlock],
           validation: (Rule) =>
-            Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
+            Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
         }),
         defineField({
           name: 'img',
@@ -32,11 +30,9 @@ export default defineField({
         }),
         defineField({
           name: 'paragraph',
-          type: 'array',
+          type: 'TextBlock',
           title: 'Paragraf',
-          of: [SimpleTextBlock],
-          validation: (Rule) =>
-            Rule.required().length(1).error('Paragraf musi zawierać jeden blok tekstowy.'),
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'cta',
@@ -46,13 +42,6 @@ export default defineField({
         }),
       ],
       validation: (Rule) => Rule.required(),
-      preview: {
-        select: {
-          title: 'heading',
-          subtitle: 'paragraph',
-          media: 'img',
-        },
-      },
     }),
     defineField({
       name: 'sideImg',
@@ -64,12 +53,13 @@ export default defineField({
   preview: {
     select: {
       heading: 'content.heading',
-      sideImg: 'sideImg',
+      media: 'sideImg',
     },
-    prepare: ({heading, sideImg}) => ({
+    prepare: ({heading, media}) => ({
       title,
       subtitle: toPlainText(heading),
-      media: sideImg,
+      media,
+      icon,
     }),
   },
 })

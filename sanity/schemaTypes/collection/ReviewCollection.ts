@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {SimpleTextBlock} from '../../custom/TextBlock'
+import {toPlainText} from '../../utils/toPlainText'
 
 export default defineType({
   name: 'ReviewCollection',
@@ -18,11 +18,10 @@ export default defineType({
     }),
     defineField({
       name: 'content',
-      type: 'array',
+      type: 'TextBlock',
       title: 'Treść recenzji',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Treść recenzji może zawierać tylko jeden blok tekstowy'),
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'img',
@@ -34,8 +33,13 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'content',
       media: 'img',
+      icon: 'icon',
+      content: 'content',
     },
+    prepare: ({content, ...rest}) => ({
+      ...rest,
+      subtitle: toPlainText(content),
+    }),
   },
 })

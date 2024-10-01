@@ -1,8 +1,8 @@
-import { defineField } from 'sanity';
-import { SimpleTextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja z statystykami';
-const icon = () => '📊';
+const title = 'Sekcja z statystykami'
+const icon = () => '📊'
 
 export default defineField({
   name: 'StatsSection',
@@ -12,17 +12,16 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy.")
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'paragraph',
-      type: 'array',
+      type: 'TextBlock',
       title: 'Paragraf',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'list',
@@ -36,30 +35,34 @@ export default defineField({
               name: 'number',
               type: 'number',
               title: 'Liczba',
-              validation: Rule => Rule.required(),
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: 'label',
               type: 'string',
               title: 'Opis',
-              validation: Rule => Rule.required(),
+              validation: (Rule) => Rule.required(),
             }),
           ],
           preview: {
             select: {
               title: 'number',
               subtitle: 'label',
-            }
-          }
+            },
+          },
         },
       ],
-      validation: Rule => Rule.required().length(3),
+      validation: (Rule) => Rule.required().length(3),
     }),
   ],
   preview: {
-    prepare: () => ({
+    select: {
+      heading: 'heading',
+    },
+    prepare: ({heading}) => ({
       title: title,
-      icon
-    })
-  }
-});
+      subtitle: toPlainText(heading),
+      icon,
+    }),
+  },
+})

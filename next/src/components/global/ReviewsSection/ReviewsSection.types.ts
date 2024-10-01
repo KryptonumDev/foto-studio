@@ -8,7 +8,7 @@ export type ReviewsSectionTypes = {
     _id: string;
     title: string;
     content: PortableTextBlock[];
-    image: ImgTypes;
+    img: ImgTypes;
   }[];
 };
 

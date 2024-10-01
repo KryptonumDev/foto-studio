@@ -1,5 +1,5 @@
-import { defineField, defineType } from "sanity";
-import { TextBlock } from "../../custom/TextBlock";
+import {defineField, defineType} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
 
 export default defineType({
   name: 'FaqCollection',
@@ -11,21 +11,24 @@ export default defineType({
       name: 'question',
       type: 'string',
       title: 'Pytanie',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'answer',
-      type: 'array',
+      type: 'TextBlock',
       title: 'Odpowiedź',
-      of: [TextBlock],
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
       title: 'question',
-      subtitle: 'answer',
-      icon: '❓'
-    }
+      icon: 'icon',
+      answer: 'answer',
+    },
+    prepare: ({answer, ...rest}) => ({
+      ...rest,
+      subtitle: toPlainText(answer),
+    }),
   },
-});
+})

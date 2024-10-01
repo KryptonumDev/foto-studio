@@ -44,13 +44,13 @@ export default function Carousel({ list, index }: CarouselTypes) {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            {list.map(({ _id, image }) => (
+            {list.map(({ _id, img }) => (
               <div
                 key={`slide-${_id}`}
                 className={`embla__slide ${styles.slide}`}
               >
                 <Img
-                  data={image}
+                  data={img}
                   priority={index === 0}
                   sizes='(min-width: 1366px) 402px, (min-width: 768px) 42.2vw, 188px'
                 />

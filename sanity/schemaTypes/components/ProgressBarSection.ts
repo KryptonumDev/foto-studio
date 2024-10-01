@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 
 const title = 'Sekcja z paskiem postępu'
 const icon = () => '✨'
@@ -13,22 +12,10 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'InlineImageHeading',
       title: 'Nagłówek',
-      of: [
-        {
-          ...SimpleTextBlock,
-          of: [
-            {
-              name: 'inlineImg',
-              type: 'image',
-              title: 'Zdjęcie',
-            },
-          ],
-        },
-      ],
       validation: (Rule) =>
-        Rule.required().length(2).error('Nagłówek musi zawierać dwa bloki tekstowe.'),
+        Rule.required().length(2).error('Pole musi zawierać dwa bloki tekstowe'),
     }),
     defineField({
       name: 'list',
@@ -40,17 +27,19 @@ export default defineField({
           fields: [
             defineField({
               name: 'text',
-              type: 'array',
+              type: 'TextBlock',
               title: 'Treść',
-              of: [SimpleTextBlock],
-              validation: (Rule) =>
-                Rule.required().length(1).error('Treść musi zawierać jeden blok tekstowy.'),
+              validation: (Rule) => Rule.required(),
             }),
           ],
           preview: {
             select: {
-              title: 'text',
+              text: 'text',
             },
+            prepare: ({text}) => ({
+              title: toPlainText(text),
+              icon,
+            }),
           },
         },
       ],

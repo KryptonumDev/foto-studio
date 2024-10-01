@@ -1,9 +1,8 @@
-import { defineField } from 'sanity';
-import { toPlainText } from '../../utils/toPlainText';
-import { SimpleTextBlock } from '../../custom/TextBlock';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja z horyzontalną listą i nagłówkiem';
-const icon = () => '➡️';
+const title = 'Sekcja z horyzontalną listą i nagłówkiem'
+const icon = () => '➡️'
 
 export default defineField({
   name: 'HorizontalListWithHeader',
@@ -12,23 +11,24 @@ export default defineField({
   icon,
   fields: [
     defineField({
-      name: 'title',
-      type: 'array',
-      title: 'Tytuł',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Tytuł musi zawierać jeden blok tekstowy."),
+      name: 'heading',
+      type: 'Heading',
+      title: 'Nagłówek',
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'subtitle',
-      type: 'array',
+      type: 'Heading',
       title: 'Podtytuł',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error("Podtytuł musi zawierać jeden blok tekstowy."),
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'cta',
       type: 'cta',
-      title: 'Wezwanie do działania (opcjonalne)',
+      title: 'Wezwanie do działania',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'list',
@@ -41,29 +41,33 @@ export default defineField({
           fields: [
             defineField({
               name: 'text',
-              type: 'array',
+              type: 'TextBlock',
               title: 'Treść',
-              of: [SimpleTextBlock],
-              validation: Rule => Rule.required().length(1).error("Treść musi zawierać jeden blok tekstowy.")
-            })
+              validation: (Rule) =>
+                Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
+            }),
           ],
           preview: {
             select: {
-              title: 'text'
-            }
-          }
-        }
-      ]
-    })
+              text: 'text',
+            },
+            prepare: ({text}) => ({
+              title: toPlainText(text),
+              icon,
+            }),
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
       heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       subtitle: toPlainText(heading),
       icon,
     }),
   },
-});
+})

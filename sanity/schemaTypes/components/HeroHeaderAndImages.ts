@@ -1,9 +1,8 @@
-import { defineField } from 'sanity';
-import { SimpleTextBlock } from '../../custom/TextBlock'
-import { toPlainText } from '../../utils/toPlainText';
+import {defineField} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Sekcja HERO z nagłówkiem i obrazkami';
-const icon = () => '⭐️'; 
+const title = 'Sekcja HERO z nagłówkiem i obrazkami'
+const icon = () => '⭐️'
 
 export default defineField({
   name: 'HeroHeaderAndImages',
@@ -13,33 +12,33 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
-      validation: Rule => Rule.required().length(1).error('Nagłówek może zawierać tylko jeden blok tekstowy.'),
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'cta',
       type: 'cta',
       title: 'Wezwanie do działania',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'images',
       type: 'array',
       title: 'Zdjęcia',
-      of: [{ type: 'image' }],
-      validation: Rule => Rule.required().length(5).error('Należy dodać 5 zdjęć.'),
+      of: [{type: 'image'}],
+      validation: (Rule) => Rule.required().length(5).error('Należy dodać 5 zdjęć.'),
     }),
   ],
   preview: {
     select: {
       heading: 'heading',
     },
-    prepare: ({ heading }) => ({
+    prepare: ({heading}) => ({
       title,
       heading: toPlainText(heading),
-      icon
-    })
+      icon,
+    }),
   },
-});
+})

@@ -1,5 +1,4 @@
-import { defineField, defineType } from "sanity"
-import { SimpleTextBlock } from "../../custom/TextBlock";
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'GalleryPage',
@@ -14,25 +13,18 @@ export default defineType({
       fields: [
         defineField({
           name: 'heading',
-          type: 'array',
+          type: 'Heading',
           title: 'Nagłówek',
-          of: [SimpleTextBlock],
-          validation: Rule => Rule.required().length(1).error("Nagłówek musi zawierać jeden blok tekstowy."),
-        }),
-        defineField({
-          name: 'paragraph',
-          type: 'array',
-          title: 'Paragraf (opcjonalny)',
-          of: [SimpleTextBlock],
-          validation: Rule => Rule.length(1).warning("Paragraf może zawierać tylko jeden blok tekstowy."),
+          validation: (Rule) =>
+            Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
         }),
       ],
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'content',
       type: 'content',
-      title: 'Komponenty podstrony'
+      title: 'Komponenty podstrony',
     }),
     defineField({
       name: 'seo',
@@ -47,4 +39,4 @@ export default defineType({
       title: 'SEO',
     },
   ],
-});
+})

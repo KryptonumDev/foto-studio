@@ -1,6 +1,7 @@
 import cta from './ui/cta'
 import seo from './components/seo'
 import Content from '../components/Content'
+import {Heading, TextBlock, InlineImageHeading} from './ui/PortableText'
 
 import ReviewCollection from './collection/ReviewCollection'
 import FaqCollection from './collection/FaqCollection'
@@ -22,15 +23,16 @@ export const schemaTypes = [
   seo,
   cta,
   Content,
+  Heading,
+  TextBlock,
+  InlineImageHeading,
   global,
-
   ReviewCollection,
   FaqCollection,
   BlogCategoryCollection,
   BlogPostCollection,
   ImageCategoryCollection,
   ImageCollection,
-
   HomePage,
   AboutPage,
   CollaborationPage,

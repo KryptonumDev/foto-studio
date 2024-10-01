@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'ImageCollection',
@@ -10,28 +10,28 @@ export default defineType({
       name: 'title',
       type: 'string',
       title: 'Tytuł',
-      validation: Rule => Rule.required().max(50).error("Tytuł nie może przekraczać 50 znaków."),
+      validation: (Rule) => Rule.required().max(50).error('Tytuł nie może przekraczać 50 znaków.'),
     }),
     defineField({
       name: 'category',
       type: 'reference',
       title: 'Kategoria',
-      to: { type: 'ImageCategoryCollection' },
-      validation: Rule => Rule.required()
+      to: {type: 'ImageCategoryCollection'},
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'image',
       type: 'image',
       title: 'Zdjęcie',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     }),
-    //seo
   ],
   preview: {
     select: {
       title: 'title',
       subtitle: 'category.name',
-      media: 'image'
-    }
-  }
-});
+      media: 'image',
+      icon: 'icon',
+    },
+  },
+})

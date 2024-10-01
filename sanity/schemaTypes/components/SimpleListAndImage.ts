@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 
 const title = 'Prosta lista z obrazkiem'
 const icon = () => '📋'
@@ -13,11 +12,10 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'img',
@@ -36,17 +34,20 @@ export default defineField({
           fields: [
             defineField({
               name: 'text',
-              type: 'array',
+              type: 'Heading',
               title: 'Treść',
-              of: [SimpleTextBlock],
               validation: (Rule) =>
-                Rule.required().length(1).error('Treść musi zawierać jeden blok tekstowy.'),
+                Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
           ],
           preview: {
             select: {
-              title: 'text',
+              text: 'text',
             },
+            prepare: ({text}) => ({
+              title: toPlainText(text),
+              icon,
+            }),
           },
         },
       ],

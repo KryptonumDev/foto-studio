@@ -1,5 +1,4 @@
 import {defineField} from 'sanity'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 import {toPlainText} from '../../utils/toPlainText'
 
 const title = 'Formularz kontaktowy'
@@ -13,11 +12,10 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Nagłówek musi zawierać tylko jeden blok tekstowy.'),
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'email',

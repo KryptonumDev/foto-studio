@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock, TextBlock} from '../../custom/TextBlock'
 
 const title = 'Sekcja z ofertą stacjonarną'
 const icon = () => '🖼️📄'
@@ -18,11 +17,10 @@ export default defineField({
       fields: [
         defineField({
           name: 'heading',
-          type: 'array',
+          type: 'Heading',
           title: 'Nagłówek',
-          of: [SimpleTextBlock],
           validation: (Rule) =>
-            Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
+            Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
         }),
         defineField({
           name: 'cta',
@@ -37,34 +35,21 @@ export default defineField({
           fields: [
             defineField({
               name: 'mainText',
-              type: 'array',
+              type: 'TextBlock',
               title: 'Główna treść',
-              of: [TextBlock],
               validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: 'additionalInfo',
-              type: 'array',
+              type: 'TextBlock',
               title: 'Dodatkowe informacje (opcjonalne)',
-              of: [TextBlock],
             }),
           ],
           options: {collapsible: true, collapsed: true},
           validation: (Rule) => Rule.required(),
-          preview: {
-            select: {
-              title: 'mainText',
-            },
-          },
         }),
       ],
       validation: (Rule) => Rule.required(),
-      preview: {
-        select: {
-          title: 'heading',
-          icon: '📄',
-        },
-      },
     }),
     defineField({
       name: 'sideImg',
@@ -76,12 +61,13 @@ export default defineField({
   preview: {
     select: {
       heading: 'content.heading',
-      sideImg: 'sideImg',
+      media: 'sideImg',
     },
-    prepare: ({heading, sideImg}) => ({
+    prepare: ({heading, media}) => ({
       title,
       subtitle: toPlainText(heading),
-      media: sideImg,
+      media,
+      icon,
     }),
   },
 })

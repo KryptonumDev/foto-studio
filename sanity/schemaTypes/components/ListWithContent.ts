@@ -1,6 +1,5 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
-import {SimpleTextBlock} from '../../custom/TextBlock'
 
 const title = 'Rozbudowana lista / Szczegółowa lista'
 const icon = () => '📝'
@@ -13,11 +12,10 @@ export default defineField({
   fields: [
     defineField({
       name: 'heading',
-      type: 'array',
+      type: 'Heading',
       title: 'Nagłówek',
-      of: [SimpleTextBlock],
       validation: (Rule) =>
-        Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy'),
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
       name: 'cta',
@@ -35,26 +33,26 @@ export default defineField({
           fields: [
             defineField({
               name: 'heading',
-              type: 'array',
+              type: 'Heading',
               title: 'Nagłówek',
-              of: [SimpleTextBlock],
               validation: (Rule) =>
-                Rule.required().length(1).error('Nagłówek musi zawierać jeden blok tekstowy.'),
+                Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
             defineField({
               name: 'paragraph',
-              type: 'array',
+              type: 'TextBlock',
               title: 'Paragraf',
-              of: [SimpleTextBlock],
-              validation: (Rule) =>
-                Rule.required().length(1).error('Paragraf musi zawierać jeden blok tekstowy.'),
+              validation: (Rule) => Rule.required(),
             }),
           ],
           preview: {
             select: {
-              title: 'heading',
-              subtitle: 'paragraph',
+              heading: 'heading',
             },
+            prepare: ({heading}) => ({
+              title: toPlainText(heading),
+              icon,
+            }),
           },
         },
       ],
