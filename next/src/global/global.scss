@@ -200,6 +200,15 @@ h1 {
   color: var(--primary-900);
 }
 
+.medium-heading {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.42;
+  letter-spacing: 0.72px;
+  font-weight: 500;
+  color: var(--primary-900);
+}
+
 .dark-text {
   color: var(--primary-900);
 }
