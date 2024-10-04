@@ -11,17 +11,11 @@ export default defineField({
   icon,
   fields: [
     defineField({
-      name: 'heading',
-      type: 'Heading',
-      title: 'Nagłówek',
+      name: 'paragraph',
+      type: 'TextBlock',
+      title: 'Paragraf',
       validation: (Rule) =>
         Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
-    }),
-    defineField({
-      name: 'email',
-      type: 'string',
-      title: 'Adres e-mail',
-      validation: (Rule) => Rule.required().email(),
     }),
     defineField({
       name: 'topics',
@@ -34,11 +28,11 @@ export default defineField({
   ],
   preview: {
     select: {
-      heading: 'heading',
+      paragraph: 'paragraph',
     },
-    prepare: ({heading}) => ({
+    prepare: ({paragraph}) => ({
       title,
-      subtitle: toPlainText(heading),
+      subtitle: toPlainText(paragraph),
       icon,
     }),
   },

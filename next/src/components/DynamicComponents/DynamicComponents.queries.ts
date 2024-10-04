@@ -15,6 +15,7 @@ import { StationaryOfferSection_Query } from '@/components/global/StationaryOffe
 import { InlineImageHeader_Query } from '@/components/global/InlineImageHeader';
 import { MapSection_Query } from '@/components/global/MapSection';
 import { FaqSection_Query } from '@/components/global/FaqSection';
+import { ContactForm_Query } from '@/components/global/ContactForm';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -36,5 +37,6 @@ export const DynamicComponents_Query = `
     ${InlineImageHeader_Query}
     ${MapSection_Query}
     ${FaqSection_Query}
+    ${ContactForm_Query}
   }
 `;

@@ -1,0 +1,54 @@
+.CopyToClipboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+
+  div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    button {
+      text-transform: none;
+      color: var(--primary-700);
+      padding: 8px 20px 9px;
+      background-color: var(--primary-200);
+    }
+  }
+
+  .message {
+    margin-left: 42px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: clamp(12px, calc(16vw / 7.68), 16px) auto;
+    gap: clamp(4px, calc(6vw / 7.68), 6px);
+    opacity: 0;
+    transition: opacity 0.1s var(--easing);
+
+    &.visible {
+      opacity: 1;
+    }
+
+    span:last-child {
+      color: var(--success);
+    }
+
+    .icon {
+      width: clamp(12px, calc(16vw / 7.68), 16px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background-color: var(--success);
+      @media screen and (min-width: 768px) {
+        svg {
+          width: 11px;
+          aspect-ratio: 1 / 1;
+        }
+      }
+    }
+  }
+}

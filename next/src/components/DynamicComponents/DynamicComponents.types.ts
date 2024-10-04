@@ -15,6 +15,7 @@ import type { StationaryOfferSectionTypes } from '@/components/global/Stationary
 import type { InlineImageHeaderTypes } from '@/components/global/InlineImageHeader';
 import type { MapSectionTypes } from '@/components/global/MapSection';
 import type { FaqSectionTypes } from '@/components/global/FaqSection';
+import type { ContactFormTypes } from '@/components/global/ContactForm';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -34,6 +35,7 @@ export type ComponentsMapTypes = {
   InlineImageHeader: InlineImageHeaderTypes;
   MapSection: MapSectionTypes;
   FaqSection: FaqSectionTypes;
+  ContactForm: ContactFormTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

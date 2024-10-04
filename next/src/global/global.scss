@@ -209,12 +209,23 @@ h1 {
   color: var(--primary-900);
 }
 
+.extra-small-text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: 0.48px;
+}
+
 .dark-text {
   color: var(--primary-900);
 }
 
 .light-text {
   color: var(--primary-600, #8f8f8f);
+}
+
+.error-text {
+  color: var(--error, #e60019);
 }
 
 .max-width {

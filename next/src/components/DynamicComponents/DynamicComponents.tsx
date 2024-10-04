@@ -17,6 +17,7 @@ import StationaryOfferSection, { type StationaryOfferSectionTypes } from '@/comp
 import InlineImageHeader, { type InlineImageHeaderTypes } from '@/components/global/InlineImageHeader';
 import MapSection, { type MapSectionTypes } from '@/components/global/MapSection';
 import FaqSection, { type FaqSectionTypes } from '@/components/global/FaqSection';
+import ContactForm, { type ContactFormTypes } from '@/components/global/ContactForm';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -36,6 +37,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   InlineImageHeader: props => <InlineImageHeader {...(props as InlineImageHeaderTypes)} />,
   MapSection: props => <MapSection {...(props as MapSectionTypes)} />,
   FaqSection: props => <FaqSection {...(props as FaqSectionTypes)} />,
+  ContactForm: props => <ContactForm {...(props as ContactFormTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {

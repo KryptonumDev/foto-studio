@@ -1,0 +1,65 @@
+.ContactForm {
+  margin-bottom: calc(48vw / 3.6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(32px, calc(48vw / 7.68), 141px);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: calc(132vw / 7.68);
+  }
+
+  @media screen and (min-width: 1366px) {
+    margin-bottom: 240px;
+    gap: 141px;
+  }
+
+  .intro {
+    max-width: 498px;
+    @media screen and (min-width: 768px) {
+      width: calc(498vw / 7.68);
+      max-width: 510px;
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 583px;
+    display: grid;
+    gap: calc(14vw / 3.6);
+
+    @media screen and (min-width: 768px) {
+      gap: clamp(36px, calc(36vw / 7.68), 48px);
+    }
+
+    @media screen and (min-width: 1366px) {
+      max-width: 619px;
+    }
+  }
+
+  .content {
+    margin-bottom: clamp(32px, calc(36vw / 7.68), 64px);
+    display: grid;
+    gap: clamp(28px, calc(32vw / 7.68), 48px);
+    justify-content: start;
+    @media screen and (min-width: 1366px) {
+      margin-bottom: 64px;
+    }
+  }
+
+  .inputs {
+    display: grid;
+    gap: clamp(36px, calc(36vw / 7.68), 48px);
+  }
+
+  .phoneInput {
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      width: 324px;
+    }
+    @media screen and (min-width: 1366px) {
+      width: 294px;
+    }
+  }
+}

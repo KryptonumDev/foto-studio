@@ -1,0 +1,76 @@
+.RadioGroup {
+  position: relative;
+  .options {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, calc(12vw / 7.68), 12px);
+
+    label {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 22px 14px;
+      border: 1px solid var(--primary-200);
+      background-color: var(--primary-100);
+      color: var(--primary-600);
+      transition: border-color 0.1s var(--easing);
+
+      @media screen and (min-width: 768px) {
+        padding: 9px 22px 11px;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+
+        &:checked + span {
+          color: var(--primary-900);
+          &::after,
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+
+      span::before {
+        content: '[ ';
+        opacity: 0;
+        transition: opacity 0.1s var(--easing);
+      }
+
+      span::after {
+        content: ' ]';
+        opacity: 0;
+        transition: opacity 0.1s var(--easing);
+      }
+
+      &:hover {
+        border-color: var(--primary-500);
+        span::after,
+        span::before {
+          opacity: 1;
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+        border-color: var(--primary-700);
+      }
+    }
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: calc(100% + 10px);
+  }
+
+  &[aria-invalid='true'] {
+    p {
+      transition: color 0.1s var(--easing);
+      color: var(--error);
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.Checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(6px, calc(12vw / 7.68), 12px);
+  max-width: 425px;
+  cursor: pointer;
+
+  .icon {
+    width: clamp(38px, calc(44vw / 7.68), 44px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--primary-200);
+    display: grid;
+    place-items: center;
+    transition: border-color 0.1s var(--easing);
+
+    svg {
+      opacity: 0;
+      transition: opacity 0.1s var(--easing);
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+
+      &:checked + svg {
+        opacity: 1;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  .label {
+    text-transform: none;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    a {
+      text-transform: none;
+    }
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4px);
+  }
+
+  &:hover {
+    .icon {
+      border-color: var(--primary-600);
+    }
+  }
+
+  &[aria-invalid='true'] {
+    .icon {
+      border-color: var(--error);
+    }
+  }
+
+  &:focus-visible {
+    outline-color: var(--primary-500);
+  }
+}
