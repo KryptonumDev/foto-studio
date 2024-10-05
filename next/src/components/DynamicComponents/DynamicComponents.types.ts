@@ -16,6 +16,7 @@ import type { InlineImageHeaderTypes } from '@/components/global/InlineImageHead
 import type { MapSectionTypes } from '@/components/global/MapSection';
 import type { FaqSectionTypes } from '@/components/global/FaqSection';
 import type { ContactFormTypes } from '@/components/global/ContactForm';
+import type { HorizontalListWithHeaderTypes } from '@/components/global/HorizontalListWithHeader';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -36,6 +37,7 @@ export type ComponentsMapTypes = {
   MapSection: MapSectionTypes;
   FaqSection: FaqSectionTypes;
   ContactForm: ContactFormTypes;
+  HorizontalListWithHeader: HorizontalListWithHeaderTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

@@ -1,0 +1,43 @@
+.HorizontalListWithHeader {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, calc(24vw / 7.68), 30px);
+
+  @media screen and (min-width: 1366px) {
+    grid-template-columns: 295px auto;
+  }
+
+  .subtitle {
+    max-width: 295px;
+    @media screen and (min-width: 1366px) {
+      padding-top: 12px;
+    }
+  }
+
+  header {
+    margin-bottom: clamp(48px, calc(64vw / 7.68), 96px);
+    display: grid;
+    gap: clamp(20px, calc(20vw / 7.68), 32px);
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(324px, 100%));
+    gap: clamp(24px, calc(24vw / 7.68), 32px);
+
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: repeat(auto-fill, 293px);
+    }
+
+    li {
+      span {
+        color: var(--primary-900);
+      }
+
+      p {
+        margin-top: clamp(8px, calc(16vw / 7.68), 28px);
+      }
+    }
+  }
+}
