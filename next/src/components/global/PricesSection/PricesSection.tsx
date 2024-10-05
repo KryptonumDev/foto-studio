@@ -13,7 +13,7 @@ export default function PricesSection({ index, heading, paragraph, list, img }: 
         <Heading
           value={heading}
           tag={index === 0 ? 'h1' : 'h2'}
-          className='small-heading'
+          className='small-text'
         />
         <Text value={paragraph} />
       </header>
@@ -32,7 +32,7 @@ export default function PricesSection({ index, heading, paragraph, list, img }: 
             className={styles.listItem}
           >
             <header>
-              <span className='small-heading'>{`[ ${priceLabel} ]`}</span>
+              <span className='small-text'>{`[ ${priceLabel} ]`}</span>
               <Heading
                 value={name}
                 tag='h3'

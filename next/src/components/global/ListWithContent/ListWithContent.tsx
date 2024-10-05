@@ -14,7 +14,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
         <Heading
           tag={index === 0 ? 'h1' : 'h2'}
           value={heading}
-          className='small-heading'
+          className='small-text'
         />
         <Button data={cta} />
       </header>
@@ -22,7 +22,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
         {list.map(({ _key, heading, paragraph }, index) => (
           <li key={_key}>
             <header>
-              <span className='small-heading'>{`[${addLeadingZero(index + 1)}]`}</span>
+              <span className='small-text'>{`[${addLeadingZero(index + 1)}]`}</span>
               <Heading
                 tag='h3'
                 value={heading}

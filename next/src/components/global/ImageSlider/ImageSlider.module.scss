@@ -30,6 +30,7 @@
 
     img {
       min-height: var(--slide-height);
+      user-select: none;
     }
 
     &:nth-child(5n + 2),

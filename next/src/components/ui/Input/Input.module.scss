@@ -68,4 +68,14 @@
   &:focus-visible {
     outline-color: var(--primary-500);
   }
+
+  &:has(input:disabled),
+  &:has(textarea:disabled) {
+    .label {
+      color: var(--primary-500);
+    }
+    .content {
+      border-color: var(--primary-500);
+    }
+  }
 }

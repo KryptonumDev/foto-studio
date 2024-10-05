@@ -8,7 +8,7 @@ export default function RadioGroup({ label, register, errors, options, ...props 
       className={styles['RadioGroup']}
       aria-invalid={!!errors[register.name]}
     >
-      <p className='small-heading'>{label}</p>
+      <p className='small-text'>{label}</p>
       <div className={styles.options}>
         {options.map(option => (
           <label

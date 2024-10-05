@@ -12,7 +12,7 @@ export default function FeaturedPostsSection({ index, heading, list }: FeaturedP
         <Heading
           tag={index === 0 ? 'h1' : 'h2'}
           value={heading}
-          className='small-heading'
+          className='small-text'
         />
       </header>
       <Carousel

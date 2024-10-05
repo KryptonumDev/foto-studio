@@ -56,6 +56,7 @@
     img {
       --scale: 0.44;
       --top: 43px;
+      user-select: none;
       width: clamp(188px, calc(324vw / 7.68), 402px);
       opacity: 0.32;
       transform: scale(var(--scale)) translateY(var(--top));

@@ -9,14 +9,14 @@
     label {
       cursor: pointer;
       position: relative;
-      padding: 12px 22px 14px;
+      padding: 12px 16px 14px;
       border: 1px solid var(--primary-200);
       background-color: var(--primary-100);
       color: var(--primary-600);
       transition: border-color 0.1s var(--easing);
 
       @media screen and (min-width: 768px) {
-        padding: 9px 22px 11px;
+        padding: 9px 12px 11px;
       }
 
       input {
@@ -71,6 +71,18 @@
     p {
       transition: color 0.1s var(--easing);
       color: var(--error);
+    }
+  }
+
+  &:has(input:disabled) {
+    p {
+      color: var(--primary-500);
+    }
+
+    label {
+      pointer-events: none;
+      touch-action: none;
+      color: var(--primary-500);
     }
   }
 }

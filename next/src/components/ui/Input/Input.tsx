@@ -13,7 +13,7 @@ export default function Input({ label, register, errors, className = '', ...prop
       aria-invalid={!!errors[register.name]}
       tabIndex={0}
     >
-      <p className={`${styles.label} small-heading`}>{label}</p>
+      <p className={`${styles.label} small-text`}>{label}</p>
       <div className={styles.content}>
         <Element
           tabIndex={-1}

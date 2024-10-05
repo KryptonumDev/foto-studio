@@ -1,4 +1,5 @@
 .FaqSection {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -7,6 +8,10 @@
 
   header {
     max-width: 295px;
+    @media screen and (min-width: 1050px) {
+      position: sticky;
+      top: var(--sticky-top);
+    }
   }
 
   .accordionList {

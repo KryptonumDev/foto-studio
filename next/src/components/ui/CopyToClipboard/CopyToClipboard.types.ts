@@ -1,5 +1,5 @@
 export type CopyToClipboard = {
-  label: string;
+  label?: string;
   value: string;
   successMessage: React.ReactNode | string;
 };

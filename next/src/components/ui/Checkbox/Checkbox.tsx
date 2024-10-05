@@ -19,7 +19,7 @@ export default function Checkbox({ label, register, errors, ...props }: Checkbox
         />
         <CheckIcon />
       </div>
-      <p className={`${styles.label} small-heading`}>{label}</p>
+      <p className={`${styles.label} small-text`}>{label}</p>
       <Error
         message={errors[register.name]?.message?.toString()}
         className={styles.error}

@@ -27,6 +27,15 @@
       fill: var(--primary-600);
       transition: fill 0.2s var(--easing);
     }
+
+    .loader {
+      width: 18px;
+      height: 18px;
+      border: 1px solid transparent;
+      border-top-color: var(--primary-700);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
   }
 
   .text {
@@ -70,5 +79,24 @@
   &:focus-visible {
     outline: 1px solid var(--primary-700);
     outline-offset: 0;
+  }
+
+  &:disabled {
+    cursor: auto;
+    pointer-events: none;
+    touch-action: none;
+
+    .text {
+      color: var(--primary-500);
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
   }
 }

@@ -9,7 +9,7 @@ import styles from './FaqSection.module.scss';
 export default function FaqSection({ index, heading, list }: FaqSectionTypes) {
   const data = list.map(({ _id, question, answer }) => ({
     _id,
-    question: <h3 className='small-heading'>{question}</h3>,
+    question: <h3 className='small-text'>{question}</h3>,
     answer: <Text value={answer} />,
   }));
 
@@ -19,7 +19,7 @@ export default function FaqSection({ index, heading, list }: FaqSectionTypes) {
         <Heading
           value={heading}
           tag={index === 0 ? 'h1' : 'h2'}
-          className='medium-heading'
+          className='medium-text'
         />
       </header>
       <AccordionList

@@ -20,9 +20,9 @@ export default function CopyToClipboard({ label, value, successMessage }: CopyTo
   return (
     <div className={styles['CopyToClipboard']}>
       <div>
-        <span className='small-heading'>{label}</span>
+        {label && <span className='small-text'>{label}</span>}
         <button
-          className='medium-heading'
+          className='medium-text'
           onClick={handleCopyToClipboard}
         >
           {value}
@@ -32,7 +32,7 @@ export default function CopyToClipboard({ label, value, successMessage }: CopyTo
         <span className={styles.icon}>
           <CheckIcon />
         </span>
-        <span className='small-heading'>{successMessage}</span>
+        <span className='small-text'>{successMessage}</span>
       </p>
     </div>
   );

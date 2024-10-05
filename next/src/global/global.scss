@@ -104,6 +104,13 @@ button {
   user-select: none;
 }
 
+fieldset {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
 ::placeholder {
   color: inherit;
 }
@@ -191,7 +198,7 @@ h1 {
   }
 }
 
-.small-heading {
+.small-text {
   text-transform: uppercase;
   font-size: var(--font-size);
   line-height: var(--line-height);
@@ -200,7 +207,7 @@ h1 {
   color: var(--primary-900);
 }
 
-.medium-heading {
+.medium-text {
   text-transform: uppercase;
   font-size: 18px;
   line-height: 1.42;
@@ -226,6 +233,10 @@ h1 {
 
 .error-text {
   color: var(--error, #e60019);
+}
+
+.success-text {
+  color: var(--success);
 }
 
 .max-width {

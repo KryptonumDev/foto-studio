@@ -31,7 +31,7 @@ export default function AboutSection({
           <Heading
             value={contentHeading}
             tag='h3'
-            className='small-heading'
+            className='small-text'
           />
           <div className={styles.text}>
             <Text value={paragraph} />

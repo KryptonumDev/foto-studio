@@ -11,7 +11,7 @@ export default function NotFoundSection({ index, heading, cta, images }: NotFoun
     <section className={`${styles['NotFoundSection']} max-width mb`}>
       <header>
         <div>
-          <span className='small-heading'>{`[ PAGE 404 ]`}</span>
+          <span className='small-text'>{`[ PAGE 404 ]`}</span>
           <Heading
             value={heading}
             tag={index === 0 ? 'h1' : 'h2'}

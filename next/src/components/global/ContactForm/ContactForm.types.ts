@@ -13,6 +13,10 @@ export type ContactQueryTypes = {
 
 export type FormTypes = {
   topics: string[];
-  email: string;
   privacyPolicyLink: string;
+};
+
+export type FormStatusTypes = {
+  sending: boolean;
+  success: boolean | undefined;
 };

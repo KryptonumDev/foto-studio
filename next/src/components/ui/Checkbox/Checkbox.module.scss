@@ -69,4 +69,13 @@
   &:focus-visible {
     outline-color: var(--primary-500);
   }
+
+  &:has(input:disabled) {
+    pointer-events: none;
+    touch-action: none;
+    .label,
+    a {
+      color: var(--primary-500);
+    }
+  }
 }

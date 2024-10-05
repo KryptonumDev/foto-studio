@@ -17,7 +17,7 @@ export default function SimpleListAndImage({ index, heading, list, img, imagePos
           <Heading
             tag={index === 0 ? 'h1' : 'h2'}
             value={heading}
-            className='small-heading'
+            className='small-text'
           />
         </header>
         <ol className={styles.list}>
@@ -28,7 +28,7 @@ export default function SimpleListAndImage({ index, heading, list, img, imagePos
                 value={text}
                 className='large-text'
               />
-              <span className='small-heading'>{`[${addLeadingZero(index + 1)}]`}</span>
+              <span className='small-text'>{`[${addLeadingZero(index + 1)}]`}</span>
             </li>
           ))}
         </ol>

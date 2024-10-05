@@ -13,7 +13,7 @@ export default function StatsSection({ index, heading, paragraph, list }: StatsS
         <Heading
           tag={index === 0 ? 'h1' : 'h2'}
           value={heading}
-          className='medium-heading'
+          className='medium-text'
         />
         <div className={styles.text}>
           <Text value={paragraph} />

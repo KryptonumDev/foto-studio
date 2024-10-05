@@ -25,7 +25,6 @@ export default async function ContactForm({ paragraph, topics }: ContactFormType
         />
         <Form
           topics={topics}
-          email={email}
           privacyPolicyLink={privacyPolicy}
         />
       </div>

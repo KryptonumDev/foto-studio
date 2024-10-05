@@ -3,7 +3,7 @@ import type { ButtonTypes } from './Button.types';
 
 import styles from './Button.module.scss';
 
-export default function Button({ data, href, children, className = '', ...props }: ButtonTypes) {
+export default function Button({ data, href, children, className = '', loading = false, ...props }: ButtonTypes) {
   if (data) {
     href = data.href;
     children = data.text;
@@ -19,9 +19,7 @@ export default function Button({ data, href, children, className = '', ...props 
       {...(isExternal && { target: '_blank', rel: 'noopener' })}
       {...props}
     >
-      <span className={styles.icon}>
-        <ArrowIcon />
-      </span>
+      <span className={styles.icon}>{loading ? <span className={styles.loader}></span> : <ArrowIcon />}</span>
       <span className={styles.text}>{children}</span>
     </Element>
   );
