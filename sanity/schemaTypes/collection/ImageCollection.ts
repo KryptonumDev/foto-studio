@@ -7,10 +7,10 @@ export default defineType({
   icon: () => '🖼️',
   fields: [
     defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Tytuł',
-      validation: (Rule) => Rule.required().max(50).error('Tytuł nie może przekraczać 50 znaków.'),
+      name: 'image',
+      type: 'image',
+      title: 'Zdjęcie',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
@@ -18,6 +18,12 @@ export default defineType({
       title: 'Kategoria',
       to: {type: 'ImageCategoryCollection'},
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Tytuł (opcjonalny)',
+      validation: (Rule) => Rule.max(50).error('Tytuł nie może przekraczać 50 znaków.'),
     }),
     defineField({
       name: 'categoryLabel',
@@ -28,12 +34,6 @@ export default defineType({
         Rule.max(50).error('Wyświetlana nazwa kategorii nie może przekraczać 50 znaków.'),
     }),
     defineField({
-      name: 'image',
-      type: 'image',
-      title: 'Zdjęcie',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'blogPost',
       type: 'reference',
       title: 'Powiązany post na blogu (opcjonalne)',
@@ -42,8 +42,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'category.categoryName',
+      title: 'category.categoryName',
       media: 'image',
       icon: 'icon',
     },

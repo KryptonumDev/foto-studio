@@ -14,6 +14,7 @@ export default function RadioGroup({ label, register, errors, options, ...props 
           <label
             key={option}
             tabIndex={0}
+            className='chip'
           >
             <input
               type='radio'

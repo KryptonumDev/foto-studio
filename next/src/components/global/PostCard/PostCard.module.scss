@@ -1,0 +1,52 @@
+.PostCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+
+  .image {
+    overflow: hidden;
+    img {
+      will-change: transform;
+      transform-origin: center;
+      transform: scale(1);
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.5s var(--easing);
+    }
+  }
+
+  .link {
+    cursor: none;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    &:hover + .image {
+      img {
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  h2 strong {
+    font-weight: 500;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--primary-600);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .categoryLink {
+    z-index: 3;
+    align-self: flex-start;
+  }
+}

@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   try {
     await resend.emails.send({
       from: `Acme <onboarding@resend.dev>`,
-      to: 'marta.zaorska2@gmail.com',
+      to: 'marta.zaorska2@gmail.com', //kontakt@adamchrapek.pl
       subject: `Wiadomość przesłana przez formularz kontaktowy`,
       replyTo: email,
       html: body,

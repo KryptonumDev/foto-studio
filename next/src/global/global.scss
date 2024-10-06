@@ -265,3 +265,60 @@ h1 {
     outline-offset: -1px;
   }
 }
+
+.chip {
+  cursor: pointer;
+  padding: 12px 16px 14px;
+  border: 1px solid var(--primary-200);
+  background-color: var(--primary-100);
+  color: var(--primary-600);
+  transition:
+    border-color 0.1s var(--easing),
+    color 0.1s var(--easing);
+
+  @media screen and (min-width: 768px) {
+    padding: 9px 12px 11px;
+  }
+
+  span::before {
+    content: '[ ';
+    opacity: 0;
+    transition: opacity 0.1s var(--easing);
+  }
+
+  span::after {
+    content: ' ]';
+    opacity: 0;
+    transition: opacity 0.1s var(--easing);
+  }
+
+  &:hover {
+    border-color: var(--primary-500);
+    span::after,
+    span::before {
+      opacity: 1;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--primary-700);
+  }
+
+  &:disabled,
+  &:has(input:disabled) {
+    pointer-events: none;
+    touch-action: none;
+    color: var(--primary-500);
+  }
+
+  &[aria-current='page'],
+  &:has(input:checked),
+  .active {
+    color: var(--primary-900);
+    span::after,
+    span::before {
+      opacity: 1;
+    }
+  }
+}

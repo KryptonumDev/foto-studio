@@ -5,56 +5,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: clamp(8px, calc(12vw / 7.68), 12px);
-
     label {
-      cursor: pointer;
       position: relative;
-      padding: 12px 16px 14px;
-      border: 1px solid var(--primary-200);
-      background-color: var(--primary-100);
-      color: var(--primary-600);
-      transition: border-color 0.1s var(--easing);
-
-      @media screen and (min-width: 768px) {
-        padding: 9px 12px 11px;
-      }
 
       input {
         position: absolute;
         opacity: 0;
-
-        &:checked + span {
-          color: var(--primary-900);
-          &::after,
-          &::before {
-            opacity: 1;
-          }
-        }
-      }
-
-      span::before {
-        content: '[ ';
-        opacity: 0;
-        transition: opacity 0.1s var(--easing);
-      }
-
-      span::after {
-        content: ' ]';
-        opacity: 0;
-        transition: opacity 0.1s var(--easing);
-      }
-
-      &:hover {
-        border-color: var(--primary-500);
-        span::after,
-        span::before {
-          opacity: 1;
-        }
-      }
-
-      &:focus-visible {
-        outline: none;
-        border-color: var(--primary-700);
       }
     }
   }
@@ -76,12 +32,6 @@
 
   &:has(input:disabled) {
     p {
-      color: var(--primary-500);
-    }
-
-    label {
-      pointer-events: none;
-      touch-action: none;
       color: var(--primary-500);
     }
   }
