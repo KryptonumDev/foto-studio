@@ -12,8 +12,9 @@ export default async function Listing({ categories, postCount, currentCategorySl
   return (
     <section className={`${styles['Listing']} max-width mb`}>
       <CategoryChips
+        basePath='blog'
         categories={_categories}
-        postCount={postCount}
+        itemCount={postCount}
         currentCategorySlug={currentCategorySlug}
       />
       <PostList

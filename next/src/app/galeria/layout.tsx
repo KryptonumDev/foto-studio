@@ -2,9 +2,9 @@ import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 import DynamicComponents, { DynamicComponents_Query } from '@/components/DynamicComponents';
 import ListingHeader, { ListingHeader_Query } from '@/components/global/ListingHeader';
-import type { BlogLayoutTypes } from './page.types';
+import type { GalleryLayoutTypes } from './page.types';
 
-export default async function BlogLayout({
+export default async function GalleryLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -19,13 +19,13 @@ export default async function BlogLayout({
   );
 }
 
-const query = async (): Promise<BlogLayoutTypes> => {
-  const blogLayoutQuery = `
-   *[_type == "BlogPage"][0] {
+const query = async (): Promise<GalleryLayoutTypes> => {
+  const galleryLayoutQuery = `
+   *[_type == "GalleryPage"][0] {
       ${ListingHeader_Query}
       ${DynamicComponents_Query}
     }   
   `;
 
-  return await sanityFetch({ query: defineQuery(blogLayoutQuery) });
+  return await sanityFetch({ query: defineQuery(galleryLayoutQuery) });
 };

@@ -6,6 +6,7 @@ export type CategoryTypes = {
 
 export type CategoryChipsTypes = {
   categories: CategoryTypes[];
-  postCount: number;
+  basePath: string;
+  itemCount: number;
   currentCategorySlug?: string;
 };
