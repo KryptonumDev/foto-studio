@@ -4,9 +4,6 @@ import type { GalleryPageTypes } from './page.types';
 import { Category_Query } from '@/components/global/CategoryChips';
 import Listing from '@/components/_Gallery/Listing';
 
-export const revalidate = 60;
-export const dynamicParams = true;
-
 export default async function GalleryPage() {
   const { categories, imageCount } = await query();
 
