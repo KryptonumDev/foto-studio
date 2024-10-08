@@ -12,7 +12,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
   const [opened, setOpened] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
-  const getAriaCurrent = (href: string) => href === pathname && 'page';
+  const getAriaCurrent = (href: string) => pathname.startsWith(href) && 'page';
 
   const closeMenu = () => setOpened(false);
 

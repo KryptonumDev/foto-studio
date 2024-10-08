@@ -1,0 +1,93 @@
+@property --color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --start {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --end {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
+.ImageCard {
+  --color: transparent;
+  --start: 0%;
+  --end: 100%;
+  cursor: pointer;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    90deg,
+    var(--color) var(--start),
+    transparent 0,
+    transparent var(--end),
+    var(--color) 0
+  );
+  padding: var(--padding-image);
+  transition:
+    --color 0.2s var(--easing),
+    --start 0.2s var(--easing),
+    --end 0.2s var(--easing);
+
+  img {
+    will-change: transform;
+    transform: scale(1);
+    transition: transform 0.3s var(--easing);
+  }
+
+  span {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: clamp(7px, calc(11.8vw / 7.68), 14px);
+    line-height: 1.42;
+    font-weight: 500;
+    letter-spacing: clamp(0.282px, calc(0.47vw / 7.68), 0.72px);
+    opacity: 0;
+    transition: opacity 0.3s var(--easing) 0.1s;
+    width: max-content;
+
+    &.title {
+      top: calc(var(--padding-image) / -1.5);
+      left: 8.5%;
+
+      @media screen and (min-width: 768px) {
+        top: calc(var(--padding-image) / -2);
+      }
+    }
+
+    &.subtitle {
+      bottom: calc(var(--padding-image) / -1.5);
+      color: var(--primary-500);
+      right: 8.5%;
+
+      @media screen and (min-width: 768px) {
+        bottom: calc(var(--padding-image) / -2);
+      }
+    }
+  }
+
+  @media (hover: hover) or (min-width: 768px) {
+    &:hover {
+      --color: var(--primary-500);
+      --start: 7%;
+      --end: 93%;
+
+      img {
+        transform: scale(0.99);
+      }
+
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}

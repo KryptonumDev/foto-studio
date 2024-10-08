@@ -26,12 +26,10 @@ export default defineType({
       validation: (Rule) => Rule.max(50).error('Tytuł nie może przekraczać 50 znaków.'),
     }),
     defineField({
-      name: 'categoryLabel',
+      name: 'subtitle',
       type: 'string',
-      title: 'Wyświetlana nazwa kategorii (opcjonalne)',
-      description: 'Ta nazwa zostanie wyświetlona zamiast domyślnej nazwy kategorii.',
-      validation: (Rule) =>
-        Rule.max(50).error('Wyświetlana nazwa kategorii nie może przekraczać 50 znaków.'),
+      title: 'Podtytuł (opcjonalny)',
+      validation: (Rule) => Rule.max(50).error('Podtytuł nie może przekraczać 50 znaków.'),
     }),
     defineField({
       name: 'blogPost',
