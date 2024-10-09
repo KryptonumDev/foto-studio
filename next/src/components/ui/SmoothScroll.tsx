@@ -1,14 +1,15 @@
 'use client';
 import { useEffect, useRef, createContext, useContext } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 type ScrollStateTypes = {
   updateScroll: (element: HTMLElement) => void;
 };
 
-const ScrollContext = createContext<ScrollStateTypes | null>(null);
+const SmoothScrollContext = createContext<ScrollStateTypes | null>(null);
 
-export function SmoothScrollingProvider({ children }: { children: React.ReactNode }) {
+export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const locomotiveScrollRef = useRef<LocomotiveScroll | null>(null);
 
   useEffect(() => {
@@ -20,11 +21,11 @@ export function SmoothScrollingProvider({ children }: { children: React.ReactNod
     if (locomotiveScrollRef?.current) locomotiveScrollRef.current.addScrollElements(element);
   };
 
-  return <ScrollContext.Provider value={{ updateScroll }}>{children}</ScrollContext.Provider>;
+  return <SmoothScrollContext.Provider value={{ updateScroll }}>{children}</SmoothScrollContext.Provider>;
 }
 
-export const useScroll = () => {
-  const context = useContext(ScrollContext);
+export const useSmoothScroll = () => {
+  const context = useContext(SmoothScrollContext);
   if (!context) throw new Error('useScroll must be used within a SmoothScrollingProvider');
   return context;
 };

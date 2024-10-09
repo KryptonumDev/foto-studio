@@ -5,18 +5,17 @@
   margin-inline: auto;
   margin-top: clamp(48px, calc(62vw / 7.68), 62px);
   display: grid;
-  //row-gap: clamp(64px, calc(97vw / 7.68), 128px);
-  row-gap: clamp(32px, calc(64vw / 7.68), 96px);
+  row-gap: clamp(64px, calc(97vw / 7.68), 128px);
 
   .imagesGroup {
     display: flex;
     align-items: flex-start;
 
-    // > div {
-    //   @media screen and (max-width: 768px) {
-    //     transform: none !important;
-    //   }
-    // }
+    > div {
+      @media screen and (max-width: 768px) {
+        transform: none !important;
+      }
+    }
 
     &:nth-child(6n + 1),
     &:nth-child(6n + 5) {

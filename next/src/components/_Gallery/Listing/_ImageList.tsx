@@ -2,16 +2,18 @@
 import { useEffect, useState, useRef } from 'react';
 import { getImages } from '@/actions/getImages';
 import type { ImageListTypes } from './Listing.types';
-import { useScroll } from '@/components/ui/SmoothScrolling';
+import { useSmoothScroll } from '@/components/ui/SmoothScroll';
 import ImageCard, { type ImageCardTypes } from '@/components/global/ImageCard';
 import { NUMBER_OF_IMAGES_TO_FETCH } from '.';
 
 import styles from './Listing.module.scss';
 
+const speeds = [0.25, 0.1, 0.15, 0.3, 0.2, 0.1, 0.15, 0.25, 0.3, 0.15];
+
 export default function ImageList({ initialImages, imageCount, currentCategorySlug }: ImageListTypes) {
   const [offset, setOffset] = useState(NUMBER_OF_IMAGES_TO_FETCH);
   const [images, setImages] = useState<ImageCardTypes[]>(initialImages);
-  const { updateScroll } = useScroll();
+  const { updateScroll } = useSmoothScroll();
   const ref = useRef<HTMLDivElement>(null);
 
   const loadMoreImages = async () => {
@@ -66,8 +68,6 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
     </>
   );
 }
-
-const speeds = [0.15, 0.1, 0.12, 0.05, 0.18, 0.1, 0.12, 0.15, 0.08, 0.1];
 
 function getSizes(index: number): string {
   const i = index % 12;

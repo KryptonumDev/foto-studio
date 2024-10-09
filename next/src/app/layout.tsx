@@ -3,7 +3,7 @@ import '@/global/global.scss';
 
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
-import { SmoothScrollingProvider } from '@/components/ui/SmoothScrolling';
+import { SmoothScrollProvider } from '@/components/ui/SmoothScroll';
 
 export const metadata: Metadata = {
   title: 'Foto Studio',
@@ -15,12 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='pl'>
       <body>
         <Header />
-        <SmoothScrollingProvider>
+        <SmoothScrollProvider>
           <main id='main'>{children}</main>
-        </SmoothScrollingProvider>
+        </SmoothScrollProvider>
         <Footer />
       </body>
     </html>
