@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import '@/global/global.scss';
 
-import SmoothScrolling from '@/components/global/SmoothScrolling';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
+import { SmoothScrollingProvider } from '@/components/ui/SmoothScrolling';
 
 export const metadata: Metadata = {
   title: 'Foto Studio',
@@ -17,11 +17,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <SmoothScrolling>
+        <SmoothScrollingProvider>
           <Header />
           <main id='main'>{children}</main>
           <Footer />
-        </SmoothScrolling>
+        </SmoothScrollingProvider>
       </body>
     </html>
   );

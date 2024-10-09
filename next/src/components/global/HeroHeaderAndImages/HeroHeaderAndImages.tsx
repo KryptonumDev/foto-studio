@@ -1,7 +1,6 @@
 'use client';
-import { useRef } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
-
+import { useEffect, useRef } from 'react';
+import { useScroll } from '@/components/ui/SmoothScrolling';
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
 
 import Button from '@/components/ui/Button';
@@ -11,27 +10,22 @@ import Heading from '@/components/ui/Heading';
 import styles from './HeroHeaderAndImages.module.scss';
 
 const imageSizes = [
-  '(min-width: 1200px) 108px, (min-width: 768px) 63px, 70px',
-  '(min-width: 1200px) 185px, (min-width: 768px) 108px, 86px',
-  '(min-width: 1200px) 296px, (min-width: 768px) 173px, 155px',
-  '(min-width: 1200px) 326px, (min-width: 768px) 174px, 156px',
-  '(min-width: 1200px) 185px, (min-width: 768px) 111px, 86px',
+  '(min-width: 1200px) 108px, (min-width: 768px) 9vw, 70px',
+  '(min-width: 1200px) 185px, (min-width: 768px) 15vw, 86px',
+  '(min-width: 1200px) 296px, (min-width: 768px) 23vw, 155px',
+  '(min-width: 1200px) 326px, (min-width: 768px) 23vw, 156px',
+  '(min-width: 1200px) 185px, (min-width: 768px) 15vw, 86px',
 ];
+
+const imageSpeeds = [0.25, 0.05, 0.7, 0.04, 0.5];
 
 export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  const { updateScroll } = useScroll();
 
-  const parallaxY = [
-    useTransform(scrollYProgress, [0, 1], ['0%', '-250%']),
-    useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
-    useTransform(scrollYProgress, [0, 1], ['0%', '-300%']),
-    useTransform(scrollYProgress, [0, 1], ['0%', '-600%']),
-    useTransform(scrollYProgress, [0, 1], ['0%', '-800%']),
-  ];
+  useEffect(() => {
+    if (ref?.current) updateScroll(ref.current);
+  }, []);
 
   return (
     <section
@@ -47,17 +41,18 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
         <Button data={cta} />
       </header>
       {images.map((data, index) => (
-        <motion.div
+        <div
+          data-scroll
+          data-scroll-speed={imageSpeeds[index]}
           key={`hero-image-${index}`}
           className={styles.img}
-          style={{ y: parallaxY[index] }}
         >
           <Img
             data={data}
             sizes={imageSizes[index]}
             priority={true}
           />
-        </motion.div>
+        </div>
       ))}
     </section>
   );

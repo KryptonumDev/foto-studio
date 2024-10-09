@@ -1,13 +1,10 @@
-import type { PortableTextBlock } from 'next-sanity';
 import type { ImgTypes } from '@/components/ui/Img';
 
 export type ImageCardTypes = {
-  _id: string;
   image: ImgTypes;
+  sizes: string;
   title?: string;
   subtitle?: string;
-  post?: {
-    title: PortableTextBlock[];
-    slug: string;
-  };
+  ['data-scroll']?: boolean;
+  ['data-scroll-speed']?: number;
 };

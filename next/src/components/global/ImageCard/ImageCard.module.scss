@@ -20,7 +20,6 @@
   --color: transparent;
   --start: 0%;
   --end: 100%;
-  cursor: pointer;
   position: relative;
   border-width: 1px;
   border-style: solid;
@@ -34,15 +33,9 @@
   );
   padding: var(--padding-image);
   transition:
-    --color 0.2s var(--easing),
-    --start 0.2s var(--easing),
-    --end 0.2s var(--easing);
-
-  img {
-    will-change: transform;
-    transform: scale(1);
-    transition: transform 0.3s var(--easing);
-  }
+    --color 0.3s var(--easing),
+    --start 0.3s var(--easing),
+    --end 0.3s var(--easing);
 
   span {
     position: absolute;
@@ -52,7 +45,7 @@
     font-weight: 500;
     letter-spacing: clamp(0.282px, calc(0.47vw / 7.68), 0.72px);
     opacity: 0;
-    transition: opacity 0.3s var(--easing) 0.1s;
+    transition: opacity 0.4s var(--easing);
     width: max-content;
 
     &.title {
@@ -80,10 +73,6 @@
       --color: var(--primary-500);
       --start: 7%;
       --end: 93%;
-
-      img {
-        transform: scale(0.99);
-      }
 
       span {
         opacity: 1;

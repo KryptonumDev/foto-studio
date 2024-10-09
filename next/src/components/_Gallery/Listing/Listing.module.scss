@@ -21,13 +21,13 @@
           height: clamp(150px, calc(227vw / 7.68), 384px);
         }
 
-        &:first-child img {
+        &:nth-child(1) img {
           max-width: 160px;
           @media screen and (min-width: 360px) {
             max-width: clamp(190px, calc(304vw / 7.68), 513px);
           }
         }
-        &:last-child img {
+        &:nth-child(2) img {
           max-width: 110px;
           @media screen and (min-width: 360px) {
             max-width: clamp(110px, calc(175vw / 7.68), 296px);
@@ -46,10 +46,10 @@
       }
 
       > div {
-        &:first-child img {
+        &:nth-child(1) img {
           width: clamp(171px, calc(299vw / 7.68), 434px);
         }
-        &:last-child img {
+        &:nth-child(2) img {
           width: clamp(85px, calc(149vw / 7.68), 217px);
         }
       }
@@ -57,11 +57,11 @@
 
     &:nth-child(6n + 4) {
       > div {
-        &:first-child img {
+        &:nth-child(1) img {
           width: clamp(85px, calc(149vw / 7.68), 217px);
         }
 
-        &:last-child img {
+        &:nth-child(2) img {
           width: clamp(171px, calc(299vw / 7.68), 434px);
         }
       }
@@ -79,11 +79,11 @@
       }
 
       > div {
-        &:first-child img {
+        &:nth-child(1) img {
           width: clamp(157px, calc(262vw / 7.68), 402px);
         }
 
-        &:last-child img {
+        &:nth-child(2) img {
           width: clamp(128px, calc(213vw / 7.68), 326px);
         }
       }
@@ -91,11 +91,11 @@
 
     &:nth-child(6n + 6) {
       > div {
-        &:first-child img {
+        &:nth-child(1) img {
           width: clamp(128px, calc(213vw / 7.68), 326px);
         }
 
-        &:last-child img {
+        &:nth-child(2) img {
           width: clamp(157px, calc(262vw / 7.68), 402px);
         }
       }
