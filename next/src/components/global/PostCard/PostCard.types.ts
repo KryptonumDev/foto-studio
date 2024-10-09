@@ -5,6 +5,7 @@ import type { PortableTextBlock } from 'next-sanity';
 export type PostCardTypes = {
   _id: string;
   _createdAt: string;
+  index: number;
   image: ImgTypes;
   category: CategoryTypes;
   title: PortableTextBlock[];

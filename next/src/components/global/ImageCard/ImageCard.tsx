@@ -2,7 +2,7 @@ import type { ImageCardTypes } from './ImageCard.types';
 import Img from '@/components/ui/Img';
 import styles from './ImageCard.module.scss';
 
-export default function ImageCard({ title, subtitle, image, sizes, ...props }: ImageCardTypes) {
+export default function ImageCard({ index, title, subtitle, image, sizes, ...props }: ImageCardTypes) {
   return (
     <div
       className={styles['ImageCard']}
@@ -13,6 +13,7 @@ export default function ImageCard({ title, subtitle, image, sizes, ...props }: I
       <Img
         data={image}
         sizes={sizes}
+        priority={index === 0 || index === 1}
       />
     </div>
   );

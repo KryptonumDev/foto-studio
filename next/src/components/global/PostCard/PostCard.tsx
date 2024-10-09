@@ -6,7 +6,7 @@ import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 import styles from './PostCard.module.scss';
 
-export default function PostCard({ _createdAt, image, category, title, slug, ...anchorProps }: PostCardTypes) {
+export default function PostCard({ index, _createdAt, image, category, title, slug, ...anchorProps }: PostCardTypes) {
   return (
     <article className={styles['PostCard']}>
       <Link
@@ -19,6 +19,7 @@ export default function PostCard({ _createdAt, image, category, title, slug, ...
         <Img
           data={image}
           sizes='(min-width: 680px) 294px, 360px'
+          priority={index === 0 || index === 1}
         />
       </div>
       <header>

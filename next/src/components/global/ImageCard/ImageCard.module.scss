@@ -68,7 +68,7 @@
     }
   }
 
-  @media (hover: hover) or (min-width: 768px) {
+  @media (hover: hover) {
     &:hover {
       --color: var(--primary-500);
       --start: 7%;

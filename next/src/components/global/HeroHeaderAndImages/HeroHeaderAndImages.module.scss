@@ -3,8 +3,6 @@
   min-height: clamp(838px, calc(866vw / 7.68), 1019px);
 
   header {
-    position: sticky;
-    top: var(--sticky-top);
     width: min(100%, 986px);
     display: flex;
     flex-direction: column;
@@ -104,17 +102,18 @@
   &:nth-of-type(5) {
     width: min(calc(86vw / 3.6), 111px);
     top: 698px;
+    top: 640px;
     left: 0px;
 
     @media screen and (min-width: 768px) {
       width: 111px;
       top: 685px;
+      top: 590px;
       left: min(calc(237vw / 7.68), 326px);
     }
 
     @media screen and (min-width: 1366px) {
       width: 185px;
-      top: 730px;
     }
   }
 }

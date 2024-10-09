@@ -39,6 +39,7 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
               <ImageCard
                 {...image}
                 sizes={getSizes(i)}
+                index={i}
                 data-scroll
                 data-scroll-speed={speeds[i % 10]}
               />
@@ -46,6 +47,7 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
                 <ImageCard
                   {...images[i + 1]}
                   sizes={getSizes(i + 1)}
+                  index={i + 1}
                   data-scroll
                   data-scroll-speed={speeds[(i + 1) % 10]}
                 />
@@ -65,7 +67,7 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
   );
 }
 
-const speeds = [0.1, 0.2, 0.1, 0.15, 0.35, 0.2, 0.45, 0.3, 0.25, 0.45];
+const speeds = [0.15, 0.1, 0.12, 0.05, 0.18, 0.1, 0.12, 0.15, 0.08, 0.1];
 
 function getSizes(index: number): string {
   const i = index % 12;

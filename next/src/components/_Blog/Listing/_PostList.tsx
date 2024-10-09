@@ -31,12 +31,13 @@ export default function PostList({ initialPosts, currentCategorySlug, postCount 
         className={styles.posts}
         ref={ref}
       >
-        {posts.map(post => (
+        {posts.map((post, i) => (
           <PostCard
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             key={post._id}
             {...post}
+            index={i}
           />
         ))}
       </div>

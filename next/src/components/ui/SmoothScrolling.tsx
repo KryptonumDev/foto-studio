@@ -12,9 +12,7 @@ export function SmoothScrollingProvider({ children }: { children: React.ReactNod
   const locomotiveScrollRef = useRef<LocomotiveScroll | null>(null);
 
   useEffect(() => {
-    locomotiveScrollRef.current = new LocomotiveScroll({
-      lenisOptions: { lerp: 0.15 },
-    });
+    locomotiveScrollRef.current = new LocomotiveScroll();
     return () => locomotiveScrollRef.current?.destroy();
   }, []);
 
