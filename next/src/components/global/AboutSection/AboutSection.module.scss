@@ -1,0 +1,39 @@
+.AboutSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(20px, calc(36vw / 7.68), 64px);
+
+  .wrapper {
+    display: grid;
+    width: min(100%, 1161px);
+    gap: clamp(28px, calc(32vw / 7.68), 32px);
+
+    h1,
+    h2 {
+      width: min(100%, 1049px);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: clamp(16px, calc(20vw / 7.68), 20px);
+
+    h3 {
+      padding-top: 12px;
+      width: 295px;
+    }
+
+    .text {
+      width: min(100%, 585px);
+      display: grid;
+      gap: clamp(12px, calc(16vw / 7.68), 28px);
+
+      @media screen and (min-width: 768px) {
+        width: min(calc(585vw / 7.68), 649px);
+      }
+    }
+  }
+}

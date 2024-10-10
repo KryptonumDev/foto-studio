@@ -1,0 +1,28 @@
+.FormState {
+  margin-top: clamp(24px, calc(36vw / 7.68), 36px);
+  display: grid;
+  gap: clamp(12px, calc(20vw / 7.68), 24px);
+
+  h3 {
+    display: grid;
+    grid-template-columns: 16px auto;
+    align-items: center;
+    text-transform: uppercase;
+    gap: 6px;
+
+    .icon {
+      width: 14px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background-color: var(--success);
+      @media screen and (min-width: 768px) {
+        svg {
+          width: 11px;
+          aspect-ratio: 1 / 1;
+        }
+      }
+    }
+  }
+}

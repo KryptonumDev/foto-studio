@@ -1,0 +1,25 @@
+.CategoryChips {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(8px, calc(12vw / 7.68), 12px);
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, calc(12vw / 7.68), 12px);
+
+    @media screen and (min-width: 768px) {
+      width: min(calc(584vw / 7.68), 100%);
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 1053px;
+    }
+  }
+
+  .count {
+    min-width: max-content;
+    padding-top: clamp(8px, calc(12vw / 7.68), 12px);
+  }
+}

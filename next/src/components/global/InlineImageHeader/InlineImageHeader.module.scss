@@ -1,0 +1,32 @@
+.InlineImageHeader {
+  margin-bottom: clamp(48px, calc(80vw / 7.68), 80px);
+
+  @media screen and (min-width: 1366px) {
+    margin-bottom: 72px;
+  }
+
+  h1,
+  h2 {
+    display: grid;
+    gap: 2px;
+
+    @media screen and (min-width: 500px) {
+      gap: 12px;
+    }
+
+    span:first-child {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(8px, calc(16vw / 7.68), 28px);
+    }
+
+    span:last-child {
+      word-break: break-all;
+    }
+
+    img {
+      width: clamp(156px, calc(237vw / 7.68), 295px);
+    }
+  }
+}
