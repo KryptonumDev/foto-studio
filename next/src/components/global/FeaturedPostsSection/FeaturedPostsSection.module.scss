@@ -18,7 +18,6 @@
     padding-left: var(--slide-spacing);
     overflow: hidden;
     min-width: 0;
-    cursor: none;
 
     @media screen and (min-width: 1270px) {
       --slide-size: min(calc(433vw / 13.66), 433px);

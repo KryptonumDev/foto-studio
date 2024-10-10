@@ -19,7 +19,7 @@
   transform-origin: center;
   pointer-events: none;
 
-  @media (hover: none) {
+  @media (pointer: coarse) {
     display: none;
   }
 }

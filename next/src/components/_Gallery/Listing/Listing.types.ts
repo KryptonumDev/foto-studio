@@ -4,11 +4,11 @@ import type { ImageCardTypes } from '@/components/global/ImageCard';
 export type ListingTypes = {
   categories: CategoryTypes[];
   imageCount: number;
+  images: ImageCardTypes[];
   currentCategorySlug?: string;
 };
 
 export type ImageListTypes = {
-  initialImages: ImageCardTypes[];
+  images: ImageCardTypes[];
   imageCount: number;
-  currentCategorySlug?: string;
 };

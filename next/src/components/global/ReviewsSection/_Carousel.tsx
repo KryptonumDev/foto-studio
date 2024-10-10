@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 import type { CarouselTypes } from './ReviewsSection.types';
 
-import Cursor from '@/components/ui/Cursor';
+import Cursor, { useCursor } from '@/components/ui/Cursor';
 import Slider from '@/components/ui/Slider';
 import Img from '@/components/ui/Img';
 import Text from '@/components/ui/Text';
@@ -11,13 +11,14 @@ import styles from './ReviewsSection.module.scss';
 
 export default function Carousel({ list, index }: CarouselTypes) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const [cursorScale, setCursorScale] = useState(0);
+  const { mouse, updatePosition } = useCursor();
 
   return (
     <>
       <Cursor
-        trackingAreaRef={ref}
-        active={isHovering}
+        mouse={mouse}
+        scale={cursorScale}
         text='przewiń'
       />
       <Slider activeSlideClassName={styles['isActive']}>
@@ -41,8 +42,14 @@ export default function Carousel({ list, index }: CarouselTypes) {
           </Slider.Details>
           <Slider.Slides
             className={styles.container}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseMove={updatePosition}
+            onMouseOut={() => setCursorScale(0)}
+            onMouseOver={e => {
+              updatePosition(e);
+              setCursorScale(1);
+            }}
+            onMouseDown={() => setCursorScale(1.3)}
+            onMouseUp={() => setCursorScale(1)}
           >
             {list.map(({ _id, img }) => (
               <div

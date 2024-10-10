@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 import type { ImageSliderTypes } from './ImageSlider.types';
 
-import Cursor from '@/components/ui/Cursor';
+import Cursor, { useCursor } from '@/components/ui/Cursor';
 import Slider from '@/components/ui/Slider';
 import Img from '@/components/ui/Img';
 
@@ -10,25 +10,31 @@ import styles from './ImageSlider.module.scss';
 
 export default function ImageSlider({ index, images }: ImageSliderTypes) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const [cursorScale, setCursorScale] = useState(0);
+  const { mouse, updatePosition } = useCursor();
 
   return (
     <>
       <Cursor
-        trackingAreaRef={ref}
-        active={isHovering}
+        mouse={mouse}
+        scale={cursorScale}
         text='przewiń'
       />
-      <section className={styles['ImageSlider']}>
+      <section
+        className={styles['ImageSlider']}
+        onMouseMove={updatePosition}
+      >
         <Slider>
-          <Slider.Observer
-            ref={ref}
-            className={styles.wrapper}
-          >
+          <Slider.Observer ref={ref}>
             <Slider.Slides
               className={styles.container}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseOut={() => setCursorScale(0)}
+              onMouseOver={e => {
+                updatePosition(e);
+                setCursorScale(1);
+              }}
+              onMouseDown={() => setCursorScale(0.8)}
+              onMouseUp={() => setCursorScale(1)}
             >
               {images.map((data, i) => (
                 <div

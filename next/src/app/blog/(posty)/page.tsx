@@ -2,15 +2,17 @@ import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 import type { BlogPageTypes } from './page.types';
 import { Category_Query } from '@/components/global/CategoryChips';
+import { PostCard_Query } from '@/components/global/PostCard';
 import Listing from '@/components/_Blog/Listing';
 
 export default async function BlogPage() {
-  const { categories, postCount } = await query();
+  const { categories, postCount, posts } = await query();
 
   return (
     <Listing
       categories={categories}
       postCount={postCount}
+      posts={posts}
     />
   );
 }
@@ -22,6 +24,9 @@ const query = async (): Promise<BlogPageTypes> => {
         ${Category_Query}
       },
       "postCount": count(*[_type == "BlogPostCollection"]), 
+      "posts": *[_type == "BlogPostCollection"] | order(_updatedAt desc){
+        ${PostCard_Query}
+      }
    }
   `;
 

@@ -1,7 +1,18 @@
-import { RefObject } from 'react';
+import type { MotionValue } from 'framer-motion';
 
 export type CursorTypes = {
   text?: string;
-  active: boolean;
-  trackingAreaRef: RefObject<HTMLElement | HTMLDivElement>;
+  scale: number;
+  mouse: {
+    x: MotionValue<number>;
+    y: MotionValue<number>;
+  };
+};
+
+export type UseCursorTypes = {
+  updatePosition: React.MouseEventHandler<HTMLElement>;
+  mouse: {
+    x: MotionValue<number>;
+    y: MotionValue<number>;
+  };
 };

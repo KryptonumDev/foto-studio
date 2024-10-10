@@ -3,12 +3,12 @@ import type { PostCardTypes } from '@/components/global/PostCard';
 
 export type ListingTypes = {
   categories: CategoryTypes[];
+  posts: PostCardTypes[];
   postCount: number;
   currentCategorySlug?: string;
 };
 
 export type PostListTypes = {
-  initialPosts: PostCardTypes[];
+  posts: PostCardTypes[];
   postCount: number;
-  currentCategorySlug?: string;
 };

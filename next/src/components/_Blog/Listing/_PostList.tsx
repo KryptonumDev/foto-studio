@@ -1,40 +1,39 @@
 'use client';
-import { useState, useRef } from 'react';
-import { getPosts } from '@/actions/getPosts';
+import { useState } from 'react';
 import type { PostListTypes } from './Listing.types';
-import PostCard, { type PostCardTypes } from '@/components/global/PostCard';
-import Cursor from '@/components/ui/Cursor';
+import PostCard from '@/components/global/PostCard';
+import Cursor, { useCursor } from '@/components/ui/Cursor';
 import { NUMBER_OF_POSTS_TO_FETCH } from '.';
 
 import styles from './Listing.module.scss';
 
-export default function PostList({ initialPosts, currentCategorySlug, postCount }: PostListTypes) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
+export default function PostList({ posts, postCount }: PostListTypes) {
   const [offset, setOffset] = useState(NUMBER_OF_POSTS_TO_FETCH);
-  const [posts, setPosts] = useState<PostCardTypes[]>(initialPosts);
+  const [cursorScale, setCursorScale] = useState(0);
+  const { mouse, updatePosition } = useCursor();
 
-  const loadMorePosts = async () => {
-    const data = await getPosts(offset, NUMBER_OF_POSTS_TO_FETCH, currentCategorySlug);
-    setPosts(prev => [...prev, ...data]);
-    setOffset(prev => prev + NUMBER_OF_POSTS_TO_FETCH);
-  };
+  const loadMorePosts = () => setOffset(prev => prev + NUMBER_OF_POSTS_TO_FETCH);
 
   return (
     <>
       <Cursor
         text='czytaj'
-        trackingAreaRef={ref}
-        active={isHovering}
+        mouse={mouse}
+        scale={cursorScale}
       />
       <div
         className={styles.posts}
-        ref={ref}
+        onMouseMove={updatePosition}
       >
-        {posts.map((post, i) => (
+        {posts.slice(0, offset).map((post, i) => (
           <PostCard
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
+            onMouseOver={e => {
+              updatePosition(e);
+              setCursorScale(1);
+            }}
+            onMouseOut={() => setCursorScale(0)}
+            onMouseDown={() => setCursorScale(1.3)}
+            onMouseUp={() => setCursorScale(1)}
             key={post._id}
             {...post}
             index={i}

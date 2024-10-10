@@ -1,30 +1,22 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
-import { getImages } from '@/actions/getImages';
 import type { ImageListTypes } from './Listing.types';
 import { useSmoothScroll } from '@/components/ui/SmoothScroll';
-import ImageCard, { type ImageCardTypes } from '@/components/global/ImageCard';
+import ImageCard from '@/components/global/ImageCard';
 import { NUMBER_OF_IMAGES_TO_FETCH } from '.';
 
 import styles from './Listing.module.scss';
 
-const speeds = [0.25, 0.1, 0.15, 0.3, 0.2, 0.1, 0.15, 0.25, 0.3, 0.15];
-
-export default function ImageList({ initialImages, imageCount, currentCategorySlug }: ImageListTypes) {
+export default function ImageList({ images, imageCount }: ImageListTypes) {
   const [offset, setOffset] = useState(NUMBER_OF_IMAGES_TO_FETCH);
-  const [images, setImages] = useState<ImageCardTypes[]>(initialImages);
   const { updateScroll } = useSmoothScroll();
   const ref = useRef<HTMLDivElement>(null);
 
-  const loadMoreImages = async () => {
-    const data = await getImages(offset, NUMBER_OF_IMAGES_TO_FETCH, currentCategorySlug);
-    setImages(prev => [...prev, ...data]);
-    setOffset(prev => prev + NUMBER_OF_IMAGES_TO_FETCH);
-  };
+  const loadMoreImages = () => setOffset(prev => prev + NUMBER_OF_IMAGES_TO_FETCH);
 
   useEffect(() => {
     if (ref?.current) updateScroll(ref.current);
-  }, [images]);
+  }, [offset]);
 
   return (
     <>
@@ -32,7 +24,7 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
         ref={ref}
         className={styles.images}
       >
-        {images.map((image, i) =>
+        {images.slice(0, offset).map((image, i) =>
           i % 2 === 0 ? (
             <div
               key={`group-${i}`}
@@ -68,6 +60,8 @@ export default function ImageList({ initialImages, imageCount, currentCategorySl
     </>
   );
 }
+
+const speeds = [0.25, 0.1, 0.15, 0.3, 0.2, 0.1, 0.15, 0.25, 0.3, 0.15];
 
 function getSizes(index: number): string {
   const i = index % 12;

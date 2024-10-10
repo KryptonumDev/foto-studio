@@ -1,12 +1,9 @@
 import type { ListingTypes } from './Listing.types';
 import CategoryChips from '@/components/global/CategoryChips';
-import { getImages } from '@/actions/getImages';
-import { NUMBER_OF_IMAGES_TO_FETCH } from '.';
 import ImageList from './_ImageList';
 
-export default async function Listing({ categories, imageCount, currentCategorySlug = '' }: ListingTypes) {
+export default function Listing({ categories, images, imageCount, currentCategorySlug = '' }: ListingTypes) {
   const _categories = [{ _id: 'all', categoryName: 'Wszystkie', slug: '' }, ...categories];
-  const initialImages = await getImages(0, NUMBER_OF_IMAGES_TO_FETCH, currentCategorySlug);
 
   return (
     <section className='mb'>
@@ -19,9 +16,8 @@ export default async function Listing({ categories, imageCount, currentCategoryS
         />
       </div>
       <ImageList
-        initialImages={initialImages}
+        images={images}
         imageCount={imageCount}
-        currentCategorySlug={currentCategorySlug}
       />
     </section>
   );
