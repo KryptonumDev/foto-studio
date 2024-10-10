@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineField, defineType, ValidationContext} from 'sanity'
 
 export default defineType({
   name: 'ImageCollection',
@@ -20,22 +20,34 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Tytuł (opcjonalny)',
-      validation: (Rule) => Rule.max(50).error('Tytuł nie może przekraczać 50 znaków.'),
-    }),
-    defineField({
-      name: 'subtitle',
-      type: 'string',
-      title: 'Podtytuł (opcjonalny)',
-      validation: (Rule) => Rule.max(50).error('Podtytuł nie może przekraczać 50 znaków.'),
-    }),
-    defineField({
       name: 'blogPost',
       type: 'reference',
       title: 'Powiązany post na blogu (opcjonalne)',
       to: {type: 'BlogPostCollection'},
+    }),
+    defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Tytuł',
+      hidden: ({parent}) => !parent?.blogPost,
+      validation: (Rule) =>
+        Rule.custom((value: string | undefined, context: ValidationContext) => {
+          if (!context.document?.blogPost) return true
+          if (!value) return 'Tytuł jest wymagany'
+          return value.length > 25 ? 'Tytuł nie może przekraczać 25 znaków' : true
+        }),
+    }),
+    defineField({
+      name: 'subtitle',
+      type: 'string',
+      title: 'Podtytuł',
+      hidden: ({parent}) => !parent?.blogPost,
+      validation: (Rule) =>
+        Rule.custom((value: string | undefined, context: ValidationContext) => {
+          if (!context.document?.blogPost) return true
+          if (!value) return 'Podtytuł jest wymagany'
+          return value.length > 25 ? 'Podtytuł nie może przekraczać 25 znaków' : true
+        }),
     }),
   ],
   preview: {

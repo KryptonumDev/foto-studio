@@ -3,14 +3,17 @@ import { useEffect, useState, useRef } from 'react';
 import type { ImageListTypes } from './Listing.types';
 import { useSmoothScroll } from '@/components/ui/SmoothScroll';
 import ImageCard from '@/components/global/ImageCard';
+import Cursor, { useCursor } from '@/components/ui/Cursor';
 import { NUMBER_OF_IMAGES_TO_FETCH } from '.';
 
 import styles from './Listing.module.scss';
 
 export default function ImageList({ images, imageCount }: ImageListTypes) {
+  const [cursorScale, setCursorScale] = useState(0);
   const [offset, setOffset] = useState(NUMBER_OF_IMAGES_TO_FETCH);
   const { updateScroll } = useSmoothScroll();
   const ref = useRef<HTMLDivElement>(null);
+  const { mouse, updatePosition } = useCursor();
 
   const loadMoreImages = () => setOffset(prev => prev + NUMBER_OF_IMAGES_TO_FETCH);
 
@@ -20,9 +23,15 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
 
   return (
     <>
+      <Cursor
+        mouse={mouse}
+        scale={cursorScale}
+        text='zobacz'
+      />
       <div
         ref={ref}
         className={styles.images}
+        onMouseMove={updatePosition}
       >
         {images.slice(0, offset).map((image, i) =>
           i % 2 === 0 ? (
@@ -36,6 +45,13 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
                 index={i}
                 data-scroll
                 data-scroll-speed={speeds[i % 10]}
+                {...(image.blogPost && {
+                  onMouseOver: e => {
+                    updatePosition(e);
+                    setCursorScale(1);
+                  },
+                  onMouseOut: () => setCursorScale(0),
+                })}
               />
               {images[i + 1] && (
                 <ImageCard
@@ -44,6 +60,13 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
                   index={i + 1}
                   data-scroll
                   data-scroll-speed={speeds[(i + 1) % 10]}
+                  {...(images[i + 1].blogPost && {
+                    onMouseOver: e => {
+                      updatePosition(e);
+                      setCursorScale(1);
+                    },
+                    onMouseOut: () => setCursorScale(0),
+                  })}
                 />
               )}
             </div>

@@ -32,8 +32,6 @@ export default function PostList({ posts, postCount }: PostListTypes) {
               setCursorScale(1);
             }}
             onMouseOut={() => setCursorScale(0)}
-            onMouseDown={() => setCursorScale(1.3)}
-            onMouseUp={() => setCursorScale(1)}
             key={post._id}
             {...post}
             index={i}

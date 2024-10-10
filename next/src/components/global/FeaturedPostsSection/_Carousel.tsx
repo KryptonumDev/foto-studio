@@ -37,7 +37,7 @@ export default function Carousel({ index, list }: CarouselTypes) {
                   updatePosition(e);
                   setCursorScale(1);
                 }}
-                onMouseDown={() => setCursorScale(0.8)}
+                onMouseDown={() => setCursorScale(1.3)}
                 onMouseUp={() => setCursorScale(1)}
               >
                 <Img

@@ -17,58 +17,65 @@
 }
 
 .ImageCard {
-  --color: transparent;
-  --start: 0%;
-  --end: 100%;
   position: relative;
-  border-width: 1px;
-  border-style: solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(
-    90deg,
-    var(--color) var(--start),
-    transparent 0,
-    transparent var(--end),
-    var(--color) 0
-  );
   padding: var(--padding-image);
-  transition:
-    --color 0.3s var(--easing),
-    --start 0.3s var(--easing),
-    --end 0.3s var(--easing);
 
-  span {
-    position: absolute;
-    text-transform: uppercase;
-    font-size: clamp(7px, calc(11.8vw / 7.68), 14px);
-    line-height: 1.42;
-    font-weight: 500;
-    letter-spacing: clamp(0.282px, calc(0.47vw / 7.68), 0.72px);
-    opacity: 0;
-    transition: opacity 0.4s var(--easing);
-    width: max-content;
+  &.interactive {
+    --color: transparent;
+    --start: 0%;
+    --end: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      90deg,
+      var(--color) var(--start),
+      transparent 0,
+      transparent var(--end),
+      var(--color) 0
+    );
+    transition:
+      --color 0.3s var(--easing),
+      --start 0.3s var(--easing),
+      --end 0.3s var(--easing);
 
-    &.title {
-      top: calc(var(--padding-image) / -1.5);
-      left: 8.5%;
+    span {
+      position: absolute;
+      text-transform: uppercase;
+      font-size: clamp(7px, calc(11.8vw / 7.68), 14px);
+      line-height: 1.42;
+      font-weight: 500;
+      letter-spacing: clamp(0.282px, calc(0.47vw / 7.68), 0.72px);
+      opacity: 0;
+      transition: opacity 0.4s var(--easing);
+      width: max-content;
 
-      @media screen and (min-width: 768px) {
-        top: calc(var(--padding-image) / -2);
+      &.title {
+        top: calc(var(--padding-image) / -1.5);
+        left: 8.5%;
+
+        @media screen and (min-width: 768px) {
+          top: calc(var(--padding-image) / -2);
+        }
+      }
+
+      &.subtitle {
+        bottom: calc(var(--padding-image) / -1.5);
+        color: var(--primary-500);
+        right: 8.5%;
+
+        @media screen and (min-width: 768px) {
+          bottom: calc(var(--padding-image) / -2);
+        }
       }
     }
 
-    &.subtitle {
-      bottom: calc(var(--padding-image) / -1.5);
-      color: var(--primary-500);
-      right: 8.5%;
-
-      @media screen and (min-width: 768px) {
-        bottom: calc(var(--padding-image) / -2);
-      }
+    .link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
     }
-  }
 
-  @media (hover: hover) {
     &:hover {
       --color: var(--primary-500);
       --start: 7%;

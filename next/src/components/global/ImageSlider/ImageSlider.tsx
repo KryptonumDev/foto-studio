@@ -33,7 +33,7 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
                 updatePosition(e);
                 setCursorScale(1);
               }}
-              onMouseDown={() => setCursorScale(0.8)}
+              onMouseDown={() => setCursorScale(1.3)}
               onMouseUp={() => setCursorScale(1)}
             >
               {images.map((data, i) => (

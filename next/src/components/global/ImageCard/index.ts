@@ -4,9 +4,12 @@ export default ImageCard;
 export type { ImageCardTypes } from './ImageCard.types';
 
 export const ImageCard_Query = `
-  title,
-  subtitle,
   image {
     ${ImgData_Query}
+  },
+  title,
+  subtitle,
+  blogPost->{
+    "slug": slug.current
   }
 `;

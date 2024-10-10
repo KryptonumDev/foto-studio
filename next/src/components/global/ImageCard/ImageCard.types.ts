@@ -6,6 +6,9 @@ export type ImageCardTypes = {
   sizes: string;
   title?: string;
   subtitle?: string;
+  blogPost?: {
+    slug: string;
+  };
   ['data-scroll']?: boolean;
   ['data-scroll-speed']?: number;
-};
+} & React.HTMLAttributes<HTMLElement>;
