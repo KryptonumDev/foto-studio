@@ -85,5 +85,14 @@
         opacity: 1;
       }
     }
+
+    @media (pointer: coarse) {
+      &:hover {
+        --color: transparent;
+        span {
+          opacity: 0;
+        }
+      }
+    }
   }
 }

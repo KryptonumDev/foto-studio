@@ -22,6 +22,7 @@ export default defineType({
         ],
         layout: 'radio',
       },
+      initialValue: 'caseStudy',
     }),
     defineField({
       name: 'title',
@@ -29,6 +30,12 @@ export default defineType({
       title: 'Tytuł',
       validation: (Rule) =>
         Rule.required().length(1).error('Pole musi zawierać tylko jeden blok tekstowy'),
+    }),
+    defineField({
+      name: 'paragraph',
+      type: 'TextBlock',
+      title: 'Paragraf (opcjonalny)',
+      validation: (Rule) => Rule.length(1).warning('Pole może zawierać tylko jeden blok tekstowy'),
     }),
     defineField({
       name: 'slug',
@@ -56,6 +63,25 @@ export default defineType({
       type: 'image',
       title: 'Zdjęcie',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'showShareButton',
+      type: 'boolean',
+      title: 'Pokaż przycisk "Udostępnij artykuł"',
+      initialValue: false,
+      hidden: ({parent}) => parent?.type !== 'article',
+    }),
+    defineField({
+      name: 'articleContent',
+      type: 'articleContent',
+      title: 'Komponenty',
+      hidden: ({parent}) => parent?.type !== 'article',
+    }),
+    defineField({
+      name: 'caseStudyContent',
+      type: 'caseStudyContent',
+      title: 'Komponenty',
+      hidden: ({parent}) => parent?.type !== 'caseStudy',
     }),
     defineField({
       name: 'seo',
