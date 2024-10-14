@@ -91,6 +91,11 @@
       gap: calc(6rem / 16);
     }
 
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
     p:not(:first-child) {
       margin-top: calc(8rem / 16);
     }
