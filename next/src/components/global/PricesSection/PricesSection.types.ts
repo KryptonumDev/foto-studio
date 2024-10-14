@@ -9,9 +9,6 @@ export type PricesSectionTypes = {
   list: {
     name: PortableTextBlock[];
     priceLabel: string;
-    description: {
-      mainText: PortableTextBlock[];
-      additionalInfo: PortableTextBlock[];
-    };
+    paragraph: PortableTextBlock[];
   }[];
 };

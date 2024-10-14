@@ -8,9 +8,6 @@ export type StationaryOfferSectionTypes = {
   content: {
     heading: PortableTextBlock[];
     cta: CtaTypes;
-    description: {
-      mainText: PortableTextBlock[];
-      additionalInfo: PortableTextBlock[];
-    };
+    paragraph: PortableTextBlock[];
   };
 };

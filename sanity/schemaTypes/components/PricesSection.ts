@@ -50,23 +50,9 @@ export default defineField({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: 'description',
-              type: 'object',
-              title: 'Opis',
-              fields: [
-                defineField({
-                  name: 'mainText',
-                  type: 'TextBlock',
-                  title: 'Główna treść',
-                  validation: (Rule) => Rule.required(),
-                }),
-                defineField({
-                  name: 'additionalInfo',
-                  type: 'TextBlock',
-                  title: 'Dodatkowe informacje (opcjonalne)',
-                }),
-              ],
-              options: {collapsible: true, collapsed: true},
+              name: 'paragraph',
+              type: 'TextBlock',
+              title: 'Treść',
               validation: (Rule) => Rule.required(),
             }),
           ],

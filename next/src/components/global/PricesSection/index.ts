@@ -13,10 +13,7 @@ export const PricesSection_Query = `
     list[] {
       name,
       priceLabel,
-      description {
-        mainText,
-        additionalInfo
-      }
+      paragraph
     }
   },
 `;

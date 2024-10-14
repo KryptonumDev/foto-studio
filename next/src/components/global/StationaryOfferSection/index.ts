@@ -12,10 +12,7 @@ export const StationaryOfferSection_Query = `
       cta {
         ${CtaData_Query}
       },
-      description {
-        mainText,
-        additionalInfo
-      }
+      paragraph
     },
     sideImg {
       ${ImgData_Query}

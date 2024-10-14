@@ -5,14 +5,15 @@ import HighlightedText from '../schemaTypes/components/blogPost/HighlightedText'
 import ContentBlock from '../schemaTypes/components/blogPost/ContentBlock'
 import ContentBlockWithHeader from '../schemaTypes/components/blogPost/ContentBlockWithHeader'
 import CenteredImage from '../schemaTypes/components/blogPost/CenteredImage'
+import TwoImagesLayout from '../schemaTypes/components/blogPost/TwoImagesLayout'
+import NextBlogPost from '../schemaTypes/components/blogPost/NextBlogPost'
 import List from '../schemaTypes/components/blogPost/List'
 import ImageGrid from '../schemaTypes/components/blogPost/ImageGrid'
-import NextBlogPost from '../schemaTypes/components/blogPost/NextBlogPost'
 
 export default defineType({
-  name: 'articleContent',
+  name: 'BlogPostContent',
   type: 'array',
-  title: 'Komponenty dla artykułu',
+  title: 'Komponenty dla postów na blogu',
   of: [
     ContentBlockWithHeader,
     ContentBlock,
@@ -20,6 +21,7 @@ export default defineType({
     Quote,
     HighlightedText,
     CenteredImage,
+    TwoImagesLayout,
     ImageGrid,
     NextBlogPost,
   ],

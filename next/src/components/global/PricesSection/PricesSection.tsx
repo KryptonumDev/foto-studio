@@ -26,7 +26,7 @@ export default function PricesSection({ index, heading, paragraph, list, img }: 
         />
       )}
       <ul className={styles.list}>
-        {list.map(({ name, priceLabel, description: { mainText, additionalInfo } }, i) => (
+        {list.map(({ name, priceLabel, paragraph }, i) => (
           <li
             key={`prices-section-${i}`}
             className={styles.listItem}
@@ -40,12 +40,7 @@ export default function PricesSection({ index, heading, paragraph, list, img }: 
               />
             </header>
             <div className={styles.content}>
-              <Text value={mainText} />
-              {additionalInfo && (
-                <div className={`${styles.info} light-text`}>
-                  <Text value={additionalInfo} />
-                </div>
-              )}
+              <Text value={paragraph} />
             </div>
           </li>
         ))}

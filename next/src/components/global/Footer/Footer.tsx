@@ -51,8 +51,6 @@ export default async function Footer() {
           href={privacyPolicy}
           className={styles.privacyPolicy}
           text='Polityka prywatności'
-          target='_blank'
-          rel='noreferrer'
         />
       </div>
     </footer>

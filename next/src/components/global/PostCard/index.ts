@@ -1,5 +1,6 @@
 import { ImgData_Query } from '@/components/ui/Img';
 import { Category_Query } from '../CategoryChips';
+import { ReadingTime_Query } from '@/components/ui/ReadingTime';
 
 import PostCard from './PostCard';
 export default PostCard;
@@ -15,5 +16,8 @@ export const PostCard_Query = `
     ${Category_Query}
   },
   title,
-  "slug": slug.current
+  "slug": slug.current,
+  "readingContent": {
+    ${ReadingTime_Query}
+  },
 `;

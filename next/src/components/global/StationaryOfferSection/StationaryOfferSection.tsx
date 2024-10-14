@@ -10,11 +10,7 @@ import styles from './StationaryOfferSection.module.scss';
 export default function StationaryOfferSection({
   index,
   sideImg,
-  content: {
-    heading,
-    cta,
-    description: { mainText, additionalInfo },
-  },
+  content: { heading, cta, paragraph },
 }: StationaryOfferSectionTypes) {
   return (
     <section className={`${styles['StationaryOfferSection']} max-width mb`}>
@@ -34,11 +30,7 @@ export default function StationaryOfferSection({
           <Button data={cta} />
         </header>
         <div className={styles.content}>
-          <Text value={mainText} />
-          <Text
-            value={additionalInfo}
-            className='light-text'
-          />
+          <Text value={paragraph} />
         </div>
       </div>
     </section>

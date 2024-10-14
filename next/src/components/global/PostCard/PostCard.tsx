@@ -4,9 +4,20 @@ import { dateFormat } from '@/utils/date-format';
 import type { PostCardTypes } from './PostCard.types';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
+import ReadingTime from '@/components/ui/ReadingTime';
+
 import styles from './PostCard.module.scss';
 
-export default function PostCard({ index, _createdAt, image, category, title, slug, ...anchorProps }: PostCardTypes) {
+export default function PostCard({
+  index,
+  _createdAt,
+  image,
+  category,
+  title,
+  slug,
+  readingContent,
+  ...anchorProps
+}: PostCardTypes) {
   return (
     <article className={styles['PostCard']}>
       <Link
@@ -25,7 +36,7 @@ export default function PostCard({ index, _createdAt, image, category, title, sl
       <header>
         <p className={styles.subtitle}>
           <span>{dateFormat(_createdAt)}</span>
-          <span>10 min czytania</span>
+          <ReadingTime {...readingContent} />
         </p>
         <Heading
           value={title}

@@ -44,7 +44,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
         <div
           data-scroll
           data-scroll-speed={imageSpeeds[i]}
-          key={`hero-image-${index}`}
+          key={`hero-image-${i}`}
           className={styles.item}
         >
           <Img

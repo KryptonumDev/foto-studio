@@ -1,19 +1,23 @@
-import {defineField} from 'sanity'
-import {toPlainText} from '../../../utils/toPlainText'
+import {defineField, defineType} from 'sanity'
+import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Lista'
-const icon = () => '📝'
-
-export default defineField({
-  name: 'List',
-  type: 'object',
-  title,
-  icon,
+export default defineType({
+  name: 'PrivacyPolicyPage',
+  type: 'document',
+  title: 'Polityka prywatności',
+  icon: () => '🔒',
   fields: [
+    defineField({
+      name: 'heading',
+      type: 'Heading',
+      title: 'Nagłówek',
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
+    }),
     defineField({
       name: 'list',
       type: 'array',
-      title: 'Lista',
+      title: 'Treść',
       of: [
         {
           type: 'object',
@@ -32,28 +36,30 @@ export default defineField({
               validation: (Rule) => Rule.required(),
             }),
           ],
+          validation: (Rule) => Rule.required(),
           preview: {
             select: {
               heading: 'heading',
             },
             prepare: ({heading}) => ({
               title: toPlainText(heading),
-              icon,
+              icon: () => '➡️',
             }),
           },
         },
       ],
-      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
+      group: 'seo',
     }),
   ],
-  preview: {
-    select: {
-      list: 'list',
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
     },
-    prepare: ({list}) => ({
-      title,
-      subtitle: `Ilość elementów: ${list.length}`,
-      icon,
-    }),
-  },
+  ],
 })

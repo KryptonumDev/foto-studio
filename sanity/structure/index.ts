@@ -30,6 +30,7 @@ export const structure: StructureResolver = (S) =>
       createSingleton(S, 'GalleryPage'),
       createSingleton(S, 'BlogPage'),
       createSingleton(S, 'NotFoundPage'),
+      createSingleton(S, 'PrivacyPolicyPage'),
       S.divider(),
       S.documentTypeListItem('ImageCategoryCollection'),
       S.documentTypeListItem('ImageCollection'),

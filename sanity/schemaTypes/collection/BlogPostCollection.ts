@@ -72,16 +72,11 @@ export default defineType({
       hidden: ({parent}) => parent?.type !== 'article',
     }),
     defineField({
-      name: 'articleContent',
-      type: 'articleContent',
-      title: 'Komponenty',
-      hidden: ({parent}) => parent?.type !== 'article',
-    }),
-    defineField({
-      name: 'caseStudyContent',
-      type: 'caseStudyContent',
-      title: 'Komponenty',
-      hidden: ({parent}) => parent?.type !== 'caseStudy',
+      name: 'content',
+      type: 'BlogPostContent',
+      title: 'Zawartość',
+      group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'seo',
@@ -103,6 +98,10 @@ export default defineType({
     }),
   },
   groups: [
+    {
+      name: 'content',
+      title: 'Zawartość',
+    },
     {
       name: 'seo',
       title: 'SEO',

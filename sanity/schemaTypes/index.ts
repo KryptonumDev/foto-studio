@@ -1,8 +1,7 @@
 import cta from './ui/cta'
 import seo from './components/seo'
 import Content from '../components/Content'
-import CaseStudyContent from '../components/CaseStudyContent'
-import ArticleContent from '../components/ArticleContent'
+import BlogPostContent from '../components/BlogPostContent'
 import {Heading, TextBlock, InlineImageHeading} from './ui/PortableText'
 
 import ReviewCollection from './collection/ReviewCollection'
@@ -20,13 +19,13 @@ import ContactPage from './singleton/ContactPage'
 import NotFoundPage from './singleton/NotFoundPage'
 import GalleryPage from './singleton/GalleryPage'
 import BlogPage from './singleton/BlogPage'
+import PrivacyPolicyPage from './singleton/PrivacyPolicyPage'
 
 export const schemaTypes = [
   seo,
   cta,
   Content,
-  CaseStudyContent,
-  ArticleContent,
+  BlogPostContent,
   Heading,
   TextBlock,
   InlineImageHeading,
@@ -42,6 +41,7 @@ export const schemaTypes = [
   CollaborationPage,
   ContactPage,
   NotFoundPage,
+  PrivacyPolicyPage,
   GalleryPage,
   BlogPage,
 ]
