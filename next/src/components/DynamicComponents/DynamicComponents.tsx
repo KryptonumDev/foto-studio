@@ -1,7 +1,9 @@
 import type { ComponentsMapTypes, ComponentTypes } from './DynamicComponents.types';
 
 import HeroHeaderAndImages, { type HeroHeaderAndImagesTypes } from '@/components/global/HeroHeaderAndImages';
-import SimpleListAndImage, { type SimpleListAndImageTypes } from '@/components/global/SimpleListAndImage';
+import ImageCategoryListAndImage, {
+  type ImageCategoryListAndImageTypes,
+} from '@/components/global/ImageCategoryListAndImage';
 import ListWithContent, { type ListWithContentTypes } from '@/components/global/ListWithContent';
 import AboutSection, { type AboutSectionTypes } from '@/components/global/AboutSection';
 import ProgressBarSection, { type ProgressBarSectionTypes } from '@/components/global/ProgressBarSection';
@@ -24,7 +26,7 @@ import HorizontalListWithHeader, {
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
-  SimpleListAndImage: props => <SimpleListAndImage {...(props as SimpleListAndImageTypes)} />,
+  ImageCategoryListAndImage: props => <ImageCategoryListAndImage {...(props as ImageCategoryListAndImageTypes)} />,
   ListWithContent: props => <ListWithContent {...(props as ListWithContentTypes)} />,
   AboutSection: props => <AboutSection {...(props as AboutSectionTypes)} />,
   ProgressBarSection: props => <ProgressBarSection {...(props as ProgressBarSectionTypes)} />,

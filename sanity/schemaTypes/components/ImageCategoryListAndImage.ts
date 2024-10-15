@@ -1,11 +1,11 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../utils/toPlainText'
 
-const title = 'Prosta lista z obrazkiem'
+const title = 'Lista kategorii obrazków z zdjęciem'
 const icon = () => '📋'
 
 export default defineField({
-  name: 'SimpleListAndImage',
+  name: 'ImageCategoryListAndImage',
   type: 'object',
   title,
   icon,
@@ -39,13 +39,22 @@ export default defineField({
               validation: (Rule) =>
                 Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
+            defineField({
+              name: 'imgCategory',
+              type: 'reference',
+              title: 'Kategoria obrazu',
+              to: [{type: 'ImageCategoryCollection'}],
+              validation: (Rule) => Rule.required(),
+            }),
           ],
           preview: {
             select: {
               text: 'text',
+              category: 'imgCategory->categoryName',
             },
-            prepare: ({text}) => ({
+            prepare: ({text, category}) => ({
               title: toPlainText(text),
+              subtitle: category,
               icon,
             }),
           },

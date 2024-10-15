@@ -20,12 +20,12 @@
     display: grid;
     place-items: center;
     transition:
-      background-color 0.2s var(--easing),
-      left 0.2s var(--easing);
+      background-color 0.5s var(--easing),
+      left 0.5s var(--easing);
 
     svg {
       fill: var(--primary-600);
-      transition: fill 0.2s var(--easing);
+      transition: fill 0.5s var(--easing);
     }
 
     .loader {
@@ -48,8 +48,8 @@
     display: grid;
     place-items: center;
     transition:
-      background-color 0.2s var(--easing),
-      transform 0.2s var(--easing);
+      background-color 0.5s var(--easing),
+      transform 0.5s var(--easing);
 
     @media screen and (min-width: 768px) {
       padding: 8px 24px 10px 20px;

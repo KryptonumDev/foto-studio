@@ -9,7 +9,7 @@ import ProgressBarSection from '../schemaTypes/components/ProgressBarSection'
 import FeaturedPostsSection from '../schemaTypes/components/FeaturedPostsSection'
 import AboutSection from '../schemaTypes/components/AboutSection'
 import ImageSlider from '../schemaTypes/components/ImageSlider'
-import SimpleListAndImage from '../schemaTypes/components/SimpleListAndImage'
+import ImageCategoryListAndImage from '../schemaTypes/components/ImageCategoryListAndImage'
 import ListWithContent from '../schemaTypes/components/ListWithContent'
 import PricesSection from '../schemaTypes/components/PricesSection'
 import IntroHeader from '../schemaTypes/components/IntroHeader'
@@ -34,7 +34,7 @@ export default defineType({
     FeaturedPostsSection,
     AboutSection,
     ImageSlider,
-    SimpleListAndImage,
+    ImageCategoryListAndImage,
     ListWithContent,
     PricesSection,
     IntroHeader,

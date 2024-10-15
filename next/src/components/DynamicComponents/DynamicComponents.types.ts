@@ -1,5 +1,5 @@
 import type { HeroHeaderAndImagesTypes } from '@/components/global/HeroHeaderAndImages';
-import type { SimpleListAndImageTypes } from '@/components/global/SimpleListAndImage';
+import type { ImageCategoryListAndImageTypes } from '@/components/global/ImageCategoryListAndImage';
 import type { ListWithContentTypes } from '@/components/global/ListWithContent';
 import type { AboutSectionTypes } from '@/components/global/AboutSection';
 import type { ProgressBarSectionTypes } from '@/components/global/ProgressBarSection';
@@ -20,7 +20,7 @@ import type { HorizontalListWithHeaderTypes } from '@/components/global/Horizont
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
-  SimpleListAndImage: SimpleListAndImageTypes;
+  ImageCategoryListAndImage: ImageCategoryListAndImageTypes;
   ListWithContent: ListWithContentTypes;
   AboutSection: AboutSectionTypes;
   ProgressBarSection: ProgressBarSectionTypes;
