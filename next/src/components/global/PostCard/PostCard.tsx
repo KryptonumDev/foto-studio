@@ -33,23 +33,25 @@ export default function PostCard({
           priority={index === 0 || index === 1}
         />
       </div>
-      <header>
-        <p className={styles.subtitle}>
-          <span>{dateFormat(_createdAt)}</span>
-          <ReadingTime {...readingContent} />
-        </p>
-        <Heading
-          value={title}
-          tag='h2'
-          className='medium-text'
-        />
-      </header>
-      <Link
-        href={`/blog/kategoria/${category.slug}`}
-        className={`chip ${styles.categoryLink}`}
-      >
-        <span>{category.categoryName}</span>
-      </Link>
+      <div className={styles.content}>
+        <header>
+          <p className={styles.subtitle}>
+            <span>{dateFormat(_createdAt)}</span>
+            <ReadingTime {...readingContent} />
+          </p>
+          <Heading
+            value={title}
+            tag='h2'
+            className='small-text'
+          />
+        </header>
+        <Link
+          href={`/blog/kategoria/${category.slug}`}
+          className={`chip ${styles.categoryLink}`}
+        >
+          <span>{category.categoryName}</span>
+        </Link>
+      </div>
     </article>
   );
 }
