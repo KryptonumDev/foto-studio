@@ -1,0 +1,85 @@
+.Input {
+  position: relative;
+
+  @media screen and (min-width: calc(768rem / 16)) {
+    width: calc(498vw / 7.68);
+    max-width: calc(510rem / 16);
+  }
+
+  .label {
+    margin-bottom: calc(6rem / 16);
+    transition: color 0.1s var(--easing);
+  }
+
+  .content {
+    border-bottom: 1px solid var(--primary-900);
+    display: flex;
+    align-items: center;
+    padding-bottom: calc(8rem / 16);
+    transition: border-color 0.1s var(--easing);
+
+    &:has(textarea) {
+      align-items: flex-end;
+    }
+
+    input,
+    textarea {
+      flex: 1;
+      &::placeholder {
+        color: var(--primary-200);
+        @media screen and (min-width: calc(768rem / 16)) {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    textarea {
+      height: calc(45rem / 16);
+      resize: none;
+      overflow-y: auto;
+    }
+
+    .icon {
+      margin-left: calc(24rem / 16);
+      display: none;
+    }
+  }
+
+  .error {
+    position: absolute;
+    top: 100%;
+    padding-top: calc(8rem / 16);
+  }
+
+  &[aria-invalid='true'] {
+    .label {
+      color: var(--error);
+    }
+    .content {
+      border-color: var(--error);
+    }
+    .icon {
+      display: block;
+    }
+  }
+
+  &:has(input:disabled),
+  &:has(textarea:disabled) {
+    .label {
+      color: var(--primary-500);
+    }
+    .content {
+      border-color: var(--primary-500);
+    }
+  }
+
+  &:has(input:focus-visible),
+  &:has(textarea:focus-visible) {
+    outline: 1px solid var(--primary-500);
+    outline-offset: calc(8rem / 16);
+    input,
+    textarea {
+      outline: none;
+    }
+  }
+}

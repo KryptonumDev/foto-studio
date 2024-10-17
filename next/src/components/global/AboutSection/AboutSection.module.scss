@@ -1,0 +1,43 @@
+.AboutSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(calc(20rem / 16), calc(36vw / 7.68), calc(64rem / 16));
+
+  .wrapper {
+    display: grid;
+    width: 100%;
+    max-width: calc(1161rem / 16);
+    gap: clamp(calc(28rem / 16), calc(32vw / 7.68), calc(32rem / 16));
+
+    h1,
+    h2 {
+      width: 100%;
+      max-width: calc(1049rem / 16);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: clamp(1rem, calc(20vw / 7.68), calc(20rem / 16));
+
+    h3 {
+      padding-top: calc(12rem / 16);
+      width: calc(295rem / 16);
+    }
+
+    .text {
+      width: 100%;
+      max-width: calc(585rem / 16);
+      display: grid;
+      gap: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(28rem / 16));
+
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: calc(585vw / 7.68);
+        max-width: calc(649rem / 16);
+      }
+    }
+  }
+}
