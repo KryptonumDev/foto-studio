@@ -1,18 +1,34 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import type { PostListTypes } from './Listing.types';
+import { POSTS_PER_LOAD } from '@/global/constants';
 import PostCard from '@/components/global/PostCard';
 import Cursor, { useCursor } from '@/components/ui/Cursor';
-import { NUMBER_OF_POSTS_TO_FETCH } from '.';
-
 import styles from './Listing.module.scss';
 
 export default function PostList({ posts, postCount }: PostListTypes) {
-  const [offset, setOffset] = useState(NUMBER_OF_POSTS_TO_FETCH);
-  const [cursorScale, setCursorScale] = useState(0);
   const { mouse, updatePosition } = useCursor();
+  const ref = useRef<HTMLDivElement>(null);
+  const [cursorScale, setCursorScale] = useState(0);
+  const [offset, setOffset] = useState(POSTS_PER_LOAD);
 
-  const loadMorePosts = () => setOffset(prev => prev + NUMBER_OF_POSTS_TO_FETCH);
+  const scrollUp = useCallback(() => {
+    if (ref.current) {
+      const lastPostCard = ref.current.querySelector(`.${styles.posts} article:last-child`);
+      if (lastPostCard) {
+        lastPostCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
+  const updateOffset = () => {
+    if (postCount > offset) {
+      setOffset(prev => prev + POSTS_PER_LOAD);
+    } else {
+      setOffset(POSTS_PER_LOAD);
+      requestAnimationFrame(scrollUp);
+    }
+  };
 
   return (
     <>
@@ -23,6 +39,7 @@ export default function PostList({ posts, postCount }: PostListTypes) {
       />
       <div
         className={styles.posts}
+        ref={ref}
         onMouseMove={updatePosition}
       >
         {posts.slice(0, offset).map((post, i) => (
@@ -38,10 +55,10 @@ export default function PostList({ posts, postCount }: PostListTypes) {
           />
         ))}
       </div>
-      {postCount > offset && (
-        <div className={styles.loadMore}>
-          <button onClick={loadMorePosts}>
-            Załaduj więcej <span>{`[${postCount - offset}]`}</span>
+      {postCount > POSTS_PER_LOAD && (
+        <div className={styles.btn}>
+          <button onClick={updateOffset}>
+            {postCount > offset ? `Załaduj więcej [${postCount - offset}]` : 'Pokaż mniej'}
           </button>
         </div>
       )}

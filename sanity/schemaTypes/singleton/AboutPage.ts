@@ -1,15 +1,15 @@
-import { defineField, defineType } from "sanity"
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'AboutPage',
   type: 'document',
   title: 'O mnie',
-  icon: () => '📝',
+  icon: () => '👤',
   fields: [
     defineField({
       name: 'content',
       type: 'content',
-      title: 'Komponenty podstrony'
+      title: 'Komponenty podstrony',
     }),
     defineField({
       name: 'seo',
@@ -24,4 +24,4 @@ export default defineType({
       title: 'SEO',
     },
   ],
-});
+})

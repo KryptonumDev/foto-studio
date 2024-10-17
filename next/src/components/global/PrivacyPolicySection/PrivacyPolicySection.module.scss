@@ -1,7 +1,7 @@
 .PrivacyPolicySection {
   > header {
     margin-bottom: clamp(calc(32rem / 16), calc(64vw / 7.68), calc(80rem / 16));
-    max-width: 728px;
+    max-width: calc(728rem / 16);
   }
 
   .container {
@@ -16,14 +16,14 @@
   .navigation {
     max-width: calc(402rem / 16);
 
-    @media screen and (min-width: 1020px) {
+    @media screen and (min-width: calc(1020rem / 16)) {
       position: sticky;
       top: var(--sticky-top);
     }
 
     ul {
       display: grid;
-      gap: calc(8rem / 16);
+      gap: 0.5rem;
 
       li {
         padding: calc(10rem / 16) calc(12rem / 16);
@@ -35,6 +35,7 @@
           grid-template-columns: calc(18rem / 16) auto;
           gap: calc(12rem / 16);
           transition: color 0.2s var(--easing);
+          user-select: none;
 
           span {
             transform: translateX(-30px);
@@ -66,7 +67,7 @@
 
   .content {
     max-width: calc(589rem / 16);
-    @media screen and (min-width: 1020px) {
+    @media screen and (min-width: calc(1020rem / 16)) {
       max-width: calc(618rem / 16);
     }
   }
@@ -97,7 +98,7 @@
     }
 
     p:not(:first-child) {
-      margin-top: calc(8rem / 16);
+      margin-top: 0.5rem;
     }
 
     strong {

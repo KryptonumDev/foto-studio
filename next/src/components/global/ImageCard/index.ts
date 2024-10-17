@@ -1,4 +1,5 @@
 import { ImgData_Query } from '@/components/ui/Img';
+
 import ImageCard from './ImageCard';
 export default ImageCard;
 export type { ImageCardTypes } from './ImageCard.types';

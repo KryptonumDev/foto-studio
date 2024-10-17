@@ -1,9 +1,7 @@
 import type { StatsSectionTypes } from './StatsSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Counter from '@/components/ui/Counter';
-
 import styles from './StatsSection.module.scss';
 
 export default function StatsSection({ index, heading, paragraph, list }: StatsSectionTypes) {

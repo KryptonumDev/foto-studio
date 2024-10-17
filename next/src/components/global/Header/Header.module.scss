@@ -8,11 +8,11 @@
     background-color 0.3s var(--easing),
     box-shadow 0.3s var(--easing);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: calc(768rem / 16)) {
     margin-bottom: calc(24vw / 7.68);
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: calc(1000rem / 16)) {
     margin-bottom: 3rem;
   }
 
@@ -40,17 +40,18 @@
     visibility: hidden;
     transition: opacity 0.3s var(--easing);
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: calc(768rem / 16)) {
       min-height: auto;
     }
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: calc(1000rem / 16)) {
       position: relative;
       opacity: 1;
       background: transparent;
       visibility: visible;
       border: 0;
-      width: min(50vw, 619px);
+      width: 50vw;
+      max-width: calc(619rem / 16);
     }
 
     ul {
@@ -60,7 +61,7 @@
       flex-direction: column;
       gap: 0.25rem;
 
-      @media screen and (min-width: 1000px) {
+      @media screen and (min-width: calc(1000rem / 16)) {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -74,20 +75,21 @@
       padding-block: calc(11.5rem / 16);
       text-transform: uppercase;
       transition: color 0.1s var(--easing);
+      user-select: none;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768 / 16)) {
         padding-block: calc(9rem / 16);
       }
 
-      @media screen and (min-width: 1000px) {
+      @media screen and (min-width: calc(1000rem / 16)) {
         padding: 0;
       }
 
       &[aria-current='page'] {
         color: var(--primary-900, #141414);
-        margin-left: 8px;
+        margin-left: calc(8rem / 16);
 
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: calc(1000rem / 16)) {
           margin-left: 0;
         }
 
@@ -137,19 +139,19 @@
 }
 
 .menuButton {
-  width: 54px;
-  height: 48px;
-  padding: 20px 6px;
+  width: calc(54rem / 16);
+  height: calc(48rem / 16);
+  padding: calc(20rem / 16) calc(6rem / 16);
   display: grid;
-  gap: 7px;
+  gap: calc(7rem / 16);
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: calc(1000rem / 16)) {
     display: none;
   }
 
   span {
     width: 100%;
-    height: 1px;
+    height: calc(1rem / 16);
     background-color: var(--primary-700);
     transition: transform 0.2s var(--easing);
     pointer-events: none;
@@ -157,11 +159,11 @@
 
   &[aria-expanded='true'] {
     span:first-child {
-      transform: translateY(4px) rotate(135deg);
+      transform: translateY(calc(4rem / 16)) rotate(135deg);
     }
 
     span:last-child {
-      transform: translateY(-4px) rotate(-135deg);
+      transform: translateY(calc(-1 * 4rem / 16)) rotate(-135deg);
     }
   }
 }
@@ -176,7 +178,7 @@
   opacity: 0;
   pointer-events: none;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: calc(1000rem  / 16)) {
     display: none;
   }
 }
@@ -187,9 +189,9 @@
   pointer-events: none;
   text-transform: uppercase;
   position: fixed;
-  left: 20px;
-  top: 20px;
-  padding: 8px 24px;
+  left: calc(20rem / 16);
+  top: calc(20rem / 16);
+  padding: calc(8rem / 16) calc(24rem / 16);
   background: var(--primary-200);
 
   &:focus-visible {

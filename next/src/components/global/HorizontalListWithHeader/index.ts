@@ -1,4 +1,5 @@
 import { CtaData_Query } from '@/components/ui/Button';
+
 import HorizontalListWithHeader from './HorizontalListWithHeader';
 export default HorizontalListWithHeader;
 export type { HorizontalListWithHeaderTypes } from './HorizontalListWithHeader.types';

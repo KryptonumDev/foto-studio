@@ -3,13 +3,11 @@ export type ButtonTypes = (
       data: CtaTypes;
       href?: never;
       children?: never;
-      loading?: boolean;
     }
   | {
       data?: never;
       href?: string;
       children: string | React.ReactNode;
-      loading?: boolean;
     }
 ) &
   React.AnchorHTMLAttributes<HTMLAnchorElement> &

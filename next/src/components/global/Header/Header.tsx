@@ -2,7 +2,6 @@ import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 import type { HeaderQueryTypes } from './Header.types';
 import _Header from './_Header';
-
 import styles from './Header.module.scss';
 
 export default async function Header() {

@@ -36,7 +36,7 @@ const components = (tag: TextTypes['tag'], className: string) => {
       ),
     },
     list: {
-      bullet: ({ children }) => <ul className={`circle-marker ${className}`}>{children}</ul>,
+      bullet: ({ children }) => <ul className='circle-marker'>{children}</ul>,
     },
   } as Partial<PortableTextReactComponents>;
 };

@@ -1,10 +1,8 @@
 import type { HorizontalListWithHeaderTypes } from './HorizontalListWithHeader.types';
 import { addLeadingZero } from '@/utils/add-leading-zero';
-
 import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import Text from '@/components/ui/Text';
-
 import styles from './HorizontalListWithHeader.module.scss';
 
 export default function HorizontalListWithHeader({ heading, subtitle, cta, list }: HorizontalListWithHeaderTypes) {

@@ -1,4 +1,5 @@
 import { ImgData_Query } from '@/components/ui/Img';
+
 import InlineImageHeader from './InlineImageHeader';
 export default InlineImageHeader;
 export type { InlineImageHeaderTypes } from './InlineImageHeader.types';

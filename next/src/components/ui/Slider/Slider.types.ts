@@ -1,9 +1,8 @@
-import { RefObject } from 'react';
 import type { EmblaOptionsType } from 'embla-carousel';
 import type { EmblaViewportRefType } from 'embla-carousel-react';
 
 export type useIntersectionTypes = {
-  containerRef: RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement>;
 };
 
 export type UsePrevNextButtonsTypes = {

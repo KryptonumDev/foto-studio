@@ -6,9 +6,9 @@
   height: auto;
   gap: 0.75rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: calc(768rem / 16)) {
     grid-template-columns: 1fr;
-    grid-template-rows: 380px auto;
+    grid-template-rows: calc(380rem / 16) auto;
     min-height: 100%;
     gap: 1rem;
   }
@@ -17,13 +17,14 @@
     overflow: hidden;
     img {
       height: calc(200rem / 16);
+      user-select: none;
       will-change: transform;
       transform-origin: center;
       transform: scale(1);
       object-fit: cover;
       transition: transform 0.5s var(--easing);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         height: 100%;
       }
     }
@@ -34,7 +35,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: calc(768rem / 16)) {
       justify-content: flex-start;
     }
 
@@ -45,14 +46,14 @@
       flex-wrap: wrap;
       gap: 0.25rem;
       justify-content: space-between;
-      font-size: 12px;
-      font-weight: 400;
+      font-size: calc(12rem / 16);
       letter-spacing: 0.04em;
+      user-select: none;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         font-size: 1rem;
         line-height: 1.42;
-        letter-spacing: 0.72px;
+        letter-spacing: calc(0.72rem / 16);
       }
     }
 
@@ -63,7 +64,7 @@
     .categoryLink {
       z-index: 3;
       align-self: flex-start;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         margin-top: 1rem;
       }
     }
@@ -76,6 +77,10 @@
 
     &:hover + .image img {
       transform: scale(1.04);
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
     }
   }
 }

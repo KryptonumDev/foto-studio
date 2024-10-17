@@ -1,24 +1,21 @@
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
-import type { BlogPageTypes } from '../../page.types';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
-import Listing from '@/components/_Blog/Listing';
+import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
 
 export default async function BlogCategoryPage({ params: { slug } }: { params: { slug: string } }) {
-  const { categories, postCount, posts } = await query(slug);
+  const data = await query(slug);
 
   return (
     <Listing
-      categories={categories}
-      postCount={postCount}
       currentCategorySlug={slug}
-      posts={posts}
+      {...data}
     />
   );
 }
 
-const query = async (slug: string): Promise<BlogPageTypes> => {
+const query = async (slug: string): Promise<ListingTypes> => {
   const blogPageQuery = `
    {
       "categories": *[_type == "BlogCategoryCollection" && count(*[_type == "BlogPostCollection" && references(^._id)]) > 0]{

@@ -1,6 +1,6 @@
 import { CtaData_Query } from '@/components/ui/Button';
-import ListWithContent from './ListWithContent';
 
+import ListWithContent from './ListWithContent';
 export default ListWithContent;
 export type { ListWithContentTypes } from './ListWithContent.types';
 

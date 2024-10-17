@@ -1,5 +1,5 @@
-import { CtaTypes } from '@/components/ui/Button';
-import { PortableTextBlock } from 'next-sanity';
+import type { CtaTypes } from '@/components/ui/Button';
+import type { PortableTextBlock } from 'next-sanity';
 
 export type MapSectionTypes = {
   index: number;

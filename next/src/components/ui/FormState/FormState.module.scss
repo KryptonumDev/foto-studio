@@ -1,26 +1,27 @@
 .FormState {
-  margin-top: clamp(24px, calc(36vw / 7.68), 36px);
   display: grid;
-  gap: clamp(12px, calc(20vw / 7.68), 24px);
+  gap: clamp(calc(12rem / 16), calc(20vw / 7.68), calc(24rem / 16));
 
   h3 {
     display: grid;
-    grid-template-columns: 16px auto;
+    grid-template-columns: 1rem auto;
     align-items: center;
     text-transform: uppercase;
-    gap: 6px;
+    gap: calc(10rem / 16);
 
-    .icon {
-      width: 14px;
-      aspect-ratio: 1 / 1;
+    .success-icon {
+      width: calc(14rem / 16);
+      height: calc(14rem / 16);
       border-radius: 50%;
       display: grid;
       place-items: center;
       background-color: var(--success);
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: calc(18rem / 16);
+        height: calc(18rem / 16);
         svg {
-          width: 11px;
-          aspect-ratio: 1 / 1;
+          width: calc(11rem / 16);
+          height: calc(11rem / 16);
         }
       }
     }

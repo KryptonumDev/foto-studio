@@ -1,10 +1,8 @@
 import type { StationaryOfferSectionTypes } from './StationaryOfferSection.types';
-
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import Text from '@/components/ui/Text';
-
 import styles from './StationaryOfferSection.module.scss';
 
 export default function StationaryOfferSection({

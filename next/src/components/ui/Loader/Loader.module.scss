@@ -1,0 +1,20 @@
+.Loader {
+  z-index: 3;
+  .spinner {
+    width: calc(40rem / 16);
+    height: calc(40rem / 16);
+    border: calc(4rem / 16) solid var(--primary-200);
+    border-top: calc(4rem / 16) solid var(--primary-700);
+    border-radius: 50%;
+    animation: spin 0.9s var(--easing) infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

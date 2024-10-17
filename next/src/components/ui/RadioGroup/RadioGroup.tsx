@@ -9,19 +9,21 @@ export default function RadioGroup({ label, register, errors, options, ...props 
       aria-invalid={!!errors[register.name]}
     >
       <p className='small-text'>{label}</p>
-      <div className={styles.options}>
-        {options.map(option => (
+      <div
+        className={styles.options}
+        role='radiogroup'
+      >
+        {options.map((option, index) => (
           <label
             key={option}
-            tabIndex={0}
             className='chip'
           >
             <input
               type='radio'
               value={option}
-              tabIndex={-1}
               {...register}
               name={register.name}
+              id={`${register.name}-${index}`}
               {...props}
             />
             <span>{option}</span>

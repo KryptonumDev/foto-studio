@@ -1,24 +1,24 @@
 .InlineImageHeader {
-  margin-bottom: clamp(48px, calc(80vw / 7.68), 80px);
+  margin-bottom: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(80rem / 16));
 
-  @media screen and (min-width: 1366px) {
-    margin-bottom: 72px;
+  @media screen and (min-width: calc(1366rem / 16)) {
+    margin-bottom: calc(72rem / 16);
   }
 
   h1,
   h2 {
     display: grid;
-    gap: 2px;
+    gap: calc(2rem / 16);
 
-    @media screen and (min-width: 500px) {
-      gap: 12px;
+    @media screen and (min-width: calc(500rem / 16)) {
+      gap: calc(12rem / 16);
     }
 
     span:first-child {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: clamp(8px, calc(16vw / 7.68), 28px);
+      gap: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(28rem / 16));
     }
 
     span:last-child {
@@ -26,7 +26,7 @@
     }
 
     img {
-      width: clamp(156px, calc(237vw / 7.68), 295px);
+      width: clamp(calc(156rem / 16), calc(237vw / 7.68), calc(295rem / 16));
     }
   }
 }

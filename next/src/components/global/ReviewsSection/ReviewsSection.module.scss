@@ -1,25 +1,25 @@
 .ReviewsSection {
   width: 100%;
-  max-width: 1272px;
+  max-width: calc(1272rem / 16);
   margin-inline: auto;
   overflow: hidden;
   text-align: center;
   display: grid;
-  gap: clamp(20px, calc(32vw / 7.68), 42px);
+  gap: clamp(calc(20rem / 16), calc(32vw / 7.68), calc(42rem / 16));
 }
 
 .wrapper {
   display: grid;
-  gap: clamp(28px, calc(28vw / 7.68), 36px);
+  gap: clamp(calc(28rem / 16), calc(28vw / 7.68), calc(36rem / 16));
 
   .details {
     display: grid;
     place-items: center;
 
-    @media screen and (min-width: 768px) {
-      width: clamp(498px, calc(498vw / 7.68), 835px);
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: clamp(calc(498rem / 16), calc(498vw / 7.68), calc(835rem / 16));
       p {
-        max-width: 619px;
+        max-width: calc(619rem / 16);
       }
     }
 
@@ -41,36 +41,36 @@
   }
 
   .slide {
-    --slide-size: clamp(188px, calc(324vw / 7.68), 835px);
+    --slide-size: clamp(calc(188rem / 16), calc(324vw / 7.68), calc(835rem / 16));
     transform: translate3d(0, 0, 0);
     flex: 0 0 var(--slide-size);
     min-width: 0;
     display: grid;
     place-items: center;
 
-    @media screen and (min-width: 1366px) {
-      --slide-size: calc(835px * 0.63);
+    @media screen and (min-width: calc(1366rem / 16)) {
+      --slide-size: calc(0.63 * calc(835rem / 16));
     }
 
     img {
       --scale: 0.44;
-      --top: 43px;
+      --top: calc(43rem / 16);
       user-select: none;
-      width: clamp(188px, calc(324vw / 7.68), 402px);
+      width: clamp(calc(188rem / 16), calc(324vw / 7.68), calc(402rem / 16));
       opacity: 0.32;
       transform: scale(var(--scale)) translateY(var(--top));
       transition:
         opacity 0.3s var(--easing),
         transform 0.3s var(--easing);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         --scale: 0.49;
-        --top: -105px;
+        --top: calc(-1 * 105rem / 16);
       }
 
-      @media screen and (min-width: 1366px) {
+      @media screen and (min-width: calc(1366rem / 16)) {
         --scale: 0.542;
-        --top: -35px;
+        --top: calc(-1 * 35rem / 16);
       }
     }
 
@@ -86,9 +86,9 @@
   place-items: center;
 
   > div {
-    max-width: 324px;
-    @media screen and (min-width: 1366px) {
-      max-width: 284px;
+    max-width: calc(324rem / 16);
+    @media screen and (min-width: calc(1366rem / 16)) {
+      max-width: calc(284rem / 16);
     }
   }
 }

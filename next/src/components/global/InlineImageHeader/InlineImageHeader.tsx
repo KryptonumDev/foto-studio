@@ -1,7 +1,6 @@
-import styles from './InlineImageHeader.module.scss';
 import type { InlineImageHeaderTypes } from './InlineImageHeader.types';
-
 import InlineImageHeading from '@/components/ui/InlineImageHeading';
+import styles from './InlineImageHeader.module.scss';
 
 export default function InlineImageHeader({ index, heading }: InlineImageHeaderTypes) {
   return (

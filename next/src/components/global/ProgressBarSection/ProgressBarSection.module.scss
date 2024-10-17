@@ -2,7 +2,7 @@
   position: relative;
 
   .sticky {
-    --sticky-top: clamp(90px, calc(98vw / 7.68), 100px);
+    --sticky-top: clamp(calc(90rem / 16), calc(98vw / 7.68), calc(100rem / 16));
     position: sticky;
     top: var(--sticky-top);
     display: flex;
@@ -11,41 +11,42 @@
 
   .header {
     position: relative;
-    margin-bottom: clamp(48px, calc(80vw / 7.68), 80px);
+    margin-bottom: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(80rem / 16));
 
     img {
-      width: min(100%, 343px);
-      height: 95px;
+      width: 100%;
+      max-width: calc(343rem / 16);
+      height: calc(95rem / 16);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         width: calc(343vw / 7.68);
-        height: 99px;
+        height: calc(99rem / 16);
       }
 
-      @media screen and (min-width: 1366px) {
-        width: 619px;
-        height: 144px;
+      @media screen and (min-width: calc(1366rem / 16)) {
+        width: calc(619rem / 16);
+        height: calc(144rem / 16);
       }
     }
 
     h1,
     h2 {
       display: grid;
-      gap: clamp(8px, calc(16vw / 7.68), 32px);
+      gap: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(32rem / 16));
 
-      @media screen and (min-width: 1366px) {
-        gap: 32px;
+      @media screen and (min-width: calc(1366rem / 16)) {
+        gap: calc(32rem / 16);
       }
 
       span:last-child {
         display: flex;
         flex-direction: column;
-        gap: clamp(8px, calc(16vw / 7.68), 32px);
+        gap: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(32rem / 16));
 
-        @media screen and (min-width: 1366px) {
+        @media screen and (min-width: calc(1366rem / 16)) {
           flex-direction: row;
           align-items: center;
-          gap: 32px;
+          gap: calc(32rem / 16);
         }
       }
     }
@@ -58,57 +59,58 @@
   display: flex;
   align-items: flex-start;
 
-  gap: clamp(24px, calc(32vw / 7.68), 32px);
+  gap: clamp(calc(24rem / 16), calc(32vw / 7.68), calc(32rem / 16));
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: calc(768rem / 16)) {
     padding-left: calc(88vw / 7.68);
   }
 
-  @media screen and (min-width: 1366px) {
-    padding-left: 218px;
+  @media screen and (min-width: calc(1366rem / 16)) {
+    padding-left: calc(218rem / 16);
   }
 
   li {
     display: grid;
     justify-items: start;
-    gap: clamp(16px, calc(28vw / 7.68), 28px);
+    gap: clamp(1rem, calc(28vw / 7.68), calc(28rem / 16));
 
     span {
       color: var(--primary-900);
+      user-select: none;
     }
 
     p {
-      width: clamp(258px, calc(322vw / 7.68), 402px);
+      width: clamp(calc(258rem / 16), calc(322vw / 7.68), calc(402rem / 16));
     }
   }
 }
 
 .progress {
-  margin-top: clamp(48px, calc(64vw / 7.68), 96px);
+  margin-top: clamp(calc(48rem / 16), calc(64vw / 7.68), calc(96rem / 16));
   align-self: center;
   display: inline-flex;
   align-items: flex-end;
   justify-content: space-between;
-  width: clamp(320px, calc(610vw / 7.68), 610px);
+  width: clamp(calc(320rem / 16), calc(610vw / 7.68), calc(610rem / 16));
 
   & > * {
-    margin-right: -4px;
-    @media screen and (min-width: 768px) {
-      margin-right: 0px;
+    margin-right: calc(-1 * 4rem / 16);
+    @media screen and (min-width: calc(768rem / 16)) {
+      margin-right: 0;
     }
   }
 
   .step {
     display: flex;
-    width: 20px;
+    width: calc(20rem / 16);
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: calc(4rem / 16);
 
     span {
       &:last-child {
         transition: box-shadow 0.1s var(--easing);
-        height: 12px;
+        height: calc(12rem / 16);
         box-shadow: 0 0 0 0.5px var(--primary-700);
       }
 
@@ -120,20 +122,21 @@
 
   .value {
     color: var(--primary-900, #141414);
-    font-size: 12px;
-    line-height: 142%;
-    letter-spacing: 0.48px;
+    font-size: calc(12rem / 16);
+    line-height: 1.42;
+    letter-spacing: calc(0.48rem / 16);
+    user-select: none;
   }
 }
 
 .lines {
   display: flex;
   align-items: flex-end;
-  gap: clamp(5px, calc(7vw / 7.68), 7px);
+  gap: clamp(calc(5rem / 16), calc(7vw / 7.68), calc(7rem / 16));
 
   span {
     transition: box-shadow 0.1s var(--easing);
-    height: 5px;
+    height: calc(5rem / 16);
     box-shadow: 0 0 0 0.5px var(--primary-500);
 
     &.active {

@@ -1,10 +1,8 @@
 import type { HeroSectionTypes } from './HeroSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Img from '@/components/ui/Img';
 import Button from '@/components/ui/Button';
-
 import styles from './HeroSection.module.scss';
 
 export default function HeroSection({ index, sideImg, content: { heading, img, paragraph, cta } }: HeroSectionTypes) {
@@ -34,7 +32,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
         className={styles.sideImg}
         data={sideImg}
         priority={index === 0}
-        sizes='(min-width: 768px) 510px, 43vw'
+        sizes='(min-width: 768px) 510px, 43.33vw'
       />
     </section>
   );

@@ -1,12 +1,9 @@
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
-
 import type { FooterQueryTypes } from './Footer.types';
-
 import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import CustomLink from '@/components/ui/CustomLink';
-
 import styles from './Footer.module.scss';
 
 export default async function Footer() {

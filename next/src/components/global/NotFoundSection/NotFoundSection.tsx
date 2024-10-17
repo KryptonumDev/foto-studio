@@ -1,9 +1,7 @@
 import type { NotFoundSectionTypes } from './NotFoundSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Img from '@/components/ui/Img';
 import Button from '@/components/ui/Button';
-
 import styles from './NotFoundSection.module.scss';
 
 export default function NotFoundSection({ index, heading, cta, images }: NotFoundSectionTypes) {

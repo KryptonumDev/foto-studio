@@ -1,8 +1,6 @@
 import type { FeaturedPostsSectionTypes } from './FeaturedPostsSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Carousel from './_Carousel';
-
 import styles from './FeaturedPostsSection.module.scss';
 
 export default function FeaturedPostsSection({ index, heading, list }: FeaturedPostsSectionTypes) {

@@ -2,85 +2,85 @@
   position: relative;
 
   .header {
-    margin-bottom: clamp(64px, calc(80vw / 7.68), 128px);
+    margin-bottom: clamp(4rem, calc(80vw / 7.68), 8rem);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: clamp(12px, calc(20vw / 7.68), 20px);
+    gap: clamp(calc(12rem / 16), calc(20vw / 7.68), calc(20rem / 16));
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: calc(768rem / 16)) {
       width: calc(585vw / 7.68);
 
       p {
-        width: min(100%, 649px);
+        width: min(100%, calc(649rem / 16));
       }
     }
 
-    @media screen and (min-width: 1366px) {
-      width: 1054px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      width: calc(1054rem / 16);
     }
 
     h1,
     h2 {
-      max-width: 295px;
+      max-width: calc(295rem / 16);
     }
   }
 
   .img {
     position: absolute;
     transform: rotate(-27.85deg);
-    width: 113px;
-    height: 147px;
-    top: 130px;
-    right: -35px;
+    width: calc(113rem / 16);
+    height: calc(147rem / 16);
+    top: calc(130rem / 16);
+    right: calc(-1 * 35rem / 16);
 
-    @media screen and (min-width: 768px) {
-      width: 138px;
-      height: 180px;
-      top: 350px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: calc(138rem / 16);
+      height: calc(180rem / 16);
+      top: calc(350rem / 16);
       right: calc(60vw / 7.68);
     }
 
-    @media screen and (min-width: 1366px) {
-      left: 415px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      left: calc(415rem / 16);
     }
   }
 }
 
 .list {
   display: grid;
-  gap: clamp(48px, calc(64vw / 7.68), 64px);
+  gap: clamp(3rem, calc(64vw / 7.68), 4rem);
 
   .listItem {
     display: grid;
     align-items: start;
-    gap: clamp(12px, calc(16vw / 7.68), 32px);
+    gap: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(32rem / 16));
 
-    @media screen and (min-width: 1366px) {
-      grid-template-columns: 618px auto;
-      gap: 32px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      grid-template-columns: calc(618rem / 16) auto;
+      gap: calc(32rem / 16);
     }
 
     header span {
       display: block;
-      margin-bottom: -4px;
+      margin-bottom: calc(-1 * 4rem / 16);
     }
 
     .content {
-      max-width: 585px;
+      max-width: calc(585rem / 16);
       color: var(--primary-600);
 
       p:not(:last-child) {
-        margin-bottom: 6px;
+        margin-bottom: calc(6rem / 16);
         &:has(strong) {
-          margin-bottom: clamp(8px, calc(12vw / 7.68), 16px);
+          margin-bottom: clamp(calc(8rem / 16), calc(12vw / 7.68), calc(16rem / 16));
         }
       }
 
       ul {
         display: grid;
-        gap: 6px;
+        gap: calc(6rem / 16);
       }
 
       strong {
@@ -88,9 +88,9 @@
         font-weight: 500;
       }
 
-      @media screen and (min-width: 1366px) {
+      @media screen and (min-width: calc(1366rem / 16)) {
         max-width: 100%;
-        padding-top: 28px;
+        padding-top: calc(28rem / 16);
       }
     }
   }

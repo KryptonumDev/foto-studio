@@ -1,16 +1,16 @@
 .ImageSlider {
   display: grid;
-  gap: clamp(24px, calc(32vw / 7.68), 48px);
+  gap: clamp(calc(24rem / 16), calc(32vw / 7.68), calc(48rem / 16));
   overflow: hidden;
-  margin-bottom: clamp(64px, calc(80vw / 7.68), 141px);
+  margin-bottom: clamp(calc(64rem / 16), calc(80vw / 7.68), calc(141rem / 16));
 
-  @media screen and (min-width: 1415px) {
-    max-width: 1270px;
+  @media screen and (min-width: calc(1415rem / 16)) {
+    max-width: calc(1270rem / 16);
     margin-inline: auto;
   }
 
   .container {
-    --slide-spacing: clamp(12px, calc(24vw / 7.68), 32px);
+    --slide-spacing: clamp(calc(12rem / 16), calc(24vw / 7.68), calc(32rem / 16));
     display: flex;
     align-items: flex-start;
     touch-action: pan-y pinch-zoom;
@@ -31,30 +31,30 @@
 
     &:nth-child(5n + 2),
     &:nth-child(5n + 4) {
-      --slide-size: clamp(93px, calc(175vw / 7.68), 335px);
-      --slide-height: 60px;
+      --slide-size: clamp(calc(93rem / 16), calc(175vw / 7.68), calc(335rem / 16));
+      --slide-height: calc(60rem / 16);
 
-      @media screen and (min-width: 1000px) {
-        --slide-size: min(calc(335vw / 13.66), 335px);
+      @media screen and (min-width: calc(1000rem / 16)) {
+        --slide-size: min(calc(335vw / 13.66), calc(335rem / 16));
       }
     }
 
     &:nth-child(5n + 1),
     &:nth-child(5n + 3) {
-      --slide-size: clamp(112px, calc(210vw / 7.68), 402px);
-      --slide-height: 173px;
+      --slide-size: clamp(calc(112rem / 16), calc(210vw / 7.68), calc(402rem / 16));
+      --slide-height: calc(173rem / 16);
 
-      @media screen and (min-width: 1000px) {
-        --slide-size: min(calc(402vw / 13.66), 402px);
+      @media screen and (min-width: calc(1000rem / 16)) {
+        --slide-size: min(calc(402vw / 13.66), calc(402rem / 16));
       }
     }
 
     &:nth-child(5n + 5) {
-      --slide-size: clamp(60px, calc(113vw / 7.68), 217px);
-      --slide-height: 93px;
+      --slide-size: clamp(calc(60rem / 16), calc(113vw / 7.68), calc(217rem / 16));
+      --slide-height: calc(93rem / 16);
 
-      @media screen and (min-width: 1000px) {
-        --slide-size: min(calc(217vw / 13.66), 217px);
+      @media screen and (min-width: calc(1000rem / 16)) {
+        --slide-size: min(calc(217vw / 13.66), calc(217rem / 16));
       }
     }
   }
@@ -65,6 +65,6 @@
   place-items: center;
 
   > div {
-    max-width: 284px;
+    max-width: calc(284rem / 16);
   }
 }

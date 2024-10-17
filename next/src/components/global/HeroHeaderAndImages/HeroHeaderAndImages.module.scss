@@ -1,16 +1,17 @@
 .HeroHeaderAndImages {
   position: relative;
-  min-height: clamp(838px, calc(866vw / 7.68), 1019px);
+  min-height: clamp(calc(838rem / 16), calc(866vw / 7.68), calc(1019rem / 16));
 
   header {
-    width: min(100%, 986px);
+    width: 100%;
+    max-width: calc(986rem / 16);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: calc(20rem / 16);
     text-wrap: balance;
 
-    @media screen and (min-width: 768px) {
-      top: 120px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      top: calc(120rem / 16);
       flex-direction: row;
       align-items: flex-start;
       gap: 0;
@@ -21,12 +22,12 @@
       }
 
       a {
-        margin-top: 24px;
+        margin-top: calc(24rem / 16);
       }
     }
 
-    @media screen and (min-width: 1366px) {
-      top: 146px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      top: calc(146rem / 16);
     }
   }
 }
@@ -35,85 +36,89 @@
   position: absolute;
   z-index: 2;
 
+  img {
+    user-select: none;
+  }
+
   &:nth-of-type(1) {
-    width: 70px;
-    top: 523px;
+    width: calc(70rem / 16);
+    top: calc(523rem / 16);
     left: calc(86vw / 3.6);
 
-    @media screen and (min-width: 768px) {
-      width: clamp(63px, calc(63vw / 7.68), 108px);
-      top: 288px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: clamp(calc(63rem / 16), calc(63vw / 7.68), calc(108rem / 16));
+      top: calc(288rem / 16);
       left: calc(261vw / 7.68);
     }
 
-    @media screen and (min-width: 1366px) {
-      top: 78px;
-      left: min(calc(543vw / 13.66), 543px);
+    @media screen and (min-width: calc(1366rem / 16)) {
+      top: calc(78rem / 16);
+      left: min(calc(543vw / 13.66), calc(543rem / 16));
     }
   }
 
   &:nth-of-type(2) {
-    width: clamp(86px, calc(108vw / 7.68), 185px);
-    top: 223px;
+    width: clamp(calc(86rem / 16), calc(108vw / 7.68), calc(185rem / 16));
+    top: calc(223rem / 16);
     right: 0px;
 
-    @media screen and (min-width: 768px) {
-      top: 265px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      top: calc(265rem / 16);
       right: 0px;
     }
 
-    @media screen and (min-width: 1366px) {
-      top: -26px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      top: calc(-1 * 26rem / 16);
     }
   }
 
   &:nth-of-type(3) {
-    width: clamp(155px, calc(173vw / 7.68), 296px);
-    top: 267px;
-    left: 1px;
+    width: clamp(calc(155rem / 16), calc(173vw / 7.68), calc(296rem / 16));
+    top: calc(267rem / 16);
+    left: calc(1rem / 16);
 
-    @media screen and (min-width: 768px) {
-      top: 406px;
-      left: 1px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      top: calc(406rem / 16);
+      left: calc(1rem / 16);
     }
 
-    @media screen and (min-width: 1366px) {
-      top: 179px;
-      left: -2px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      top: calc(179rem / 16);
+      left: calc(-1 * 2rem / 16);
     }
   }
 
   &:nth-of-type(4) {
-    width: clamp(156px, calc(174vw / 7.68), 326px);
-    top: 501px;
+    width: clamp(calc(156rem / 16), calc(174vw / 7.68), calc(326rem / 16));
+    top: calc(501rem / 16);
     left: calc(172vw / 3.6);
 
-    @media screen and (min-width: 768px) {
-      top: 469px;
-      left: min(calc(411vw / 7.68), 652px);
+    @media screen and (min-width: calc(768rem / 16)) {
+      top: calc(469rem / 16);
+      left: min(calc(411vw / 7.68), calc(652rem / 16));
     }
 
-    @media screen and (min-width: 1366px) {
-      width: 326px;
-      top: 336px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      width: calc(326rem / 16);
+      top: calc(336rem / 16);
     }
   }
 
   &:nth-of-type(5) {
-    width: min(calc(86vw / 3.6), 111px);
-    top: 698px;
-    top: 640px;
+    width: min(calc(86vw / 3.6), calc(111rem / 16));
+    top: calc(698rem / 16);
+    top: calc(640rem / 16);
     left: 0px;
 
-    @media screen and (min-width: 768px) {
-      width: 111px;
-      top: 685px;
-      top: 590px;
-      left: min(calc(237vw / 7.68), 326px);
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: calc(111rem / 16);
+      top: calc(685rem / 16);
+      top: calc(590rem / 16);
+      left: min(calc(237vw / 7.68), calc(326rem / 16));
     }
 
-    @media screen and (min-width: 1366px) {
-      width: 185px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      width: calc(185rem / 16);
     }
   }
 }

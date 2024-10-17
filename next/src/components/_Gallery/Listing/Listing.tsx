@@ -5,6 +5,8 @@ import ImageList from './_ImageList';
 export default function Listing({ categories, images, imageCount, currentCategorySlug = '' }: ListingTypes) {
   const _categories = [{ _id: 'all', categoryName: 'Wszystkie', slug: '' }, ...categories];
 
+  if (categories.length === 0) return null;
+
   return (
     <section className='mb'>
       <div className='max-width'>

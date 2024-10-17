@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { cubicBezier, motion } from 'framer-motion';
 import type { AccordionListTypes } from './FaqSection.types';
-
 import styles from './FaqSection.module.scss';
 
 export default function AccordionList({ list, icon }: AccordionListTypes) {
@@ -32,7 +31,7 @@ export default function AccordionList({ list, icon }: AccordionListTypes) {
             className={styles.answer}
             initial={false}
             animate={{ height: i === activeIndex ? 'auto' : 0, opacity: i === activeIndex ? 1 : 0 }}
-            transition={{ duration: 0.2, ease: cubicBezier(0.45, 0.03, 0.51, 1) }}
+            transition={{ duration: 0.2, ease: cubicBezier(0.1, 0, 0.4, 1) }}
           >
             {answer}
           </motion.div>

@@ -1,4 +1,5 @@
 import { ImgData_Query } from '@/components/ui/Img';
+
 import ReviewsSection from './ReviewsSection';
 export default ReviewsSection;
 export type { ReviewsSectionTypes } from './ReviewsSection.types';

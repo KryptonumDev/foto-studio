@@ -1,12 +1,13 @@
 .Footer {
   display: grid;
-  gap: clamp(48px, calc(64vw / 7.68), 96px);
+  gap: clamp(3rem, calc(64vw / 7.68), 6rem);
   justify-items: center;
 
   .header {
-    width: min(100%, 838px);
+    width: 100%;
+    max-width: calc(838rem / 16);
     display: grid;
-    gap: clamp(20px, calc(24vw / 7.68), 32px);
+    gap: clamp(calc(20rem / 16), calc(24vw / 7.68), calc(32rem / 16));
     justify-items: center;
 
     h2 {
@@ -20,10 +21,11 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: clamp(20px, calc(36vw / 7.68), 36px);
+  gap: clamp(calc(20rem / 16), calc(36vw / 7.68), calc(36rem / 16));
 
   a {
     transition: color 0.1s var(--easing);
+    user-select: none;
     &:active {
       color: var(--primary-700);
     }
@@ -33,29 +35,30 @@
     order: 3;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: calc(8rem / 16);
     color: var(--primary-900);
     text-transform: uppercase;
+    user-select: none;
 
-    @media screen and (min-width: 1097px) {
+    @media screen and (min-width: calc(1097rem / 16)) {
       order: 1;
     }
   }
 
   .privacyPolicy {
     order: 2;
-    margin-block: 11px;
+    margin-block: calc(11rem / 16);
     color: var(--primary-700);
 
     &:hover {
       color: var(--primary-900);
     }
 
-    @media screen and (min-width: 768px) {
-      margin-block: 8px;
+    @media screen and (min-width: calc(768rem / 16)) {
+      margin-block: calc(8rem / 16);
     }
 
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: calc(1100rem / 16)) {
       order: 3;
     }
   }
@@ -67,21 +70,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: calc(15rem / 16);
 
-    @media screen and (min-width: 360px) {
-      gap: 32px;
+    @media screen and (min-width: calc(360rem / 16)) {
+      gap: calc(32rem / 16);
     }
 
-    @media screen and (min-width: 1097px) {
+    @media screen and (min-width: calc(1097rem / 16)) {
       order: 2;
     }
 
     li {
-      padding-block: 11px;
+      padding-block: calc(11rem / 16);
 
-      @media screen and (min-width: 768px) {
-        padding-block: 8px;
+      @media screen and (min-width: calc(768rem / 16)) {
+        padding-block: calc(8rem / 16);
       }
     }
   }

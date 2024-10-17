@@ -4,11 +4,11 @@
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: clamp(24px, calc(32vw / 7.68), 32px);
+  gap: clamp(calc(24rem / 16), calc(32vw / 7.68), calc(32rem / 16));
 
   .sideImg {
-    width: clamp(155px, calc(236vw / 7.68), 404px);
-    @media screen and (min-width: 1236px) {
+    width: clamp(calc(155rem / 16), calc(236vw / 7.68), calc(404rem / 16));
+    @media screen and (min-width: calc(1236rem / 16)) {
       position: sticky;
       top: var(--sticky-top);
     }
@@ -16,29 +16,30 @@
 
   .container {
     display: grid;
-    gap: clamp(48px, calc(80vw / 7.68), 129px);
+    gap: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(129rem / 16));
 
-    @media screen and (min-width: 1236px) {
-      padding-top: 80px;
+    @media screen and (min-width: calc(1236rem / 16)) {
+      padding-top: calc(80rem / 16);
     }
 
     header {
       display: grid;
-      gap: clamp(16px, calc(20vw / 7.68), 32px);
+      gap: clamp(1rem, calc(20vw / 7.68), 2rem);
 
       h1,
       h2 {
-        max-width: 728px;
+        max-width: calc(728rem / 16);
       }
     }
 
     .content {
       display: grid;
-      gap: clamp(8px, calc(12vw / 7.68), 16px);
+      gap: clamp(0.5rem, calc(12vw / 7.68), 1rem);
       color: var(--primary-600);
 
-      @media screen and (min-width: 768px) {
-        width: min(calc(585vw / 7.68), 610px);
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: calc(585vw / 7.68);
+        max-width: calc(610rem / 16);
       }
 
       strong {
@@ -48,7 +49,7 @@
 
       ul {
         display: grid;
-        gap: 6px;
+        gap: calc(6rem / 16);
       }
     }
   }

@@ -1,8 +1,6 @@
 import type { ReviewsSectionTypes } from './ReviewsSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Carousel from './_Carousel';
-
 import styles from './ReviewsSection.module.scss';
 
 export default function ReviewsSection({ heading, index, list }: ReviewsSectionTypes) {

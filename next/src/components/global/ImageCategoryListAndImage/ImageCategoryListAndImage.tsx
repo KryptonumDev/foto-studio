@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import { toPlainText } from 'next-sanity';
-import type { ImageCategoryListAndImageTypes } from './ImageCategoryListAndImage.types';
 import { addLeadingZero } from '@/utils/add-leading-zero';
-
+import type { ImageCategoryListAndImageTypes } from './ImageCategoryListAndImage.types';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
-
 import styles from './ImageCategoryListAndImage.module.scss';
 
 export default function ImageCategoryListAndImage({
@@ -16,9 +14,7 @@ export default function ImageCategoryListAndImage({
   imagePosition,
 }: ImageCategoryListAndImageTypes) {
   return (
-    <section
-      className={`${styles['ImageCategoryListAndImage']} ${imagePosition === 'left' ? styles.left : styles.right} max-width mb`}
-    >
+    <section className={`${styles['ImageCategoryListAndImage']} ${styles[imagePosition]} max-width mb`}>
       <div className={styles.content}>
         <header>
           <Heading
@@ -43,7 +39,7 @@ export default function ImageCategoryListAndImage({
       </div>
       <Img
         data={img}
-        sizes='(min-width: 1366px) 434px, (min-width: 768px) 41.5vw, 156px'
+        sizes='(min-width: 1300px) 434px, (min-width: 768px) 41.54vw, 97.5vw'
         priority={index === 0}
         className={styles.image}
       />

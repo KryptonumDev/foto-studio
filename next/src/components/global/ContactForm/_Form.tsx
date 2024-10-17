@@ -1,26 +1,33 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm, type FieldValues } from 'react-hook-form';
 import type { FormTypes, FormStatusTypes } from './ContactForm.types';
 import { REGEX } from '@/global/constants';
-
+import { formatPhoneNumber } from '@/utils/format-phone-number';
 import Input from '@/components/ui/Input';
 import Checkbox from '@/components/ui/Checkbox';
 import RadioGroup from '@/components/ui/RadioGroup';
 import Button from '@/components/ui/Button';
 import CustomLink from '@/components/ui/CustomLink';
 import FormState from '@/components/ui/FormState';
-
+import Loader from '@/components/ui/Loader';
 import styles from './ContactForm.module.scss';
 
 export default function Form({ privacyPolicyLink, topics }: FormTypes) {
-  const [status, setStatus] = useState<FormStatusTypes>({ sending: false, success: undefined });
   const {
     register,
-    handleSubmit,
     reset,
+    handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onTouched' });
+  const [status, setStatus] = useState<FormStatusTypes>({ sending: false, success: undefined });
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (status.sending || status.success !== undefined) {
+      ref.current?.parentElement?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [status]);
 
   const onSubmit = async (data: FieldValues) => {
     setStatus({ sending: true, success: undefined });
@@ -54,19 +61,34 @@ export default function Form({ privacyPolicyLink, topics }: FormTypes) {
   );
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <fieldset
-        disabled={status.sending}
-        className={styles.content}
+    <div
+      className={`${styles.content} ${status.sending || status.success !== undefined ? styles.formHidden : ''}`}
+      ref={ref}
+    >
+      <div className={styles.status}>
+        <Loader loading={status.sending} />
+        <FormState
+          success={status.success}
+          setStatus={setStatus}
+        />
+      </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.form}
       >
         <div className={styles.inputs}>
           <Input
             className={styles.phoneInput}
+            type='tel'
+            inputMode='numeric'
             label='Telefon'
             placeholder='+48 ___ - ___ - ___'
             register={register('phone', {
               required: { value: true, message: 'Numer telefonu jest wymagany' },
               pattern: { value: REGEX.phone, message: 'Niepoprawny numer telefonu' },
+              onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                e.target.value = formatPhoneNumber(e.target.value);
+              },
             })}
             errors={errors}
           />
@@ -92,6 +114,7 @@ export default function Form({ privacyPolicyLink, topics }: FormTypes) {
             type='textarea'
             register={register('message', {
               required: { value: true, message: 'Wiadomość jest wymagana' },
+              minLength: { value: 10, message: 'Wiadomość musi mieć co najmniej 10 znaków' },
             })}
             errors={errors}
           />
@@ -103,18 +126,13 @@ export default function Form({ privacyPolicyLink, topics }: FormTypes) {
           })}
           errors={errors}
         />
-      </fieldset>
-      <Button
-        loading={status.sending}
-        disabled={status.sending}
-        type='submit'
-      >
-        Wyślij wiadomość
-      </Button>
-      <FormState
-        success={status.success}
-        setStatus={setStatus}
-      />
-    </form>
+        <Button
+          disabled={status.sending}
+          type='submit'
+        >
+          Wyślij wiadomość
+        </Button>
+      </form>
+    </div>
   );
 }

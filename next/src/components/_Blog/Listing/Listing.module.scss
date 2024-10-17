@@ -4,21 +4,22 @@
     display: grid;
     gap: calc(20rem / 16);
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: calc(768rem / 16)) {
       column-gap: 2rem;
       row-gap: clamp(3rem, calc(48vw / 7.68), 5rem);
-      grid-template-columns: repeat(2, 319px);
+      grid-template-columns: repeat(2, calc(319rem / 16));
     }
 
-    @media screen and (min-width: 1366px) {
-      margin-top: 48px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      margin-top: calc(48rem / 16);
       grid-template-columns: repeat(4, 1fr);
     }
 
     > article {
-      width: min(100%, calc(400rem / 16));
+      width: 100%;
+      max-width: calc(400rem / 16);
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: calc(768rem / 16)) {
         width: 100%;
         &:nth-child(9n + 1),
         &:nth-child(9n + 3),
@@ -36,7 +37,7 @@
         }
       }
 
-      @media screen and (min-width: 1366px) {
+      @media screen and (min-width: calc(1366rem / 16)) {
         &:nth-child(9n + 1),
         &:nth-child(9n + 4) {
           grid-column: 1 / 2;
@@ -61,17 +62,17 @@
     }
   }
 
-  .loadMore {
-    margin-top: clamp(32px, calc(48vw / 7.68), 64px);
+  .btn {
+    margin-top: clamp(calc(32rem / 16), calc(48vw / 7.68), calc(64rem / 16));
     display: grid;
     place-items: center;
     button {
-      padding-bottom: 4px;
+      padding-bottom: calc(4rem / 16);
       border-bottom: 1px solid currentColor;
-      font-size: 16px;
+      font-size: calc(16rem / 16);
       font-weight: 500;
       line-height: normal;
-      letter-spacing: 0.8px;
+      letter-spacing: calc(0.8rem / 16);
       text-transform: uppercase;
       color: var(--primary-700);
       transition: color 0.1s var(--easing);
@@ -80,8 +81,8 @@
         transition: color 0.1s var(--easing);
       }
 
-      @media screen and (min-width: 1366px) {
-        font-size: 20px;
+      @media screen and (min-width: calc(1366rem / 16)) {
+        font-size: calc(20rem / 16);
       }
 
       &:hover {

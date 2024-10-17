@@ -1,35 +1,35 @@
 .NotFoundSection {
   display: grid;
-  gap: clamp(48px, calc(64vw / 7.68), 80px);
+  gap: clamp(calc(48rem / 16), calc(64vw / 7.68), calc(80rem / 16));
 
   header {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 20px;
+    gap: calc(20rem / 16);
 
-    @media screen and (min-width: 1083px) {
-      gap: 4px;
+    @media screen and (min-width: calc(1083rem / 16)) {
+      gap: calc(4rem / 16);
 
       a {
-        margin-top: 48px;
+        margin-top: calc(48rem / 16);
       }
     }
 
     h1,
     h2 {
       width: 100%;
-      max-width: 756px;
+      max-width: calc(756rem / 16);
     }
   }
 
   .images {
     display: flex;
     justify-content: flex-end;
-    gap: clamp(16.78px, calc(24vw / 7.68), 31.95px);
+    gap: clamp(calc(16.78rem / 16), calc(24vw / 7.68), calc(31.95rem / 16));
 
     img {
-      width: clamp(120px, calc(236vw / 7.68), 294px);
+      width: clamp(calc(120rem / 16), calc(236vw / 7.68), calc(294rem / 16));
     }
   }
 }

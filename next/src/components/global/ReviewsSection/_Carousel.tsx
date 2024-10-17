@@ -1,18 +1,16 @@
 'use client';
 import { useRef, useState } from 'react';
 import type { CarouselTypes } from './ReviewsSection.types';
-
 import Cursor, { useCursor } from '@/components/ui/Cursor';
 import Slider from '@/components/ui/Slider';
 import Img from '@/components/ui/Img';
 import Text from '@/components/ui/Text';
-
 import styles from './ReviewsSection.module.scss';
 
 export default function Carousel({ list, index }: CarouselTypes) {
+  const { mouse, updatePosition } = useCursor();
   const ref = useRef<HTMLDivElement>(null);
   const [cursorScale, setCursorScale] = useState(0);
-  const { mouse, updatePosition } = useCursor();
 
   return (
     <>

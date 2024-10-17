@@ -15,24 +15,23 @@ export default function CustomLink({ href, text, withArrow = true, className = '
       {...props}
     >
       <span>{text}</span>
-      {withArrow && <ArrowIcon className={styles.icon} />}
+      {withArrow && (
+        <span className={styles.icon}>
+          <ArrowIcon />
+        </span>
+      )}
     </Element>
   );
 }
 
-const ArrowIcon = ({ ...props }) => (
+const ArrowIcon = () => (
   <svg
+    xmlns='http://www.w3.org/2000/svg'
     width='8'
     height='8'
-    viewBox='0 0 8 8'
     fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
+    viewBox='0 0 8 8'
   >
-    <path
-      fillRule='evenodd'
-      clipRule='evenodd'
-      d='M6.29765 1H1.09852V0H7.50474H8.00474V0.5V7.34838H7.00474V1.70711L0.706814 7.99983L0 7.29243L6.29765 1Z'
-    />
+    <path d='M6.298 1h-5.2V0h6.907v7.348h-1v-5.64L.707 8 0 7.292 6.298 1Z' />
   </svg>
 );

@@ -1,10 +1,24 @@
 .RadioGroup {
   position: relative;
+
+  > p {
+    transition: color 0.1s var(--easing);
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: calc(6rem / 16);
+    position: absolute;
+    top: calc(100% + calc(10rem / 16));
+  }
+
   .options {
-    margin-top: 12px;
+    margin-top: calc(12rem / 16);
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(8px, calc(12vw / 7.68), 12px);
+    gap: clamp(calc(8rem / 16), calc(12vw / 7.68), calc(12rem / 16));
+
     label {
       position: relative;
 
@@ -12,27 +26,23 @@
         position: absolute;
         opacity: 0;
       }
+
+      &:has(input:focus),
+      &:has(input:focus-visible) {
+        outline: 1px solid var(--primary-500);
+        outline-offset: 0px;
+        input {
+          outline: none;
+        }
+      }
     }
   }
 
-  .error {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    position: absolute;
-    top: calc(100% + 10px);
+  &[aria-invalid='true'] > p {
+    color: var(--error);
   }
 
-  &[aria-invalid='true'] {
-    p {
-      transition: color 0.1s var(--easing);
-      color: var(--error);
-    }
-  }
-
-  &:has(input:disabled) {
-    p {
-      color: var(--primary-500);
-    }
+  &:has(input:disabled) > p {
+    color: var(--primary-500);
   }
 }

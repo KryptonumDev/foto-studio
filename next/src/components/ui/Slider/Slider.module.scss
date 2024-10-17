@@ -5,8 +5,8 @@
   width: 100%;
 
   .button {
-    width: 44px;
-    height: 44px;
+    width: calc(44rem / 16);
+    height: calc(44rem / 16);
     display: grid;
     place-items: center;
 
@@ -18,14 +18,14 @@
   .dots {
     display: flex;
     align-items: flex-end;
-    gap: 12px;
+    gap: calc(12rem / 16);
 
     button {
-      height: 6px;
+      height: calc(6rem / 16);
       border: 1px solid var(--primary-500);
 
       &[aria-current='true'] {
-        height: 13px;
+        height: calc(13rem / 16);
         border-color: var(--primary-900);
       }
     }

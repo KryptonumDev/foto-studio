@@ -5,25 +5,25 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: clamp(32px, calc(48vw / 7.68), 141px);
+  gap: clamp(2rem, calc(48vw / 7.68), calc(141rem / 16));
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: calc(768rem / 16)) {
     margin-bottom: calc(132vw / 7.68);
   }
 
-  @media screen and (min-width: 1366px) {
-    margin-bottom: 240px;
-    gap: 141px;
+  @media screen and (min-width: calc(1366rem / 16)) {
+    margin-bottom: calc(240rem / 16);
+    gap: calc(141rem / 16);
   }
 
   .intro {
-    max-width: 498px;
-    @media screen and (min-width: 768px) {
+    max-width: calc(498rem / 16);
+    @media screen and (min-width: calc(768rem / 16)) {
       width: calc(498vw / 7.68);
-      max-width: 510px;
+      max-width: calc(510rem / 16);
     }
 
-    @media screen and (min-width: 1270px) {
+    @media screen and (min-width: calc(1270rem / 16)) {
       position: sticky;
       top: var(--sticky-top);
     }
@@ -31,42 +31,87 @@
 
   .wrapper {
     width: 100%;
-    max-width: 583px;
+    max-width: calc(583rem / 16);
     display: grid;
     gap: calc(14vw / 3.6);
 
-    @media screen and (min-width: 768px) {
-      gap: clamp(36px, calc(36vw / 7.68), 48px);
+    @media screen and (min-width: calc(768rem / 16)) {
+      gap: clamp(calc(36rem / 16), calc(36vw / 7.68), calc(48rem / 16));
     }
 
-    @media screen and (min-width: 1366px) {
-      max-width: 619px;
+    @media screen and (min-width: calc(1366rem / 16)) {
+      max-width: calc(619rem / 16);
     }
   }
+}
 
-  .content {
-    margin-bottom: clamp(32px, calc(36vw / 7.68), 64px);
+.content {
+  position: relative;
+  min-height: calc(230rem / 16);
+
+  .form {
+    z-index: 2;
+    position: relative;
     display: grid;
-    gap: clamp(32px, calc(32vw / 7.68), 48px);
+    gap: clamp(calc(32rem / 16), calc(32vw / 7.68), calc(48rem / 16));
     justify-content: start;
+    max-height: 100%;
+    opacity: 1;
+    transition:
+      max-height 0.3s var(--easing),
+      opacity 0.3s var(--easing);
 
-    @media screen and (min-width: 1366px) {
-      margin-bottom: 64px;
+    .inputs {
+      display: grid;
+      gap: clamp(calc(36rem / 16), calc(36vw / 7.68), calc(48rem / 16));
+    }
+
+    .phoneInput {
+      width: 100%;
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: calc(324rem / 16);
+      }
+      @media screen and (min-width: calc(1366rem / 16)) {
+        width: calc(294rem / 16);
+      }
+    }
+
+    button[type='submit'] {
+      margin-top: 1rem;
+      @media screen and (min-width: calc(768rem / 16)) {
+        margin-top: 0;
+      }
     }
   }
 
-  .inputs {
-    display: grid;
-    gap: clamp(36px, calc(36vw / 7.68), 48px);
-  }
-
-  .phoneInput {
+  .status {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    @media screen and (min-width: 768px) {
-      width: 324px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 0;
+    opacity: 0;
+    z-index: 1;
+    transition:
+      max-height 0.3s var(--easing),
+      opacity 0.3s var(--easing);
+  }
+
+  &.formHidden {
+    .form {
+      max-height: 0;
+      opacity: 0;
+      z-index: 1;
     }
-    @media screen and (min-width: 1366px) {
-      width: 294px;
+
+    .status {
+      max-height: calc(250rem / 16);
+      opacity: 1;
+      z-index: 2;
     }
   }
 }

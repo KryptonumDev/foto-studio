@@ -1,15 +1,15 @@
 import type { FormStateTypes } from './FormState.types';
-import styles from './FormState.module.scss';
 import Button from '@/components/ui/Button';
+import styles from './FormState.module.scss';
 
 export default function FormState({ success, setStatus }: FormStateTypes) {
   return (
     success !== undefined && (
       <div className={styles['FormState']}>
-        <h3 className={`small-text ${success ? 'success-text' : 'error-text'}`}>
+        <h3 className={`medium-text ${success ? 'success-text' : 'error-text'}`}>
           {success ? (
             <>
-              <span className={styles.icon}>
+              <span className={styles['success-icon']}>
                 <CheckIcon />
               </span>
               <span>Dziękuję za kontakt!</span>
@@ -17,7 +17,7 @@ export default function FormState({ success, setStatus }: FormStateTypes) {
           ) : (
             <>
               <WarningIcon />
-              <span>Nie udało się wysłać wiadomości</span>
+              <span>Nie wysłano wiadomości</span>
             </>
           )}
         </h3>
@@ -45,30 +45,28 @@ export default function FormState({ success, setStatus }: FormStateTypes) {
   );
 }
 
-const CheckIcon = ({ ...props }) => (
+const CheckIcon = () => (
   <svg
+    xmlns='http://www.w3.org/2000/svg'
     width='8'
     height='6'
     viewBox='0 0 8 6'
     fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
   >
     <path
-      d='M1 3.03175L2.97872 5L7 1'
-      stroke='white'
+      stroke='#fff'
+      d='M1 3.032 2.979 5 7 1'
     />
   </svg>
 );
 
-export const WarningIcon = ({ ...props }) => (
+export const WarningIcon = () => (
   <svg
     width='16'
     height='16'
     viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    {...props}
   >
     <g clipPath='url(#clip0_5663_4451)'>
       <path

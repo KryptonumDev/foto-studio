@@ -1,4 +1,5 @@
 import { ImgData_Query } from '@/components/ui/Img';
+
 import PricesSection from './PricesSection';
 export default PricesSection;
 export type { PricesSectionTypes } from './PricesSection.types';

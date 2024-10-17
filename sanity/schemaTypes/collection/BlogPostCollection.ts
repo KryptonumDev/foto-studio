@@ -9,7 +9,7 @@ export default defineType({
   name: 'BlogPostCollection',
   type: 'document',
   title: 'Blog - Artykuły',
-  icon: () => '🗞️',
+  icon: () => '📰',
   fields: [
     defineField({
       name: 'type',

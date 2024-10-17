@@ -2,7 +2,6 @@ import { ImgData_Query } from '@/components/ui/Img';
 import { Category_Query } from '../CategoryChips';
 
 import ImageCategoryListAndImage from './ImageCategoryListAndImage';
-
 export default ImageCategoryListAndImage;
 export type { ImageCategoryListAndImageTypes } from './ImageCategoryListAndImage.types';
 

@@ -20,8 +20,8 @@ const convertToPlainText = ({ contents, headings, listContents, listHeadings }: 
     .join(' ');
 };
 
-const readingTime = (text: string) => {
-  const countWords = (text: string) => {
+const readingTime = (text: string): number => {
+  const countWords = (text: string): number => {
     const trimmedText = text.trim();
     if (trimmedText === '') return 0;
     const words = trimmedText.split(/\s+/);
@@ -29,8 +29,7 @@ const readingTime = (text: string) => {
   };
   const words = countWords(text);
   const averageReadingSpeedWordsPerMinute = 200;
-  const readingTime = Math.ceil(words / averageReadingSpeedWordsPerMinute);
-  return readingTime;
+  return Math.ceil(words / averageReadingSpeedWordsPerMinute);
 };
 
 export default function ReadingTime({ className = '', ...content }: ReadingTimeTypes & { className?: string }) {

@@ -2,11 +2,9 @@
 import { useEffect, useRef } from 'react';
 import { useSmoothScroll } from '@/components/ui/SmoothScroll';
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
-
 import Button from '@/components/ui/Button';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
-
 import styles from './HeroHeaderAndImages.module.scss';
 
 const imageSizes = [
@@ -20,12 +18,12 @@ const imageSizes = [
 const imageSpeeds = [0.25, 0.05, 0.2, 0.35, 0.25];
 
 export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
-  const ref = useRef<HTMLElement>(null);
   const { updateScroll } = useSmoothScroll();
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (ref?.current) updateScroll(ref.current);
-  }, []);
+  }, [updateScroll]);
 
   return (
     <section

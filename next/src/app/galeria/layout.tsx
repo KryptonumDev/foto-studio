@@ -1,5 +1,5 @@
-import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
+import { defineQuery } from 'next-sanity';
 import DynamicComponents, { DynamicComponents_Query } from '@/components/DynamicComponents';
 import ListingHeader, { ListingHeader_Query } from '@/components/global/ListingHeader';
 import type { GalleryLayoutTypes } from './page.types';

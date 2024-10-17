@@ -7,11 +7,9 @@ export default function Checkbox({ label, register, errors, ...props }: Checkbox
     <label
       className={styles['Checkbox']}
       aria-invalid={!!errors[register.name]}
-      tabIndex={0}
     >
       <div className={styles.icon}>
         <input
-          tabIndex={-1}
           type='checkbox'
           {...register}
           name={register.name}
@@ -28,18 +26,17 @@ export default function Checkbox({ label, register, errors, ...props }: Checkbox
   );
 }
 
-const CheckIcon = ({ ...props }) => (
+const CheckIcon = () => (
   <svg
+    xmlns='http://www.w3.org/2000/svg'
     width='15'
     height='12'
     viewBox='0 0 15 12'
     fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
   >
     <path
-      d='M4.99967 8.99984L1.49967 5.49984L0.333008 6.6665L4.99967 11.3332L14.9997 1.33317L13.833 0.166504L4.99967 8.99984Z'
       fill='#141414'
+      d='M5 9 1.5 5.5.333 6.667 5 11.332l10-10L13.833.167 5 9Z'
     />
   </svg>
 );

@@ -1,9 +1,7 @@
 import type { MapSectionTypes } from './MapSection.types';
 import { formatPhoneNumber } from '@/utils/format-phone-number';
-
 import Heading from '@/components/ui/Heading';
 import CustomLink from '@/components/ui/CustomLink';
-
 import styles from './MapSection.module.scss';
 
 export default function MapSection({ index, heading, location, tel, addressLink }: MapSectionTypes) {

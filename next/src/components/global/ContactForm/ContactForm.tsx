@@ -1,11 +1,9 @@
 import { defineQuery } from 'next-sanity';
-import type { ContactFormTypes, ContactQueryTypes } from './ContactForm.types';
 import sanityFetch from '@/utils/sanity.fetch';
-
+import type { ContactFormTypes, ContactQueryTypes } from './ContactForm.types';
 import Text from '@/components/ui/Text';
 import CopyToClipboard from '@/components/ui/CopyToClipboard';
 import Form from './_Form';
-
 import styles from './ContactForm.module.scss';
 
 export default async function ContactForm({ paragraph, topics }: ContactFormTypes) {

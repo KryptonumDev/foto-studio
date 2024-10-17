@@ -1,10 +1,8 @@
 import { addLeadingZero } from '@/utils/add-leading-zero';
 import type { ListWithContentTypes } from './ListWithContent.types';
-
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Button from '@/components/ui/Button';
-
 import styles from './ListWithContent.module.scss';
 
 export default function ListWithContent({ index, heading, cta, list }: ListWithContentTypes) {

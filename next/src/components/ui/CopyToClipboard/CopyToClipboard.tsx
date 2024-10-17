@@ -19,7 +19,7 @@ export default function CopyToClipboard({ label, value, successMessage }: CopyTo
 
   return (
     <div className={styles['CopyToClipboard']}>
-      <div>
+      <div className={styles.content}>
         {label && <span className='small-text'>{label}</span>}
         <button
           className='medium-text'
@@ -32,24 +32,23 @@ export default function CopyToClipboard({ label, value, successMessage }: CopyTo
         <span className={styles.icon}>
           <CheckIcon />
         </span>
-        <span className='small-text'>{successMessage}</span>
+        <span className='small-text success-text'>{successMessage}</span>
       </p>
     </div>
   );
 }
 
-const CheckIcon = ({ ...props }) => (
+const CheckIcon = () => (
   <svg
+    xmlns='http://www.w3.org/2000/svg'
     width='8'
     height='6'
-    viewBox='0 0 8 6'
     fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}
+    viewBox='0 0 8 6'
   >
     <path
-      d='M1 3.03175L2.97872 5L7 1'
-      stroke='white'
+      stroke='#fff'
+      d='M1 3.032 2.979 5 7 1'
     />
   </svg>
 );

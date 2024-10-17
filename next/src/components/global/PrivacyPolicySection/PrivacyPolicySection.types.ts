@@ -7,3 +7,9 @@ export type PrivacyPolicySectionTypes = {
     content: PortableTextBlock[];
   }[];
 };
+
+export interface IntersectionWrapperTypes {
+  children: React.ReactNode;
+  initialActiveSection: string;
+  headings: { slug: string; text: string }[];
+}

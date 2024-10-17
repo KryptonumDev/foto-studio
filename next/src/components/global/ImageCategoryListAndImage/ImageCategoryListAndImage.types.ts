@@ -11,5 +11,5 @@ export type ImageCategoryListAndImageTypes = {
     imgCategory: CategoryTypes;
   }[];
   img: ImgTypes;
-  imagePosition: string;
+  imagePosition: 'left' | 'right';
 };

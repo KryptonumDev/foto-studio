@@ -1,17 +1,15 @@
 'use client';
 import { useRef, useState } from 'react';
 import type { ImageSliderTypes } from './ImageSlider.types';
-
 import Cursor, { useCursor } from '@/components/ui/Cursor';
 import Slider from '@/components/ui/Slider';
 import Img from '@/components/ui/Img';
-
 import styles from './ImageSlider.module.scss';
 
 export default function ImageSlider({ index, images }: ImageSliderTypes) {
+  const { mouse, updatePosition } = useCursor();
   const ref = useRef<HTMLDivElement>(null);
   const [cursorScale, setCursorScale] = useState(0);
-  const { mouse, updatePosition } = useCursor();
 
   return (
     <>

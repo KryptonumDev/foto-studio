@@ -3,8 +3,8 @@ import { forwardRef } from 'react';
 const Textarea = forwardRef((props, ref) => {
   const handleExpand = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textarea = e.target;
-    textarea.style.height = '26px';
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    textarea.style.height = 'calc(45rem / 16)';
+    textarea.style.height = `${Math.min(textarea.scrollHeight, 150)}px`;
   };
 
   return (

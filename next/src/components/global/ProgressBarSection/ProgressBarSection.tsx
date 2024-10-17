@@ -3,15 +3,12 @@ import { useEffect, useRef, Fragment } from 'react';
 import { useScroll, useTransform, motion, useMotionValueEvent } from 'framer-motion';
 import { addLeadingZero } from '@/utils/add-leading-zero';
 import type { ProgressBarSectionTypes } from './ProgressBarSection.types';
-
 import InlineImageHeading from '@/components/ui/InlineImageHeading';
 import Text from '@/components/ui/Text';
-
 import styles from './ProgressBarSection.module.scss';
 
 export default function ProgressBarSection({ heading, index, list }: ProgressBarSectionTypes) {
   const containerRef = useRef<HTMLElement>(null);
-
   const { scrollYProgress } = useScroll({ target: containerRef });
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-77%']);
   const progressStep = useTransform(scrollYProgress, [0, 1], [0, 26]);

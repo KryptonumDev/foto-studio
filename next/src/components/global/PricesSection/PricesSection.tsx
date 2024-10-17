@@ -1,9 +1,7 @@
 import type { PricesSectionTypes } from './PricesSection.types';
-
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Img from '@/components/ui/Img';
-
 import styles from './PricesSection.module.scss';
 
 export default function PricesSection({ index, heading, paragraph, list, img }: PricesSectionTypes) {

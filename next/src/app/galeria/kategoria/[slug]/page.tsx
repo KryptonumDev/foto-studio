@@ -1,24 +1,21 @@
-import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
-import type { GalleryPageTypes } from '../../page.types';
+import { defineQuery } from 'next-sanity';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
-import Listing from '@/components/_Gallery/Listing';
+import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
 
 export default async function GalleryCategoryPage({ params: { slug } }: { params: { slug: string } }) {
-  const { categories, imageCount, images } = await query(slug);
+  const data = await query(slug);
 
   return (
     <Listing
-      categories={categories}
-      imageCount={imageCount}
-      images={images}
       currentCategorySlug={slug}
+      {...data}
     />
   );
 }
 
-const query = async (slug: string): Promise<GalleryPageTypes> => {
+const query = async (slug: string): Promise<ListingTypes> => {
   const galleryPageQuery = `
    {
       "categories": *[_type == "ImageCategoryCollection" && count(*[_type == "ImageCollection" && references(^._id)]) > 0]{

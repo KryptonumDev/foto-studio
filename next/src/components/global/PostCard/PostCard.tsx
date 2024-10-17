@@ -5,7 +5,6 @@ import type { PostCardTypes } from './PostCard.types';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
 import ReadingTime from '@/components/ui/ReadingTime';
-
 import styles from './PostCard.module.scss';
 
 export default function PostCard({

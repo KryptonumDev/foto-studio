@@ -2,15 +2,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-
 import type { _HeaderTypes } from './Header.types';
-
 import styles from './Header.module.scss';
 
 export default function Header({ logo, links }: _HeaderTypes) {
+  const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
   const [opened, setOpened] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
 
   const getAriaCurrent = (href: string) => pathname.startsWith(href) && 'page';
 
@@ -21,9 +19,9 @@ export default function Header({ logo, links }: _HeaderTypes) {
   const scrollHandler = () => headerRef.current?.classList.toggle(styles.scrolled, window.scrollY >= 20);
 
   useEffect(() => {
+    scrollHandler();
     document.addEventListener('keydown', handleEscapeKey);
     document.addEventListener('scroll', scrollHandler);
-    scrollHandler();
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
       document.removeEventListener('scroll', scrollHandler);
@@ -36,7 +34,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
         id='header'
         ref={headerRef}
         data-state={opened ? 'opened' : 'closed'}
-        className={styles['Header']}
+        className={`${styles['Header']} ${styles.scrolled}`}
       >
         <div className='max-width'>
           <Link

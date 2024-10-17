@@ -1,6 +1,6 @@
 .ListingHeader {
-  margin-bottom: clamp(20px, calc(24vw / 7.68), 24px);
+  margin-bottom: clamp(calc(20rem / 16), calc(24vw / 7.68), calc(24rem / 16));
   h1 {
-    max-width: 836px;
+    max-width: calc(836rem / 16);
   }
 }
