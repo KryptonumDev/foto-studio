@@ -1,13 +1,12 @@
 import {defineType} from 'sanity'
 
-import Quote from '../schemaTypes/components/blogPost/Quote'
+import QuoteWithImage from '../schemaTypes/components/blogPost/QuoteWithImage'
 import HighlightedText from '../schemaTypes/components/blogPost/HighlightedText'
-import ContentBlock from '../schemaTypes/components/blogPost/ContentBlock'
-import ContentBlockWithHeader from '../schemaTypes/components/blogPost/ContentBlockWithHeader'
-import CenteredImage from '../schemaTypes/components/blogPost/CenteredImage'
-import TwoImagesLayout from '../schemaTypes/components/blogPost/TwoImagesLayout'
-import NextBlogPost from '../schemaTypes/components/blogPost/NextBlogPost'
-import List from '../schemaTypes/components/blogPost/List'
+import Text from '../schemaTypes/components/blogPost/Text'
+import ContentSectionWithHeader from '../schemaTypes/components/blogPost/ContentSectionWithHeader'
+import FullWidthImage from '../schemaTypes/components/blogPost/FullWidthImage'
+import TwoImagesWithSpaceBetween from '../schemaTypes/components/blogPost/TwoImagesWithSpaceBetween'
+import ThreeImagesLayout from '../schemaTypes/components/blogPost/ThreeImagesLayout'
 import ImageGrid from '../schemaTypes/components/blogPost/ImageGrid'
 
 export default defineType({
@@ -15,14 +14,13 @@ export default defineType({
   type: 'array',
   title: 'Komponenty dla postów na blogu',
   of: [
-    ContentBlockWithHeader,
-    ContentBlock,
-    List,
-    Quote,
+    ContentSectionWithHeader,
+    Text,
+    QuoteWithImage,
     HighlightedText,
-    CenteredImage,
-    TwoImagesLayout,
+    FullWidthImage,
+    TwoImagesWithSpaceBetween,
+    ThreeImagesLayout,
     ImageGrid,
-    NextBlogPost,
   ],
 })

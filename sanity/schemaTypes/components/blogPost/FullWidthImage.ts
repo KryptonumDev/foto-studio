@@ -1,10 +1,10 @@
 import {defineField} from 'sanity'
 
-const title = 'Zdjęcie (wycentrowane)'
-const icon = () => '🖼️'
+const title = 'Zdjęcie - pełna szerokość'
+const icon = () => '🏞️'
 
 export default defineField({
-  name: 'CenteredImage',
+  name: 'FullWidthImage',
   type: 'object',
   icon,
   title,

@@ -1,10 +1,10 @@
 import {defineField} from 'sanity'
 
-const title = 'Siatka ze zdjęciami'
-const icon = () => '📷'
+const title = 'Układ trzech zdjęć'
+const icon = () => '🌅'
 
 export default defineField({
-  name: 'ImageGrid',
+  name: 'ThreeImagesLayout',
   type: 'object',
   icon,
   title,
@@ -14,7 +14,9 @@ export default defineField({
       type: 'array',
       of: [{type: 'image'}],
       title: 'Zdjęcia',
-      validation: (Rule) => Rule.required().min(2).max(4).error('Należy dodać od 2 do 4 zdjęć'),
+      validation: (Rule) => Rule.required().length(3).error('Należy dodać 3 zdjęcia'),
+      description:
+        'Pierwsze zdjęcie będzie wyświetlane na pełną szerokość, a dwa kolejne będą wyśrodkowane i tej samej wielkości.',
     }),
   ],
   preview: {
@@ -23,7 +25,6 @@ export default defineField({
     },
     prepare: ({images}) => ({
       title,
-      subtitle: `Ilość zdjęć: ${images.length}`,
       media: images[0],
       icon,
     }),

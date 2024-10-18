@@ -1,19 +1,33 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../../utils/toPlainText'
 
-const title = 'Lista'
-const icon = () => '📝'
+const title = 'Sekcja z treścią i nagłówkiem'
+const icon = () => '📄'
 
 export default defineField({
-  name: 'List',
+  name: 'ContentSectionWithHeader',
   type: 'object',
-  title,
   icon,
+  title,
   fields: [
+    defineField({
+      name: 'heading',
+      type: 'Heading',
+      title: 'Nagłówek',
+      validation: (Rule) =>
+        Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
+    }),
+    defineField({
+      name: 'text',
+      type: 'TextBlock',
+      title: 'Treść',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'list',
       type: 'array',
-      title: 'Lista',
+      title: 'Rozbudowana lista (opcjonalna)',
+      description: 'Lista zawiera nagłówki i treści dla każdego elementu.',
       of: [
         {
           type: 'object',
@@ -26,7 +40,7 @@ export default defineField({
                 Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
             defineField({
-              name: 'content',
+              name: 'text',
               type: 'TextBlock',
               title: 'Treść',
               validation: (Rule) => Rule.required(),
@@ -35,24 +49,30 @@ export default defineField({
           preview: {
             select: {
               heading: 'heading',
+              text: 'text',
             },
-            prepare: ({heading}) => ({
+            prepare: ({heading, text}) => ({
               title: toPlainText(heading),
-              icon,
+              subtitle: toPlainText(text),
+              icon: () => '➡️',
             }),
           },
         },
       ],
-      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'img',
+      type: 'image',
+      title: 'Zdjęcie (opcjonalne)',
     }),
   ],
   preview: {
     select: {
-      list: 'list',
+      heading: 'heading',
     },
-    prepare: ({list}) => ({
+    prepare: ({heading}) => ({
       title,
-      subtitle: `Ilość elementów: ${list.length}`,
+      subtitle: toPlainText(heading),
       icon,
     }),
   },

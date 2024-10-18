@@ -1,10 +1,10 @@
 import {defineField} from 'sanity'
 
-const title = 'Układ dwóch zdjęć'
+const title = 'Układ dwóch zdjęć z odstępem'
 const icon = () => '🖼️'
 
 export default defineField({
-  name: 'TwoImagesLayout',
+  name: 'TwoImagesWithSpaceBetween',
   type: 'object',
   icon,
   title,
@@ -23,20 +23,24 @@ export default defineField({
       options: {
         list: [
           {title: 'Do górnej krawędzi', value: 'top'},
-          {title: 'Wycentrowane', value: 'center'},
+          {title: 'wyśrodkowane', value: 'center'},
           {title: 'Do dolnej krawędzi', value: 'bottom'},
         ],
         layout: 'radio',
       },
       initialValue: 'top',
+      description:
+        'Wybierz sposób wyrównania dwóch zdjęć: do górnej krawędzi, wyśrodkowane lub do dolnej krawędzi.',
     }),
   ],
   preview: {
     select: {
       images: 'images',
+      alignment: 'alignment',
     },
-    prepare: ({images}) => ({
+    prepare: ({images, alignment}) => ({
       title,
+      subtitle: `Wyrównanie: ${alignment === 'top' ? 'do górnej krawędzi' : alignment === 'center' ? 'wyśrodkowane' : 'do dolnej krawędzi'}`,
       media: images[0],
       icon,
     }),

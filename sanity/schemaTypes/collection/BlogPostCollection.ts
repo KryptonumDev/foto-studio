@@ -65,13 +65,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'showShareButton',
-      type: 'boolean',
-      title: 'Pokaż przycisk "Udostępnij artykuł"',
-      initialValue: false,
-      hidden: ({parent}) => parent?.type !== 'article',
-    }),
-    defineField({
       name: 'content',
       type: 'BlogPostContent',
       title: 'Zawartość',
