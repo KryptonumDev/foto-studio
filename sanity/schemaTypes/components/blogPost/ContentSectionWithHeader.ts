@@ -18,7 +18,7 @@ export default defineField({
         Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
-      name: 'text',
+      name: 'content',
       type: 'TextBlock',
       title: 'Treść',
       validation: (Rule) => Rule.required(),
@@ -40,7 +40,7 @@ export default defineField({
                 Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
             }),
             defineField({
-              name: 'text',
+              name: 'content',
               type: 'TextBlock',
               title: 'Treść',
               validation: (Rule) => Rule.required(),
@@ -49,11 +49,11 @@ export default defineField({
           preview: {
             select: {
               heading: 'heading',
-              text: 'text',
+              content: 'content',
             },
-            prepare: ({heading, text}) => ({
+            prepare: ({heading, content}) => ({
               title: toPlainText(heading),
-              subtitle: toPlainText(text),
+              subtitle: toPlainText(content),
               icon: () => '➡️',
             }),
           },

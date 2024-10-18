@@ -10,8 +10,8 @@ export type ReadingTimeTypes = {
 export const ReadingTime_Query = `
   "contents": content[].content,
   "headings": content[].heading,
-  "listContents": content[_type == "List"].list[].content,
-  "listHeadings": content[_type == "List"].list[].heading,
+  "listContents": content[_type == "ContentSectionWithHeader"].content,
+  "listHeadings": content[_type == "ContentSectionWithHeader"].heading,
 `;
 
 const convertToPlainText = ({ contents, headings, listContents, listHeadings }: ReadingTimeTypes): string => {
