@@ -1,11 +1,11 @@
 import {defineField} from 'sanity'
 import {toPlainText} from '../../../utils/toPlainText'
 
-const title = 'Tekst'
+const title = 'Blok tekstowy'
 const icon = () => '✏️'
 
 export default defineField({
-  name: 'Text',
+  name: 'ArticleText',
   type: 'object',
   icon,
   title,

@@ -2,7 +2,7 @@ import {defineType} from 'sanity'
 
 import QuoteWithImage from '../schemaTypes/components/blogPost/QuoteWithImage'
 import HighlightedText from '../schemaTypes/components/blogPost/HighlightedText'
-import Text from '../schemaTypes/components/blogPost/Text'
+import ArticleText from '../schemaTypes/components/blogPost/ArticleText'
 import ContentSectionWithHeader from '../schemaTypes/components/blogPost/ContentSectionWithHeader'
 import FullWidthImage from '../schemaTypes/components/blogPost/FullWidthImage'
 import TwoImagesWithSpaceBetween from '../schemaTypes/components/blogPost/TwoImagesWithSpaceBetween'
@@ -15,7 +15,7 @@ export default defineType({
   title: 'Komponenty dla postów na blogu',
   of: [
     ContentSectionWithHeader,
-    Text,
+    ArticleText,
     QuoteWithImage,
     HighlightedText,
     FullWidthImage,

@@ -23,6 +23,7 @@ import type { ThreeImagesLayoutTypes } from '@/components/_Blog/PostContent/Thre
 import type { TwoImagesWithSpaceBetweenTypes } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
 import type { QuoteWithImageTypes } from '@/components/_Blog/PostContent/QuoteWithImage';
 import type { HighlightedTextTypes } from '@/components/_Blog/PostContent/HighlightedText';
+import type { ArticleTextTypes } from '@/components/_Blog/PostContent/ArticleText';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -50,6 +51,7 @@ export type ComponentsMapTypes = {
   TwoImagesWithSpaceBetween: TwoImagesWithSpaceBetweenTypes;
   QuoteWithImage: QuoteWithImageTypes;
   HighlightedText: HighlightedTextTypes;
+  ArticleText: ArticleTextTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

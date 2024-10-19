@@ -23,6 +23,7 @@ import { ThreeImagesLayout_Query } from '@/components/_Blog/PostContent/ThreeIma
 import { TwoImagesWithSpaceBetween_Query } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
 import { QuoteWithImage_Query } from '@/components/_Blog/PostContent/QuoteWithImage';
 import { HighlightedText_Query } from '@/components/_Blog/PostContent/HighlightedText';
+import { ArticleText_Query } from '@/components/_Blog/PostContent/ArticleText';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -52,5 +53,6 @@ export const DynamicComponents_Query = `
     ${TwoImagesWithSpaceBetween_Query}
     ${QuoteWithImage_Query}
     ${HighlightedText_Query}
+    ${ArticleText_Query}
   }
 `;
