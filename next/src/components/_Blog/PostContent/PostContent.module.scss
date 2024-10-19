@@ -1,0 +1,49 @@
+// .PostContent {
+//   .content {
+//     border: 1px solid green;
+//     position: relative;
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//     gap: 100px;
+
+//     .sectionLinks {
+//       border: 1px solid yellow;
+//       grid-column: 1 / 2;
+//       min-height: 250px;
+//       position: sticky;
+//       top: var(--sticky-top);
+//       background: rgba(255, 255, 255, 0.6);
+//       backdrop-filter: blur(8px);
+//     }
+
+//     .template {
+//       border: 1px solid blue;
+//       grid-column: 1 / 3;
+//       min-height: 400px;
+//       &:first-of-type {
+//         grid-column: 2 / 3;
+//         border: 1px solid red;
+//       }
+//     }
+//   }
+// }
+
+/*
+.PostContent {
+  .header {
+    margin-block: 128px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    > div:last-child {
+      margin-top: 0;
+    }
+  }
+
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+*/

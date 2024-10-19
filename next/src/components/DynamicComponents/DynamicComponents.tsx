@@ -23,6 +23,7 @@ import ContactForm, { type ContactFormTypes } from '@/components/global/ContactF
 import HorizontalListWithHeader, {
   type HorizontalListWithHeaderTypes,
 } from '@/components/global/HorizontalListWithHeader';
+import ImageGrid, { type ImageGridTypes } from '@/components/_Blog/PostContent/ImageGrid';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -44,6 +45,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   FaqSection: props => <FaqSection {...(props as FaqSectionTypes)} />,
   ContactForm: props => <ContactForm {...(props as ContactFormTypes)} />,
   HorizontalListWithHeader: props => <HorizontalListWithHeader {...(props as HorizontalListWithHeaderTypes)} />,
+  ImageGrid: props => <ImageGrid {...(props as ImageGridTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {
