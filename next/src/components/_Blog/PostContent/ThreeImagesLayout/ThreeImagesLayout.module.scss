@@ -1,0 +1,26 @@
+.ThreeImagesLayout {
+  margin-bottom: clamp(4rem, calc(96vw / 7.68), 8rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: clamp(calc(20rem / 16), calc(33.86vw / 7.68), 4rem);
+  column-gap: clamp(calc(12rem / 16), calc(20.107vw / 7.68), calc(38rem / 16));
+
+  @media (min-width: calc(1366rem / 16)) {
+    row-gap: 4rem;
+  }
+
+  img {
+    width: calc(50% - calc(12rem / 16));
+    @media screen and (min-width: calc(360rem / 16)) {
+      width: clamp(calc(158.514rem / 16), calc(210.066vw / 7.68), calc(397rem / 16));
+      height: clamp(calc(205.23rem / 16), calc(271.974vw / 7.68), calc(514rem / 16));
+    }
+
+    &:first-child {
+      width: 100%;
+      max-height: calc(523rem / 16);
+    }
+  }
+}

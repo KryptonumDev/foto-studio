@@ -4,10 +4,5 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  img {
-    max-width: 100%;
-    max-height: 523px;
-    width: auto;
-    height: auto;
-  }
+  max-height: calc(523rem / 16);
 }

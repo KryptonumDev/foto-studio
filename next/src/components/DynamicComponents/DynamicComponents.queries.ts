@@ -19,6 +19,7 @@ import { ContactForm_Query } from '@/components/global/ContactForm';
 import { HorizontalListWithHeader_Query } from '@/components/global/HorizontalListWithHeader';
 import { ImageGrid_Query } from '@/components/_Blog/PostContent/ImageGrid';
 import { FullWidthImage_Query } from '@/components/_Blog/PostContent/FullWidthImage';
+import { ThreeImagesLayout_Query } from '@/components/_Blog/PostContent/ThreeImagesLayout';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -44,5 +45,6 @@ export const DynamicComponents_Query = `
     ${HorizontalListWithHeader_Query}
     ${ImageGrid_Query}
     ${FullWidthImage_Query}
+    ${ThreeImagesLayout_Query}
   }
 `;
