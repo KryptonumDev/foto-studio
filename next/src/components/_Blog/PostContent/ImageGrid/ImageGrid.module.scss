@@ -43,7 +43,8 @@
     }
   }
 
-  &.images-3 {
+  &.images-3,
+  &.images-2 {
     @media screen and (min-width: calc(768rem / 16)) {
       grid-template-columns: repeat(3, clamp(calc(207.84rem / 16), calc(207.84vw / 7.68), calc(294rem / 16)));
       column-gap: clamp(calc(22.62rem / 16), calc(22.62vw / 7.68), calc(32rem / 16));

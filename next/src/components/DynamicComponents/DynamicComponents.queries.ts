@@ -18,6 +18,7 @@ import { FaqSection_Query } from '@/components/global/FaqSection';
 import { ContactForm_Query } from '@/components/global/ContactForm';
 import { HorizontalListWithHeader_Query } from '@/components/global/HorizontalListWithHeader';
 import { ImageGrid_Query } from '@/components/_Blog/PostContent/ImageGrid';
+import { FullWidthImage_Query } from '@/components/_Blog/PostContent/FullWidthImage';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -42,5 +43,6 @@ export const DynamicComponents_Query = `
     ${ContactForm_Query}
     ${HorizontalListWithHeader_Query}
     ${ImageGrid_Query}
+    ${FullWidthImage_Query}
   }
 `;

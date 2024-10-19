@@ -18,7 +18,7 @@ import type { FaqSectionTypes } from '@/components/global/FaqSection';
 import type { ContactFormTypes } from '@/components/global/ContactForm';
 import type { HorizontalListWithHeaderTypes } from '@/components/global/HorizontalListWithHeader';
 import type { ImageGridTypes } from '@/components/_Blog/PostContent/ImageGrid';
-
+import type { FullWidthImageTypes } from '@/components/_Blog/PostContent/FullWidthImage';
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
   ImageCategoryListAndImage: ImageCategoryListAndImageTypes;
@@ -40,6 +40,7 @@ export type ComponentsMapTypes = {
   ContactForm: ContactFormTypes;
   HorizontalListWithHeader: HorizontalListWithHeaderTypes;
   ImageGrid: ImageGridTypes;
+  FullWidthImage: FullWidthImageTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

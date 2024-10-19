@@ -10,7 +10,7 @@ export default function ImageGrid({ images, index }: ImageGridTypes) {
           key={`image-grid-${i}`}
           data={data}
           priority={index === 0}
-          sizes=''
+          sizes={images.length === 4 ? '(min-width: 768px) 25vw, 50vw' : '(min-width: 768px) 33.33vw, 50vw'}
         />
       ))}
     </div>
