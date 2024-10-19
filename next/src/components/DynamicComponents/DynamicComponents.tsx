@@ -26,6 +26,9 @@ import HorizontalListWithHeader, {
 import ImageGrid, { type ImageGridTypes } from '@/components/_Blog/PostContent/ImageGrid';
 import FullWidthImage, { type FullWidthImageTypes } from '@/components/_Blog/PostContent/FullWidthImage';
 import ThreeImagesLayout, { type ThreeImagesLayoutTypes } from '@/components/_Blog/PostContent/ThreeImagesLayout';
+import TwoImagesWithSpaceBetween, {
+  type TwoImagesWithSpaceBetweenTypes,
+} from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -50,6 +53,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   ImageGrid: props => <ImageGrid {...(props as ImageGridTypes)} />,
   FullWidthImage: props => <FullWidthImage {...(props as FullWidthImageTypes)} />,
   ThreeImagesLayout: props => <ThreeImagesLayout {...(props as ThreeImagesLayoutTypes)} />,
+  TwoImagesWithSpaceBetween: props => <TwoImagesWithSpaceBetween {...(props as TwoImagesWithSpaceBetweenTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {

@@ -2,6 +2,7 @@
   margin-bottom: clamp(4rem, calc(64vw / 7.68), 5rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
   column-gap: calc(17rem / 16);
 
   @media screen and (min-width: calc(768rem / 16)) {

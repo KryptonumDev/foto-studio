@@ -20,6 +20,7 @@ import type { HorizontalListWithHeaderTypes } from '@/components/global/Horizont
 import type { ImageGridTypes } from '@/components/_Blog/PostContent/ImageGrid';
 import type { FullWidthImageTypes } from '@/components/_Blog/PostContent/FullWidthImage';
 import type { ThreeImagesLayoutTypes } from '@/components/_Blog/PostContent/ThreeImagesLayout';
+import type { TwoImagesWithSpaceBetweenTypes } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -44,6 +45,7 @@ export type ComponentsMapTypes = {
   ImageGrid: ImageGridTypes;
   FullWidthImage: FullWidthImageTypes;
   ThreeImagesLayout: ThreeImagesLayoutTypes;
+  TwoImagesWithSpaceBetween: TwoImagesWithSpaceBetweenTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {
