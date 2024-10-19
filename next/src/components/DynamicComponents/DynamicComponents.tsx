@@ -29,6 +29,7 @@ import ThreeImagesLayout, { type ThreeImagesLayoutTypes } from '@/components/_Bl
 import TwoImagesWithSpaceBetween, {
   type TwoImagesWithSpaceBetweenTypes,
 } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
+import QuoteWithImage, { type QuoteWithImageTypes } from '@/components/_Blog/PostContent/QuoteWithImage';
 
 const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> = {
   HeroHeaderAndImages: props => <HeroHeaderAndImages {...(props as HeroHeaderAndImagesTypes)} />,
@@ -54,6 +55,7 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
   FullWidthImage: props => <FullWidthImage {...(props as FullWidthImageTypes)} />,
   ThreeImagesLayout: props => <ThreeImagesLayout {...(props as ThreeImagesLayoutTypes)} />,
   TwoImagesWithSpaceBetween: props => <TwoImagesWithSpaceBetween {...(props as TwoImagesWithSpaceBetweenTypes)} />,
+  QuoteWithImage: props => <QuoteWithImage {...(props as QuoteWithImageTypes)} />,
 };
 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {

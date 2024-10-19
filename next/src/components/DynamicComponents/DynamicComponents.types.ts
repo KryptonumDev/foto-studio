@@ -21,6 +21,7 @@ import type { ImageGridTypes } from '@/components/_Blog/PostContent/ImageGrid';
 import type { FullWidthImageTypes } from '@/components/_Blog/PostContent/FullWidthImage';
 import type { ThreeImagesLayoutTypes } from '@/components/_Blog/PostContent/ThreeImagesLayout';
 import type { TwoImagesWithSpaceBetweenTypes } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
+import type { QuoteWithImageTypes } from '@/components/_Blog/PostContent/QuoteWithImage';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -46,6 +47,7 @@ export type ComponentsMapTypes = {
   FullWidthImage: FullWidthImageTypes;
   ThreeImagesLayout: ThreeImagesLayoutTypes;
   TwoImagesWithSpaceBetween: TwoImagesWithSpaceBetweenTypes;
+  QuoteWithImage: QuoteWithImageTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

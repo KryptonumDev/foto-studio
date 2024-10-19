@@ -21,6 +21,7 @@ import { ImageGrid_Query } from '@/components/_Blog/PostContent/ImageGrid';
 import { FullWidthImage_Query } from '@/components/_Blog/PostContent/FullWidthImage';
 import { ThreeImagesLayout_Query } from '@/components/_Blog/PostContent/ThreeImagesLayout';
 import { TwoImagesWithSpaceBetween_Query } from '@/components/_Blog/PostContent/TwoImagesWithSpaceBetween';
+import { QuoteWithImage_Query } from '@/components/_Blog/PostContent/QuoteWithImage';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -48,5 +49,6 @@ export const DynamicComponents_Query = `
     ${FullWidthImage_Query}
     ${ThreeImagesLayout_Query}
     ${TwoImagesWithSpaceBetween_Query}
+    ${QuoteWithImage_Query}
   }
 `;
