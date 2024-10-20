@@ -3,7 +3,7 @@ import { toPlainText } from 'next-sanity';
 import { slugify } from '@/utils/slugify';
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
-import IntersectionWrapper from './IntersectionWrapper';
+import ScrollNavigation from '@/components/ui/ScrollNavigation';
 import styles from './PrivacyPolicySection.module.scss';
 
 export default function PrivacyPolicySection({ heading, list }: PrivacyPolicySectionTypes) {
@@ -18,25 +18,30 @@ export default function PrivacyPolicySection({ heading, list }: PrivacyPolicySec
           className='large-text'
         />
       </header>
-      <IntersectionWrapper
-        initialActiveSection={_headings[0].slug}
-        headings={_headings}
-      >
-        {list.map(({ heading, content }, i) => (
-          <div
-            key={`section-${_headings[i].slug}`}
-            className={styles.section}
-            id={`${_headings[i].slug}`}
-          >
-            <Heading
-              value={heading}
-              tag='h2'
-              className='small-text'
-            />
-            <Text value={content} />
-          </div>
-        ))}
-      </IntersectionWrapper>
+      <div className={styles.container}>
+        <ScrollNavigation
+          headings={_headings}
+          initialActiveSection={_headings[0].slug}
+          navAriaLabel='sekcje strony'
+          sectionSelector={`.${styles.section}`}
+        />
+        <div className={styles.content}>
+          {list.map(({ heading, content }, i) => (
+            <div
+              key={`section-${_headings[i].slug}`}
+              className={styles.section}
+              id={`${_headings[i].slug}`}
+            >
+              <Heading
+                value={heading}
+                tag='h2'
+                className='small-text'
+              />
+              <Text value={content} />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

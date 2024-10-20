@@ -2,11 +2,12 @@ import { toPlainText } from 'next-sanity';
 import { slugify } from '@/utils/slugify';
 import type { PostContentTypes } from './PostContent.types';
 import DynamicComponents from '@/components/DynamicComponents';
-import IntersectionWrapper from './IntersectionWrapper';
+import ScrollNavigation from '@/components/ui/ScrollNavigation';
+import ShareLink from './ShareLink';
 import styles from './PostContent.module.scss';
 
-export default function PostContent({ type, content, seo, headings }: PostContentTypes) {
-  const index = content.findIndex(data => data._type === 'ContentSectionWithHeader');
+export default function PostContent({ type, content, headings, seo }: PostContentTypes) {
+  const index = content?.findIndex(data => data._type === 'ContentSectionWithHeader');
   const _headings = headings?.map(heading => ({ slug: slugify(toPlainText(heading)), text: toPlainText(heading) }));
 
   return (
@@ -17,13 +18,17 @@ export default function PostContent({ type, content, seo, headings }: PostConten
         <>
           <DynamicComponents data={content.slice(0, index)} />
           <div className={styles.content}>
-            <IntersectionWrapper
+            <ScrollNavigation
               headings={_headings}
               initialActiveSection={_headings[0].slug}
-              seo={seo}
+              navAriaLabel='sekcje artykułu'
+              sectionSelector={`.${styles.content} article`}
+              threshold={0.7}
+              className={styles.navigation}
             >
-              <DynamicComponents data={content.slice(index)} />
-            </IntersectionWrapper>
+              <ShareLink {...seo} />
+            </ScrollNavigation>
+            <DynamicComponents data={content.slice(index)} />
           </div>
         </>
       )}

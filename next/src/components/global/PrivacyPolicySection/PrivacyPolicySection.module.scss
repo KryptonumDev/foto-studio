@@ -13,58 +13,6 @@
     gap: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(80rem / 16));
   }
 
-  .navigation {
-    max-width: calc(402rem / 16);
-
-    @media screen and (min-width: calc(1020rem / 16)) {
-      position: sticky;
-      top: var(--sticky-top);
-    }
-
-    ul {
-      display: grid;
-      gap: 0.5rem;
-
-      li {
-        padding: calc(10rem / 16) calc(12rem / 16);
-
-        a {
-          color: var(--primary--600);
-          display: grid;
-          align-items: center;
-          grid-template-columns: calc(18rem / 16) auto;
-          gap: calc(12rem / 16);
-          transition: color 0.2s var(--easing);
-          user-select: none;
-
-          span {
-            transform: translateX(-30px);
-            transition: transform 0.2s var(--easing);
-          }
-
-          svg {
-            opacity: 0;
-            transition: opacity 0.3s var(--easing);
-          }
-
-          &:hover {
-            color: var(--primary-900);
-          }
-
-          &.active {
-            color: var(--primary-900);
-            span {
-              transform: translateX(0px);
-            }
-            svg {
-              opacity: 1;
-            }
-          }
-        }
-      }
-    }
-  }
-
   .content {
     max-width: calc(589rem / 16);
     @media screen and (min-width: calc(1020rem / 16)) {
