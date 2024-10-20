@@ -1,5 +1,6 @@
 import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
+import { notFound } from 'next/navigation';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
@@ -23,5 +24,8 @@ const query = async (): Promise<ListingTypes> => {
    }
   `;
 
-  return await sanityFetch({ query: defineQuery(blogPageQuery) });
+  const data = await sanityFetch<ListingTypes>({ query: defineQuery(blogPageQuery) });
+
+  if (data.postCount === 0) notFound();
+  return data;
 };

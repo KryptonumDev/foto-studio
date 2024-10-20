@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
@@ -28,7 +29,10 @@ const query = async (slug: string): Promise<ListingTypes> => {
    }
   `;
 
-  return await sanityFetch({ query: defineQuery(blogPageQuery), params: { category: slug } });
+  const data = await sanityFetch<ListingTypes>({ query: defineQuery(blogPageQuery), params: { category: slug } });
+
+  if (data.postCount === 0) notFound();
+  return data;
 };
 
 export async function generateStaticParams() {

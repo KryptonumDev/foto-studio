@@ -1,4 +1,5 @@
 import sanityFetch from '@/utils/sanity.fetch';
+import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
 import type { BlogPostPageTypes } from './page.types';
 import PostHero, { PostHero_Query } from '@/components/_Blog/PostHero';
@@ -32,5 +33,17 @@ const query = async (slug: string): Promise<BlogPostPageTypes> => {
     }
   `;
 
-  return await sanityFetch({ query: defineQuery(blogPostPageQuery), params: { slug } });
+  const data = await sanityFetch<BlogPostPageTypes>({ query: defineQuery(blogPostPageQuery), params: { slug } });
+
+  if (!data) notFound();
+  return data;
 };
+
+export async function generateStaticParams() {
+  const postsQuery = `
+    *[_type == "BlogPostCollection"].slug.current
+  `;
+
+  const data = await sanityFetch<string[]>({ query: defineQuery(postsQuery) });
+  return data.map(slug => ({ slug }));
+}

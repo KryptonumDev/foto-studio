@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
 import { Category_Query } from '@/components/global/CategoryChips';
@@ -23,5 +24,8 @@ const query = async (): Promise<ListingTypes> => {
    }
   `;
 
-  return await sanityFetch({ query: defineQuery(galleryPageQuery) });
+  const data = await sanityFetch<ListingTypes>({ query: defineQuery(galleryPageQuery) });
+
+  if (data.imageCount === 0) notFound();
+  return data;
 };

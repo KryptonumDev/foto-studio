@@ -1,5 +1,6 @@
 import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
+import { notFound } from 'next/navigation';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
@@ -28,7 +29,10 @@ const query = async (slug: string): Promise<ListingTypes> => {
    }
   `;
 
-  return await sanityFetch({ query: defineQuery(galleryPageQuery), params: { category: slug } });
+  const data = await sanityFetch<ListingTypes>({ query: defineQuery(galleryPageQuery), params: { category: slug } });
+
+  if (data.imageCount === 0) notFound();
+  return data;
 };
 
 export async function generateStaticParams() {
