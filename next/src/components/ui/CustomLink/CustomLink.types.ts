@@ -1,5 +1,6 @@
 export type CustomLinkTypes = {
-  href: string;
   text: string;
+  href?: string;
   withArrow?: boolean;
-} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;

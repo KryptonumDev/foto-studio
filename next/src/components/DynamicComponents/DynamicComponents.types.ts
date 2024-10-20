@@ -24,6 +24,7 @@ import type { TwoImagesWithSpaceBetweenTypes } from '@/components/_Blog/PostCont
 import type { QuoteWithImageTypes } from '@/components/_Blog/PostContent/QuoteWithImage';
 import type { HighlightedTextTypes } from '@/components/_Blog/PostContent/HighlightedText';
 import type { ArticleTextTypes } from '@/components/_Blog/PostContent/ArticleText';
+import type { ContentSectionWithHeaderTypes } from '@/components/_Blog/PostContent/ContentSectionWithHeader';
 
 export type ComponentsMapTypes = {
   HeroHeaderAndImages: HeroHeaderAndImagesTypes;
@@ -52,6 +53,7 @@ export type ComponentsMapTypes = {
   QuoteWithImage: QuoteWithImageTypes;
   HighlightedText: HighlightedTextTypes;
   ArticleText: ArticleTextTypes;
+  ContentSectionWithHeader: ContentSectionWithHeaderTypes;
 };
 
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {

@@ -4,12 +4,12 @@ import type { CustomLinkTypes } from './CustomLink.types';
 import styles from './CustomLink.module.scss';
 
 export default function CustomLink({ href, text, withArrow = true, className = '', ...props }: CustomLinkTypes) {
-  const isExternal = href.startsWith('https://');
-  const Element = isExternal ? 'a' : Link;
+  const isExternal = href && href.startsWith('https://');
+  const Element = href ? (isExternal ? 'a' : Link) : 'button';
 
   return (
     <Element
-      href={href}
+      href={href || ''}
       className={`${styles['CustomLink']} ${className}`}
       {...(isExternal && { target: '_blank', rel: 'noopener' })}
       {...props}

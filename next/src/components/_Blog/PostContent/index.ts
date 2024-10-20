@@ -7,7 +7,11 @@ export type { PostContentTypes } from './PostContent.types';
 export const PostContent_Query = `
   type,
   type == "article" => {
-    "headings": content[_type == "ContentSectionWithHeader"].heading
+    "headings": content[_type == "ContentSectionWithHeader"].heading,
+    seo {
+      title,
+      description
+    }
   },
   ${DynamicComponents_Query}
 `;

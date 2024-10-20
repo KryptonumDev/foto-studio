@@ -24,6 +24,7 @@ import { TwoImagesWithSpaceBetween_Query } from '@/components/_Blog/PostContent/
 import { QuoteWithImage_Query } from '@/components/_Blog/PostContent/QuoteWithImage';
 import { HighlightedText_Query } from '@/components/_Blog/PostContent/HighlightedText';
 import { ArticleText_Query } from '@/components/_Blog/PostContent/ArticleText';
+import { ContentSectionWithHeader_Query } from '@/components/_Blog/PostContent/ContentSectionWithHeader';
 
 export const DynamicComponents_Query = `
   content[] {
@@ -54,5 +55,6 @@ export const DynamicComponents_Query = `
     ${QuoteWithImage_Query}
     ${HighlightedText_Query}
     ${ArticleText_Query}
+    ${ContentSectionWithHeader_Query}
   }
 `;

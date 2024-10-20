@@ -1,0 +1,122 @@
+.ContentSectionWithHeader {
+  margin-bottom: clamp(5rem, calc(128vw / 7.68), 8rem);
+
+  .content {
+    max-width: calc(728rem / 16);
+    margin-left: auto;
+    h2 {
+      margin-bottom: clamp(calc(24rem / 16), calc(32vw / 7.68), 2rem);
+      color: var(--primary-900);
+      &::before {
+        content: '[ ';
+      }
+      &::after {
+        content: ' ]';
+      }
+    }
+
+    p,
+    ul:not(.list) {
+      &:not(:first-child) {
+        margin-top: clamp(calc(12rem / 16), calc(16vw / 7.68), 1rem);
+      }
+    }
+
+    ul:not(.list) {
+      color: var(--primary-600);
+      display: grid;
+      gap: calc(12rem / 16);
+    }
+
+    .list {
+      margin-top: 4rem;
+      li {
+        display: grid;
+        gap: 1.5rem;
+
+        @media screen and (min-width: calc(768rem / 16)) {
+          gap: 2rem;
+          grid-template-columns: calc(184rem / 16) auto;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+          @media screen and (min-width: calc(768rem / 16)) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        span:first-child {
+          &::before {
+            content: '[ ';
+          }
+          &::after {
+            content: ' ]';
+          }
+        }
+      }
+    }
+  }
+
+  &.first {
+    &.article {
+      margin-bottom: clamp(4rem, calc(96vw / 7.68), 8rem);
+
+      @media screen and (min-width: calc(1360rem / 16)) {
+        margin-bottom: calc(244rem / 16);
+      }
+
+      img {
+        display: none;
+      }
+
+      .content {
+        max-width: calc(721rem / 16);
+        margin-left: 0;
+      }
+    }
+  }
+
+  &.with-image {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 4rem;
+
+    img {
+      width: 100%;
+      max-width: calc(510rem / 16);
+    }
+
+    @media screen and (min-width: calc(1300rem / 16)) {
+      gap: 2rem;
+    }
+
+    .content {
+      max-width: calc(721rem / 16);
+      margin-left: 0;
+    }
+  }
+
+  &.caseStudy:not(.with-image) {
+    .content {
+      max-width: 100%;
+      display: grid;
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        grid-template-columns: calc(512rem / 16) auto;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      h2 {
+        margin-bottom: clamp(3rem, calc(64vw / 7.68), 4rem);
+        @media screen and (min-width: calc(1366rem / 16)) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
