@@ -24,7 +24,7 @@ export default function NextBlogPost({ slug, type, title, image }: NextBlogPostT
         <Img
           data={image}
           priority={false}
-          sizes=''
+          sizes='(min-width: 1366px) 294px, (min-width: 450px) 41.5vw, 188px'
         />
       </InteractiveBlogPostWrapper>
     </div>

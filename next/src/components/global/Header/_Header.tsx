@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import type { _HeaderTypes } from './Header.types';
@@ -7,18 +7,22 @@ import styles from './Header.module.scss';
 
 export default function Header({ logo, links }: _HeaderTypes) {
   const headerRef = useRef<HTMLElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const [opened, setOpened] = useState(false);
 
   const getAriaCurrent = (href: string) => pathname.startsWith(href) && 'page';
 
-  const closeMenu = () => setOpened(false);
-
-  const handleEscapeKey = (e: KeyboardEvent) => e.key === 'Escape' && closeMenu();
-
-  const scrollHandler = () => headerRef.current?.classList.toggle(styles.scrolled, window.scrollY >= 20);
+  const closeMenu = useCallback(() => setOpened(false), []);
 
   useEffect(() => {
+    const handleEscapeKey = (e: KeyboardEvent) => e.key === 'Escape' && closeMenu();
+
+    const scrollHandler = () => {
+      headerRef.current?.classList.toggle(styles.scrolled, window.scrollY >= 20);
+      closeMenu();
+    };
+
     scrollHandler();
     document.addEventListener('keydown', handleEscapeKey);
     document.addEventListener('scroll', scrollHandler);
@@ -26,7 +30,15 @@ export default function Header({ logo, links }: _HeaderTypes) {
       document.removeEventListener('keydown', handleEscapeKey);
       document.removeEventListener('scroll', scrollHandler);
     };
-  });
+  }, [closeMenu]);
+
+  useEffect(() => {
+    const overlay = overlayRef.current;
+    if (!overlay) return;
+
+    overlay.addEventListener('click', closeMenu);
+    return () => overlay.removeEventListener('click', closeMenu);
+  }, [overlayRef, closeMenu]);
 
   return (
     <>
@@ -46,8 +58,8 @@ export default function Header({ logo, links }: _HeaderTypes) {
           </Link>
           <nav id='primary-navigation'>
             <ul>
-              {links.map(({ href, name }, index) => (
-                <li key={index}>
+              {links.map(({ href, name }) => (
+                <li key={href}>
                   <Link
                     href={href}
                     aria-current={getAriaCurrent(href)}
@@ -72,9 +84,8 @@ export default function Header({ logo, links }: _HeaderTypes) {
         </div>
       </header>
       <div
+        ref={overlayRef}
         className={styles.overlay}
-        onClick={closeMenu}
-        aria-label='Zamknij nawigację'
       />
     </>
   );

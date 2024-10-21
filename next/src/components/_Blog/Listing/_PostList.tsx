@@ -16,7 +16,7 @@ export default function PostList({ posts, postCount }: PostListTypes) {
     if (ref.current) {
       const lastPostCard = ref.current.querySelector(`.${styles.posts} article:last-child`);
       if (lastPostCard) {
-        lastPostCard.scrollIntoView({ behavior: 'smooth' });
+        lastPostCard.scrollIntoView({ behavior: 'instant' });
       }
     }
   }, []);

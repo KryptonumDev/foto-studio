@@ -10,14 +10,14 @@ export default function InteractiveBlogPostWrapper({ slug, children }: { slug: s
   const [cursorScale, setCursorScale] = useState(0);
 
   useEffect(() => {
-    const element = document.querySelector(`.${styles.content}`);
+    const element = document.querySelector(`.${styles.content} img`);
     if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) router.push(`/blog/${slug}`);
       },
-      { threshold: 0.85 }
+      { threshold: 0.95 }
     );
 
     observer.observe(element);

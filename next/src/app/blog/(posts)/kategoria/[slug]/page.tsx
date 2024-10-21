@@ -1,18 +1,22 @@
 import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
+import { Suspense } from 'react';
 import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
+import Loading from '@/app/loading';
 
 export default async function BlogCategoryPage({ params: { slug } }: { params: { slug: string } }) {
   const data = await query(slug);
 
   return (
-    <Listing
-      currentCategorySlug={slug}
-      {...data}
-    />
+    <Suspense fallback={<Loading />}>
+      <Listing
+        currentCategorySlug={slug}
+        {...data}
+      />
+    </Suspense>
   );
 }
 

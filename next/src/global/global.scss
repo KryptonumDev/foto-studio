@@ -224,6 +224,13 @@ h1 {
   height: 100%;
 }
 
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--sticky-top));
+}
+
 .mb {
   margin-bottom: clamp(6rem, calc(128vw / 7.68), 15rem);
   @media screen and (min-width: calc(1200rem / 16)) {

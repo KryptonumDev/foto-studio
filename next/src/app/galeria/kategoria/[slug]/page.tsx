@@ -1,18 +1,22 @@
-import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
+import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
+import Loading from '@/app/loading';
 
 export default async function GalleryCategoryPage({ params: { slug } }: { params: { slug: string } }) {
   const data = await query(slug);
 
   return (
-    <Listing
-      currentCategorySlug={slug}
-      {...data}
-    />
+    <Suspense fallback={<Loading />}>
+      <Listing
+        currentCategorySlug={slug}
+        {...data}
+      />
+    </Suspense>
   );
 }
 
