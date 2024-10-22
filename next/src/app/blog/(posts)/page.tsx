@@ -1,12 +1,10 @@
 import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 import { QueryMetadata } from '@/global/Seo/query-metadata';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
-import Loading from '@/app/loading';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
 const currentPath = '/blog';
@@ -21,9 +19,7 @@ export default async function BlogPage() {
   return (
     <>
       <BreadcrumbsSchema data={breadcrumbsData} />
-      <Suspense fallback={<Loading />}>
-        <Listing {...data} />
-      </Suspense>
+      <Listing {...data} />
     </>
   );
 }

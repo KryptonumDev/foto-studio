@@ -1,12 +1,10 @@
 import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
-import { Suspense } from 'react';
 import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
-import Loading from '@/app/loading';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
 const currentPath = '/galeria';
@@ -21,9 +19,7 @@ export default async function GalleryPage() {
   return (
     <>
       <BreadcrumbsSchema data={breadcrumbsData} />
-      <Suspense fallback={<Loading />}>
-        <Listing {...data} />
-      </Suspense>
+      <Listing {...data} />
     </>
   );
 }

@@ -6,7 +6,7 @@ import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
-import Loading from '@/app/loading';
+import Loading from '@/components/ui/Loading';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
 const breadcrumbsData = [

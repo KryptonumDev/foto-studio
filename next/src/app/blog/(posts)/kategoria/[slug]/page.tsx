@@ -6,7 +6,7 @@ import { QueryMetadata } from '@/global/Seo/query-metadata';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
-import Loading from '@/app/loading';
+import Loading from '@/components/ui/Loading';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
 const breadcrumbsData = [
