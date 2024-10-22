@@ -1,4 +1,40 @@
 /**
+ * Global declaration of page language.
+ * @constant
+ */
+export const LOCALE: string = 'pl';
+
+/**
+ * Global declaration of domain name of the website. Be aware of the protocol and www or non-www prefix.
+ * @constant
+ */
+export const DOMAIN: string = 'https://foto-studio-new-git-next-kryptonum.vercel.app/';
+
+/**
+ * Global default title.
+ * @constant
+ */
+export const DEFAULT_TITLE: string = 'Adam Chrapek Foto Studio';
+
+/**
+ * Global description.
+ * @constant
+ */
+export const DEFAULT_DESCRIPTION: string = 'Piękne wspomnienia mogą być uchwycone z pasją i profesjonalizmem!';
+
+/**
+ * URL for the main icon.
+ * @constant
+ */
+export const ICON_URL: string = `${DOMAIN}/assets/foto-studio-icon.png`;
+
+/**
+ * URL for the main logo.
+ * @constant
+ */
+export const LOGO_URL: string = `${DOMAIN}/assets/foto-studio-logo.png`;
+
+/**
  * Global declaration of regex.
  * @constant
  */

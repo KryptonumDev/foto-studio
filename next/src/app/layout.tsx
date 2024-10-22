@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
 import '@/global/global.scss';
-
+import { LOCALE } from '@/global/constants';
+import type { Metadata } from 'next';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
 import { SmoothScrollProvider } from '@/components/ui/SmoothScroll';
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='pl'>
+    <html lang={LOCALE}>
       <body>
         <Header />
         <SmoothScrollProvider>
