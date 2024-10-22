@@ -1,4 +1,16 @@
 /**
+ * Global declaration of themeColor in HEX format.
+ * @constant
+ */
+export const THEME_COLOR: string = '#ffffff';
+
+/**
+ * Global declaration of backgroundColor in HEX format.
+ * @constant
+ */
+export const BACKGROUND_COLOR: string = '#ffffff';
+
+/**
  * Global declaration of page language.
  * @constant
  */
