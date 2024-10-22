@@ -19,6 +19,7 @@
       height: calc(95rem / 16);
 
       @media screen and (min-width: calc(768rem / 16)) {
+        max-width: 100%;
         width: calc(343vw / 7.68);
         height: calc(99rem / 16);
       }

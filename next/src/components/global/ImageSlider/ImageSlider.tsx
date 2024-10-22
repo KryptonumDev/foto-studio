@@ -59,8 +59,8 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
 
 function getSizes(index: number): string {
   if (index % 5 === 2 || index % 5 === 4) {
-    return '(min-width: 1366px) 335px, (min-width: 768px) 23vw, 93px';
+    return '(min-width: 1366px) 335px, (min-width: 1000px) 24.6vw, (min-width: 408px) 22.8vw, 93px';
   } else if (index % 5 === 1 || index % 5 === 3) {
-    return '(min-width: 1366px) 402px, (min-width: 768px) 27vw, 112px';
-  } else return '(min-width: 1366px) 217px, (min-width: 768px) 15vw, 60px';
+    return '(min-width: 1366px) 402px, (min-width: 1000px) 29.5vw, (min-width: 409px) 27.4vw, 112px';
+  } else return '(min-width: 1366px) 217px, (min-width: 1000px) 15.9vw, (min-width: 407px) 14.8vw, 60px';
 }

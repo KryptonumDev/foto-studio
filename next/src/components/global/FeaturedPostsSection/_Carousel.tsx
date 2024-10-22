@@ -41,7 +41,7 @@ export default function Carousel({ index, list }: CarouselTypes) {
                 <Img
                   data={image}
                   priority={index === 0}
-                  sizes='(min-width: 1270px) 433px, calc(100vw - 2rem)'
+                  sizes='(min-width: 1366px) 433px, (min-width: 1270px) 31.7vw, (min-width: 672px) 672px, 100vw'
                 />
               </Link>
             ))}

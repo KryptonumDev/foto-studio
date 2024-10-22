@@ -8,11 +8,11 @@ import Heading from '@/components/ui/Heading';
 import styles from './HeroHeaderAndImages.module.scss';
 
 const imageSizes = [
-  '(min-width: 1200px) 108px, (min-width: 768px) 9vw, 70px',
-  '(min-width: 1200px) 185px, (min-width: 768px) 15vw, 86px',
-  '(min-width: 1200px) 296px, (min-width: 768px) 23vw, 155px',
-  '(min-width: 1200px) 326px, (min-width: 768px) 23vw, 156px',
-  '(min-width: 1200px) 185px, (min-width: 768px) 15vw, 86px',
+  '(min-width: 1317px) 108px, (min-width: 768px) 8.2vw, 70px',
+  '(min-width: 1315px) 185px, (min-width: 611px) 14.1vw, 86px',
+  '(min-width: 1314px) 296px, (min-width: 688px) 22.6vw, 155px',
+  '(min-width: 1366px) 326px, (min-width: 688px) 22.7vw, 156px',
+  '(min-width: 1280px) 185px, (min-width: 595px) 14.5vw, 86px',
 ];
 
 const imageSpeeds = [0.25, 0.05, 0.2, 0.35, 0.25];

@@ -105,20 +105,13 @@
   }
 
   &:nth-of-type(5) {
-    width: min(calc(86vw / 3.6), calc(111rem / 16));
-    top: calc(698rem / 16);
+    width: clamp(calc(86rem / 16), calc(111vw / 7.68), calc(185rem / 16));
     top: calc(640rem / 16);
     left: 0px;
 
     @media screen and (min-width: calc(768rem / 16)) {
-      width: calc(111rem / 16);
-      top: calc(685rem / 16);
       top: calc(590rem / 16);
       left: min(calc(237vw / 7.68), calc(326rem / 16));
-    }
-
-    @media screen and (min-width: calc(1366rem / 16)) {
-      width: calc(185rem / 16);
     }
   }
 }

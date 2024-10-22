@@ -20,7 +20,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
           <Img
             data={img}
             priority={index === 0}
-            sizes='(min-width: 1366px) 294px, (min-width: 768px) 31vw, 156px'
+            sizes='(min-width: 956px) 294px, (min-width: 507px) 30.8vw, 156px'
           />
           <div className={styles.text}>
             <Text value={paragraph} />
@@ -32,7 +32,7 @@ export default function HeroSection({ index, sideImg, content: { heading, img, p
         className={styles.sideImg}
         data={sideImg}
         priority={index === 0}
-        sizes='(min-width: 768px) 510px, 43.33vw'
+        sizes='(min-width: 768px) 510px, 43.4vw'
       />
     </section>
   );
