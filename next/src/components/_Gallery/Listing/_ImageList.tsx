@@ -104,14 +104,14 @@ const speeds = [0, 0, 0.15, 0.3, 0.2, 0.1, 0.15, 0.25, 0.3, 0.15, 0.25, 0.1];
 function getSizes(index: number): string {
   const i = index % 12;
   if (i === 0 || i === 8) {
-    return '(min-width: 1366px) 513px, (min-width: 768px) 40vw';
+    return '(min-width: 1296px) 513px, (min-width: 480px) 40vw, (min-width: 320px) 190px, 160px';
   } else if (i === 1 || i === 9) {
-    return '(min-width: 1366px) 296px, (min-width: 768px) 23vw';
+    return '(min-width: 1300px) 296px, (min-width: 482px) 23vw, 110px';
   } else if (i === 2 || i == 7) {
-    return '(min-width: 1366px) 434px, (min-width: 768px) 39vw';
+    return '(min-width: 1115px) 434px, (min-width: 440px) 39vw, 171px';
   } else if (i === 3 || i === 6) {
-    return '(min-width: 1366px) 217px, (min-width: 768px) 20vw';
+    return '(min-width: 1118px) 217px, (min-width: 438px) 20vw, 85px';
   } else if (i === 5 || i === 10) {
-    return '(min-width: 1366px) 326px, (min-width: 768px) 28vw';
-  } else return '(min-width: 1366px) 402px, (min-width: 768px) 35vw';
+    return '(min-width: 1175px) 326px, (min-width: 461px) 28vw, 128px';
+  } else return '(min-width: 1178px) 402px, (min-width: 460px) 35vw, 157px';
 }

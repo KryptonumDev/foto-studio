@@ -28,7 +28,7 @@ export default function PostCard({
       <div className={styles.image}>
         <Img
           data={image}
-          sizes='(min-width: 680px) 294px, 360px'
+          sizes='(min-width: 1366px) 294px, (min-width: 768px) 319px, 150px'
           priority={index === 0 || index === 1}
         />
       </div>

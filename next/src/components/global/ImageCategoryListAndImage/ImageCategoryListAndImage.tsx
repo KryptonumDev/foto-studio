@@ -39,7 +39,7 @@ export default function ImageCategoryListAndImage({
       </div>
       <Img
         data={img}
-        sizes='(min-width: 1300px) 434px, (min-width: 768px) 41.54vw, 97.5vw'
+        sizes='(min-width: 1045px) 434px, (min-width: 376px) 42vw, 156px'
         priority={index === 0}
         className={styles.image}
       />
