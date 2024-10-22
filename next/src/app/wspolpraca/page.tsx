@@ -28,7 +28,7 @@ const query = async (): Promise<{ content: ComponentTypes[] }> => {
     }
   `;
 
-  return await sanityFetch({ query: defineQuery(collaborationPageQuery) });
+  return await sanityFetch({ query: defineQuery(collaborationPageQuery), tags: ['CollaborationPage'] });
 };
 
 export async function generateMetadata() {

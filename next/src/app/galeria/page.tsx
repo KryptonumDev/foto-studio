@@ -37,7 +37,10 @@ const query = async (): Promise<ListingTypes> => {
    }
   `;
 
-  const data = await sanityFetch<ListingTypes>({ query: defineQuery(galleryPageQuery) });
+  const data = await sanityFetch<ListingTypes>({
+    query: defineQuery(galleryPageQuery),
+    tags: ['ImageCategoryCollection', 'ImageCollection'],
+  });
 
   if (data.imageCount === 0) notFound();
   return data;

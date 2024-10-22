@@ -37,7 +37,10 @@ const query = async (): Promise<ListingTypes> => {
    }
   `;
 
-  const data = await sanityFetch<ListingTypes>({ query: defineQuery(blogPageQuery) });
+  const data = await sanityFetch<ListingTypes>({
+    query: defineQuery(blogPageQuery),
+    tags: ['BlogCategoryCollection', 'BlogPostCollection'],
+  });
 
   if (data.postCount === 0) notFound();
   return data;

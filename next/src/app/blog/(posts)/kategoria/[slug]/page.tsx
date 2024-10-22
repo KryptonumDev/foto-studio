@@ -46,7 +46,11 @@ const query = async (slug: string): Promise<ListingTypes> => {
    }
   `;
 
-  const data = await sanityFetch<ListingTypes>({ query: defineQuery(blogPageQuery), params: { category: slug } });
+  const data = await sanityFetch<ListingTypes>({
+    query: defineQuery(blogPageQuery),
+    params: { category: slug },
+    tags: ['BlogPostCollection', 'BlogCategoryCollection'],
+  });
 
   if (data.postCount === 0) notFound();
   return data;
@@ -65,6 +69,9 @@ export async function generateStaticParams() {
     *[_type == "BlogCategoryCollection" && count(*[_type == "BlogPostCollection" && references(^._id)]) > 0].slug.current
   `;
 
-  const data = await sanityFetch<string[]>({ query: defineQuery(categoriesQuery) });
+  const data = await sanityFetch<string[]>({
+    query: defineQuery(categoriesQuery),
+    tags: ['BlogCategoryCollection', 'BlogPostCollection'],
+  });
   return data.map(slug => ({ slug }));
 }

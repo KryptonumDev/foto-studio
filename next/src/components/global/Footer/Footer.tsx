@@ -71,7 +71,7 @@ const query = async () => {
     }
   `);
 
-  return await sanityFetch<FooterQueryTypes>({ query: footerQuery });
+  return await sanityFetch<FooterQueryTypes>({ query: footerQuery, tags: ['global'] });
 };
 
 const KryptonumLogo = (

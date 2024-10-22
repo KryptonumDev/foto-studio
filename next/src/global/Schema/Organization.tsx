@@ -63,7 +63,7 @@ const SchemaOrganization = async () => {
 export default SchemaOrganization;
 
 const query = async (): Promise<QueryTypes> => {
-  const query = `
+  const query = /* groq */ `
     *[_id == "global"][0] {
       OrganizationSchema {
         name,
@@ -75,5 +75,5 @@ const query = async (): Promise<QueryTypes> => {
     }
   `;
 
-  return await sanityFetch<QueryTypes>({ query });
+  return await sanityFetch<QueryTypes>({ query, tags: ['global'] });
 };

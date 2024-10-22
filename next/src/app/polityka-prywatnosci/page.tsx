@@ -31,7 +31,7 @@ const query = async (): Promise<PrivacyPolicySectionTypes> => {
     }
   `;
 
-  return await sanityFetch({ query: defineQuery(privacyPolicyPageQuery) });
+  return await sanityFetch({ query: defineQuery(privacyPolicyPageQuery), tags: ['PrivacyPolicyPage'] });
 };
 
 export async function generateMetadata() {

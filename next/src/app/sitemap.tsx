@@ -37,10 +37,13 @@ const query = async (): Promise<QueryTypes> => {
   const query = `
     {
       "blogCategoriesSlugs": *[_type == "BlogCategoryCollection" && count(*[_type == "BlogPostCollection" && references(^._id)]) > 0].slug.current,
-      "blogPostsSlugs": *[_type == "BlogPost_Collection"].slug.current,
+      "blogPostsSlugs": *[_type == "BlogPostCollection"].slug.current,
       "imageCategoriesSlugs": *[_type == "ImageCategoryCollection" && count(*[_type == "ImageCollection" && references(^._id)]) > 0].slug.current,
     }
   `;
 
-  return await sanityFetch<QueryTypes>({ query });
+  return await sanityFetch<QueryTypes>({
+    query,
+    tags: ['BlogCategoryCollection', 'BlogPostCollection', 'ImageCategoryCollection'],
+  });
 };

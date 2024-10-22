@@ -46,7 +46,11 @@ const query = async (slug: string): Promise<ListingTypes> => {
    }
   `;
 
-  const data = await sanityFetch<ListingTypes>({ query: defineQuery(galleryPageQuery), params: { category: slug } });
+  const data = await sanityFetch<ListingTypes>({
+    query: defineQuery(galleryPageQuery),
+    params: { category: slug },
+    tags: ['ImageCategoryCollection', 'ImageCollection'],
+  });
 
   if (data.imageCount === 0) notFound();
   return data;
@@ -65,6 +69,9 @@ export async function generateStaticParams() {
     *[_type == "ImageCategoryCollection" && count(*[_type == "ImageCollection" && references(^._id)]) > 0].slug.current
   `;
 
-  const data = await sanityFetch<string[]>({ query: defineQuery(categoriesQuery) });
+  const data = await sanityFetch<string[]>({
+    query: defineQuery(categoriesQuery),
+    tags: ['ImageCategoryCollection', 'ImageCollection'],
+  });
   return data.map(slug => ({ slug }));
 }

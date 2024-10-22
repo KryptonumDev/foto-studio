@@ -38,5 +38,5 @@ const query = async () => {
     }
   `);
 
-  return await sanityFetch<ContactQueryTypes>({ query: contactQuery });
+  return await sanityFetch<ContactQueryTypes>({ query: contactQuery, tags: ['global'] });
 };

@@ -27,5 +27,5 @@ const query = async (): Promise<GalleryLayoutTypes> => {
     }   
   `;
 
-  return await sanityFetch({ query: defineQuery(galleryLayoutQuery) });
+  return await sanityFetch({ query: defineQuery(galleryLayoutQuery), tags: ['GalleryPage'] });
 };

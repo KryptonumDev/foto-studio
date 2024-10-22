@@ -28,5 +28,5 @@ const query = async (): Promise<BlogLayoutTypes> => {
     }   
   `;
 
-  return await sanityFetch({ query: defineQuery(blogLayoutQuery) });
+  return await sanityFetch({ query: defineQuery(blogLayoutQuery), tags: ['BlogPage'] });
 };

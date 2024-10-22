@@ -16,7 +16,7 @@ const query = async (): Promise<{ content: ComponentTypes[] }> => {
     }
   `;
 
-  return await sanityFetch({ query: defineQuery(notFoundPageQuery) });
+  return await sanityFetch({ query: defineQuery(notFoundPageQuery), tags: ['NotFoundPage'] });
 };
 
 export async function generateMetadata() {

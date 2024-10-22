@@ -39,7 +39,11 @@ const query = async (slug: string): Promise<BlogPostPageTypes> => {
     }
   `;
 
-  const data = await sanityFetch<BlogPostPageTypes>({ query: defineQuery(blogPostPageQuery), params: { slug } });
+  const data = await sanityFetch<BlogPostPageTypes>({
+    query: defineQuery(blogPostPageQuery),
+    params: { slug },
+    tags: ['BlogPostCollection'],
+  });
 
   if (!data) notFound();
   return data;
@@ -58,6 +62,6 @@ export async function generateStaticParams() {
     *[_type == "BlogPostCollection"].slug.current
   `;
 
-  const data = await sanityFetch<string[]>({ query: defineQuery(postsQuery) });
+  const data = await sanityFetch<string[]>({ query: defineQuery(postsQuery), tags: ['BlogPostCollection'] });
   return data.map(slug => ({ slug }));
 }

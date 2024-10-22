@@ -37,7 +37,7 @@ const query = async () => {
     }
   `);
 
-  return await sanityFetch<HeaderQueryTypes>({ query: navQuery });
+  return await sanityFetch<HeaderQueryTypes>({ query: navQuery, tags: ['global'] });
 };
 
 const FotoStudioLogo = (
