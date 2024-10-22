@@ -1,4 +1,5 @@
 import { defineQuery } from 'next-sanity';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import DynamicComponents, { DynamicComponents_Query, type ComponentTypes } from '@/components/DynamicComponents';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
@@ -29,3 +30,10 @@ const query = async (): Promise<{ content: ComponentTypes[] }> => {
 
   return await sanityFetch({ query: defineQuery(contactPageQuery) });
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'ContactPage',
+    path: currentPath,
+  });
+}

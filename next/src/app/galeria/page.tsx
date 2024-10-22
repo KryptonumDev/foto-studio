@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
 import { Suspense } from 'react';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
@@ -45,3 +46,10 @@ const query = async (): Promise<ListingTypes> => {
   if (data.imageCount === 0) notFound();
   return data;
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'GalleryPage',
+    path: currentPath,
+  });
+}

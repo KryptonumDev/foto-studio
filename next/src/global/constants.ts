@@ -20,7 +20,7 @@ export const LOCALE: string = 'pl';
  * Global declaration of domain name of the website. Be aware of the protocol and www or non-www prefix.
  * @constant
  */
-export const DOMAIN: string = 'https://foto-studio-new-git-next-kryptonum.vercel.app/';
+export const DOMAIN: string = 'https://adamchrapek.pl/';
 
 /**
  * Global default title.
@@ -32,7 +32,7 @@ export const DEFAULT_TITLE: string = 'Adam Chrapek Foto Studio';
  * Global description.
  * @constant
  */
-export const DEFAULT_DESCRIPTION: string = 'Piękne wspomnienia mogą być uchwycone z pasją i profesjonalizmem!';
+export const DEFAULT_DESCRIPTION: string = '';
 
 /**
  * URL for the main icon.

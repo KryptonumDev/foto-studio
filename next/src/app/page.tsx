@@ -1,5 +1,6 @@
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import DynamicComponents, { DynamicComponents_Query, type ComponentTypes } from '@/components/DynamicComponents';
 import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
@@ -25,3 +26,10 @@ const query = async (): Promise<{ content: ComponentTypes[] }> => {
 
   return await sanityFetch({ query: defineQuery(homePageQuery) });
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'HomePage',
+    path: '',
+  });
+}

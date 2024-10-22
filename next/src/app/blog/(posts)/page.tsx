@@ -2,6 +2,7 @@ import sanityFetch from '@/utils/sanity.fetch';
 import { defineQuery } from 'next-sanity';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
@@ -45,3 +46,10 @@ const query = async (): Promise<ListingTypes> => {
   if (data.postCount === 0) notFound();
   return data;
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'BlogPage',
+    path: currentPath,
+  });
+}

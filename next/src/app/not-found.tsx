@@ -1,4 +1,5 @@
 import { defineQuery } from 'next-sanity';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import DynamicComponents, { DynamicComponents_Query, type ComponentTypes } from '@/components/DynamicComponents';
 
@@ -17,3 +18,10 @@ const query = async (): Promise<{ content: ComponentTypes[] }> => {
 
   return await sanityFetch({ query: defineQuery(notFoundPageQuery) });
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'NotFoundPage',
+    path: '/404',
+  });
+}

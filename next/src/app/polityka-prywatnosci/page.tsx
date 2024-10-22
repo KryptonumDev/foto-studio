@@ -1,4 +1,5 @@
 import { defineQuery } from 'next-sanity';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import PrivacyPolicySection, {
   PrivacyPolicySection_Query,
@@ -32,3 +33,10 @@ const query = async (): Promise<PrivacyPolicySectionTypes> => {
 
   return await sanityFetch({ query: defineQuery(privacyPolicyPageQuery) });
 };
+
+export async function generateMetadata() {
+  return await QueryMetadata({
+    name: 'PrivacyPolicyPage',
+    path: currentPath,
+  });
+}

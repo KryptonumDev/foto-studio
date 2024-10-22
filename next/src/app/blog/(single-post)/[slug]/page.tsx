@@ -1,6 +1,7 @@
 import sanityFetch from '@/utils/sanity.fetch';
 import { notFound } from 'next/navigation';
 import { defineQuery, toPlainText } from 'next-sanity';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import type { BlogPostPageTypes } from './page.types';
 import PostHero, { PostHero_Query } from '@/components/_Blog/PostHero';
 import PostContent, { PostContent_Query } from '@/components/_Blog/PostContent';
@@ -43,6 +44,14 @@ const query = async (slug: string): Promise<BlogPostPageTypes> => {
   if (!data) notFound();
   return data;
 };
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  return await QueryMetadata({
+    name: 'BlogPostCollection',
+    path: `/blog/${slug}`,
+    dynamicSlug: slug,
+  });
+}
 
 export async function generateStaticParams() {
   const postsQuery = `

@@ -1,6 +1,7 @@
 import { defineQuery } from 'next-sanity';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import sanityFetch from '@/utils/sanity.fetch';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
@@ -50,6 +51,14 @@ const query = async (slug: string): Promise<ListingTypes> => {
   if (data.imageCount === 0) notFound();
   return data;
 };
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  return await QueryMetadata({
+    name: 'ImageCategoryCollection',
+    path: `/galeria/kategoria/${slug}`,
+    dynamicSlug: slug,
+  });
+}
 
 export async function generateStaticParams() {
   const categoriesQuery = `

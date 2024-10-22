@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { defineQuery } from 'next-sanity';
 import { Suspense } from 'react';
 import sanityFetch from '@/utils/sanity.fetch';
+import { QueryMetadata } from '@/global/Seo/query-metadata';
 import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
@@ -50,6 +51,14 @@ const query = async (slug: string): Promise<ListingTypes> => {
   if (data.postCount === 0) notFound();
   return data;
 };
+
+export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+  return await QueryMetadata({
+    name: 'BlogCategoryCollection',
+    path: `/blog/kategoria/${slug}`,
+    dynamicSlug: slug,
+  });
+}
 
 export async function generateStaticParams() {
   const categoriesQuery = `
