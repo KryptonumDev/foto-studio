@@ -6,14 +6,24 @@ import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
 import Loading from '@/app/loading';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
+
+const currentPath = '/galeria';
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Galeria', path: currentPath },
+];
 
 export default async function GalleryPage() {
   const data = await query();
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Listing {...data} />
-    </Suspense>
+    <>
+      <BreadcrumbsSchema data={breadcrumbsData} />
+      <Suspense fallback={<Loading />}>
+        <Listing {...data} />
+      </Suspense>
+    </>
   );
 }
 

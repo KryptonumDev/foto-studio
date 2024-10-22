@@ -6,14 +6,24 @@ import { Category_Query } from '@/components/global/CategoryChips';
 import { PostCard_Query } from '@/components/global/PostCard';
 import Listing, { type ListingTypes } from '@/components/_Blog/Listing';
 import Loading from '@/app/loading';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
+
+const currentPath = '/blog';
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Blog', path: currentPath },
+];
 
 export default async function BlogPage() {
   const data = await query();
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Listing {...data} />
-    </Suspense>
+    <>
+      <BreadcrumbsSchema data={breadcrumbsData} />
+      <Suspense fallback={<Loading />}>
+        <Listing {...data} />
+      </Suspense>
+    </>
   );
 }
 

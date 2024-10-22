@@ -1,18 +1,23 @@
 import sanityFetch from '@/utils/sanity.fetch';
 import { notFound } from 'next/navigation';
-import { defineQuery } from 'next-sanity';
+import { defineQuery, toPlainText } from 'next-sanity';
 import type { BlogPostPageTypes } from './page.types';
 import PostHero, { PostHero_Query } from '@/components/_Blog/PostHero';
 import PostContent, { PostContent_Query } from '@/components/_Blog/PostContent';
 import NextBlogPost, { NextBlogPost_Query } from '@/components/_Blog/NextBlogPost';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
 
-export const revalidate = 60;
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Blog', path: '/blog' },
+];
 
 export default async function BlogPostPage({ params: { slug } }: { params: { slug: string } }) {
   const { postHero, postContent, nextBlogPost } = await query(slug);
 
   return (
     <>
+      <BreadcrumbsSchema data={[...breadcrumbsData, { name: toPlainText(postHero.title), path: `/blog/${slug}` }]} />
       <PostHero {...postHero} />
       <PostContent {...postContent} />
       <NextBlogPost {...nextBlogPost} />

@@ -1,11 +1,23 @@
 import { defineQuery } from 'next-sanity';
 import sanityFetch from '@/utils/sanity.fetch';
 import DynamicComponents, { DynamicComponents_Query, type ComponentTypes } from '@/components/DynamicComponents';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
+
+const currentPath = '/kontakt';
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Kontakt', path: currentPath },
+];
 
 export default async function ContactPage() {
   const { content } = await query();
 
-  return <DynamicComponents data={content} />;
+  return (
+    <>
+      <BreadcrumbsSchema data={breadcrumbsData} />
+      <DynamicComponents data={content} />
+    </>
+  );
 }
 
 const query = async (): Promise<{ content: ComponentTypes[] }> => {

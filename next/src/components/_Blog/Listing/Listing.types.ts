@@ -5,6 +5,7 @@ export type ListingTypes = {
   categories: CategoryTypes[];
   posts: PostCardTypes[];
   postCount: number;
+  categoryName?: string;
   currentCategorySlug?: string;
 };
 

@@ -6,23 +6,35 @@ import { Category_Query } from '@/components/global/CategoryChips';
 import { ImageCard_Query } from '@/components/global/ImageCard';
 import Listing, { type ListingTypes } from '@/components/_Gallery/Listing';
 import Loading from '@/app/loading';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
+
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Galeria', path: '/galeria' },
+];
 
 export default async function GalleryCategoryPage({ params: { slug } }: { params: { slug: string } }) {
-  const data = await query(slug);
+  const { categoryName, ...data } = await query(slug);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <Listing
-        currentCategorySlug={slug}
-        {...data}
+    <>
+      <BreadcrumbsSchema
+        data={[...breadcrumbsData, { name: categoryName as string, path: `/galeria/kategoria/${slug}` }]}
       />
-    </Suspense>
+      <Suspense fallback={<Loading />}>
+        <Listing
+          currentCategorySlug={slug}
+          {...data}
+        />
+      </Suspense>
+    </>
   );
 }
 
 const query = async (slug: string): Promise<ListingTypes> => {
   const galleryPageQuery = `
    {
+      "categoryName": *[_type == "ImageCategoryCollection" && slug.current == $category][0].categoryName,
       "categories": *[_type == "ImageCategoryCollection" && count(*[_type == "ImageCollection" && references(^._id)]) > 0]{
         ${Category_Query}
       },

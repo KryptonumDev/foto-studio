@@ -4,11 +4,23 @@ import PrivacyPolicySection, {
   PrivacyPolicySection_Query,
   type PrivacyPolicySectionTypes,
 } from '@/components/global/PrivacyPolicySection';
+import BreadcrumbsSchema from '@/global/Schema/BreadcrumbsSchema';
+
+const currentPath = '/polityka-prywatnosci';
+const breadcrumbsData = [
+  { name: 'Strona główna', path: '/' },
+  { name: 'Polityka prywatności', path: currentPath },
+];
 
 export default async function PrivacyPolicyPage() {
   const data = await query();
 
-  return <PrivacyPolicySection {...data} />;
+  return (
+    <>
+      <BreadcrumbsSchema data={breadcrumbsData} />
+      <PrivacyPolicySection {...data} />
+    </>
+  );
 }
 
 const query = async (): Promise<PrivacyPolicySectionTypes> => {

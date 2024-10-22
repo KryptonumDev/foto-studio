@@ -3,6 +3,7 @@ import { LOCALE } from '@/global/constants';
 import type { Metadata } from 'next';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
+import SchemaOrganization from '@/global/Schema/Organization';
 import { SmoothScrollProvider } from '@/components/ui/SmoothScroll';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
           <main id='main'>{children}</main>
         </SmoothScrollProvider>
         <Footer />
+        <SchemaOrganization />
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ export type ListingTypes = {
   imageCount: number;
   images: ImageCardTypes[];
   currentCategorySlug?: string;
+  categoryName?: string;
 };
 
 export type ImageListTypes = {
