@@ -5,10 +5,20 @@ export type PricesSectionTypes = {
   index: number;
   heading: PortableTextBlock[];
   paragraph: PortableTextBlock[];
-  img: ImgTypes;
   list: {
     name: PortableTextBlock[];
     priceLabel: string;
     paragraph: PortableTextBlock[];
+    img: ImgTypes;
+  }[];
+};
+
+export type ListTypes = {
+  index: number;
+  list: {
+    name: React.ReactNode;
+    priceLabel: React.ReactNode;
+    paragraph: React.ReactNode;
+    img: ImgTypes;
   }[];
 };

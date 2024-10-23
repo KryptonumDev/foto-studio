@@ -1,10 +1,23 @@
 import type { PricesSectionTypes } from './PricesSection.types';
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
-import Img from '@/components/ui/Img';
+import List from './_List';
 import styles from './PricesSection.module.scss';
 
-export default function PricesSection({ index, heading, paragraph, list, img }: PricesSectionTypes) {
+export default function PricesSection({ index, heading, paragraph, list }: PricesSectionTypes) {
+  const _list = list.map(({ name, priceLabel, paragraph, img }) => ({
+    name: (
+      <Heading
+        value={name}
+        tag='h3'
+        className='large-text'
+      />
+    ),
+    priceLabel: <span className='small-text'>{`[ ${priceLabel} ]`}</span>,
+    paragraph: <Text value={paragraph} />,
+    img,
+  }));
+
   return (
     <section className={`${styles['PricesSection']} max-width mb`}>
       <header className={styles.header}>
@@ -15,34 +28,10 @@ export default function PricesSection({ index, heading, paragraph, list, img }: 
         />
         <Text value={paragraph} />
       </header>
-      {img && (
-        <Img
-          data={img}
-          priority={index === 0}
-          sizes='(min-width: 768px) 138px, 113px'
-          className={styles.img}
-        />
-      )}
-      <ul className={styles.list}>
-        {list.map(({ name, priceLabel, paragraph }, i) => (
-          <li
-            key={`prices-section-${i}`}
-            className={styles.listItem}
-          >
-            <header>
-              <span className='small-text'>{`[ ${priceLabel} ]`}</span>
-              <Heading
-                value={name}
-                tag='h3'
-                className='large-text'
-              />
-            </header>
-            <div className={styles.content}>
-              <Text value={paragraph} />
-            </div>
-          </li>
-        ))}
-      </ul>
+      <List
+        list={_list}
+        index={index}
+      />
     </section>
   );
 }

@@ -1,6 +1,4 @@
 .PricesSection {
-  position: relative;
-
   .header {
     margin-bottom: clamp(4rem, calc(80vw / 7.68), 8rem);
     display: flex;
@@ -26,36 +24,24 @@
       max-width: calc(295rem / 16);
     }
   }
-
-  .img {
-    position: absolute;
-    transform: rotate(-27.85deg);
-    width: calc(113rem / 16);
-    height: calc(147rem / 16);
-    top: calc(130rem / 16);
-    right: calc(-1 * 35rem / 16);
-
-    @media screen and (min-width: calc(768rem / 16)) {
-      width: calc(138rem / 16);
-      height: calc(180rem / 16);
-      top: calc(350rem / 16);
-      right: calc(60vw / 7.68);
-    }
-
-    @media screen and (min-width: calc(1366rem / 16)) {
-      left: calc(415rem / 16);
-    }
-  }
 }
 
 .list {
+  --gap: clamp(3rem, calc(64vw / 7.68), 4rem);
   display: grid;
-  gap: clamp(3rem, calc(64vw / 7.68), 4rem);
 
   .listItem {
     display: grid;
     align-items: start;
     gap: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(32rem / 16));
+
+    &:not(:last-child) {
+      padding-bottom: calc(var(--gap) / 2);
+    }
+
+    &:not(:first-child) {
+      padding-top: calc(var(--gap) / 2);
+    }
 
     @media screen and (min-width: calc(1366rem / 16)) {
       grid-template-columns: calc(618rem / 16) auto;
@@ -92,6 +78,34 @@
         max-width: 100%;
         padding-top: calc(28rem / 16);
       }
+    }
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: calc(138rem / 16);
+  height: calc(180rem / 16);
+  transform-origin: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    display: none;
+  }
+
+  .images {
+    height: 100%;
+    width: 100%;
+
+    img {
+      display: block;
+      width: calc(138rem / 16);
+      height: calc(180rem / 16);
     }
   }
 }
