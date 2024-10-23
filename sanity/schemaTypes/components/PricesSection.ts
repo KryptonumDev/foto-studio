@@ -24,11 +24,6 @@ export default defineField({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'img',
-      type: 'image',
-      title: 'Zdjęcie (opcjonalne)',
-    }),
-    defineField({
       name: 'list',
       type: 'array',
       title: 'Lista',
@@ -55,15 +50,23 @@ export default defineField({
               title: 'Treść',
               validation: (Rule) => Rule.required(),
             }),
+            defineField({
+              name: 'img',
+              type: 'image',
+              title: 'Zdjęcie',
+              validation: (Rule) => Rule.required(),
+            }),
           ],
           preview: {
             select: {
               title: 'name',
               subtitle: 'priceLabel',
+              img: 'img',
             },
-            prepare: ({title, subtitle}) => ({
+            prepare: ({title, subtitle, img}) => ({
               title: toPlainText(title),
               subtitle,
+              media: img,
             }),
           },
         },
