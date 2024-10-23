@@ -1,7 +1,5 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import { useSmoothScroll } from '@/components/ui/SmoothScroll';
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
+import HeroHeaderAndImagesWrapper from './_HeroHeaderAndImagesWrapper';
 import Button from '@/components/ui/Button';
 import Img from '@/components/ui/Img';
 import Heading from '@/components/ui/Heading';
@@ -18,18 +16,8 @@ const imageSizes = [
 const imageSpeeds = [0.25, 0.05, 0.2, 0.35, 0.25];
 
 export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
-  const { updateScroll } = useSmoothScroll();
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (ref?.current) updateScroll(ref.current);
-  }, [updateScroll]);
-
   return (
-    <section
-      ref={ref}
-      className={`${styles['HeroHeaderAndImages']} max-width`}
-    >
+    <HeroHeaderAndImagesWrapper>
       <header className='mb'>
         <Heading
           value={heading}
@@ -52,6 +40,6 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
           />
         </div>
       ))}
-    </section>
+    </HeroHeaderAndImagesWrapper>
   );
 }
