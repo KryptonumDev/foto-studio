@@ -27,10 +27,11 @@ export default function InteractiveBlogPostWrapper({ slug, children }: { slug: s
   return (
     <>
       <Cursor
-        text='czytaj'
         mouse={mouse}
         scale={cursorScale}
-      />
+      >
+        <span>CZYTAJ</span>
+      </Cursor>
       <div
         className={styles.content}
         onMouseMove={updatePosition}

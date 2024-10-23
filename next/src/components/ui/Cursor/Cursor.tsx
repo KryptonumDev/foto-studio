@@ -4,7 +4,7 @@ import type { CursorTypes } from './Cursor.types';
 
 import styles from './Cursor.module.scss';
 
-export default function Cursor({ mouse: { x, y }, text, scale }: CursorTypes) {
+export default function Cursor({ mouse: { x, y }, scale, children, className }: CursorTypes) {
   const prefersReducedMotion = useReducedMotion();
   if (prefersReducedMotion) return null;
 
@@ -15,9 +15,9 @@ export default function Cursor({ mouse: { x, y }, text, scale }: CursorTypes) {
       animate={{ scale }}
       exit={{ scale: 0 }}
       transition={{ duration: 0.4 }}
-      className={styles['Cursor']}
+      className={className ? className : styles['Cursor']}
     >
-      {text && <span>{text}</span>}
+      {children}
     </motion.div>
   );
 }

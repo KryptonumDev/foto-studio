@@ -6,7 +6,8 @@ export type CursorTypes = {
     x: MotionValue<number>;
     y: MotionValue<number>;
   };
-  text?: string;
+  children: React.ReactNode;
+  className?: string;
 };
 
 export type UseCursorTypes = {

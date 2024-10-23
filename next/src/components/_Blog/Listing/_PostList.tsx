@@ -33,10 +33,11 @@ export default function PostList({ posts, postCount }: PostListTypes) {
   return (
     <>
       <Cursor
-        text='czytaj'
         mouse={mouse}
         scale={cursorScale}
-      />
+      >
+        <span>CZYTAJ</span>
+      </Cursor>
       <div
         className={styles.posts}
         ref={ref}

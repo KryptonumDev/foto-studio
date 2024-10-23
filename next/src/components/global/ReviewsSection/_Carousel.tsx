@@ -17,8 +17,9 @@ export default function Carousel({ list, index }: CarouselTypes) {
       <Cursor
         mouse={mouse}
         scale={cursorScale}
-        text='przewiń'
-      />
+      >
+        <span>PRZEWIŃ</span>
+      </Cursor>
       <Slider activeSlideClassName={styles['isActive']}>
         <Slider.Observer
           ref={ref}

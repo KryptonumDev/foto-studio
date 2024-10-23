@@ -41,8 +41,9 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
       <Cursor
         mouse={mouse}
         scale={cursorScale}
-        text='zobacz'
-      />
+      >
+        <span>ZOBACZ</span>
+      </Cursor>
       <div
         className={styles.images}
         ref={ref}

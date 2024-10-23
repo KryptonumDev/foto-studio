@@ -16,8 +16,9 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
       <Cursor
         mouse={mouse}
         scale={cursorScale}
-        text='przewiń'
-      />
+      >
+        <span>PRZEWIŃ</span>
+      </Cursor>
       <section
         className={styles['ImageSlider']}
         onMouseMove={updatePosition}

@@ -17,8 +17,9 @@ export default function Carousel({ index, list }: CarouselTypes) {
       <Cursor
         mouse={mouse}
         scale={cursorScale}
-        text='zobacz'
-      />
+      >
+        <span>ZOBACZ</span>
+      </Cursor>
       <Slider>
         <Slider.Observer ref={ref}>
           <Slider.Slides
