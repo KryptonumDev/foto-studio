@@ -8,5 +8,6 @@ export type CategoryChipsTypes = {
   categories: CategoryTypes[];
   basePath: string;
   itemCount: number;
+  navAriaLabel: string;
   currentCategorySlug?: string;
 };

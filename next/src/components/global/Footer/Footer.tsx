@@ -30,7 +30,7 @@ export default async function Footer() {
             href='https://kryptonum.eu/pl'
             target='_blank'
             rel='noreferrer'
-            aria-label='Kryptonum'
+            aria-label='Przejdź do strony Kryptonum'
           >
             {KryptonumLogo}
           </a>

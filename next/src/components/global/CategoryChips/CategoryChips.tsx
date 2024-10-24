@@ -6,12 +6,13 @@ export default function CategoryChips({
   basePath,
   categories,
   itemCount,
+  navAriaLabel,
   currentCategorySlug = '',
 }: CategoryChipsTypes) {
   return (
     <div className={styles['CategoryChips']}>
       <nav
-        aria-label='kategorie postów'
+        aria-label={navAriaLabel}
         className={styles.categories}
       >
         {categories.map(({ _id, categoryName, slug }) => (

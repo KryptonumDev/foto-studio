@@ -21,7 +21,7 @@ export default function PostContent({ type, content, headings, seo }: PostConten
             <ScrollNavigation
               headings={_headings}
               initialActiveSection={_headings[0].slug}
-              navAriaLabel='sekcje artykułu'
+              navAriaLabel='Nawigacja do sekcji artykułu'
               sectionSelector={`.${styles.content} article`}
               threshold={0.7}
               className={styles.navigation}

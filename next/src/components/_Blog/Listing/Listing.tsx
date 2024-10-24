@@ -14,6 +14,7 @@ export default function Listing({ categories, postCount, posts, currentCategoryS
         basePath='blog'
         categories={_categories}
         itemCount={postCount}
+        navAriaLabel='Filtruj posty według kategorii'
         currentCategorySlug={currentCategorySlug}
       />
       <PostList

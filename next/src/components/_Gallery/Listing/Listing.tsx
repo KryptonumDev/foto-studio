@@ -14,6 +14,7 @@ export default function Listing({ categories, images, imageCount, currentCategor
           basePath='galeria'
           categories={_categories}
           itemCount={imageCount}
+          navAriaLabel='Filtruj zdjęcia według kategorii'
           currentCategorySlug={currentCategorySlug}
         />
       </div>

@@ -51,7 +51,7 @@ export default function Header({ logo, links }: _HeaderTypes) {
         <div className='max-width'>
           <Link
             href='/'
-            aria-label='Strona główna'
+            aria-label='Przejdź do strony głównej'
             onClick={closeMenu}
           >
             {logo}

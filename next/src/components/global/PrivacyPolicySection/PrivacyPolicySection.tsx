@@ -22,7 +22,7 @@ export default function PrivacyPolicySection({ heading, list }: PrivacyPolicySec
         <ScrollNavigation
           headings={_headings}
           initialActiveSection={_headings[0].slug}
-          navAriaLabel='sekcje strony'
+          navAriaLabel='Nawigacja do sekcji polityki prywatności'
           sectionSelector={`.${styles.section}`}
         />
         <div className={styles.content}>
