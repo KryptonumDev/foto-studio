@@ -51,7 +51,7 @@ export default function List({ list, index }: ListTypes) {
           }}
           transition={{
             duration: 0.3,
-            ease: cubicBezier(0.1, 0, 0.4, 1),
+            ease: cubicBezier(0.645, 0.045, 0.355, 1),
           }}
         >
           {list.map(({ img }, i) => (
