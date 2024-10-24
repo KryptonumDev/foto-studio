@@ -131,7 +131,7 @@ select {
 
 :focus-visible {
   outline: 1px solid var(--primary-600);
-  outline-offset: 8px;
+  outline-offset: calc(8rem / 16);
 }
 
 html {
@@ -256,7 +256,7 @@ h1 {
 
 .chip {
   cursor: pointer;
-  padding: calc(12rem / 16) calc(7rem / 16) calc(14rem / 16);
+  padding: calc(12rem / 16) calc(14rem / 16) calc(14rem / 16);
   border: 1px solid var(--primary-200);
   background-color: var(--primary-100);
   color: var(--primary-600);
@@ -265,28 +265,42 @@ h1 {
     border-color 0.1s var(--easing),
     color 0.1s var(--easing);
 
+  @media screen and (min-width: calc(360rem / 16)) {
+    padding: calc(12rem / 16) calc(24rem / 16) calc(14rem / 16);
+  }
+
   @media screen and (min-width: calc(768rem / 16)) {
-    padding: calc(9rem / 16) calc(12rem / 16) calc(11rem / 16);
+    padding: calc(9rem / 16) calc(24rem / 16) calc(11rem / 16);
   }
 
-  span::before {
-    content: '[ ';
-    opacity: 0;
-    transition: opacity 0.1s var(--easing);
-  }
+  span {
+    position: relative;
+    &::after,
+    &::before {
+      position: absolute;
+      opacity: 0;
+      color: currentColor;
+      transition:
+        color 0.25s var(--easing),
+        opacity 0.25s var(--easing),
+        transform 0.25s var(--easing);
+    }
 
-  span::after {
-    content: ' ]';
-    opacity: 0;
-    transition: opacity 0.1s var(--easing);
+    &::before {
+      content: '[ ';
+      left: 0;
+      transform: translateX(-1.5ch) scale(0.4);
+    }
+
+    &::after {
+      content: ' ]';
+      right: 0;
+      transform: translateX(1.5ch) scale(0.4);
+    }
   }
 
   &:hover {
     border-color: var(--primary-500);
-    span::after,
-    span::before {
-      opacity: 1;
-    }
   }
 
   &:focus-visible {
@@ -305,9 +319,22 @@ h1 {
   &:has(input:checked),
   .active {
     color: var(--primary-900);
-    span::after,
-    span::before {
-      opacity: 1;
+  }
+
+  &:hover,
+  &[aria-current='page'],
+  &:has(input:checked),
+  .active {
+    span {
+      &::before {
+        opacity: 1;
+        transform: translateX(-0.9ch) scale(1);
+      }
+
+      &::after {
+        opacity: 1;
+        transform: translateX(0.9ch) scale(1);
+      }
     }
   }
 }

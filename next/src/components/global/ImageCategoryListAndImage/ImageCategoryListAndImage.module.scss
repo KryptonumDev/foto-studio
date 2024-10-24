@@ -69,12 +69,15 @@
       &::before {
         content: '';
         width: 100%;
-        height: calc(2rem / 16);
+        height: 2px;
         position: absolute;
         left: 0;
         bottom: 0;
         background-color: var(--primary-900);
         transform-origin: right;
+        transform: translateZ(0);
+        will-change: transform;
+        backface-visibility: hidden;
       }
     }
 

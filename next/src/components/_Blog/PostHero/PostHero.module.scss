@@ -34,9 +34,14 @@
       }
 
       .categoryLink {
-        span::after,
+        span::after {
+          opacity: 1;
+          transform: translateX(1ch) scale(1);
+        }
+
         span::before {
           opacity: 1;
+          transform: translateX(-1ch) scale(1);
         }
       }
     }

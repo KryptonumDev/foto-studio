@@ -10,12 +10,15 @@
   &::before {
     content: '';
     width: 100%;
-    height: calc(1rem / 16);
+    height: 1px;
     position: absolute;
     left: 0;
     bottom: 0;
     background-color: currentColor;
     transform-origin: right;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .icon svg {

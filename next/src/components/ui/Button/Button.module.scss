@@ -20,12 +20,12 @@
     display: grid;
     place-items: center;
     transition:
-      background-color 0.5s var(--easing),
-      left 0.5s var(--easing);
+      background-color 0.45s var(--easing),
+      left 0.45s var(--easing);
 
     svg {
       fill: var(--primary-600);
-      transition: fill 0.5s var(--easing);
+      transition: fill 0.45s var(--easing);
     }
   }
 
@@ -39,8 +39,8 @@
     display: grid;
     place-items: center;
     transition:
-      background-color 0.5s var(--easing),
-      transform 0.5s var(--easing);
+      background-color 0.45s var(--easing),
+      transform 0.45s var(--easing);
 
     @media screen and (min-width: calc(768rem / 16)) {
       padding: calc(8rem / 16) calc(24rem / 16) calc(10rem / 16) calc(20rem / 16);
