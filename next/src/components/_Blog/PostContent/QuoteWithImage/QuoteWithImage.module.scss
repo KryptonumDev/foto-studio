@@ -22,10 +22,10 @@
     }
     img {
       width: 100%;
-      max-width: calc(319rem / 16);
+      max-width: 319px;
       @media screen and (min-width: calc(768rem / 16)) {
         width: clamp(calc(319rem / 16), calc(319vw / 7.68), calc(402rem / 16));
-        max-width: calc(402rem / 16);
+        max-width: 402px;
       }
     }
   }
@@ -43,9 +43,8 @@
     }
 
     img:last-of-type {
-      width: auto;
       width: 100%;
-      max-width: calc(900rem / 16);
+      max-width: 900px;
     }
   }
 }

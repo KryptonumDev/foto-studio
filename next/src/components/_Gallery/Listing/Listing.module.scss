@@ -22,15 +22,15 @@
         }
 
         &:nth-child(1) img {
-          max-width: calc(160rem / 16);
+          max-width: 160px;
           @media screen and (min-width: calc(360rem / 16)) {
-            max-width: clamp(calc(190rem / 16), calc(304vw / 7.68), calc(513rem / 16));
+            max-width: clamp(190px, calc(304vw / 7.68), 513px);
           }
         }
         &:nth-child(2) img {
-          max-width: calc(110rem / 16);
+          max-width: 110px;
           @media screen and (min-width: calc(360rem / 16)) {
-            max-width: clamp(calc(110rem / 16), calc(175vw / 7.68), calc(296rem / 16));
+            max-width: clamp(110px, calc(175vw / 7.68), 296px);
           }
         }
       }

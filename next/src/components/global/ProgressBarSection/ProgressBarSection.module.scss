@@ -15,7 +15,7 @@
 
     img {
       width: 100%;
-      max-width: calc(343rem / 16);
+      max-width: 343px;
       height: calc(95rem / 16);
 
       @media screen and (min-width: calc(768rem / 16)) {
