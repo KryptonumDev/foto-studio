@@ -1,0 +1,60 @@
+.HeroSection {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(calc(28rem / 16), calc(32vw / 7.68), calc(32rem / 16));
+  margin-bottom: clamp(calc(144rem / 16), calc(144vw / 7.68), calc(242rem / 16));
+
+  .sideImg {
+    order: 1;
+    width: calc(156vw / 3.6);
+
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: calc(510rem / 16);
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      order: 2;
+    }
+  }
+
+  .container {
+    order: 2;
+    display: grid;
+    gap: clamp(calc(24rem / 16), calc(32vw / 7.68), calc(32rem / 16));
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      order: 1;
+    }
+
+    h1,
+    h2 {
+      max-width: calc(728rem / 16);
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: max(calc(16rem / 16), calc(24vw / 7.68));
+
+    @media screen and (min-width: calc(600rem / 16)) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      grid-template-columns: auto;
+      gap: calc(80rem / 16);
+    }
+
+    img {
+      width: clamp(calc(156rem / 16), calc(236vw / 7.68), calc(294rem / 16));
+    }
+
+    .text {
+      max-width: calc(510rem / 16);
+      display: grid;
+      gap: clamp(calc(24rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+    }
+  }
+}

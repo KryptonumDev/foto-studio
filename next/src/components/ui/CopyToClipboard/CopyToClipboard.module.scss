@@ -1,0 +1,48 @@
+.CopyToClipboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(4rem / 16);
+
+  .content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: calc(20rem / 16);
+
+    button {
+      text-transform: none;
+      color: var(--primary-700);
+      padding: calc(10rem / 16) calc(20rem / 16);
+      background-color: var(--primary-200);
+      transition: color 0.1s var(--easing);
+      &:hover {
+        color: var(--primary-900);
+      }
+    }
+  }
+
+  .message {
+    margin-left: calc(42rem / 16);
+    display: grid;
+    align-items: center;
+    grid-template-columns: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(16rem / 16)) auto;
+    gap: clamp(calc(4rem / 16), calc(6vw / 7.68), calc(6rem / 16));
+    opacity: 0;
+    transition: opacity 0.1s var(--easing);
+
+    &.visible {
+      opacity: 1;
+    }
+
+    .icon {
+      width: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(16rem / 16));
+      height: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(16rem / 16));
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background-color: var(--success);
+    }
+  }
+}

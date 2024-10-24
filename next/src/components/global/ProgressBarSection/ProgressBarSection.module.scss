@@ -1,0 +1,147 @@
+.ProgressBarSection {
+  position: relative;
+
+  .sticky {
+    --sticky-top: clamp(calc(90rem / 16), calc(98vw / 7.68), calc(100rem / 16));
+    position: sticky;
+    top: var(--sticky-top);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    position: relative;
+    margin-bottom: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(80rem / 16));
+
+    img {
+      width: 100%;
+      max-width: 343px;
+      height: calc(95rem / 16);
+
+      @media screen and (min-width: calc(768rem / 16)) {
+        max-width: 100%;
+        width: calc(343vw / 7.68);
+        height: calc(99rem / 16);
+      }
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        width: calc(619rem / 16);
+        height: calc(144rem / 16);
+      }
+    }
+
+    h1,
+    h2 {
+      display: grid;
+      gap: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(32rem / 16));
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        gap: calc(32rem / 16);
+      }
+
+      span:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(32rem / 16));
+
+        @media screen and (min-width: calc(1366rem / 16)) {
+          flex-direction: row;
+          align-items: center;
+          gap: calc(32rem / 16);
+        }
+      }
+    }
+  }
+}
+
+.points {
+  position: relative;
+  width: max-content;
+  display: flex;
+  align-items: flex-start;
+
+  gap: clamp(calc(24rem / 16), calc(32vw / 7.68), calc(32rem / 16));
+
+  @media screen and (min-width: calc(768rem / 16)) {
+    padding-left: calc(88vw / 7.68);
+  }
+
+  @media screen and (min-width: calc(1366rem / 16)) {
+    padding-left: calc(218rem / 16);
+  }
+
+  li {
+    display: grid;
+    justify-items: start;
+    gap: clamp(1rem, calc(28vw / 7.68), calc(28rem / 16));
+
+    span {
+      color: var(--primary-900);
+      user-select: none;
+    }
+
+    p {
+      width: clamp(calc(258rem / 16), calc(322vw / 7.68), calc(402rem / 16));
+    }
+  }
+}
+
+.progress {
+  margin-top: clamp(calc(48rem / 16), calc(64vw / 7.68), calc(96rem / 16));
+  align-self: center;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: clamp(calc(320rem / 16), calc(610vw / 7.68), calc(610rem / 16));
+
+  & > * {
+    margin-right: calc(-1 * 4rem / 16);
+    @media screen and (min-width: calc(768rem / 16)) {
+      margin-right: 0;
+    }
+  }
+
+  .step {
+    display: flex;
+    width: calc(20rem / 16);
+    flex-direction: column;
+    align-items: center;
+    gap: calc(4rem / 16);
+
+    span {
+      &:last-child {
+        transition: box-shadow 0.1s var(--easing);
+        height: calc(12rem / 16);
+        box-shadow: 0 0 0 0.5px var(--primary-700);
+      }
+
+      &.active {
+        box-shadow: 0 0 0 1.5px var(--primary-900);
+      }
+    }
+  }
+
+  .value {
+    color: var(--primary-900, #141414);
+    font-size: calc(12rem / 16);
+    line-height: 1.42;
+    letter-spacing: calc(0.48rem / 16);
+    user-select: none;
+  }
+}
+
+.lines {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(calc(5rem / 16), calc(7vw / 7.68), calc(7rem / 16));
+
+  span {
+    transition: box-shadow 0.1s var(--easing);
+    height: calc(5rem / 16);
+    box-shadow: 0 0 0 0.5px var(--primary-500);
+
+    &.active {
+      box-shadow: 0 0 0 1.5px var(--primary-900);
+    }
+  }
+}
