@@ -5,23 +5,23 @@
 }
 
 .container {
-  --slide-spacing: clamp(1rem, calc(24vw / 7.68), calc(32rem / 16));
+  --slide-spacing: clamp(1rem, calc(24vw / 7.68), 2rem);
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
 
   .slide {
-    --slide-size: min(100%, calc(calc(672rem / 16) + var(--slide-spacing)));
-    --slide-height: clamp(calc(255rem / 16), calc(523vw / 7.68), calc(523rem / 16));
+    --slide-size: min(100%, calc(672px + var(--slide-spacing)));
+    --slide-height: clamp(255px, calc(523vw / 7.68), 523px);
     transform: translate3d(0, 0, 0);
     flex: 0 0 var(--slide-size);
     padding-left: var(--slide-spacing);
     overflow: hidden;
     min-width: 0;
 
-    @media screen and (min-width: calc(1270rem / 16)) {
-      --slide-size: min(calc(433vw / 13.66), calc(433rem / 16));
-      --slide-height: calc(450rem / 16);
+    @media screen and (min-width: 1270px) {
+      --slide-size: min(calc(433vw / 13.66), 433px);
+      --slide-height: 450px;
     }
 
     &:focus-visible {

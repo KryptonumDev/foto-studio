@@ -4,7 +4,7 @@
   overflow: hidden;
   margin-bottom: clamp(calc(64rem / 16), calc(80vw / 7.68), calc(141rem / 16));
 
-  @media screen and (min-width: calc(1415rem / 16)) {
+  @media screen and (min-width: 1415px) {
     max-width: calc(1270rem / 16);
     margin-inline: auto;
   }
@@ -32,7 +32,7 @@
     &:nth-child(5n + 2),
     &:nth-child(5n + 4) {
       --slide-size: clamp(calc(93rem / 16), calc(175vw / 7.68), calc(335rem / 16));
-      --slide-height: calc(60rem / 16);
+      --slide-height: 60px;
 
       @media screen and (min-width: calc(1000rem / 16)) {
         --slide-size: min(calc(335vw / 13.66), calc(335rem / 16));
@@ -42,7 +42,7 @@
     &:nth-child(5n + 1),
     &:nth-child(5n + 3) {
       --slide-size: clamp(calc(112rem / 16), calc(210vw / 7.68), calc(402rem / 16));
-      --slide-height: calc(173rem / 16);
+      --slide-height: 173px;
 
       @media screen and (min-width: calc(1000rem / 16)) {
         --slide-size: min(calc(402vw / 13.66), calc(402rem / 16));
@@ -51,7 +51,7 @@
 
     &:nth-child(5n + 5) {
       --slide-size: clamp(calc(60rem / 16), calc(113vw / 7.68), calc(217rem / 16));
-      --slide-height: calc(93rem / 16);
+      --slide-height: 96px;
 
       @media screen and (min-width: calc(1000rem / 16)) {
         --slide-size: min(calc(217vw / 13.66), calc(217rem / 16));
