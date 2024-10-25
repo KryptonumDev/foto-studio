@@ -12,10 +12,10 @@
   }
 
   img {
-    width: calc(50% - calc(12rem / 16));
+    width: calc(50% - 12px);
     @media screen and (min-width: calc(360rem / 16)) {
-      width: clamp(calc(158rem / 16), calc(210.066vw / 7.68), calc(397rem / 16));
-      height: clamp(calc(205.23rem / 16), calc(271.974vw / 7.68), calc(514rem / 16));
+      width: clamp(158px, calc(210.066vw / 7.68), 397px);
+      height: clamp(205.23px, calc(271.974vw / 7.68), 514px);
     }
 
     &:first-child {

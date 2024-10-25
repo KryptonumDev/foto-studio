@@ -24,7 +24,7 @@
       width: 100%;
       max-width: 319px;
       @media screen and (min-width: calc(768rem / 16)) {
-        width: clamp(calc(319rem / 16), calc(319vw / 7.68), calc(402rem / 16));
+        width: clamp(319px, calc(319vw / 7.68), 402px);
         max-width: 402px;
       }
     }
@@ -38,7 +38,7 @@
     }
 
     img:first-of-type {
-      width: clamp(calc(188rem / 16), calc(250vw / 7.68), calc(250rem / 16));
+      width: clamp(188px, calc(250vw / 7.68), 250px);
       margin-bottom: clamp(4rem, calc(64vw / 7.68), 5rem);
     }
 

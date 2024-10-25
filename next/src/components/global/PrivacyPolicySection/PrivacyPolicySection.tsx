@@ -24,6 +24,7 @@ export default function PrivacyPolicySection({ heading, list }: PrivacyPolicySec
           initialActiveSection={_headings[0].slug}
           navAriaLabel='Nawigacja do sekcji polityki prywatności'
           sectionSelector={`.${styles.section}`}
+          threshold={0.3}
         />
         <div className={styles.content}>
           {list.map(({ heading, content }, i) => (

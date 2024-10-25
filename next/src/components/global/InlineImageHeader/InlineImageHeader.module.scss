@@ -26,7 +26,7 @@
     }
 
     img {
-      width: clamp(calc(156rem / 16), calc(237vw / 7.68), calc(295rem / 16));
+      width: clamp(156px, calc(237vw / 7.68), 295px);
     }
   }
 }

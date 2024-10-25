@@ -12,7 +12,6 @@ export default function ScrollNavigation({
   sectionSelector,
   threshold = 0.2,
   className = '',
-  //renderAdditionalNavContent,
 }: ScrollNavigationTypes) {
   const [activeSection, setActiveSection] = useState(initialActiveSection);
 

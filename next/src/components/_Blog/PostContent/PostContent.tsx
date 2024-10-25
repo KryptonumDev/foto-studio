@@ -23,7 +23,7 @@ export default function PostContent({ type, content, headings, seo }: PostConten
               initialActiveSection={_headings[0].slug}
               navAriaLabel='Nawigacja do sekcji artykułu'
               sectionSelector={`.${styles.content} article`}
-              threshold={0.7}
+              threshold={0.4}
               className={styles.navigation}
             >
               <ShareLink {...seo} />

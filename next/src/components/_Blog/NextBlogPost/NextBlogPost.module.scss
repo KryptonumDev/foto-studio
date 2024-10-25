@@ -15,8 +15,8 @@
     }
 
     img {
-      width: clamp(calc(188rem / 16), calc(318vw / 7.68), calc(318rem / 16));
-      max-height: 411px;
+      width: clamp(188px, calc(318vw / 7.68), 318px);
+      max-height: clamp(243px, calc(411vw / 7.68), 411px);
       @media screen and (min-width: calc(1360rem / 16)) {
         width: calc(294rem / 16);
         max-height: 380px;

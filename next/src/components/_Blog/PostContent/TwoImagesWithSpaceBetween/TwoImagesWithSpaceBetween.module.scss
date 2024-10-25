@@ -10,7 +10,7 @@
 
     img:first-child {
       order: 2;
-      width: clamp(calc(133rem / 16), calc(188vw / 7.68), calc(295rem / 16));
+      width: clamp(133px, calc(188vw / 7.68), 295px);
       max-height: 382px;
       @media screen and (min-width: calc(768rem / 16)) {
         order: 1;
@@ -25,7 +25,7 @@
       @media screen and (min-width: calc(768rem / 16)) {
         order: 2;
         max-width: 726px;
-        width: clamp(calc(463rem / 16), calc(463vw / 7.68), calc(726rem / 16));
+        width: clamp(463px, calc(463vw / 7.68), 726px);
       }
     }
   }
@@ -35,11 +35,11 @@
     gap: clamp(1rem, calc(20vw / 7.68), calc(20rem / 16));
     margin-bottom: clamp(4rem, calc(96vw / 7.68), 8rem);
     img:first-child {
-      width: clamp(calc(122rem / 16), calc(256vw / 7.68), calc(401rem / 16));
+      width: clamp(122px, calc(256vw / 7.68), 401px);
       max-height: 301px;
     }
     img:last-child {
-      width: clamp(calc(189rem / 16), calc(395vw / 7.68), calc(620rem / 16));
+      width: clamp(189px, calc(395vw / 7.68), 620px);
       max-height: 802px;
     }
   }
@@ -55,12 +55,12 @@
       max-height: 302px;
       @media screen and (min-width: calc(768rem / 16)) {
         max-width: 403px;
-        width: clamp(calc(371rem / 16), calc(371vw / 7.68), calc(403rem / 16));
+        width: clamp(371px, calc(371vw / 7.68), 403px);
       }
     }
 
     img:last-child {
-      width: clamp(calc(241rem / 16), calc(271vw / 7.68), calc(295rem / 16));
+      width: clamp(241px, calc(271vw / 7.68), 295px);
       max-height: 382px;
     }
   }
