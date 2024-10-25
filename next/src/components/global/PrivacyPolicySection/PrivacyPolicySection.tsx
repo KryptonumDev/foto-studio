@@ -19,13 +19,15 @@ export default function PrivacyPolicySection({ heading, list }: PrivacyPolicySec
         />
       </header>
       <div className={styles.container}>
-        <ScrollNavigation
-          headings={_headings}
-          initialActiveSection={_headings[0].slug}
-          navAriaLabel='Nawigacja do sekcji polityki prywatności'
-          sectionSelector={`.${styles.section}`}
-          threshold={0.3}
-        />
+        {_headings.length > 1 && (
+          <ScrollNavigation
+            headings={_headings}
+            initialActiveSection={_headings[0].slug}
+            navAriaLabel='Nawigacja do sekcji polityki prywatności'
+            sectionSelector={`.${styles.section}`}
+            threshold={0.3}
+          />
+        )}
         <div className={styles.content}>
           {list.map(({ heading, content }, i) => (
             <div

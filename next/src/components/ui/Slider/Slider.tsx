@@ -58,7 +58,7 @@ Slider.Observer = forwardRef<HTMLDivElement, ObserverPropsTypes>(function Observ
     else document.removeEventListener('keydown', keydownHandler);
 
     return () => document.removeEventListener('keydown', keydownHandler);
-  }, [isIntersecting]);
+  }, [isIntersecting, onNextButtonClick, onPrevButtonClick]);
 
   return (
     <div

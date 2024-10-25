@@ -19,12 +19,9 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
   }, [updateScroll, offset]);
 
   const scrollUp = useCallback(() => {
-    if (ref.current) {
-      const lastImageGroup = ref.current.querySelector(`.${styles.imagesGroup}:last-child`);
-      if (lastImageGroup) {
-        lastImageGroup.scrollIntoView({ behavior: 'instant' });
-      }
-    }
+    if (!ref.current) return;
+    const lastImageGroup = ref.current.querySelector(`.${styles.imagesGroup}:last-child`);
+    if (lastImageGroup) lastImageGroup.scrollIntoView({ behavior: 'instant' });
   }, []);
 
   const updateOffset = () => {

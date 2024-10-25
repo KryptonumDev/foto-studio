@@ -5,5 +5,5 @@ import type { NextBlogPostTypes } from '@/components/_Blog/NextBlogPost';
 export type BlogPostPageTypes = {
   postHero: PostHeroTypes;
   postContent: PostContentTypes;
-  nextBlogPost: NextBlogPostTypes;
+  nextBlogPost?: NextBlogPostTypes;
 };

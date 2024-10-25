@@ -21,7 +21,7 @@ export default async function BlogPostPage({ params: { slug } }: { params: { slu
       <BreadcrumbsSchema data={[...breadcrumbsData, { name: toPlainText(postHero.title), path: `/blog/${slug}` }]} />
       <PostHero {...postHero} />
       <PostContent {...postContent} />
-      <NextBlogPost {...nextBlogPost} />
+      {nextBlogPost && <NextBlogPost {...nextBlogPost} />}
     </>
   );
 }

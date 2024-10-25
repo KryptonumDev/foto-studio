@@ -3,9 +3,9 @@ import CategoryChips from '@/components/global/CategoryChips';
 import ImageList from './_ImageList';
 
 export default function Listing({ categories, images, imageCount, currentCategorySlug = '' }: ListingTypes) {
-  const _categories = [{ _id: 'all', categoryName: 'Wszystkie', slug: '' }, ...categories];
-
   if (categories.length === 0) return null;
+
+  const _categories = [{ _id: 'all', categoryName: 'Wszystkie', slug: '' }, ...categories];
 
   return (
     <section className='mb'>

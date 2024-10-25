@@ -19,12 +19,8 @@ export default function ScrollNavigation({
     const sectionElements = document.querySelectorAll(sectionSelector);
     if (!sectionElements) return;
 
-    const observer = new IntersectionObserver(
-      entries =>
-        entries.forEach(entry => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        }),
-      { threshold }
+    const observer = new IntersectionObserver(entries =>
+      entries.forEach(entry => entry.isIntersecting && setActiveSection(entry.target.id), { threshold })
     );
 
     sectionElements.forEach(section => observer.observe(section));

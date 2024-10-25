@@ -13,12 +13,9 @@ export default function InteractiveBlogPostWrapper({ slug, children }: { slug: s
     const element = document.querySelector(`.${styles.content} img`);
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) router.push(`/blog/${slug}`);
-      },
-      { threshold: 0.95 }
-    );
+    const observer = new IntersectionObserver(([entry]) => entry.isIntersecting && router.push(`/blog/${slug}`), {
+      threshold: 0.95,
+    });
 
     observer.observe(element);
     return () => observer.disconnect();

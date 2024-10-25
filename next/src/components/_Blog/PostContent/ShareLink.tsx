@@ -12,9 +12,7 @@ export default function ShareLink({ title = '', description = '' }: ShareLinkTyp
   const [shareUrl, setShareUrl] = useState(DOMAIN);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setShareUrl(`${window.location.href.split('?')[0].split('#')[0]}?feature=share`);
-    }
+    typeof window !== 'undefined' && setShareUrl(`${window.location.href.split('?')[0].split('#')[0]}?feature=share`);
   }, []);
 
   const handleShare = async () => {
