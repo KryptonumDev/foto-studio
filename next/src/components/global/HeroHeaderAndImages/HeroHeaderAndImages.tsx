@@ -13,7 +13,7 @@ const imageSizes = [
   '(min-width: 1280px) 185px, (min-width: 595px) 14.5vw, 86px',
 ];
 
-const imageSpeeds = [0.25, 0.05, 0.2, 0.35, 0.25];
+const imageSpeeds = [0.1, 0.2, 0.3, 0.15, 0.25];
 
 export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
   return (
