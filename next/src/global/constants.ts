@@ -20,7 +20,7 @@ export const LOCALE: string = 'pl';
  * Global declaration of domain name of the website. Be aware of the protocol and www or non-www prefix.
  * @constant
  */
-export const DOMAIN: string = 'https://adamchrapek.pl/';
+export const DOMAIN: string = 'https://adamchrapek.pl';
 
 /**
  * Global default title.

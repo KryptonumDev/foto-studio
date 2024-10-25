@@ -1,4 +1,6 @@
 'use client';
+import { useEffect, useState } from 'react';
+import { DOMAIN } from '@/global/constants';
 import CustomLink from '@/components/ui/CustomLink';
 
 type ShareLinkTypes = {
@@ -7,22 +9,23 @@ type ShareLinkTypes = {
 };
 
 export default function ShareLink({ title = '', description = '' }: ShareLinkTypes) {
-  const shareData = {
-    title,
-    text: description,
-    url:
-      typeof window !== 'undefined'
-        ? window.location.href.includes('#')
-          ? `${window.location.href.split('#')[0]}?feature=share`
-          : `${window.location.href.split('?')[0]}?feature=share`
-        : 'fotostudio.pl',
-  };
+  const [shareUrl, setShareUrl] = useState(DOMAIN);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setShareUrl(`${window.location.href.split('?')[0].split('#')[0]}?feature=share`);
+    }
+  }, []);
 
   const handleShare = async () => {
     try {
-      await navigator.share(shareData);
+      await navigator.share({
+        title,
+        text: description,
+        url: shareUrl,
+      });
     } catch {
-      await navigator.clipboard.writeText(shareData.url);
+      await navigator.clipboard.writeText(shareUrl);
       alert('Skopiowano link');
     }
   };
