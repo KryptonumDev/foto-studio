@@ -14,22 +14,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { blogCategoriesSlugs, blogPostsSlugs, imageCategoriesSlugs } = await query();
 
   return [
-    ...staticRoutes.map(route => ({
-      url: `${DOMAIN}${route}`,
-      lastModified: new Date(),
-    })),
-    ...blogCategoriesSlugs.map(slug => ({
-      url: `${DOMAIN}/blog/kategoria/${slug}`,
-      lastModified: new Date(),
-    })),
-    ...blogPostsSlugs.map(slug => ({
-      url: `${DOMAIN}/blog/${slug}`,
-      lastModified: new Date(),
-    })),
-    ...imageCategoriesSlugs.map(slug => ({
-      url: `${DOMAIN}/galeria/kategoria/${slug}`,
-      lastModified: new Date(),
-    })),
+    ...staticRoutes.map(route => ({ url: `${DOMAIN}${route}` })),
+    ...blogCategoriesSlugs.map(slug => ({ url: `${DOMAIN}/blog/kategoria/${slug}` })),
+    ...blogPostsSlugs.map(slug => ({ url: `${DOMAIN}/blog/${slug}` })),
+    ...imageCategoriesSlugs.map(slug => ({ url: `${DOMAIN}/galeria/kategoria/${slug}` })),
   ];
 }
 
