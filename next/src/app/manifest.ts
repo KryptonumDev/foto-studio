@@ -1,4 +1,4 @@
-import { BACKGROUND_COLOR, DEFAULT_DESCRIPTION, DEFAULT_TITLE, ICON_URL, THEME_COLOR } from '@/global/constants';
+import { DOMAIN, BACKGROUND_COLOR, DEFAULT_DESCRIPTION, DEFAULT_TITLE, THEME_COLOR } from '@/global/constants';
 import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
@@ -12,8 +12,20 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: THEME_COLOR,
     icons: [
       {
-        src: ICON_URL,
+        src: `${DOMAIN}/foto-studio-icon-192.png`,
+        sizes: '192x192',
         type: 'image/png',
+      },
+      {
+        src: `${DOMAIN}/foto-studio-icon-512.png`,
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        src: `${DOMAIN}/foto-studio-icon-mask.png`,
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
   };

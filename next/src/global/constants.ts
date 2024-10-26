@@ -35,12 +35,6 @@ export const DEFAULT_TITLE: string = 'Adam Chrapek Foto Studio';
 export const DEFAULT_DESCRIPTION: string = '';
 
 /**
- * URL for the main icon.
- * @constant
- */
-export const ICON_URL: string = `${DOMAIN}/assets/foto-studio-icon.png`;
-
-/**
  * URL for the main logo.
  * @constant
  */
