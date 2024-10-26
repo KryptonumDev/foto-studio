@@ -14,8 +14,7 @@ export default function PostList({ posts, postCount }: PostListTypes) {
 
   const scrollUp = useCallback(() => {
     if (!ref.current) return;
-    const lastPostCard = ref.current.querySelector(`.${styles.posts} article:last-child`);
-    if (lastPostCard) lastPostCard.scrollIntoView({ behavior: 'instant' });
+    ref.current.scrollIntoView({ behavior: 'instant', block: 'start' });
   }, []);
 
   const updateOffset = () => {

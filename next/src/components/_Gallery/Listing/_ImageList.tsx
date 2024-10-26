@@ -20,8 +20,7 @@ export default function ImageList({ images, imageCount }: ImageListTypes) {
 
   const scrollUp = useCallback(() => {
     if (!ref.current) return;
-    const lastImageGroup = ref.current.querySelector(`.${styles.imagesGroup}:last-child`);
-    if (lastImageGroup) lastImageGroup.scrollIntoView({ behavior: 'instant' });
+    ref.current.scrollIntoView({ behavior: 'instant', block: 'start' });
   }, []);
 
   const updateOffset = () => {
