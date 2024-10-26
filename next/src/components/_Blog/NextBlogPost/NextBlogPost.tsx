@@ -21,11 +21,13 @@ export default function NextBlogPost({ slug, type, title, image }: NextBlogPostT
           value={title}
           className='large-text'
         />
-        <Img
-          data={image}
-          priority={false}
-          sizes='(min-width: 1366px) 294px, (min-width: 450px) 41.5vw, 188px'
-        />
+        <div className={styles.image}>
+          <Img
+            data={image}
+            priority={false}
+            sizes='(min-width: 1366px) 294px, (min-width: 450px) 41.5vw, 188px'
+          />
+        </div>
       </InteractiveBlogPostWrapper>
     </div>
   );
