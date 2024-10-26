@@ -11,7 +11,7 @@ export default function NextBlogPost({ slug, type, title, image }: NextBlogPostT
       <header>
         <h2 className='small-text'>{type === 'caseStudy' ? 'Czytaj kolejne case study' : 'Czytaj kolejny artykuł'}</h2>
       </header>
-      <InteractiveBlogPostWrapper slug={slug}>
+      <InteractiveBlogPostWrapper>
         <Link
           className={styles.link}
           href={`/blog/${slug}`}

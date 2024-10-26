@@ -36,7 +36,7 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
           <Img
             data={data}
             sizes={imageSizes[i]}
-            priority={index === 0}
+            priority={index === 0 && i === 3}
           />
         </div>
       ))}
