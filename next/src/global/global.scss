@@ -169,8 +169,7 @@ body {
     var(--bg-line-3) 0;
 }
 
-.large-text,
-h1 {
+.large-text {
   font-size: var(--large-font-size);
   color: var(--primary-900, #141414);
   line-height: 1.12;

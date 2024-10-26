@@ -29,6 +29,15 @@
 .list {
   --gap: clamp(3rem, calc(64vw / 7.68), 4rem);
   display: grid;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    user-select: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    user-select: auto;
+  }
 
   .listItem {
     display: grid;
