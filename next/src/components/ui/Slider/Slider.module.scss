@@ -10,8 +10,17 @@
     display: grid;
     place-items: center;
 
+    svg {
+      fill: var(--primary-600);
+      transition: fill 0.2s var(--easing);
+    }
+
     &:focus-visible {
       outline-offset: -1px;
+    }
+
+    &:hover svg {
+      fill: var(--primary-900);
     }
   }
 

@@ -42,8 +42,8 @@ const query = async () => {
 
 const FotoStudioLogo = (
   <svg
-    width='122'
-    height='34'
+    width={122}
+    height={34}
     viewBox='0 0 122 34'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'

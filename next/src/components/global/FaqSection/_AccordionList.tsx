@@ -4,7 +4,7 @@ import { cubicBezier, motion } from 'framer-motion';
 import type { AccordionListTypes } from './FaqSection.types';
 import styles from './FaqSection.module.scss';
 
-export default function AccordionList({ list, icon }: AccordionListTypes) {
+export default function AccordionList({ list, ArrowIcon }: AccordionListTypes) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const togglePanel = (index: number) => {
@@ -24,7 +24,7 @@ export default function AccordionList({ list, icon }: AccordionListTypes) {
           onClick={togglePanel(i)}
         >
           <summary>
-            <div className={styles.icon}>{icon}</div>
+            <div className={styles.icon}>{ArrowIcon}</div>
             {question}
           </summary>
           <motion.div

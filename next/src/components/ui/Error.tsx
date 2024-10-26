@@ -20,8 +20,8 @@ export default function Error({ message, className = '', withIcon = true }: Erro
 
 export const WarningIcon = ({ ...props }) => (
   <svg
-    width='16'
-    height='16'
+    width={16}
+    height={16}
     viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
@@ -38,8 +38,8 @@ export const WarningIcon = ({ ...props }) => (
     <defs>
       <clipPath id='clip0_5663_4451'>
         <rect
-          width='16'
-          height='16'
+          width={16}
+          height={16}
           fill='white'
         />
       </clipPath>

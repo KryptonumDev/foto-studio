@@ -22,19 +22,20 @@ export default function FaqSection({ index, heading, list }: FaqSectionTypes) {
       </header>
       <AccordionList
         list={data}
-        icon={ArrowIcon}
+        ArrowIcon={<ArrowIcon />}
       />
     </section>
   );
 }
 
-const ArrowIcon = (
+const ArrowIcon = ({ ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='11'
-    height='12'
+    width={11}
+    height={12}
     fill='none'
     viewBox='0 0 11 12'
+    {...props}
   >
     <path d='m6.15362 9.40202 3.67722-3.67723.70706.70711-4.52755 4.5276-.35356.3536-.35355-.3536L.463209 6.11947l.707111-.70711 3.9833 3.98331.00374-8.895833 1 .00042-.00374 8.901763Z' />
   </svg>

@@ -16,5 +16,5 @@ export type AccordionListTypes = {
     question: React.ReactNode;
     answer: React.ReactNode;
   }[];
-  icon: React.ReactNode;
+  ArrowIcon: React.ReactNode;
 };

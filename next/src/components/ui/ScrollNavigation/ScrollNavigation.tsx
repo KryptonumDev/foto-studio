@@ -49,13 +49,14 @@ export default function ScrollNavigation({
   );
 }
 
-const ArrowIcon = () => (
+const ArrowIcon = ({ ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='18'
-    height='17'
+    width={18}
+    height={17}
     fill='none'
     viewBox='0 0 18 17'
+    {...props}
   >
     <path
       fill='#A9A9A9'

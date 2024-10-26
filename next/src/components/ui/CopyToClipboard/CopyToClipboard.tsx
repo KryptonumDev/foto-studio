@@ -38,13 +38,14 @@ export default function CopyToClipboard({ label, value, successMessage }: CopyTo
   );
 }
 
-const CheckIcon = () => (
+const CheckIcon = ({ ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='8'
-    height='6'
+    width={8}
+    height={6}
     fill='none'
     viewBox='0 0 8 6'
+    {...props}
   >
     <path
       stroke='#fff'

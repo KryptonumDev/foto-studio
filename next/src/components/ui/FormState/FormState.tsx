@@ -45,13 +45,14 @@ export default function FormState({ success, setStatus }: FormStateTypes) {
   );
 }
 
-const CheckIcon = () => (
+const CheckIcon = ({ ...props }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='8'
-    height='6'
+    width={8}
+    height={6}
     viewBox='0 0 8 6'
     fill='none'
+    {...props}
   >
     <path
       stroke='#fff'
@@ -60,13 +61,14 @@ const CheckIcon = () => (
   </svg>
 );
 
-export const WarningIcon = () => (
+export const WarningIcon = ({ ...props }) => (
   <svg
-    width='16'
-    height='16'
+    width={16}
+    height={16}
     viewBox='0 0 16 16'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    {...props}
   >
     <g clipPath='url(#clip0_5663_4451)'>
       <path
@@ -79,8 +81,8 @@ export const WarningIcon = () => (
     <defs>
       <clipPath id='clip0_5663_4451'>
         <rect
-          width='16'
-          height='16'
+          width={16}
+          height={16}
           fill='white'
         />
       </clipPath>

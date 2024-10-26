@@ -32,7 +32,7 @@ export default async function Footer() {
             rel='noreferrer'
             aria-label='Przejdź do strony Kryptonum'
           >
-            {KryptonumLogo}
+            <KryptonumLogo />
           </a>
         </p>
         <ul className={styles.socialMedia}>
@@ -74,13 +74,14 @@ const query = async () => {
   return await sanityFetch<FooterQueryTypes>({ query: footerQuery, tags: ['global'] });
 };
 
-const KryptonumLogo = (
+const KryptonumLogo = ({ ...props }) => (
   <svg
-    width='112'
-    height='24'
+    width={112}
+    height={24}
     viewBox='0 0 112 24'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    {...props}
   >
     <path
       d='M15.5712 11.9999C15.5711 12.8861 15.3003 13.753 14.792 14.4946C14.2837 15.2361 13.56 15.8201 12.7093 16.1751V23.8382H8.8934V16.173C8.04282 15.8186 7.31903 15.235 6.81073 14.4938C6.30242 13.7525 6.03168 12.8858 6.03168 11.9999C6.03168 11.114 6.30242 10.2473 6.81073 9.50606C7.31903 8.76482 8.04282 8.18123 8.8934 7.82681V0.161621H12.7093V7.82469C13.5602 8.17943 14.2841 8.76338 14.7924 9.50499C15.3007 10.2466 15.5714 11.1137 15.5712 11.9999Z'
@@ -105,43 +106,43 @@ const KryptonumLogo = (
     <defs>
       <linearGradient
         id='paint0_linear_7646_1687'
-        x1='15.3924'
-        y1='0.161627'
-        x2='5.43062'
-        y2='0.417276'
+        x1={15.3924}
+        y1={0.161627}
+        x2={5.43062}
+        y2={0.417276}
         gradientUnits='userSpaceOnUse'
       >
         <stop stopColor='#2DD282' />
         <stop
-          offset='1'
+          offset={1}
           stopColor='#90F4E8'
         />
       </linearGradient>
       <linearGradient
         id='paint1_linear_7646_1687'
-        x1='22.2697'
-        y1='2.42239e-06'
-        x2='13.8571'
-        y2='0.466885'
+        x1={22.2697}
+        y1={0.00000242239}
+        x2={13.8571}
+        y2={0.466885}
         gradientUnits='userSpaceOnUse'
       >
         <stop stopColor='#2DD282' />
         <stop
-          offset='1'
+          offset={1}
           stopColor='#90F4E8'
         />
       </linearGradient>
       <linearGradient
         id='paint2_linear_7646_1687'
-        x1='22.2696'
-        y1='14.7319'
-        x2='13.858'
-        y2='15.1987'
+        x1={22.2696}
+        y1={14.7319}
+        x2={13.858}
+        y2={15.1987}
         gradientUnits='userSpaceOnUse'
       >
         <stop stopColor='#2DD282' />
         <stop
-          offset='1'
+          offset={1}
           stopColor='#90F4E8'
         />
       </linearGradient>
