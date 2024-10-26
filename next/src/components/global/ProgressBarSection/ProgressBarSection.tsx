@@ -40,8 +40,12 @@ export default function ProgressBarSection({ heading, index, list }: ProgressBar
       const headerHeight = header.getBoundingClientRect().height;
       let top = window.innerHeight - sticky.clientHeight;
 
-      if (top > 0) top /= 2;
-      if (top < headerHeight) top += Math.min(top, Math.max(headerHeight - top, 0)) - 10;
+      if (top >= 0) {
+        top /= 2;
+        if (top < headerHeight) top += Math.min(top, Math.max(headerHeight - top, 0)) - 10;
+      } else {
+        top = -(sticky.clientHeight - window.innerHeight) - 10;
+      }
 
       sticky.style.top = `${top}px`;
       container.style.height = `${list.scrollWidth - sticky.clientWidth + sticky.clientHeight}px`;
