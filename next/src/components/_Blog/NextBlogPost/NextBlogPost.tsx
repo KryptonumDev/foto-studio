@@ -1,3 +1,4 @@
+import { toPlainText } from 'next-sanity';
 import type { NextBlogPostTypes } from './NextBlogPost.types';
 import InteractiveBlogPostWrapper from './InteractiveBlogPostWrapper';
 import Link from 'next/link';
@@ -14,6 +15,7 @@ export default function NextBlogPost({ slug, type, title, image }: NextBlogPostT
       <InteractiveBlogPostWrapper>
         <Link
           className={styles.link}
+          aria-label={`Przejdź do artykułu: ${toPlainText(title)}`}
           href={`/blog/${slug}`}
         />
         <Heading
