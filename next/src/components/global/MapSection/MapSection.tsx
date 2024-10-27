@@ -9,6 +9,7 @@ export default function MapSection({ index, heading, location, tel, addressLink 
     <section className={`${styles['MapSection']} max-width mb`}>
       <div className={styles.map}>
         <iframe
+          title='Mapa lokalizacji studia fotograficznego Adam Chrapek Foto Studio'
           src={location}
           width='100%'
           height='100%'

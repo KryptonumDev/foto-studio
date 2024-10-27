@@ -22,7 +22,7 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
             <header>
               <span className='small-text'>{`[${addLeadingZero(index + 1)}]`}</span>
               <Heading
-                tag='h3'
+                tag={index === 0 ? 'h2' : 'h3'}
                 value={heading}
                 className='large-text'
               />

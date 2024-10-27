@@ -48,6 +48,7 @@
     url('../../assets/fonts/OverusedGrotesk-Book.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -57,6 +58,7 @@
     url('../../assets/fonts/OverusedGrotesk-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -66,6 +68,7 @@
     url('../../assets/fonts/OverusedGrotesk-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 svg {
@@ -258,7 +261,7 @@ body {
   padding: calc(12rem / 16) calc(14rem / 16) calc(14rem / 16);
   border: 1px solid var(--primary-200);
   background-color: var(--primary-100);
-  color: var(--primary-600);
+  color: var(--primary-700);
   user-select: none;
   transition:
     border-color 0.1s var(--easing),
