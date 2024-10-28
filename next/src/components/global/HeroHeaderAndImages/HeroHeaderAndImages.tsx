@@ -1,8 +1,9 @@
 import type { HeroHeaderAndImagesTypes } from './HeroHeaderAndImages.types';
-import HeroHeaderAndImagesWrapper from './_HeroHeaderAndImagesWrapper';
+import Heading from '@/components/ui/Heading';
 import Button from '@/components/ui/Button';
 import Img from '@/components/ui/Img';
-import Heading from '@/components/ui/Heading';
+import HeroHeaderAndImagesWrapper from './_HeroHeaderAndImagesWrapper';
+
 import styles from './HeroHeaderAndImages.module.scss';
 
 const imageSizes = [
@@ -17,7 +18,7 @@ const imageSpeeds = [0.1, 0.2, 0.3, 0.15, 0.25];
 
 export default function HeroHeaderAndImages({ heading, images, cta, index }: HeroHeaderAndImagesTypes) {
   return (
-    <HeroHeaderAndImagesWrapper>
+    <section className={`${styles['HeroHeaderAndImages']} max-width`}>
       <header className='mb'>
         <Heading
           value={heading}
@@ -26,20 +27,22 @@ export default function HeroHeaderAndImages({ heading, images, cta, index }: Her
         />
         <Button data={cta} />
       </header>
-      {images.map((data, i) => (
-        <div
-          data-scroll
-          data-scroll-speed={imageSpeeds[i]}
-          key={`hero-image-${i}`}
-          className={styles.item}
-        >
-          <Img
-            data={data}
-            sizes={imageSizes[i]}
-            priority={index === 0 && i === 3}
-          />
-        </div>
-      ))}
-    </HeroHeaderAndImagesWrapper>
+      <HeroHeaderAndImagesWrapper>
+        {images.map((data, i) => (
+          <div
+            data-scroll
+            data-scroll-speed={imageSpeeds[i]}
+            key={`hero-image-${i}`}
+            className={styles.item}
+          >
+            <Img
+              data={data}
+              sizes={imageSizes[i]}
+              priority={index === 0 && i === 3}
+            />
+          </div>
+        ))}
+      </HeroHeaderAndImagesWrapper>
+    </section>
   );
 }

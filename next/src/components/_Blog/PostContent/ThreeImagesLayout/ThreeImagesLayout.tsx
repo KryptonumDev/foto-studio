@@ -9,7 +9,9 @@ export default function ThreeImagesLayout({ images, index }: ThreeImagesLayoutTy
         <Img
           data={img}
           key={`three-images-layout-${i}`}
-          sizes={i === 0 ? '100vw' : '(min-width: 1366px) 397px, (min-width: 768px) 30vw, 50vw'}
+          sizes={
+            i === 0 ? '(min-width: 1366px) 1270px, 92vw' : '(min-width: 1366px) 397px, (min-width: 768px) 30vw, 50vw'
+          }
           priority={index === 0}
         />
       ))}

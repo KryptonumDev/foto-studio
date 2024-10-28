@@ -8,7 +8,7 @@ export default function FullWidthImage({ img, index }: FullWidthImageTypes) {
       <Img
         data={img}
         priority={index === 0}
-        sizes='100vw'
+        sizes='(min-width: 1366px) 1270px, 92vw'
       />
     </div>
   );
