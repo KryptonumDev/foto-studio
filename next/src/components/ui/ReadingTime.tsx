@@ -3,15 +3,15 @@ import { type PortableTextBlock, toPlainText } from 'next-sanity';
 export type ReadingTimeTypes = {
   contents?: (PortableTextBlock[] | null)[];
   headings?: (PortableTextBlock[] | null)[];
-  listContents?: PortableTextBlock[][];
-  listHeadings?: PortableTextBlock[][];
+  listContents?: (PortableTextBlock[] | null)[];
+  listHeadings?: (PortableTextBlock[] | null)[];
 };
 
 export const ReadingTime_Query = `
   "contents": content[].content,
   "headings": content[].heading,
-  "listContents": content[_type == "ContentSectionWithHeader"].content,
-  "listHeadings": content[_type == "ContentSectionWithHeader"].heading,
+  "listContents": content[_type == "ContentSectionWithHeader"].list[].content,
+  "listHeadings": content[_type == "ContentSectionWithHeader"].list[].heading,
 `;
 
 const convertToPlainText = ({ contents, headings, listContents, listHeadings }: ReadingTimeTypes): string => {

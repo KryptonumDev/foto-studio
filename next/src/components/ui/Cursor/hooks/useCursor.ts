@@ -1,3 +1,4 @@
+'use client';
 import { useSpring, useMotionValue } from 'framer-motion';
 import type { UseCursorTypes } from '../Cursor.types';
 

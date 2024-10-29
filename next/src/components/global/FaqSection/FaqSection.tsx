@@ -5,9 +5,11 @@ import AccordionList from './_AccordionList';
 import styles from './FaqSection.module.scss';
 
 export default function FaqSection({ index, heading, list }: FaqSectionTypes) {
+  const QuestionTag = index === 0 ? 'h2' : 'h3';
+
   const data = list.map(({ _id, question, answer }) => ({
     _id,
-    question: <h3 className='small-text'>{question}</h3>,
+    question: <QuestionTag className='small-text'>{question}</QuestionTag>,
     answer: <Text value={answer} />,
   }));
 

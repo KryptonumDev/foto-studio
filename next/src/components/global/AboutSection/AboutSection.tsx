@@ -28,7 +28,7 @@ export default function AboutSection({
         <div className={styles.content}>
           <Heading
             value={contentHeading}
-            tag='h3'
+            tag={index === 0 ? 'h2' : 'h3'}
             className='small-text'
           />
           <div className={styles.text}>

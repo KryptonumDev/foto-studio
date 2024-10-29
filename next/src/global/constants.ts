@@ -38,7 +38,7 @@ export const DEFAULT_DESCRIPTION: string = '';
  * URL for the main logo.
  * @constant
  */
-export const LOGO_URL: string = `${DOMAIN}/assets/foto-studio-logo.png`;
+export const LOGO_URL: string = `${DOMAIN}/foto-studio-logo.png`;
 
 /**
  * Global declaration of regex.

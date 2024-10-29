@@ -9,7 +9,7 @@ export default function PricesSection({ index, heading, paragraph, list }: Price
     name: (
       <Heading
         value={name}
-        tag='h3'
+        tag={index === 0 ? 'h2' : 'h3'}
         className='large-text'
       />
     ),
