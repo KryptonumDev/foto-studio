@@ -9,7 +9,7 @@ export type ImageCategoryListAndImageTypes = {
     _key: string;
     text: PortableTextBlock[];
     imgCategory: CategoryTypes;
+    img: ImgTypes;
   }[];
-  img: ImgTypes;
   imagePosition: 'left' | 'right';
 };

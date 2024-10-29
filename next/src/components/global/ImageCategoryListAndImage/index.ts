@@ -13,10 +13,10 @@ export const ImageCategoryListAndImage_Query = `
       _key,
       imgCategory-> {
         ${Category_Query}
+      },
+      img {
+        ${ImgData_Query}
       }
-    },
-    img {
-      ${ImgData_Query}
     },
     imagePosition
   },

@@ -18,12 +18,6 @@ export default defineField({
         Rule.required().length(1).error('Pole musi zawierać jeden blok tekstowy'),
     }),
     defineField({
-      name: 'img',
-      type: 'image',
-      title: 'Zdjęcie',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'list',
       type: 'array',
       title: 'Lista',
@@ -46,15 +40,23 @@ export default defineField({
               to: [{type: 'ImageCategoryCollection'}],
               validation: (Rule) => Rule.required(),
             }),
+            defineField({
+              name: 'img',
+              type: 'image',
+              title: 'Zdjęcie',
+              validation: (Rule) => Rule.required(),
+            }),
           ],
           preview: {
             select: {
               text: 'text',
               category: 'imgCategory->categoryName',
+              img: 'img',
             },
-            prepare: ({text, category}) => ({
+            prepare: ({text, category, img}) => ({
               title: toPlainText(text),
               subtitle: category,
+              media: img,
               icon,
             }),
           },
