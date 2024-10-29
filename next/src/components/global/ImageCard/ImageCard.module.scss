@@ -76,9 +76,14 @@
       position: absolute;
       inset: 0;
       z-index: 2;
+
+      &:focus-visible {
+        outline: none;
+      }
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       --color: var(--primary-500);
       --start: 7%;
       --end: 93%;
