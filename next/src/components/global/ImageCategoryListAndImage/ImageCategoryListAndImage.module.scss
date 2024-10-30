@@ -53,9 +53,18 @@
       pointer-events: none;
       will-change: opacity;
 
-      &.active {
-        z-index: 1;
-        opacity: 1;
+      @media (prefers-reduced-motion) {
+        &:first-child {
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        &.active {
+          z-index: 1;
+          opacity: 1;
+        }
       }
     }
   }
