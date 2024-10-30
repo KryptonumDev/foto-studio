@@ -49,9 +49,8 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 0.65s ease-in-out;
-      pointer-events: none;
-      will-change: opacity;
+      transition: opacity 0.7s ease-in-out;
+      overflow: hidden;
 
       @media (prefers-reduced-motion) {
         &:first-child {
@@ -62,6 +61,17 @@
 
       @media (prefers-reduced-motion: no-preference) {
         &.active {
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+
+      @media (pointer: coarse) {
+        &.active {
+          opacity: 0;
+        }
+
+        &:first-child {
           z-index: 1;
           opacity: 1;
         }
