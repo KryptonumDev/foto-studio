@@ -7,8 +7,13 @@ import ShareLink from './ShareLink';
 import styles from './PostContent.module.scss';
 
 export default function PostContent({ type, content, headings, seo }: PostContentTypes) {
-  const index = content?.findIndex(data => data._type === 'ContentSectionWithHeader');
-  const _headings = headings?.map(heading => ({ slug: slugify(toPlainText(heading)), text: toPlainText(heading) }));
+  let index = -1;
+  let _headings = null;
+
+  if (type === 'article') {
+    index = content?.findIndex(data => data._type === 'ContentSectionWithHeader');
+    _headings = headings?.map(heading => ({ slug: slugify(toPlainText(heading)), text: toPlainText(heading) }));
+  }
 
   return (
     <section className={`${styles['PostContent']} max-width`}>

@@ -2,7 +2,7 @@ import type { PortableTextBlock } from 'next-sanity';
 import type { ComponentTypes } from '@/components/DynamicComponents';
 
 export type PostContentTypes = {
-  type: string;
+  type: 'caseStudy' | 'article';
   content: ComponentTypes[];
   seo?: {
     title: string;

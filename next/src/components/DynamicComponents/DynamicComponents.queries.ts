@@ -29,6 +29,7 @@ import { ContentSectionWithHeader_Query } from '@/components/_Blog/PostContent/C
 export const DynamicComponents_Query = `
   content[] {
     _type,
+    "hasPrimaryHeading": ^._type == "GalleryPage" || ^._type == "BlogPage",
     ${HeroHeaderAndImages_Query}
     ${ImageCategoryListAndImage_Query}
     ${ListWithContent_Query}

@@ -5,18 +5,24 @@ import Button from '@/components/ui/Button';
 import Text from '@/components/ui/Text';
 import styles from './HorizontalListWithHeader.module.scss';
 
-export default function HorizontalListWithHeader({ heading, subtitle, cta, list }: HorizontalListWithHeaderTypes) {
+export default function HorizontalListWithHeader({
+  index,
+  heading,
+  subtitle,
+  cta,
+  list,
+}: HorizontalListWithHeaderTypes) {
   return (
     <section className={`${styles['HorizontalListWithHeader']} max-width mb`}>
       <Heading
-        tag='h2'
+        tag={index === 0 ? 'h1' : 'h2'}
         value={subtitle}
         className={`${styles.subtitle} small-text`}
       />
       <div className={styles.content}>
         <header>
           <Heading
-            tag='h3'
+            tag={index === 0 ? 'h2' : 'h3'}
             value={heading}
             className='large-text'
           />

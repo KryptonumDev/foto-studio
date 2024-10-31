@@ -69,7 +69,10 @@ const componentsMap: Record<string, (props: ComponentTypes) => React.ReactNode> 
 export default function DynamicComponents({ data }: { data: ComponentTypes[] }) {
   return data?.map((item, index) => {
     const componentType = item._type as keyof ComponentsMapTypes;
-    const DynamicComponent = componentsMap[componentType]?.({ ...item, index });
+    const DynamicComponent = componentsMap[componentType]?.({
+      ...item,
+      index: item.hasPrimaryHeading ? index + 1 : index,
+    });
     return DynamicComponent || null;
   });
 }

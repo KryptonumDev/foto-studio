@@ -14,7 +14,7 @@ export default function AboutSection({
     <section className={`${styles['AboutSection']} max-width mb`}>
       <Img
         data={img}
-        sizes='(min-width: 1366px) 1270px, (min-width: 768px) calc(100vw - 6rem), calc(100vw - 2rem)'
+        sizes='(min-width: 1366px) 1270px, 92vw'
         priority={index === 0}
       />
       <div className={styles.wrapper}>

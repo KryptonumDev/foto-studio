@@ -17,10 +17,10 @@ export default function ListWithContent({ index, heading, cta, list }: ListWithC
         <Button data={cta} />
       </header>
       <ol className={styles.list}>
-        {list.map(({ _key, heading, paragraph }, index) => (
+        {list.map(({ _key, heading, paragraph }, i) => (
           <li key={_key}>
             <header>
-              <span className='small-text'>{`[${addLeadingZero(index + 1)}]`}</span>
+              <span className='small-text'>{`[${addLeadingZero(i + 1)}]`}</span>
               <Heading
                 tag={index === 0 ? 'h2' : 'h3'}
                 value={heading}

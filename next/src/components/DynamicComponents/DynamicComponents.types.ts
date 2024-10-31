@@ -59,4 +59,5 @@ export type ComponentsMapTypes = {
 export type ComponentTypes = ComponentsMapTypes[keyof ComponentsMapTypes] & {
   _type: string;
   index: number;
+  hasPrimaryHeading: boolean;
 };
