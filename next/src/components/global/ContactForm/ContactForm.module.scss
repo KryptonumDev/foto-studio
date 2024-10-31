@@ -48,6 +48,7 @@
 .content {
   position: relative;
   min-height: calc(230rem / 16);
+  border: 1px solid red;
 
   .form {
     z-index: 2;
@@ -95,7 +96,7 @@
     justify-content: center;
     max-height: 0;
     opacity: 0;
-    z-index: 1;
+    z-index: -1;
     transition:
       max-height 0.3s var(--easing),
       opacity 0.3s var(--easing);
@@ -105,7 +106,7 @@
     .form {
       max-height: 0;
       opacity: 0;
-      z-index: 1;
+      z-index: -1;
     }
 
     .status {
