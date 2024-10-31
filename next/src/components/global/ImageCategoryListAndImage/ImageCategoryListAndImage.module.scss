@@ -119,10 +119,8 @@
       }
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-      &:hover span:first-child::before {
-        animation: underline-link 0.75s var(--easing);
-      }
+    &:hover span:first-child::before {
+      animation: underline-link 0.75s var(--easing);
     }
 
     span:last-child {

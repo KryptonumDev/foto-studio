@@ -30,10 +30,8 @@
     }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    &:hover::before {
-      animation: underline-link 0.75s var(--easing);
-    }
+  &:hover::before {
+    animation: underline-link 0.75s var(--easing);
   }
 }
 
