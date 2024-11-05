@@ -26,15 +26,25 @@
 
   .dots {
     display: flex;
-    align-items: flex-end;
-    gap: calc(12rem / 16);
 
     button {
-      height: calc(6rem / 16);
-      border: 1px solid var(--primary-500);
+      height: 16px;
+      display: flex;
+      align-items: flex-end;
+      padding-inline: 8px;
 
-      &[aria-current='true'] {
-        height: calc(13rem / 16);
+      &:hover span {
+        border-color: var(--primary-900);
+      }
+
+      span {
+        height: 8px;
+        border: 1px solid var(--primary-500);
+        transition: border-color 0.1s var(--easing);
+      }
+
+      &[aria-current='true'] span {
+        height: 16px;
         border-color: var(--primary-900);
       }
     }

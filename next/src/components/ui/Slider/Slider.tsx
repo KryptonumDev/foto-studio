@@ -96,7 +96,6 @@ Slider.Slides = function SliderSlides({
   return <>{children}</>;
 };
 
-
 Slider.Details = function SliderDetails({
   children,
 }: {
@@ -138,7 +137,9 @@ Slider.Controls = function SliderControls() {
             onClick={() => onDotButtonClick(index)}
             aria-current={index === selectedIndex}
             aria-label={`Przejdź do ${index + 1} elementu`}
-          />
+          >
+            <span />
+          </button>
         ))}
       </div>
       <button
