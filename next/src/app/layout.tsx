@@ -1,4 +1,5 @@
 import '@/global/global.scss';
+import { OverusedGrotesk } from '@/global/fonts';
 import { LOCALE } from '@/global/constants';
 import Header from '@/components/global/Header';
 import Footer from '@/components/global/Footer';
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={LOCALE}>
-      <body>
+      <body className={OverusedGrotesk.className}>
         <Header />
         <SmoothScrollProvider>
           <main id='main'>{children}</main>
