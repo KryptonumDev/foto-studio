@@ -1,3 +1,5 @@
+import { toPlainText } from 'next-sanity';
+import FaqSchema from '@/global/Schema/Faq';
 import type { FaqSectionTypes } from './FaqSection.types';
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
@@ -26,6 +28,7 @@ export default function FaqSection({ index, heading, list }: FaqSectionTypes) {
         list={data}
         ArrowIcon={<ArrowIcon />}
       />
+      <FaqSchema data={list.map(({ question, answer }) => ({ question, answer: toPlainText(answer) }))} />
     </section>
   );
 }
