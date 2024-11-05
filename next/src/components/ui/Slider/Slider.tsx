@@ -7,7 +7,7 @@ import type {
   SliderPropsTypes,
   SliderStateTypes,
   SliderContextTypes,
-  SlidesPropsTypes,
+  SliderContainerTypes,
   ObserverPropsTypes,
 } from './Slider.types';
 import { useIntersection, useNavigation, usePagination } from './hooks';
@@ -70,7 +70,7 @@ Slider.Observer = forwardRef<HTMLDivElement, ObserverPropsTypes>(function Observ
   );
 });
 
-Slider.Slides = function SliderSlides({ children, className = '', ...props }: SlidesPropsTypes) {
+Slider.Container = function SliderContainer({ children, className = '', ...props }: SliderContainerTypes) {
   const { emblaRef } = useContext(SliderContext);
 
   return (
@@ -82,6 +82,20 @@ Slider.Slides = function SliderSlides({ children, className = '', ...props }: Sl
     </div>
   );
 };
+
+Slider.Slides = function SliderSlides({
+  children,
+}: {
+  children: ((handleSlideClick: (index: number) => void, index: number) => React.ReactNode) | React.ReactNode;
+}) {
+  const { selectedIndex, onDotButtonClick } = useContext(SliderContext);
+
+  const handleSlideClick = (i: number) => i !== selectedIndex && onDotButtonClick(i);
+
+  if (typeof children === 'function') return <>{children(handleSlideClick, selectedIndex)}</>;
+  return <>{children}</>;
+};
+
 
 Slider.Details = function SliderDetails({
   children,

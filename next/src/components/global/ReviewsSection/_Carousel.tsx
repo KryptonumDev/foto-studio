@@ -39,7 +39,7 @@ export default function Carousel({ list, index }: CarouselTypes) {
               </header>
             )}
           </Slider.Details>
-          <Slider.Slides
+          <Slider.Container
             className={styles.container}
             onMouseMove={updatePosition}
             onMouseOut={() => setCursorScale(0)}
@@ -50,19 +50,26 @@ export default function Carousel({ list, index }: CarouselTypes) {
             onMouseDown={() => setCursorScale(1.3)}
             onMouseUp={() => setCursorScale(1)}
           >
-            {list.map(({ _id, img }) => (
-              <div
-                key={`slide-${_id}`}
-                className={`embla__slide ${styles.slide}`}
-              >
-                <Img
-                  data={img}
-                  priority={index === 0}
-                  sizes='(min-width: 952px) 402px, (min-width: 445px) 42.2vw, 188px'
-                />
-              </div>
-            ))}
-          </Slider.Slides>
+            <Slider.Slides>
+              {handleSlideClick => (
+                <>
+                  {list.map(({ _id, img }, i) => (
+                    <div
+                      key={`slide-${_id}`}
+                      className={`embla__slide ${styles.slide}`}
+                      onClick={() => handleSlideClick(i)}
+                    >
+                      <Img
+                        data={img}
+                        priority={index === 0}
+                        sizes='(min-width: 952px) 402px, (min-width: 445px) 42.2vw, 188px'
+                      />
+                    </div>
+                  ))}
+                </>
+              )}
+            </Slider.Slides>
+          </Slider.Container>
           <Slider.Details>
             {activeIndex => (
               <div className={`${styles.details} max-width`}>

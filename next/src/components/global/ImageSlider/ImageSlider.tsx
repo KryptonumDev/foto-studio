@@ -25,7 +25,7 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
       >
         <Slider>
           <Slider.Observer ref={ref}>
-            <Slider.Slides
+            <Slider.Container
               className={styles.container}
               onMouseOut={() => setCursorScale(0)}
               onMouseOver={e => {
@@ -35,19 +35,26 @@ export default function ImageSlider({ index, images }: ImageSliderTypes) {
               onMouseDown={() => setCursorScale(1.3)}
               onMouseUp={() => setCursorScale(1)}
             >
-              {images.map((data, i) => (
-                <div
-                  key={`image-slide-${i}`}
-                  className={`embla__slide ${styles.slide}`}
-                >
-                  <Img
-                    data={data}
-                    priority={index === 0}
-                    sizes={getSizes(i + 1)}
-                  />
-                </div>
-              ))}
-            </Slider.Slides>
+              <Slider.Slides>
+                {handleSlideClick => (
+                  <>
+                    {images.map((data, i) => (
+                      <div
+                        onClick={() => handleSlideClick(i)}
+                        key={`image-slide-${i}`}
+                        className={`embla__slide ${styles.slide}`}
+                      >
+                        <Img
+                          data={data}
+                          priority={index === 0}
+                          sizes={getSizes(i + 1)}
+                        />
+                      </div>
+                    ))}
+                  </>
+                )}
+              </Slider.Slides>
+            </Slider.Container>
           </Slider.Observer>
           <div className={`${styles.controls} max-width`}>
             <Slider.Controls />

@@ -37,7 +37,7 @@ export type ObserverPropsTypes = {
   className?: string;
 };
 
-export type SlidesPropsTypes = {
+export type SliderContainerTypes = {
   children: React.ReactNode;
   className?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
