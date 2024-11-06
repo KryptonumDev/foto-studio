@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 10px;
 
   .button {
     width: calc(44rem / 16);
@@ -26,15 +27,38 @@
 
   .dots {
     display: flex;
+    justify-content: center;
+    width: fit-content;
+    will-change: transform;
+    transform: scaleX(0.55);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scaleX(0.9);
+      button {
+        transform: scaleX(1);
+      }
+    }
 
     button {
-      height: 16px;
+      height: 15px;
       display: flex;
-      align-items: flex-end;
-      padding-inline: 8px;
+      align-items: center;
+      justify-content: center;
+      will-change: transform;
+      transform: scaleX(1.9);
+      z-index: 0;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.3s;
 
       &:hover span {
         border-color: var(--primary-900);
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline-offset: -3px;
       }
 
       span {
@@ -43,9 +67,13 @@
         transition: border-color 0.1s var(--easing);
       }
 
-      &[aria-current='true'] span {
-        height: 16px;
-        border-color: var(--primary-900);
+      &[aria-current='true'] {
+        z-index: -1;
+        span {
+          height: 15px;
+          border-color: var(--primary-900);
+          transform: translateY(-3.5px);
+        }
       }
     }
   }

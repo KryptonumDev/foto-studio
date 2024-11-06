@@ -86,9 +86,11 @@
   place-items: center;
 
   > div {
-    max-width: calc(324rem / 16);
-    @media screen and (min-width: calc(1366rem / 16)) {
-      max-width: calc(284rem / 16);
+    max-width: 288px;
+
+    @media screen and (min-width: 360px) {
+      width: fit-content;
+      min-width: 328px;
     }
   }
 }
