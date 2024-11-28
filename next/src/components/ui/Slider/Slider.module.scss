@@ -1,0 +1,83 @@
+.SliderControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+
+  .button {
+    width: calc(44rem / 16);
+    height: calc(44rem / 16);
+    display: grid;
+    place-items: center;
+
+    svg {
+      fill: var(--primary-600);
+      transition: fill 0.2s var(--easing);
+    }
+
+    &:focus-visible {
+      outline-offset: -1px;
+    }
+
+    &:hover svg {
+      fill: var(--primary-900);
+    }
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    will-change: transform;
+    transform: scaleX(0.55);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scaleX(0.9);
+      button {
+        transform: scaleX(1);
+      }
+    }
+
+    button {
+      position: relative;
+      will-change: transform;
+      transform: scaleX(1.9);
+      z-index: 0;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.3s;
+
+      &:hover::before {
+        border-color: var(--primary-900);
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline-offset: -3px;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 8px;
+        border: 1px solid var(--primary-500);
+        transition: border-color 0.1s var(--easing);
+      }
+
+      &[aria-current='true'] {
+        z-index: -1;
+        &::before {
+          height: 15px;
+          border-color: var(--primary-900);
+          transform: translate(-50%, calc(-50% - 3.5px));
+        }
+      }
+    }
+  }
+}

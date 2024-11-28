@@ -1,0 +1,13 @@
+.HighlightedText {
+  margin-bottom: clamp(4rem, calc(96vw / 7.68), calc(124rem / 16));
+  max-width: calc(721rem / 16);
+  margin-left: auto;
+  color: var(--primary-900);
+
+  p::before {
+    content: '[ ';
+  }
+  p::after {
+    content: ' ]';
+  }
+}

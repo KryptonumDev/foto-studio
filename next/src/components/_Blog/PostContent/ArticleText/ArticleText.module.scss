@@ -1,0 +1,17 @@
+.ArticleText {
+  margin-bottom: clamp(4rem, calc(96vw / 7.68), 8rem);
+  max-width: calc(728rem / 16);
+  margin-left: auto;
+  p,
+  ul {
+    &:not(:first-child) {
+      margin-top: clamp(calc(12rem / 16), calc(16vw / 7.68), 1rem);
+    }
+  }
+
+  ul {
+    color: var(--primary-600);
+    display: grid;
+    gap: calc(12rem / 16);
+  }
+}

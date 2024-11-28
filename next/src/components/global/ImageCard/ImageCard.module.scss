@@ -1,0 +1,105 @@
+@property --color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --start {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --end {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 100%;
+}
+
+.ImageCard {
+  position: relative;
+  padding: var(--padding-image);
+
+  &.interactive {
+    --color: transparent;
+    --start: 0%;
+    --end: 100%;
+    transform: translateZ(0);
+    border-width: 1px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      90deg,
+      var(--color) var(--start),
+      transparent 0,
+      transparent var(--end),
+      var(--color) 0
+    );
+    transition:
+      --color 0.3s var(--easing),
+      --start 0.3s var(--easing),
+      --end 0.3s var(--easing);
+
+    span {
+      position: absolute;
+      text-transform: uppercase;
+      font-size: clamp(calc(7rem / 16), calc(11.8vw / 7.68), calc(14rem / 16));
+      line-height: 1.42;
+      font-weight: 500;
+      letter-spacing: clamp(calc(0.282rem / 16), calc(0.47vw / 7.68), calc(0.72rem / 16));
+      opacity: 0;
+      transition: opacity 0.4s var(--easing);
+      user-select: none;
+      width: max-content;
+
+      &.title {
+        top: calc(var(--padding-image) / -1.5);
+        left: 8.5%;
+
+        @media screen and (min-width: calc(768rem / 16)) {
+          top: calc(var(--padding-image) / -2);
+        }
+      }
+
+      &.subtitle {
+        bottom: calc(var(--padding-image) / -1.5);
+        color: var(--primary-500);
+        right: 8.5%;
+
+        @media screen and (min-width: calc(768rem / 16)) {
+          bottom: calc(var(--padding-image) / -2);
+        }
+      }
+    }
+
+    .link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      --color: var(--primary-500);
+      --start: 7%;
+      --end: 93%;
+
+      span {
+        opacity: 1;
+      }
+    }
+
+    @media (pointer: coarse) {
+      &:hover {
+        --color: transparent;
+        span {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.Cursor {
+  width: calc(112rem / 16);
+  height: calc(112rem / 16);
+  background-color: var(--primary-900);
+  color: var(--primary-100);
+  text-transform: uppercase;
+  font-size: calc(18rem / 16);
+  font-style: normal;
+  font-weight: 450;
+  line-height: calc(26rem / 16);
+  letter-spacing: calc(0.72rem / 16);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    display: none;
+  }
+}

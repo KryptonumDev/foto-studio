@@ -1,0 +1,50 @@
+.QuoteWithImage {
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  blockquote {
+    text-align: center;
+    span::before {
+      content: open-quote;
+    }
+    span::after {
+      content: close-quote;
+    }
+  }
+
+  &.images-1 {
+    max-width: calc(836rem / 16);
+    margin-bottom: clamp(3rem, calc(96vw / 7.68), calc(122rem / 16));
+    blockquote {
+      margin-bottom: clamp(1rem, calc(24vw / 7.68), calc(24rem / 16));
+    }
+    img {
+      width: 100%;
+      max-width: 319px;
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: clamp(319px, calc(319vw / 7.68), 402px);
+        max-width: 402px;
+      }
+    }
+  }
+
+  &.images-2 {
+    max-width: calc(1053rem / 16);
+    margin-bottom: clamp(5rem, calc(128vw / 7.68), calc(236rem / 16));
+    blockquote {
+      margin-bottom: 3rem;
+    }
+
+    img:first-of-type {
+      width: clamp(188px, calc(250vw / 7.68), 250px);
+      margin-bottom: clamp(4rem, calc(64vw / 7.68), 5rem);
+    }
+
+    img:last-of-type {
+      width: 100%;
+      max-width: 900px;
+    }
+  }
+}

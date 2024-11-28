@@ -1,0 +1,60 @@
+.CustomLink {
+  position: relative;
+  text-transform: uppercase;
+  color: var(--primary-900);
+  padding-bottom: calc(4rem / 16);
+  display: flex;
+  align-items: center;
+  gap: clamp(calc(4rem / 16), calc(8vw / 7.68), calc(8rem / 16));
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: currentColor;
+    transform-origin: right;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .icon svg {
+    fill: currentColor;
+
+    @media screen and (min-width: 768px) {
+      width: calc(12rem / 16);
+      height: calc(12rem / 16);
+    }
+  }
+
+  &:hover::before {
+    animation: underline-link 0.75s var(--easing);
+  }
+}
+
+@keyframes underline-link {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  0% {
+    transform-origin: right;
+  }
+  49.9% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  50% {
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform-origin: left;
+  }
+}

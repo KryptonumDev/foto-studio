@@ -1,0 +1,96 @@
+.Listing {
+  .posts {
+    margin-top: clamp(calc(26rem / 16), calc(48vw / 7.68), 3rem);
+    display: grid;
+    gap: calc(20rem / 16);
+
+    @media screen and (min-width: calc(768rem / 16)) {
+      column-gap: 2rem;
+      row-gap: clamp(3rem, calc(48vw / 7.68), 5rem);
+      grid-template-columns: repeat(2, calc(319rem / 16));
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      margin-top: calc(48rem / 16);
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    > article {
+      width: 100%;
+      max-width: calc(400rem / 16);
+
+      @media screen and (min-width: calc(768rem / 16)) {
+        width: 100%;
+        &:nth-child(9n + 1),
+        &:nth-child(9n + 3),
+        &:nth-child(9n + 4),
+        &:nth-child(9n + 7) {
+          grid-column: 1 / 2;
+        }
+
+        &:nth-child(9n + 2),
+        &:nth-child(9n + 5),
+        &:nth-child(9n + 6),
+        &:nth-child(9n + 8),
+        &:nth-child(9n + 9) {
+          grid-column: 2 / 3;
+        }
+      }
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        &:nth-child(9n + 1),
+        &:nth-child(9n + 4) {
+          grid-column: 1 / 2;
+        }
+
+        &:nth-child(9n + 2),
+        &:nth-child(9n + 5),
+        &:nth-child(9n + 7) {
+          grid-column: 2 / 3;
+        }
+
+        &:nth-child(9n + 6),
+        &:nth-child(9n + 8) {
+          grid-column: 3 / 4;
+        }
+
+        &:nth-child(9n + 3),
+        &:nth-child(9n + 9) {
+          grid-column: 4 / 5;
+        }
+      }
+    }
+  }
+
+  .btn {
+    margin-top: clamp(calc(32rem / 16), calc(48vw / 7.68), calc(64rem / 16));
+    display: grid;
+    place-items: center;
+    button {
+      padding-bottom: calc(4rem / 16);
+      border-bottom: 1px solid currentColor;
+      font-size: calc(16rem / 16);
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: calc(0.8rem / 16);
+      text-transform: uppercase;
+      color: var(--primary-700);
+      transition: color 0.1s var(--easing);
+      span {
+        color: var(--primary-500);
+        transition: color 0.1s var(--easing);
+      }
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        font-size: calc(20rem / 16);
+      }
+
+      &:hover {
+        color: var(--primary-900);
+        span {
+          color: var(--primary-700);
+        }
+      }
+    }
+  }
+}

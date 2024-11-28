@@ -1,0 +1,27 @@
+.CategoryChips {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(0.5rem, calc(12vw / 7.68), calc(12rem / 16));
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.5rem, calc(12vw / 7.68), calc(12rem / 16));
+
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: 100%;
+      max-width: calc(584vw / 7.68);
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      width: calc(1053rem / 16);
+    }
+  }
+
+  .count {
+    min-width: max-content;
+    user-select: none;
+    padding-top: clamp(0.5rem, calc(12vw / 7.68), calc(12rem / 16));
+  }
+}

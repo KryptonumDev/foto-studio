@@ -1,0 +1,120 @@
+.PricesSection {
+  .header {
+    margin-bottom: clamp(4rem, calc(80vw / 7.68), 8rem);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: clamp(calc(12rem / 16), calc(20vw / 7.68), calc(20rem / 16));
+
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: calc(585vw / 7.68);
+
+      p {
+        width: min(100%, calc(649rem / 16));
+      }
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      width: calc(1054rem / 16);
+    }
+
+    h1,
+    h2 {
+      max-width: calc(295rem / 16);
+    }
+  }
+}
+
+.list {
+  --gap: clamp(3rem, calc(64vw / 7.68), 4rem);
+  display: grid;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    user-select: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    user-select: auto;
+  }
+
+  .listItem {
+    display: grid;
+    align-items: start;
+    gap: clamp(calc(12rem / 16), calc(16vw / 7.68), calc(32rem / 16));
+
+    &:not(:last-child) {
+      padding-bottom: calc(var(--gap) / 2);
+    }
+
+    &:not(:first-child) {
+      padding-top: calc(var(--gap) / 2);
+    }
+
+    @media screen and (min-width: calc(1366rem / 16)) {
+      grid-template-columns: calc(618rem / 16) auto;
+      gap: calc(32rem / 16);
+    }
+
+    header span {
+      display: block;
+      margin-bottom: calc(-1 * 4rem / 16);
+    }
+
+    .content {
+      max-width: calc(585rem / 16);
+      color: var(--primary-600);
+
+      p:not(:last-child) {
+        margin-bottom: calc(6rem / 16);
+        &:has(strong) {
+          margin-bottom: clamp(calc(8rem / 16), calc(12vw / 7.68), calc(16rem / 16));
+        }
+      }
+
+      ul {
+        display: grid;
+        gap: calc(6rem / 16);
+      }
+
+      strong {
+        color: var(--primary-700);
+        font-weight: 500;
+      }
+
+      @media screen and (min-width: calc(1366rem / 16)) {
+        max-width: 100%;
+        padding-top: calc(28rem / 16);
+      }
+    }
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: calc(138rem / 16);
+  height: calc(180rem / 16);
+  transform-origin: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+
+  @media (pointer: coarse) {
+    display: none;
+  }
+
+  .images {
+    height: 100%;
+    width: 100%;
+
+    img {
+      display: block;
+      width: calc(138rem / 16);
+      height: calc(180rem / 16);
+    }
+  }
+}

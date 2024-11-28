@@ -1,0 +1,44 @@
+.HorizontalListWithHeader {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr;
+  gap: clamp(calc(20rem / 16), calc(24vw / 7.68), calc(30rem / 16));
+
+  @media screen and (min-width: calc(1366rem / 16)) {
+    grid-template-columns: calc(295rem / 16) auto;
+  }
+
+  .subtitle {
+    max-width: calc(295rem / 16);
+    @media screen and (min-width: calc(1366rem / 16)) {
+      padding-top: calc(12rem / 16);
+    }
+  }
+
+  header {
+    margin-bottom: clamp(calc(48rem / 16), calc(64vw / 7.68), calc(96rem / 16));
+    display: grid;
+    gap: clamp(calc(20rem / 16), calc(20vw / 7.68), calc(32rem / 16));
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, min(calc(324rem / 16), 100%));
+    gap: clamp(calc(24rem / 16), calc(24vw / 7.68), calc(32rem / 16));
+
+    @media screen and (min-width: calc(1200rem / 16)) {
+      grid-template-columns: repeat(auto-fill, calc(293rem / 16));
+    }
+
+    li {
+      span {
+        color: var(--primary-900);
+        user-select: none;
+      }
+
+      p {
+        margin-top: clamp(calc(8rem / 16), calc(16vw / 7.68), calc(28rem / 16));
+      }
+    }
+  }
+}

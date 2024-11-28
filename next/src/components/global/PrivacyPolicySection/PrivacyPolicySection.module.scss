@@ -1,0 +1,57 @@
+.PrivacyPolicySection {
+  > header {
+    margin-bottom: clamp(calc(32rem / 16), calc(64vw / 7.68), calc(80rem / 16));
+    max-width: calc(728rem / 16);
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: clamp(calc(48rem / 16), calc(80vw / 7.68), calc(80rem / 16));
+  }
+
+  .content {
+    max-width: calc(589rem / 16);
+    @media screen and (min-width: calc(1020rem / 16)) {
+      max-width: calc(618rem / 16);
+    }
+  }
+
+  .section {
+    margin-bottom: clamp(4rem, calc(64vw / 7.68), 8rem);
+    color: var(--primary-600);
+
+    h2 {
+      margin-bottom: clamp(1rem, calc(24vw / 7.68), 2rem);
+      &::before {
+        content: '[ ';
+      }
+      &::after {
+        content: ' ]';
+      }
+    }
+
+    ul {
+      margin-top: calc(6rem / 16);
+      display: grid;
+      gap: calc(6rem / 16);
+    }
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    p:not(:first-child) {
+      margin-top: 0.5rem;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--primary-700);
+    }
+  }
+}

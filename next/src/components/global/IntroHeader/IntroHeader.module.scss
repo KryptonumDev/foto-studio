@@ -1,0 +1,19 @@
+.IntroHeader {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, calc(24vw / 7.68), calc(32rem / 16));
+  margin-bottom: clamp(calc(48rem / 16), calc(64vw / 7.68), calc(96rem / 16));
+
+  h1,
+  h2 {
+    max-width: calc(947rem / 16);
+  }
+
+  @media screen and (min-width: calc(768rem / 16)) {
+    p {
+      width: calc(498vw / 7.68);
+      max-width: calc(619rem / 16);
+      align-self: flex-end;
+    }
+  }
+}

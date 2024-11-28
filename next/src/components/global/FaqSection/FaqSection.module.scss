@@ -1,0 +1,99 @@
+.FaqSection {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: calc(48rem / 16);
+
+  header {
+    max-width: calc(295rem / 16);
+    @media screen and (min-width: calc(1050rem / 16)) {
+      position: sticky;
+      padding-top: calc(28rem / 16);
+      top: var(--sticky-top);
+    }
+  }
+
+  .accordionList {
+    background-color: var(--primary-100);
+
+    @media screen and (min-width: calc(768rem / 16)) {
+      width: calc(585vw / 7.68);
+      max-width: calc(619rem / 16);
+    }
+
+    details {
+      padding: calc(12vw / 3.6) clamp(1rem, calc(28vw / 7.68), calc(28rem / 16))
+        clamp(calc(24rem / 16), calc(28vw / 7.68), calc(28rem / 16));
+      border-bottom: 1px solid var(--primary-200);
+      cursor: pointer;
+
+      @media screen and (min-width: calc(768rem / 16)) {
+        padding: calc(28rem / 16);
+      }
+
+      summary {
+        list-style-type: none;
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(calc(6rem / 16), calc(12vw / 7.68), calc(12rem / 16));
+
+        h3 {
+          color: var(--primary-700);
+          transition: color 0.1s var(--easing);
+        }
+
+        .icon {
+          padding-top: calc(4rem / 16);
+          svg {
+            transform-origin: center;
+            transition:
+              rotate 0.3s var(--easing),
+              color 0.1s var(--easing);
+            fill: var(--primary-500);
+
+            @media screen and (min-width: calc(768rem / 16)) {
+              width: calc(16rem / 16);
+              height: calc(17rem / 16);
+            }
+          }
+        }
+
+        &::webkit-details-marker {
+          display: none;
+        }
+      }
+
+      .answer {
+        overflow: hidden;
+
+        p {
+          padding-top: clamp(calc(12rem / 16), calc(20vw / 7.68), calc(20rem / 16));
+        }
+
+        &:first-child {
+          height: auto;
+        }
+      }
+
+      &[data-opened='true'] {
+        summary h3 {
+          color: var(--primary-900);
+        }
+
+        .icon svg {
+          rotate: -180deg;
+          fill: var(--primary-700);
+        }
+      }
+
+      &:has(summary:focus-visible) {
+        outline: 1px solid var(--primary-500);
+        summary {
+          outline: none;
+        }
+      }
+    }
+  }
+}

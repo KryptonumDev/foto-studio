@@ -1,0 +1,8 @@
+.FullWidthImage {
+  margin-bottom: clamp(5rem, calc(96vw / 7.68), 8rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: calc(523rem / 16);
+}
