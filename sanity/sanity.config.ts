@@ -10,7 +10,7 @@ export default defineConfig({
   name: 'default',
   title: 'foto-studio',
 
-  projectId: 'l2bwizzm',
+  projectId: 'ltc5aw1t',
   dataset: 'production',
 
   plugins: [
