@@ -5,5 +5,5 @@ export default defineCliConfig({
     projectId: 'ltc5aw1t',
     dataset: 'production',
   },
-  studioHost: 'adamchrapekfotostudio',
+  studioHost: 'adamchrapekfotostudionew',
 })

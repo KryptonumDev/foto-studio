@@ -19,21 +19,14 @@ export async function POST(request: Request) {
   const isValid = REGEX.phone.test(phone) && REGEX.email.test(email) && topic && message && legal;
   if (!isValid) return NextResponse.json({ success: false }, { status: 422 });
 
-  const body = [
-    `<p>Adres e-mail: <b>${email}</b></p>`,
-    `<p>Numer telefonu: <b>${phone}</b></p>`,
-    `<p>Temat: <b>${topic}</b></p>`,
-    `<p>${message.trim()}</p>`,
-    '<br />',
-    '<p><em>Wyrażono zgodę na politykę prywatności</em></p>',
-  ].join('');
+  const body = [`<p>Adres e-mail: <b>${email}</b></p>`, `<p>Numer telefonu: <b>${phone}</b></p>`, `<p>Temat: <b>${topic}</b></p>`, `<p>${message.trim()}</p>`, '<br />', '<p><em>Wyrażono zgodę na politykę prywatności</em></p>'].join('');
 
   const text = body.replace(/<[^>]*>/g, '');
 
   try {
     await resend.emails.send({
-      from: `Acme <onboarding@resend.dev>`,
-      to: 'marta.zaorska2@gmail.com', //kontakt@adamchrapek.pl
+      from: `Formularz kontaktowy Fotostudio <formularz@sending.adamchrapek.pl>`,
+      to: 'kontakt@adamchrapek.pl',
       subject: `Wiadomość przesłana przez formularz kontaktowy`,
       replyTo: email,
       html: body,
